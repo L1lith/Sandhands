@@ -1,0 +1,25 @@
+{
+  "name": "sandhands",
+  "version": "1.0.0",
+  "description": "Expressive Javascript Sanitation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/L1lith/Sandhands.git"
+  },
+  "keywords": [
+    "javascript",
+    "js",
+    "sanitation",
+    "expressive"
+  ],
+  "author": "Lilith",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/L1lith/Sandhands/issues"
+  },
+  "homepage": "https://github.com/L1lith/Sandhands#readme"
+}
