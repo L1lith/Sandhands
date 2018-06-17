@@ -14,7 +14,7 @@ const allowedOptions = new Map([
   [Boolean, ['equalTo']]
 ])
 
-const types = new Map([
+const typeofs = new Map([
   [String, 'string'],
   [Number, 'number'],
   [Boolean, 'boolean']
@@ -38,9 +38,9 @@ function sanitizePrimitive(input, format, options) {
   }
 
   const errors = []
-  if (types.has(format)) {
+  if (typeofs.has(format)) {
     options = { ...(defaultOptions.get(format) || {}), ...options}
-    if (typeof input != types.get(format)) {
+    if (typeof input != typeofs.get(format)) {
       errors.push('Invalid Type')
     } else if (options.hasOwnProperty('equalTo') && input !== options.equalTo) {
       errors.push('Incorrect value')
