@@ -20,7 +20,9 @@ const typeofs = new Map([
   [Boolean, 'boolean']
 ])
 
-function sanitizePrimitive(input, format, options) {
+function sanitizePrimitive() {
+  if (arguments.length < 2 || arguments.length > 3) throw new Error('Invalid Arguments Length')
+  let [input, format, options] = arguments
   // Validate Input Options
   if (typeof options == 'object' && options !== null) {
     if (allowedOptions.has(format)) {
