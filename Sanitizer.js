@@ -8,7 +8,7 @@ class Sanitizer {
   constructor() {
     this.interpretFormat = this.interpretFormat.bind(this)
     this.customFormats = {}
-    Object.values(standardMethods().forEach(([prop, method]) => {
+    Object.values(standardMethods()).forEach(([prop, method]) => {
       this[prop] = (...args) => {
         if (args.length >= 2) args[1] = interpretFormat(args[1])
         return method(...args)
