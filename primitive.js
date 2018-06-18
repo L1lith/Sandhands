@@ -1,3 +1,5 @@
+const primitives = [String, Boolean, Number, null, undefined]
+
 const defaultOptions = new Map([
   [String, {
     minLength: 1
@@ -21,19 +23,24 @@ const typeofs = new Map([
 ])
 
 function sanitizePrimitive() {
-  if (arguments.length < 2 || arguments.length > 3) throw new Error('Invalid Arguments Length')
+  if (arguments.length < 2) throw new Error('Missing Arguments')
+  if (arguments.length > 3) throw new Error('Too Many Arguments')
   let [input, format, options] = arguments
   // Validate Input Options
-  if (typeof options == 'object' && options !== null) {
-    if (allowedOptions.has(format)) {
-      const allowed = allowedOptions.get(format)
-      const optionKeys = Object.keys(options)
-      for (let i = 0; i < optionKeys.length; i++) {
-        const option = optionKeys[i]
-        if (!allowed.includes(option)) throw new Error('Invalid Option "'+option+'"')
+  if (arguments.hasOwnProperty('2')) {
+    if (typeof options == 'object' && options !== null) {
+      if (allowedOptions.has(format)) {
+        const allowed = allowedOptions.get(format)
+        const optionKeys = Object.keys(options)
+        for (let i = 0; i < optionKeys.length; i++) {
+          const option = optionKeys[i]
+          if (!allowed.includes(option)) throw new Error('Invalid Option "'+option+'"')
+        }
+      } else {
+        if (Object.keys(options.length) > 0) throw new Error('Options Not Allowed')
       }
     } else {
-      if (Object.keys(options.length) > 0) throw new Error('Options Not Allowed')
+      if (typeof options != 'object' || options === null) throw new Error('Invalid Options Type')
     }
   } else {
     options = {}
@@ -150,4 +157,4 @@ function sanitizePrimitive() {
   return errors
 }
 
-module.exports = sanitizePrimitive
+module.exports = Object.assign((...args)=>sanitizePrimitive(...args), {primitives})
