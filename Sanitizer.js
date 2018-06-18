@@ -11,7 +11,7 @@ class Sanitizer {
     this.customFormats = {}
     Object.entries(standardMethods).forEach(([prop, method]) => {
       this[prop] = (...args) => {
-        if (args.length >= 2) args[1] = interpretFormat(args[1])
+        if (args.length >= 2) args[1] = this.interpretFormat(args[1])
         return method(...args)
       }
     })
