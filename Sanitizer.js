@@ -37,7 +37,7 @@ const allowedProps = Object.keys(standardMethods).concat(['addFormat'])
 
 const proxyHandler = {
   get: (obj, prop) => {
-  return allowedProps.includes(prop) ? obj : undefined
+  return allowedProps.includes(prop) ? obj[prop] : undefined
 }, set: () => false,
   getPrototypeOf: ()=>Sanitizer.prototype,
   isExtensible: ()=>false,
