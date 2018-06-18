@@ -157,4 +157,4 @@ function sanitizePrimitive() {
   return errors
 }
 
-module.exports = Object.assign((...args)=>sanitizePrimitive(...args), {primitives})
+module.exports = {sanitizePrimitive, primitives}

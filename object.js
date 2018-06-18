@@ -1,4 +1,4 @@
-const {primitives} = sanitizePrimitive = require('./primitive')
+const {primitives, sanitizePrimitive} = require('./primitive')
 
 const defaultOptions = { strict: true }
 const defaultChildOptions = { optional: false }
