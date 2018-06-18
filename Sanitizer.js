@@ -2,7 +2,7 @@ const {sanitizePrimitive} = require('./primitive')
 const sanitizeObject = require('./object')
 const {validObject, validPrimitive} = require('./valid')
 
-const standardMethods = {validObject, validPrimitive, sanitizeObject, sanitizePrimitive}
+const standardMethods = {validObject, validPrimitive, sanitizeObject, sanitizePrimitive, valid: validObject, sanitize: sanitizeObject}
 
 class Sanitizer {
   constructor() {
