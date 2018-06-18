@@ -13,7 +13,7 @@ const defaultOptions = new Map([
 ])
 
 const allowedOptions = new Map([
-  [String, ['allowed', 'banned', 'minLength', 'maxLength', 'lowercase', 'uppercase', 'equalTo']],
+  [String, ['allowed', 'banned', 'minLength', 'maxLength', 'lowercase', 'uppercase', 'equalTo', 'email']],
   [Number, ['min', 'max', 'even', 'odd', 'allowNaN', 'finite', 'equalTo']],
   [Boolean, ['equalTo']]
 ])
