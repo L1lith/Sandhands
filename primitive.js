@@ -48,7 +48,6 @@ function sanitizePrimitive() {
     options = {}
   }
 
-  console.log(options)
   const errors = []
   if (typeofs.has(format)) {
     options = { ...(defaultOptions.get(format) || {}), ...options}
