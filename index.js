@@ -1,6 +1,6 @@
 const {sanitizePrimitive} = require('./primitive')
 const sanitizeObject = require('./object')
 const {validObject, validPrimitive} = require('./valid')
-const sanitizer = require('./sanitizer')
+const Sanitizer = require('./Sanitizer')
 
-module.exports = {sanitizer, sanitizePrimitive, sanitizeObject, validObject, validPrimitive}
+module.exports = {Sanitizer, sanitizePrimitive, sanitizeObject, validObject, validPrimitive}
