@@ -48,6 +48,7 @@ function sanitizePrimitive() {
     options = {}
   }
 
+  console.log(options)
   const errors = []
   if (typeofs.has(format)) {
     options = { ...(defaultOptions.get(format) || {}), ...options}
@@ -56,7 +57,15 @@ function sanitizePrimitive() {
     } else if (options.hasOwnProperty('equalTo') && input !== options.equalTo) {
       errors.push('Incorrect value')
     } else if (format === String) {
-      const {minLength, maxLength, length, allowed, banned, lowercase, uppercase} = options
+      const {minLength, maxLength, length, allowed, banned, lowercase, uppercase, email} = options
+
+      if (options.hasOwnProperty('email')) {
+        if (typeof email == 'boolean') {
+          if (email === true && !validEmail(input)) errors.push('Email Invalid')
+        } else {
+          throw new Error('Invalid Email Option')
+        }
+      }
       if (options.hasOwnProperty('minLength')) {
           if (typeof minLength == 'number' && isFinite(minLength) && minLength >= 0) {
             if (input.length < minLength) errors.push('Too short')
@@ -107,7 +116,7 @@ function sanitizePrimitive() {
         }
       }
     } else if (format === Number) {
-      const {allowNaN, finite, min, max, even, odd, email} = options
+      const {allowNaN, finite, min, max, even, odd} = options
       if (options.hasOwnProperty('allowNaN')) {
         if (typeof allowNaN == 'boolean') {
           if (allowNaN === false && isNaN(input)) errors.push('NaN not allowed')
@@ -148,13 +157,6 @@ function sanitizePrimitive() {
           if (odd === true && input % 2 != 1) errors.push('Not odd')
         } else {
           throw new Error('Invalid Odd Option')
-        }
-      }
-      if (options.hasOwnProperty('email')) {
-        if (typeof email == 'boolean') {
-          if (email === true && !validEmail(input)) errors.push('Email Invalid')
-        } else {
-          throw new Error('Invalid Email Option')
         }
       }
     }
