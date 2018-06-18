@@ -3,4 +3,4 @@ const sanitizeObject = require('./object')
 const {validObject, validPrimitive} = require('./valid')
 const Sanitizer = require('./Sanitizer')
 
-module.exports = {Sanitizer, sanitizePrimitive, sanitizeObject, validObject, validPrimitive, sanitize: sanitizeObject, valid: validObject}
+module.exports = Object.freeze({Sanitizer, sanitizePrimitive, sanitizeObject, validObject, validPrimitive, sanitize: sanitizeObject, valid: validObject})
