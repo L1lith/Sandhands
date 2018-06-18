@@ -1,4 +1,4 @@
-const {sanitizePrimitive} = require('./primitive')
+const {sanitizePrimitive, primitives} = require('./primitive')
 const sanitizeObject = require('./object')
 const {validObject, validPrimitive} = require('./valid')
 
@@ -7,6 +7,7 @@ const standardMethods = {validObject, validPrimitive, sanitizeObject, sanitizePr
 class Sanitizer {
   constructor() {
     this.interpretFormat = this.interpretFormat.bind(this)
+    this.addFormat = this.addFormat.bind(this)
     this.customFormats = {}
     Object.entries(standardMethods).forEach(([prop, method]) => {
       this[prop] = (...args) => {
@@ -14,6 +15,11 @@ class Sanitizer {
         return method(...args)
       }
     })
+  }
+  addFormat(name, value) {
+    if (typeof name != 'string' || name.length < 1) throw new Error('Invalid Custom Format Name')
+    if (!(primitives.includes(value) || (typeof value == 'object' && value !== null ))) throw new Error('Invalid Custom Format Value')
+    this.customFormats[name] = value
   }
   interpretFormat(format) {
     if (typeof format == 'string') {
@@ -27,7 +33,7 @@ class Sanitizer {
   }
 }
 
-const allowedProps = Object.keys(standardMethods)
+const allowedProps = Object.keys(standardMethods).concat(['addFormat'])
 
 const proxyHandler = {
   get: (obj, prop) => {
