@@ -1,3 +1,5 @@
+const validEmail = require('./email')
+
 const primitives = [String, Boolean, Number, null, undefined]
 
 const defaultOptions = new Map([
@@ -105,7 +107,7 @@ function sanitizePrimitive() {
         }
       }
     } else if (format === Number) {
-      const {allowNaN, finite, min, max, even, odd} = options
+      const {allowNaN, finite, min, max, even, odd, email} = options
       if (options.hasOwnProperty('allowNaN')) {
         if (typeof allowNaN == 'boolean') {
           if (allowNaN === false && isNaN(input)) errors.push('NaN not allowed')
@@ -146,6 +148,13 @@ function sanitizePrimitive() {
           if (odd === true && input % 2 != 1) errors.push('Not odd')
         } else {
           throw new Error('Invalid Odd Option')
+        }
+      }
+      if (options.hasOwnProperty('email')) {
+        if (typeof email == 'boolean') {
+          if (email === true && !validEmail(input)) errors.push('Email Invalid')
+        } else {
+          throw new Error('Invalid Email Option')
         }
       }
     }
