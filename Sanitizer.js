@@ -8,6 +8,7 @@ class Sanitizer {
   constructor() {
     this.interpretFormat = this.interpretFormat.bind(this)
     this.addFormat = this.addFormat.bind(this)
+    this.addFormats = this.addFormats.bind(this)
     this.customFormats = {}
     Object.entries(standardMethods).forEach(([prop, method]) => {
       this[prop] = (...args) => {
@@ -21,6 +22,10 @@ class Sanitizer {
     if (!(primitives.includes(value) || (typeof value == 'object' && value !== null ))) throw new Error('Invalid Custom Format Value')
     this.customFormats[name] = value
   }
+  addFormats(object) {
+    if (typeof object != 'object' || object === null) throw new Error("Invalid Formats Object")
+    Object.entries(object).forEach(this.addFormat)
+  }
   interpretFormat(format) {
     if (typeof format == 'string') {
       if (this.customFormats.hasOwnProperty(format)) {
@@ -33,7 +38,7 @@ class Sanitizer {
   }
 }
 
-const allowedProps = Object.keys(standardMethods).concat(['addFormat'])
+const allowedProps = Object.keys(standardMethods).concat(['addFormat', 'addFormats'])
 
 const proxyHandler = {
   get: (obj, prop) => {
