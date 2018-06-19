@@ -51,7 +51,7 @@ function sanitizeObject() {
       format.forEach((formatValue, i) => {
         if (!errors.hasOwnProperty(i)) errors[i] = sanitizeObject(input[i], formatValue)
       })
-
+    }
   } else if (typeof format == 'object' && format !== null) {
     Object.keys(options).forEach(key => {
       if (!allowedOptions.includes(key)) throw new Error('Invalid Option "' + key + '"')
