@@ -33,7 +33,7 @@ class Sanitizer {
       } else {
         throw new Error(`No Custom Format for "${format}"`)
       }
-    } else if (typeof format == 'object' && object !== null && format.hasOwnProperty('_')) format._ = this.interpretFormat(format._)
+    } else if (typeof format == 'object' && format !== null && format.hasOwnProperty('_')) format._ = this.interpretFormat(format._)
     return format
   }
 }
