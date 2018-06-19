@@ -114,13 +114,15 @@ function sanitizeObject() {
     throw new Error('Invalid Format Type')
   }
 
+  const rootErrors = errors._ || errors
+
   const {validate} = options
 
-  if (options.hasOwnProperty('validate') && errors.length < 1) {
+  if (options.hasOwnProperty('validate')) {
     if (typeof validate == 'function') {
-      if (validate(input) !== true) (errors._ || errors).push('Invalid')
+      if (rootErrors.length < 1 && validate(input) !== true) rootErrors.push('Invalid')
     } else if (Array.isArray(validate) && validate.every(value => typeof value == 'function')) {
-      if (validate.some(func => func(input) !== true)) (errors._ || errors).push('Invalid')
+      if (rootErrors.length < 1 && validate.some(func => func(input) !== true)) rootErrors.push('Invalid')
     } else {
       throw new Error('Invalid Validate Option')
     }
