@@ -49,6 +49,19 @@ function sanitizeObject() {
       format.forEach((formatValue, i) => {
         if (!arrayErrors.hasOwnProperty(i)) arrayErrors[i] = sanitizeObject(input[i], formatValue)
       })
+
+      const {validate} = options
+
+      if (options.hasOwnProperty('validate') && arrayErrors.length < 1) {
+        if (typeof validate == 'function') {
+          if (validate(input) !== true) arrayErrors.push('Invalid')
+        } else if (Array.isArray(validate) && validate.every(value => typeof value == 'function')) {
+          if (validate.some(func => func(input) !== true)) arrayErrors.push('Invalid')
+        } else {
+          throw new Error('Invalid Validate Option')
+        }
+      }
+
       return arrayErrors
     }
   } else if (typeof format != 'object' || format === null) {
@@ -67,6 +80,7 @@ function sanitizeObject() {
   if (typeof input == 'object' && input !== null) {
       // Start Object Sanitation
       if (Array.isArray(input)) errors._.push('Invalid Type')
+
       const formatKeys = Object.keys(format)
       for (let i = 0; i < formatKeys.length; i++) {
         const property = formatKeys[i]
@@ -110,6 +124,18 @@ function sanitizeObject() {
       }
   } else {
     errors._.push('Not an object')
+  }
+
+  const {validate} = options
+
+  if (options.hasOwnProperty('validate') && errors.length < 1) {
+    if (typeof validate == 'function') {
+      if (validate(input) !== true) errors.push('Invalid')
+    } else if (Array.isArray(validate) && validate.every(value => typeof value == 'function')) {
+      if (validate.some(func => func(input) !== true)) errors.push('Invalid')
+    } else {
+      throw new Error('Invalid Validate Option')
+    }
   }
 
   return errors

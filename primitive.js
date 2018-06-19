@@ -32,7 +32,7 @@ function sanitizePrimitive() {
   if (arguments.hasOwnProperty('2')) {
     if (typeof options == 'object' && options !== null) {
       if (allowedOptions.has(format)) {
-        const allowed = allowedOptions.get(format)
+        const allowed = allowedOptions.get(format).concat('validate')
         const optionKeys = Object.keys(options)
         for (let i = 0; i < optionKeys.length; i++) {
           const option = optionKeys[i]
@@ -171,6 +171,19 @@ function sanitizePrimitive() {
   } else {
     throw new Error('Invalid Primitive Format')
   }
+
+  const {validate} = options
+
+  if (options.hasOwnProperty('validate') && errors.length < 1) {
+    if (typeof validate == 'function') {
+      if (validate(input) !== true) errors.push('Invalid')
+    } else if (Array.isArray(validate) && validate.every(value => typeof value == 'function')) {
+      if (validate.some(func => func(input) !== true)) errors.push('Invalid')
+    } else {
+      throw new Error('Invalid Validate Option')
+    }
+  }
+
   return errors
 }
 
