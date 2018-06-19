@@ -24,7 +24,7 @@ class Sanitizer {
   }
   addFormats(object) {
     if (typeof object != 'object' || object === null) throw new Error("Invalid Formats Object")
-    Object.entries(object).forEach(this.addFormat)
+    Object.entries(object).forEach(([key, value]) => this.addFormat(key, value))
   }
   interpretFormat(format) {
     if (typeof format == 'string') {
