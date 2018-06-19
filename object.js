@@ -57,7 +57,7 @@ function sanitizeObject() {
     // Set Default Options
     options = {...defaultOptions, ...options}
 
-    const errors = {_:[]}
+    errors = {_:[]}
 
     if (typeof input == 'object' && input !== null) {
         // Start Object Sanitation
