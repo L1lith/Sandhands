@@ -2,6 +2,7 @@ const {primitives, sanitizePrimitive} = require('./primitive')
 
 const defaultOptions = { strict: true }
 const defaultChildOptions = { optional: false }
+const defaultArrayOptions = { strict: true }
 
 const allowedOptions = [ 'strict', 'optional' ]
 
@@ -25,7 +26,32 @@ function sanitizeObject() {
   if (primitives.includes(format)) {
     return sanitizePrimitive(input, format, options)
   } else if (Array.isArray(format)) {
-    return sanitizeArray(input, format, options)
+    // Array Sanitation
+    if (!Array.isArray(input)) {
+      return ['Not an array']
+    } else {
+      options = {...defaultArrayOptions, ...options}
+      const {strict} = options
+      const arrayErrors = []
+      console.log(input, format)
+      if (options.hasOwnProperty('strict')) {
+        if (typeof strict == 'boolean') {
+          if (strict === true) {
+            for (let i = 0; i < input.length; i++) {
+              if (input.hasOwnProperty(i) && !format.hasOwnProperty(i)) {
+                arrayErrors[i] = ["Invalid Index"]
+              }
+            }
+          }
+        } else {
+          throw new Error('Invalid Strict Option')
+        }
+      }
+      format.forEach((formatValue, i) => {
+        if (!arrayErrors.hasOwnProperty(i)) arrayErrors[i] = sanitizeObject(input[i], formatValue)
+      })
+      return arrayErrors
+    }
   } else if (typeof format != 'object' || format === null) {
     throw new Error('Invalid Format Type')
   }
@@ -41,6 +67,7 @@ function sanitizeObject() {
 
   if (typeof input == 'object' && input !== null) {
       // Start Object Sanitation
+      if (Array.isArray(input)) errors._.push('Invalid Type')
       const formatKeys = Object.keys(format)
       for (let i = 0; i < formatKeys.length; i++) {
         const property = formatKeys[i]
