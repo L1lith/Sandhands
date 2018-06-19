@@ -33,7 +33,6 @@ function sanitizeObject() {
       options = {...defaultArrayOptions, ...options}
       const {strict} = options
       const arrayErrors = []
-      console.log(input, format)
       if (options.hasOwnProperty('strict')) {
         if (typeof strict == 'boolean') {
           if (strict === true) {
