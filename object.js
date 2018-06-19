@@ -36,16 +36,13 @@ function sanitizeObject() {
       const {strict} = options
       errors = []
       if (options.hasOwnProperty('strict')) {
-        if (typeof strict == 'boolean') {
-          if (strict === true) {
-            for (let i = 0; i < input.length; i++) {
-              if (input.hasOwnProperty(i) && !format.hasOwnProperty(i)) {
-                errors[i] = ["Invalid Index"]
-              }
+        if (typeof strict != 'boolean') throw new Error('Invalid Strict Option')
+        if (strict === true) {
+          for (let i = 0; i < input.length; i++) {
+            if (input.hasOwnProperty(i) && !format.hasOwnProperty(i)) {
+              errors[i] = ["Invalid Index"]
             }
           }
-        } else {
-          throw new Error('Invalid Strict Option')
         }
       }
       format.forEach((formatValue, i) => {
@@ -79,13 +76,10 @@ function sanitizeObject() {
           options = {...defaultChildOptions, ...options}
           if (options.hasOwnProperty('optional')) {
             const {optional} = options
-            if (typeof optional == 'boolean') {
-              if (optional === false && !input.hasOwnProperty(property)) {
-                errors._.push('Property Missing')
-                break
-              }
-            } else {
-              throw new Error('Invalid Optional Option')
+            if (typeof optional != 'boolean') throw new Error('Invalid Optional Option')
+            if (optional === false && !input.hasOwnProperty(property)) {
+              errors._.push('Property Missing')
+              break
             }
           }
 
@@ -93,18 +87,15 @@ function sanitizeObject() {
           errors[property] = propertyErrors
         }
         if (options.hasOwnProperty('strict')) {
-          if (typeof options.strict == 'boolean') {
-            if (options.strict === true) {
-              const inputKeys = Object.keys(input)
-              for (let i = 0; i < inputKeys.length; i++) {
-                if (!format.hasOwnProperty(inputKeys[i])) {
-                  errors._.push('Invalid Property')
-                  break
-                }
+          if (typeof options.strict != 'boolean') throw new Error('Invalid Strict Option')
+          if (options.strict === true) {
+            const inputKeys = Object.keys(input)
+            for (let i = 0; i < inputKeys.length; i++) {
+              if (!format.hasOwnProperty(inputKeys[i])) {
+                errors._.push('Invalid Property')
+                break
               }
             }
-          } else {
-            throw new Error('Invalid Strict Option')
           }
         }
     } else {
