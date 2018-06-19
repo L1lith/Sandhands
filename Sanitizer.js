@@ -30,8 +30,10 @@ class Sanitizer {
     if (typeof format == 'string') {
       if (!this.customFormats.hasOwnProperty(format)) throw new Error(`No Custom Format for "${format}"`)
       format = this.customFormats[format]
-    } else if (typeof format == 'object' && format !== null && format.hasOwnProperty('_')) {
-      format._ = this.interpretFormat(format._)
+    } else if (typeof format == 'object' && format !== null) {
+      Object.keys(format).forEach(prop => {
+        format[prop] = this.interpretFormat(prop)
+      })
     }
     return format
   }
