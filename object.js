@@ -23,22 +23,24 @@ function sanitizeObject() {
     return sanitizeObject(input, format._, {...options, ...optionsFromFormat})
   }
 
+  let errors
+
   if (primitives.includes(format)) {
     return sanitizePrimitive(input, format, options)
   } else if (Array.isArray(format)) {
     // Array Sanitation
     if (!Array.isArray(input)) {
-      return ['Not an array']
+      errors = ['Not an array']
     } else {
       options = {...defaultArrayOptions, ...options}
       const {strict} = options
-      const arrayErrors = []
+      errors = []
       if (options.hasOwnProperty('strict')) {
         if (typeof strict == 'boolean') {
           if (strict === true) {
             for (let i = 0; i < input.length; i++) {
               if (input.hasOwnProperty(i) && !format.hasOwnProperty(i)) {
-                arrayErrors[i] = ["Invalid Index"]
+                errors[i] = ["Invalid Index"]
               }
             }
           }
@@ -47,92 +49,78 @@ function sanitizeObject() {
         }
       }
       format.forEach((formatValue, i) => {
-        if (!arrayErrors.hasOwnProperty(i)) arrayErrors[i] = sanitizeObject(input[i], formatValue)
+        if (!errors.hasOwnProperty(i)) errors[i] = sanitizeObject(input[i], formatValue)
       })
 
-      const {validate} = options
+  } else if (typeof format == 'object' && format !== null) {
+    Object.keys(options).forEach(key => {
+      if (!allowedOptions.includes(key)) throw new Error('Invalid Option "' + key + '"')
+    })
 
-      if (options.hasOwnProperty('validate') && arrayErrors.length < 1) {
-        if (typeof validate == 'function') {
-          if (validate(input) !== true) arrayErrors.push('Invalid')
-        } else if (Array.isArray(validate) && validate.every(value => typeof value == 'function')) {
-          if (validate.some(func => func(input) !== true)) arrayErrors.push('Invalid')
-        } else {
-          throw new Error('Invalid Validate Option')
-        }
-      }
+    // Set Default Options
+    options = {...defaultOptions, ...options}
 
-      return arrayErrors
-    }
-  } else if (typeof format != 'object' || format === null) {
-    throw new Error('Invalid Format Type')
-  }
+    const errors = {_:[]}
 
-  Object.keys(options).forEach(key => {
-    if (!allowedOptions.includes(key)) throw new Error('Invalid Option "' + key + '"')
-  })
+    if (typeof input == 'object' && input !== null) {
+        // Start Object Sanitation
+        if (Array.isArray(input)) errors._.push('Invalid Type')
 
-  // Set Default Options
-  options = {...defaultOptions, ...options}
-
-  const errors = {_:[]}
-
-  if (typeof input == 'object' && input !== null) {
-      // Start Object Sanitation
-      if (Array.isArray(input)) errors._.push('Invalid Type')
-
-      const formatKeys = Object.keys(format)
-      for (let i = 0; i < formatKeys.length; i++) {
-        const property = formatKeys[i]
-        // Calculate Format Child Properties
-        let propertyFormat = format[property]
-        let options = {}
-        while (propertyFormat.hasOwnProperty('_')) {
-          options = {...options, propertyFormat}
-          propertyFormat = propertyFormat._
-        }
-        options = {...defaultChildOptions, ...options}
-        if (options.hasOwnProperty('optional')) {
-          const {optional} = options
-          if (typeof optional == 'boolean') {
-            if (optional === false && !input.hasOwnProperty(property)) {
-              errors._.push('Property Missing')
-              break
-            }
-          } else {
-            throw new Error('Invalid Optional Option')
+        const formatKeys = Object.keys(format)
+        for (let i = 0; i < formatKeys.length; i++) {
+          const property = formatKeys[i]
+          // Calculate Format Child Properties
+          let propertyFormat = format[property]
+          let options = {}
+          while (propertyFormat.hasOwnProperty('_')) {
+            options = {...options, propertyFormat}
+            propertyFormat = propertyFormat._
           }
-        }
-
-        const propertyErrors = sanitizeObject(input[property], format[property])
-        errors[property] = propertyErrors
-      }
-      if (options.hasOwnProperty('strict')) {
-        if (typeof options.strict == 'boolean') {
-          if (options.strict === true) {
-            const inputKeys = Object.keys(input)
-            for (let i = 0; i < inputKeys.length; i++) {
-              if (!format.hasOwnProperty(inputKeys[i])) {
-                errors._.push('Invalid Property')
+          options = {...defaultChildOptions, ...options}
+          if (options.hasOwnProperty('optional')) {
+            const {optional} = options
+            if (typeof optional == 'boolean') {
+              if (optional === false && !input.hasOwnProperty(property)) {
+                errors._.push('Property Missing')
                 break
               }
+            } else {
+              throw new Error('Invalid Optional Option')
             }
           }
-        } else {
-          throw new Error('Invalid Strict Option')
+
+          const propertyErrors = sanitizeObject(input[property], format[property])
+          errors[property] = propertyErrors
         }
-      }
+        if (options.hasOwnProperty('strict')) {
+          if (typeof options.strict == 'boolean') {
+            if (options.strict === true) {
+              const inputKeys = Object.keys(input)
+              for (let i = 0; i < inputKeys.length; i++) {
+                if (!format.hasOwnProperty(inputKeys[i])) {
+                  errors._.push('Invalid Property')
+                  break
+                }
+              }
+            }
+          } else {
+            throw new Error('Invalid Strict Option')
+          }
+        }
+    } else {
+      errors._.push('Not an object')
+    }
   } else {
-    errors._.push('Not an object')
+    throw new Error('Invalid Format Type')
   }
 
   const {validate} = options
 
   if (options.hasOwnProperty('validate') && errors.length < 1) {
     if (typeof validate == 'function') {
-      if (validate(input) !== true) errors.push('Invalid')
+      if (validate(input) !== true) (errors._ || errors).push('Invalid')
     } else if (Array.isArray(validate) && validate.every(value => typeof value == 'function')) {
-      if (validate.some(func => func(input) !== true)) errors.push('Invalid')
+      if (validate.some(func => func(input) !== true)) (errors._ || errors).push('Invalid')
     } else {
       throw new Error('Invalid Validate Option')
     }
