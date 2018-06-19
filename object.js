@@ -120,9 +120,9 @@ function sanitizeObject() {
 
   if (options.hasOwnProperty('validate')) {
     if (typeof validate == 'function') {
-      if (rootErrors.length < 1 && validate(input) !== true) rootErrors.push('Invalid')
+      if (validate(input) !== true) rootErrors.push('Invalid')
     } else if (Array.isArray(validate) && validate.every(value => typeof value == 'function')) {
-      if (rootErrors.length < 1 && validate.some(func => func(input) !== true)) rootErrors.push('Invalid')
+      if (validate.some(func => func(input) !== true)) rootErrors.push('Invalid')
     } else {
       throw new Error('Invalid Validate Option')
     }
