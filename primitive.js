@@ -13,7 +13,7 @@ const defaultOptions = new Map([
 ])
 
 const allowedOptions = new Map([
-  [String, ['allowed', 'banned', 'minLength', 'maxLength', 'lowercase', 'uppercase', 'equalTo', 'email']],
+  [String, ['allowed', 'banned', 'minLength', 'maxLength', 'lowercase', 'uppercase', 'equalTo', 'email', 'whitespace']],
   [Number, ['min', 'max', 'even', 'odd', 'allowNaN', 'finite', 'equalTo']],
   [Boolean, ['equalTo']]
 ])
@@ -56,7 +56,7 @@ function sanitizePrimitive() {
     } else if (options.hasOwnProperty('equalTo') && input !== options.equalTo) {
       errors.push('Incorrect value')
     } else if (format === String) {
-      const {minLength, maxLength, length, allowed, banned, lowercase, uppercase, email} = options
+      const {minLength, maxLength, length, allowed, banned, lowercase, uppercase, email, whitespace} = options
 
       if (options.hasOwnProperty('email')) {
         if (typeof email == 'boolean') {
@@ -102,16 +102,23 @@ function sanitizePrimitive() {
       }
       if (options.hasOwnProperty('lowercase')) {
         if (typeof lowercase == 'boolean') {
-          if (lowercase === true && input.toLowerCase() != input) errors.push('Lowercase Only')
+          if (lowercase === true && input.toLowerCase() != input) errors.push('Lowercase only')
         } else {
           throw new Error('Invalid Lowercase Option')
         }
       }
       if (options.hasOwnProperty('uppercase')) {
         if (typeof uppercase == 'boolean') {
-          if (uppercase === true && input.toUpperCase() != input) errors.push('Uppercase Only')
+          if (uppercase === true && input.toUpperCase() != input) errors.push('Uppercase only')
         } else {
           throw new Error('Invalid Lowercase Option')
+        }
+      }
+      if (options.hasOwnProperty('whitespace')) {
+        if (typeof whitespace == 'boolean') {
+          if (whitespace === false && input.includes(' ')) errors.push('No whitespace')
+        } else {
+          throw new Error('Invalid Whitespace Option')
         }
       }
     } else if (format === Number) {
