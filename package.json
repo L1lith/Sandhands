@@ -1,6 +1,6 @@
 {
   "name": "sandhands",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Expressive Javascript Sanitation",
   "main": "index.js",
   "scripts": {
