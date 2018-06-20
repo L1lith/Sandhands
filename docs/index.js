@@ -1,6 +1,7 @@
 import App from './app'
 import {BrowserRouter} from 'react-router-dom'
-import ReactDom from 'react-dom'
+import ReactDOM from 'react-dom'
+import React from 'react'
 
 function run() {
   const root = document.getElementById('root')
