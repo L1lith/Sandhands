@@ -2,6 +2,7 @@ import App from './app'
 import {BrowserRouter} from 'react-router-dom'
 import ReactDOM from 'react-dom'
 import React from 'react'
+import "./styles/index.less"
 
 function run() {
   const root = document.getElementById('root')
