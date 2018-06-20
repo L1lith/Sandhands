@@ -6,12 +6,10 @@ const required = require.context('./pages/', true, /\.js$/)
 
 const routes = required.keys().map(key => required(key)).map(module => module.__esModule === true ? module.default || {} : module)
 
-console.log(routes)
-
 export default (
   <Switch>
     {routes.map((options, index) => (
-      <Route index={index} {...options} />
+      <Route key={index} {...options} />
     ))}
   </Switch>
 )
