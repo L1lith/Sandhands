@@ -77,7 +77,7 @@ function sanitizeObject() {
           if (options.hasOwnProperty('optional')) {
             const {optional} = options
             if (typeof optional != 'boolean') throw new Error('Invalid Optional Option')
-            if (optional === false && !input.hasOwnProperty(property)) {
+            if (optional === false && !Object.prototype.hasOwnProperty.call(input, property)) {
               errors._.push('Property Missing')
               break
             }
