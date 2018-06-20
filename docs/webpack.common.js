@@ -1,3 +1,4 @@
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const {resolve} = require('path')
 
 module.exports = {
@@ -6,6 +7,11 @@ module.exports = {
     path: resolve(__dirname, 'dist'),
     filename: "source.js"
   },
+  plugins: [
+      new CopyWebpackPlugin([
+          { from: resolve(__dirname, 'static/') }
+      ])
+  ],
   module: {
     rules: [{
         test: /\.js$/,
