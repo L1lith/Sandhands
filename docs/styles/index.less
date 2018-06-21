@@ -1,4 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 body {
+  font-family: 'Roboto', sans-serif;
   position: absolute;
   top: 0;
   left: 0;
@@ -7,7 +12,6 @@ body {
   overflow: hidden;
   margin: 0;
   padding: 0;
-  font-family: 'Tajawal', sans-serif;
   background-color: #f0f5ff;
 }
 #root, .app {
@@ -16,4 +20,13 @@ body {
   height: 100%;
   top: 0;
   left: 0;
+}
+.app {
+  & > .page {
+    padding: 30px;
+    height: ~'calc(100% - 140px)';
+    max-height: ~'calc(100% - 140px)';
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
 }
