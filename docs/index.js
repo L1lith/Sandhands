@@ -2,7 +2,9 @@ import App from './app'
 import {BrowserRouter} from 'react-router-dom'
 import ReactDOM from 'react-dom'
 import React from 'react'
-import "./styles/index.less"
+import {join} from 'path'
+
+require.context(join(__dirname, 'styles'), true, /\.less$/)
 
 function run() {
   const root = document.getElementById('root')
