@@ -5,7 +5,7 @@ class Home extends Component {
   render() {
     return (
       <div className="home">
-        <p>This is the home page.</p>
+        <p>Welcome to the Sandhands Documentation. Use the links above or check out the Sandbox to get started</p>
       </div>
     )
   }
