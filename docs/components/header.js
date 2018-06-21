@@ -7,7 +7,9 @@ class Header extends Component {
       <header className="main">
         <h1 className="sitetitle"><Link to="/">Sandhands Docs</Link></h1>
         <ul>
-          <li><a href="https://github.com/l1lith/sandhands">Github</a></li>
+          <li><Link to="/format">Format</Link></li>
+          <li><Link to="/methods">Methods</Link></li>
+          <li><a href="https://github.com/l1lith/sandhands">Source</a></li>
         </ul>
       </header>
     )
