@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 import React from 'react'
 import {join} from 'path'
 
-require.context(join(__dirname, 'styles'), true, /\.less$/)
+require.context('./styles/', true, /\.less$/)
 
 function run() {
   const root = document.getElementById('root')
