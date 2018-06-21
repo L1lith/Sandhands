@@ -37,5 +37,11 @@ module.exports = {
         loader: 'less-loader' // compiles Less to CSS
       }]
     }]
+  },
+  resolve: {
+    alias: {
+      '@components': resolve(__dirname, 'components/'),
+      '@functions': resolve(__dirname, 'functions/')
+    }
   }
 }
