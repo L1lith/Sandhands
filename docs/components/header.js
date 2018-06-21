@@ -7,9 +7,7 @@ class Header extends Component {
       <header className="main">
         <h1 className="sitetitle"><Link to="/">Sandhands Documentation</Link></h1>
         <ul>
-          {[["Github", "https://github.com/l1lith/sandhands"]].map(([text, link], index) => (
-            <li><Link key={index} to={link}>{text}</Link></li>
-          ))}
+          <li><a href="https://github.com/l1lith/sandhands">Github</a></li>
         </ul>
       </header>
     )
