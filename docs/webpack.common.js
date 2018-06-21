@@ -41,7 +41,9 @@ module.exports = {
   resolve: {
     alias: {
       '@components': resolve(__dirname, 'components/'),
-      '@functions': resolve(__dirname, 'functions/')
+      '@functions': resolve(__dirname, 'functions/'),
+      '@styles': resolve(__dirname, 'functions/'),
+      '@root': __dirname
     }
   }
 }
