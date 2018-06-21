@@ -9,6 +9,7 @@ class Header extends Component {
         <ul>
           <li><Link to="/format">Format</Link></li>
           <li><Link to="/methods">Methods</Link></li>
+          <li><Link to="/sandbox">Sandbox</Link></li>
           <li><a href="https://github.com/l1lith/sandhands">Source</a></li>
         </ul>
       </header>
