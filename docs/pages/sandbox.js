@@ -4,7 +4,7 @@ import brace from 'brace'
 import 'brace/mode/javascript'
 import 'brace/theme/ambiance'
 import titleCase from '@functions/titleCase'
-import {sanitize} from 'sandhands'
+import {sanitize, valid} from 'sandhands'
 import objectToLiteralString from '@functions/objectToLiteralString'
 import jsbeautifier from 'js-beautify'
 
@@ -12,7 +12,7 @@ class Sandbox extends Component {
   constructor(props) {
     super(props)
     this.state = {mode: "sanitize", editors: ["input", "format"], objects: {input: {userEmail: 12}, format: {userEmail: {_:String, email: true}}}, values: {input: "{userEmail: 12}", format: "{userEmail: {_: String, email: true}}"}, output: "{\n    _: [],\n    userEmail: [Invalid Type]\n}"};
-    ['getOutput', 'setObject', 'handleChange', 'onError'].forEach(prop => this[prop] = this[prop].bind(this))
+    ['setMode', 'getOutput', 'setObject', 'handleChange', 'onError'].forEach(prop => this[prop] = this[prop].bind(this))
   }
   render() {
     console.log(this.state)
@@ -27,15 +27,21 @@ class Sandbox extends Component {
             </div>
           ))}
         </div>
+        <div className="mode">
+          <select className="modes" onChange={this.setMode}>
+            <option value="sanitize">Sanitize</option>
+            <option value="valid">Valid</option>
+          </select>
+        </div>
         {this.state.output === null ? null : this.state.mode === "sanitize" ? (
-              <div className="output">
+              <div className="output sanitize">
                 <h1 className="title">Output</h1>
                 <code>
                   {this.state.output}
                 </code>
               </div>
             ) : this.state.mode === "valid" ? (
-              <span className="output">Valid: {this.state.output === true}</span>
+              <span className="output valid">Valid: {(this.state.output === true).toString()}</span>
             ) : null }
       </div>
     )
@@ -51,6 +57,10 @@ class Sandbox extends Component {
       this.onError(editor, error)
     }
   }
+  setMode(event) {
+    const mode = event.target.value
+    this.setState({mode, output: this.getOutput(this.state.objects, mode)})
+  }
   onError(editor, error) {
     console.error(error)
     this.setObject(editor, null)
@@ -65,11 +75,25 @@ class Sandbox extends Component {
       this.setState({output: null})
     }
   }
-  getOutput({input, format}) {
-    if (this.state.mode === "sanitize") {
-      return jsbeautifier(objectToLiteralString(sanitize(input, format)))
-    } else if (this.state.mode === "valid") {
-      return valid(input, format).toString()
+  getOutput({input, format}, mode) {
+    console.log('go', {input, format}, mode)
+    mode = mode || this.state.mode
+    if (mode === "sanitize") {
+      try {
+        return jsbeautifier(objectToLiteralString(sanitize(input, format)))
+      } catch(error) {
+        console.error(error)
+        this.setObject('format', null)
+        return null
+      }
+    } else if (mode === "valid") {
+      try {
+        return valid(input, format).toString()
+      } catch(error) {
+        console.error(error)
+        this.setObject('format', null)
+        return null
+      }
     } else {
       return null
     }
