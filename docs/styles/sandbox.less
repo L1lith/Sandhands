@@ -1,13 +1,17 @@
 .sandbox {
-  & > .editor {
+  .editor {
+    text-align: center;
     display: inline-block;
     position: relative;
     margin: 0 2.5%;
-    width: 45%;
-    .name {
-      text-align: center;
-    }
+    width: ~'calc(45% - 4px)';
+    border: 2px solid #949494;
+    background-color: #191818;
+    border-radius: 3px;
+    color: white;
+    padding: 5px 0;
     & > .ace_editor {
+      margin: 5px 0;
       width: 100% !important;
       display: inline-block;
       height: 250px !important;
