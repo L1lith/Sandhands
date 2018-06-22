@@ -1,11 +1,35 @@
 .sandbox {
+  & > .output {
+    margin-top: 20px;
+    & > * {
+      display: block;
+    }
+    & > code {
+      white-space: pre-wrap;
+      font-family: monospace;
+      width: ~'calc(100% - 36px)';
+      background-color: #505050;
+      color: #a5afff;
+      padding: 15px;
+      border-radius: 2px;
+      border: 3px solid #ab9558;
+      box-shadow: 7px 3px #0000005c;
+    }
+    & > .title {
+      text-align: center;
+      margin-bottom: 10px;
+      color: #5f7cc1;
+    }
+  }
   .editor {
+    min-width: 300px;
     text-align: center;
     display: inline-block;
     position: relative;
     margin: 0 2.5%;
     width: ~'calc(45% - 4px)';
     border: 2px solid #949494;
+    border-width: 0 2px;
     background-color: #191818;
     border-radius: 3px;
     color: white;

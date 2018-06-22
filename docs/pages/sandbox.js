@@ -4,14 +4,19 @@ import brace from 'brace'
 import 'brace/mode/javascript'
 import 'brace/theme/ambiance'
 import titleCase from '@functions/titleCase'
+import Highlight from 'react-highlight'
+import {sanitize} from 'sandhands'
+import objectToLiteralString from '@functions/objectToLiteralString'
+import jsbeautifier from 'js-beautify'
 
 class Sandbox extends Component {
   constructor(props) {
     super(props)
-    this.state = {editors: ["input", "format"], messages: {}, valid: {input: true, format: true}, values: {input: "{a: 12}", format: "{a: Number}"}, output: {valid: null, sanitize: null}};
-    ['setValid','handleChange','onValid', 'setMessage', 'onError'].forEach(prop => this[prop] = this[prop].bind(this))
+    this.state = {mode: "sanitize", editors: ["input", "format"], objects: {input: {a: 12}, format: {a: Number}}, values: {input: "{a: 12}", format: "{a: Number}"}, output: "{\n    _: [],\n    a: []\n}"};
+    ['getOutput', 'setObject', 'handleChange', 'onError'].forEach(prop => this[prop] = this[prop].bind(this))
   }
   render() {
+    console.log(this.state)
     return (
       <div className="sandbox">
         <div className="editors">
@@ -19,10 +24,20 @@ class Sandbox extends Component {
             <div key={index} className="editor">
               <h2 className="name">{titleCase(name)}</h2>
               <AceEditor value={this.state.values[name] || ""} className="input" mode="javascript" theme="ambiance" onChange={(...args)=>{this.handleChange(name, ...args)}}/>
-              <p>Valid Syntax {this.state.valid[name] === true ? "✔" : "✖"}</p>
+              <p>{this.state.objects[name] !== null ? "V" : "Inv"}alid Syntax {this.state.objects[name] !== null ? "✔" : "✖"}</p>
             </div>
           ))}
         </div>
+        {this.state.output === null ? null : this.state.mode === "sanitize" ? (
+              <div className="output">
+                <h1 className="title">Output</h1>
+                <code>
+                  {this.state.output}
+                </code>
+              </div>
+            ) : this.state.mode === "valid" ? (
+              <span className="output">Valid: {this.state.output === true}</span>
+            ) : null }
       </div>
     )
   }
@@ -32,32 +47,33 @@ class Sandbox extends Component {
     this.setState({values})
     let object
     try {
-      this.onValid(editor, eval("(" + value + ")"))
+      this.setObject(editor, eval("(" + value + ")"))
     } catch(error) {
       this.onError(editor, error)
     }
   }
   onError(editor, error) {
     console.error(error)
-    this.setValid(editor, false)
+    this.setObject(editor, null)
   }
-  setValid(editor, isValid) {
-    console.log('sv', {editor, isValid, valid: this.state.valid})
-    const valid = {...this.state.valid}
-    valid[editor] = isValid === true
-    this.setState({valid})
-  }
-  onValid(editor, object) {
-    this.setValid(editor, true)
-  }
-  setMessage(editor, message) {
-    const newMessages = {...this.state.messages}
-    if (message === null) {
-      delete newMessages[editor]
+  setObject(editor, object) {
+    const objects = {...this.state.objects}
+    objects[editor] = object
+    this.setState({objects})
+    if (objects.input !== null && objects.format !== null) {
+      this.setState({output: this.getOutput(objects)})
     } else {
-      newMessages[editor] = message
+      this.setState({output: null})
     }
-    this.setState({messages: newMessages})
+  }
+  getOutput({input, format}) {
+    if (this.state.mode === "sanitize") {
+      return jsbeautifier(objectToLiteralString(sanitize(input, format)))
+    } else if (this.state.mode === "valid") {
+      return valid(input, format).toString()
+    } else {
+      return null
+    }
   }
 }
 
