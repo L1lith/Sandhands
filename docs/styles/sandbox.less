@@ -19,9 +19,14 @@
     &.valid {
       & > code {
         width: fit-content;
-        margin: 0 auto;
         min-width: 100px;
         text-align: center;
+      }
+    }
+    &.sanitize {
+      & > code {
+        width: 80%;
+        min-width: 300px;
       }
     }
     margin-top: 20px;
@@ -29,6 +34,7 @@
       display: block;
     }
     & > code {
+      margin: 20px auto 0 auto;
       white-space: pre-wrap;
       font-family: monospace;
       width: ~'calc(100% - 36px)';
