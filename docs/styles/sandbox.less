@@ -1,5 +1,29 @@
 .sandbox {
+  & > * {
+    display: block;
+  }
+  & > .mode {
+    & > .modes {
+      display: block;
+      padding: 5px;
+      width: fit-content;
+      min-width: 100px;
+      min-height: 40px;
+      font-size: 1em;
+      margin: 20px auto 0 auto;
+      font-family: inherit;
+      outline: none;
+    }
+  }
   & > .output {
+    &.valid {
+      & > code {
+        width: fit-content;
+        margin: 0 auto;
+        min-width: 100px;
+        text-align: center;
+      }
+    }
     margin-top: 20px;
     & > * {
       display: block;

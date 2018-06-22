@@ -15,7 +15,6 @@ class Sandbox extends Component {
     ['setMode', 'getOutput', 'setObject', 'handleChange', 'onError'].forEach(prop => this[prop] = this[prop].bind(this))
   }
   render() {
-    console.log(this.state)
     return (
       <div className="sandbox">
         <div className="editors">
@@ -41,7 +40,12 @@ class Sandbox extends Component {
                 </code>
               </div>
             ) : this.state.mode === "valid" ? (
-              <span className="output valid">Valid: {(this.state.output === true).toString()}</span>
+              <div className="output valid">
+                <h1 className="title">Valid</h1>
+                <code>
+                  {this.state.output}
+                </code>
+              </div>
             ) : null }
       </div>
     )
@@ -76,7 +80,6 @@ class Sandbox extends Component {
     }
   }
   getOutput({input, format}, mode) {
-    console.log('go', {input, format}, mode)
     mode = mode || this.state.mode
     if (mode === "sanitize") {
       try {

@@ -7,7 +7,9 @@ function objectToLiteralString(object) {
 		return "["+object.map(objectToLiteralString).join(", ")+"]"
 	} else if (typeof object == 'object') {
 		return "{"+Object.entries(object).map(([key, value]) => key + ": " + objectToLiteralString(value)).join(", ") + "}"
-	} else {
+	} else if (typeof object == 'string') {
+    return `"${object}"`
+  } else {
 		return object.toString()
 	}
 }
