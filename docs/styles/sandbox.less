@@ -21,26 +21,32 @@
       color: #5f7cc1;
     }
   }
-  .editor {
-    min-width: 300px;
-    text-align: center;
-    display: inline-block;
-    position: relative;
-    margin: 0 2.5%;
-    width: ~'calc(45% - 4px)';
-    border: 2px solid #949494;
-    border-width: 0 2px;
-    background-color: #191818;
-    border-radius: 3px;
-    color: white;
-    padding: 5px 0;
-    & > .ace_editor {
-      margin: 5px 0;
-      width: 100% !important;
+  & > .editors {
+    padding: 20px 0;
+    border: 4px double #000000ba;
+    border-width: 4px 0;
+    border-radius: 5px;
+    & > .editor {
+      min-width: 300px;
+      text-align: center;
       display: inline-block;
-      height: 250px !important;
-      .ace_error, .ace_warning, .ace_info {
-        display: none !important;
+      position: relative;
+      margin: 0 2.5%;
+      width: ~'calc(45% - 4px)';
+      border: 2px solid #949494;
+      border-width: 0 2px;
+      background-color: #191818;
+      border-radius: 3px;
+      color: white;
+      padding: 5px 0;
+      & > .ace_editor {
+        margin: 5px 0;
+        width: 100% !important;
+        display: inline-block;
+        height: 250px !important;
+        .ace_error, .ace_warning, .ace_info {
+          display: none !important;
+        }
       }
     }
   }
