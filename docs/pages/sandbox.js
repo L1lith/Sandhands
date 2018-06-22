@@ -8,7 +8,7 @@ import titleCase from '@functions/titleCase'
 class Sandbox extends Component {
   constructor(props) {
     super(props)
-    this.state = {editors: ["input", "format"], messages: {}, valid: {}, values: {}, output: {valid: null, sanitize: null}};
+    this.state = {editors: ["input", "format"], messages: {}, valid: {input: true, format: true}, values: {input: "{a: 12}", format: "{a: Number}"}, output: {valid: null, sanitize: null}};
     ['setValid','handleChange','onValid', 'setMessage', 'onError'].forEach(prop => this[prop] = this[prop].bind(this))
   }
   render() {
