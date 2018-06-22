@@ -1,15 +1,19 @@
 .sandbox {
-  .editor-titles {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 10px;
-  }
-  .editors {
+  & > .editor {
+    display: inline-block;
+    position: relative;
+    margin: 0 2.5%;
+    width: 45%;
+    .name {
+      text-align: center;
+    }
     & > .ace_editor {
-      width: 45% !important;
+      width: 100% !important;
       display: inline-block;
       height: 250px !important;
-      margin: 0 2.5%;
+      .ace_error, .ace_warning, .ace_info {
+        display: none !important;
+      }
     }
   }
 }
