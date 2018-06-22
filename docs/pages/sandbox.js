@@ -11,7 +11,7 @@ import jsbeautifier from 'js-beautify'
 class Sandbox extends Component {
   constructor(props) {
     super(props)
-    this.state = {mode: "sanitize", editors: ["input", "format"], objects: {input: {userEmail: 12}, format: {userEmail: {_:String, email: true}}}, values: {input: "{userEmail: 12}", format: "{userEmail: {_: String, email: true}}"}, output: "{\n    _: [],\n    userEmail: [Invalid Type]\n}"};
+    this.state = {mode: "sanitize", editors: ["input", "format"], objects: {input: {userEmail: 12}, format: {userEmail: {_:String, email: true}}}, values: {input: "{userEmail: 12}", format: "{userEmail: {_: String, email: true}}"}, output: "{\n    _: [],\n    userEmail: [\"Invalid Type\"]\n}"};
     ['setMode', 'getOutput', 'setObject', 'handleChange', 'onError'].forEach(prop => this[prop] = this[prop].bind(this))
   }
   render() {
