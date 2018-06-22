@@ -34,14 +34,12 @@ class Sandbox extends Component {
         </div>
         {this.state.output === null ? null : this.state.mode === "sanitize" ? (
               <div className="output sanitize">
-                <h1 className="title">Output</h1>
                 <code>
                   {this.state.output}
                 </code>
               </div>
             ) : this.state.mode === "valid" ? (
               <div className="output valid">
-                <h1 className="title">Valid</h1>
                 <code>
                   {this.state.output}
                 </code>
