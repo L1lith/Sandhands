@@ -68,7 +68,7 @@ console.log(valid("lily", {_: String, lowercase: true})) // true`
             </div>
             <div className="option">
               <h3 className="name">minLength</h3>
-              <p className="description">Set the minimum required length of the string. Default is 1</p>
+              <p className="description">Set the minimum required length of the string. Default: 1</p>
             </div>
             <div className="option">
               <h3 className="name">maxLength</h3>
@@ -93,7 +93,37 @@ console.log(valid("lily", {_: String, lowercase: true})) // true`
          </div>
          <div className="numbers section">
             <h2 className="name">Numbers</h2>
-            
+            <div className="option">
+              <h3 className="name">allowNaN</h3>
+              <p className="description">Flag as true to allow NaN. Default: false</p>
+            </div>
+            <div className="option">
+              <h3 className="name">finite</h3>
+              <p className="description">Flag as false to allow Infinity. Default: true</p>
+            </div>
+            <div className="option">
+              <h3 className="name">min</h3>
+              <p className="description">Set the minimum value of the input</p>
+            </div>
+            <div className="option">
+              <h3 className="name">max</h3>
+              <p className="description">Set the maximum value of the input</p>
+            </div>
+            <div className="option">
+              <h3 className="name">even</h3>
+              <p className="description">Flag as true to require even numbers.</p>
+            </div>
+            <div className="option">
+              <h3 className="name">odd</h3>
+              <p className="description">Flag as true to require odd numbers.</p>
+            </div>
+         </div>
+         <div className="universal section">
+            <h2 className="name">Universal Options</h2>
+            <div className="valid">
+              <h3 className="name">validate</h3>
+              <p className="description">Expects a function or array of functions to compare the input with. If any don't return true, reject the input.</p>
+            </div>
          </div>
     </div>
     )
