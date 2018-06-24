@@ -7,7 +7,7 @@ class Methods extends Component {
       <div className="methods">
         <h1 className="pagetitle">Methods</h1>
         <span className="warning">This section describes the output of this library&apos;s methods. To see the input format please see <Link to="/format">here</Link>.</span>
-        <div className="method">
+        <div className="method section">
           <h2 className="name">Valid</h2>
           <p className="description">Returns true/false representing whether or not the input matched the format</p>
           <code className="example">{
@@ -18,7 +18,7 @@ console.log(valid('', String)) // false (the default minimum string length is 1)
 console.log(valid('foo bar', String)) // true`
           }</code>
         </div>
-        <div className="method">
+        <div className="method section">
           <h2 className="name">Sanitize</h2>
           <p className="description">Returns a array/object representing where and what the errors are dependant upon the format</p>
           <code className="example">{
