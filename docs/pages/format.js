@@ -142,7 +142,7 @@ console.log(valid({b: 12}, {}, {strict: false})) // true`
          </div>
          <div className="universal section">
             <h2 className="name">Universal Options</h2>
-            <div className="valid">
+            <div className="option">
               <h3 className="name">validate</h3>
               <p className="description">Expects a function or array of functions to compare the input with. If any don't return true, reject the input.</p>
             </div>
