@@ -71,6 +71,10 @@ console.log(valid("lily", {_: String, lowercase: true})) // true`
               <p className="description">Set the minimum required length of the string. Default is 1</p>
             </div>
             <div className="option">
+              <h3 className="name">maxLength</h3>
+              <p className="description">Set the maximum required length of the string.</p>
+            </div>
+            <div className="option">
               <h3 className="name">length</h3>
               <p className="description">Set the minimum required length of the string. Default is 1</p>
             </div>
@@ -84,7 +88,7 @@ console.log(valid("lily", {_: String, lowercase: true})) // true`
             </div>
             <div className="option">
               <h3 className="name">whitespace</h3>
-              <p className="description">Flag as false to required the string to contain no spaces.</p>
+              <p className="description">Flag as false to require the string to contain no spaces.</p>
             </div>
          </div>
     </div>
