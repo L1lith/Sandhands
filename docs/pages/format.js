@@ -91,6 +91,10 @@ console.log(valid("lily", {_: String, lowercase: true})) // true`
               <p className="description">Flag as false to require the string to contain no spaces.</p>
             </div>
          </div>
+         <div className="numbers section">
+            <h2 className="name">Numbers</h2>
+            
+         </div>
     </div>
     )
   }
