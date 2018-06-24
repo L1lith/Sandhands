@@ -37,24 +37,13 @@
     & > * {
       display: block;
     }
-    & > code {
-      margin: 20px auto 0 auto;
-      white-space: pre-wrap;
-      font-family: monospace;
-      width: ~'calc(100% - 36px)';
-      background-color: #505050;
-      color: #a5ccff;
-      padding: 15px;
-      border-radius: 2px;
-      border: 5px outset #829cff;
-      box-shadow: 7px 3px #0000005c;
-    }
   }
   & > .editors {
     padding: 20px 0;
     border-bottom: 4px double #0135ad8f;
     border-radius: 5px;
     & > .editor {
+      box-shadow: 8px 4px 5px #99a3bf3b;
       min-width: 300px;
       text-align: center;
       display: inline-block;
@@ -72,7 +61,7 @@
         width: 100% !important;
         display: inline-block;
         height: 250px !important;
-        .ace_error, .ace_warning, .ace_info {
+        .ace_error, .ace_warning, .ace_info, .ace_tooltip {
           display: none !important;
         }
       }
