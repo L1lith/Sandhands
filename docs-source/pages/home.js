@@ -6,6 +6,7 @@ class Home extends Component {
     return (
       <div className="home">
         <p>Welcome to the Sandhands Documentation. Use the links above to get started</p>
+        <Link to="/sandhands/test">test</Link>
       </div>
     )
   }
