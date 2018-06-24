@@ -118,6 +118,28 @@ console.log(valid("lily", {_: String, lowercase: true})) // true`
               <p className="description">Flag as true to require odd numbers.</p>
             </div>
          </div>
+         <div className="object section">
+            <h2 className="name">Objects</h2>
+            <p className="description">We can sanitize objects by creating our own object representing how we expect the input to look like.</p>
+            <div className="option">
+              <h3 className="name">strict</h3>
+              <p className="description">Flag as true to require all input values to be defined by the format in order to be valid. Defalt: true</p>
+            </div>
+            <div className="option">
+              <h3 className="name">optional</h3>
+              <p className="description">Flag as true on a property to make that property not required (if the input has the property the format for that property is applied)</p>
+            </div>
+            <code>{
+`import {valid} from 'sandhands'
+
+console.log(valid({}, {})) // true
+console.log(valid({}, {a: String})) // false
+console.log(valid({a: 'hello world'}, {a: String})) // true
+console.log(valid({}, {a: {_: String, optional: true}})) // true
+console.log(valid({b: 12}, {})) // false
+console.log(valid({b: 12}, {}, {strict: false})) // true`
+            }</code>
+         </div>
          <div className="universal section">
             <h2 className="name">Universal Options</h2>
             <div className="valid">
