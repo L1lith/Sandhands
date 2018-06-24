@@ -76,7 +76,7 @@ console.log(valid("lily", {_: String, lowercase: true})) // true`
             </div>
             <div className="option">
               <h3 className="name">length</h3>
-              <p className="description">Set the minimum required length of the string. Default is 1</p>
+              <p className="description">Set the exact required length of the string.</p>
             </div>
             <div className="option">
               <h3 className="name">allowed</h3>
