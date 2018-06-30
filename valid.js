@@ -2,11 +2,13 @@ const sanitizeObject = require('./object')
 const {sanitizePrimitive} = require('./primitive')
 
 function validObject(...args) {
-  return flattenErrorsObject(sanitizeObject(...args)).length < 1
+  const errors = flattenErrorsObject(sanitizeObject(...args))
+  if (errors.length > 0) throw new Error(errors[0])
 }
 
 function validPrimitive(...args) {
-  return sanitizePrimitive(...args).length < 1
+  const errors = sanitizePrimitive(...args)
+  if (errors.length > 0) throw new Error(errors[0])
 }
 
 function flattenErrorsObject(object) {
