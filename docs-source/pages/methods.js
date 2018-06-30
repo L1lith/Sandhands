@@ -19,15 +19,15 @@ console.log(valid('foo bar', String)) // true`
           }</code>
         </div>
         <div className="method section">
-          <h2 className="name">Sanitize</h2>
+          <h2 className="name">Details</h2>
           <p className="description">Returns a array/object representing where and what the errors are dependant upon the format</p>
           <code className="example">{
-`import {sanitize} from 'sandhands'
+`import {details} from 'sandhands'
 
-console.log(sanitize(12, String)) // ["Invalid Type"]
-console.log(sanitize('', String)) // ["Too short"]
-console.log(sanitize('foo bar', String)) // []
-console.log(sanitize({a: 24}, {a: String, b: String})) // { _: ["Property Missing"], a: ["Invalid Type"] }`
+console.log(details(12, String)) // ["Invalid Type"]
+console.log(details('', String)) // ["Too short"]
+console.log(details('foo bar', String)) // []
+console.log(details({a: 24}, {a: String, b: String})) // { _: ["Property Missing"], a: ["Invalid Type"] }`
           }</code>
         </div>
       </div>
