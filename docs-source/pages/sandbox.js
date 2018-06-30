@@ -4,14 +4,14 @@ import brace from 'brace'
 import 'brace/mode/javascript'
 import 'brace/theme/ambiance'
 import titleCase from '@functions/titleCase'
-import {sanitize, valid} from 'sandhands'
+import {details, valid} from 'sandhands'
 import objectToLiteralString from '@functions/objectToLiteralString'
 import jsbeautifier from 'js-beautify'
 
 class Sandbox extends Component {
   constructor(props) {
     super(props)
-    this.state = {mode: "sanitize", editors: ["input", "format"], objects: {input: {userEmail: 12}, format: {userEmail: {_:String, email: true}}}, values: {input: "{userEmail: 12}", format: "{userEmail: {_: String, email: true}}"}, output: "{\n    _: [],\n    userEmail: [\"Invalid Type\"]\n}"};
+    this.state = {mode: "details", editors: ["input", "format"], objects: {input: {userEmail: 12}, format: {userEmail: {_:String, email: true}}}, values: {input: "{userEmail: 12}", format: "{userEmail: {_: String, email: true}}"}, output: "{\n    _: [],\n    userEmail: [\"Invalid Type\"]\n}"};
     ['setMode', 'getOutput', 'setObject', 'handleChange', 'onError'].forEach(prop => this[prop] = this[prop].bind(this))
   }
   render() {
@@ -28,12 +28,12 @@ class Sandbox extends Component {
         </div>
         <div className="mode">
           <select className="modes" onChange={this.setMode}>
-            <option value="sanitize">Sanitize</option>
+            <option value="details">Details</option>
             <option value="valid">Valid</option>
           </select>
         </div>
-        {this.state.output === null ? null : this.state.mode === "sanitize" ? (
-              <div className="output sanitize">
+        {this.state.output === null ? null : this.state.mode === "details" ? (
+              <div className="output details">
                 <code>
                   {this.state.output}
                 </code>
@@ -79,9 +79,9 @@ class Sandbox extends Component {
   }
   getOutput({input, format}, mode) {
     mode = mode || this.state.mode
-    if (mode === "sanitize") {
+    if (mode === "details") {
       try {
-        return jsbeautifier(objectToLiteralString(sanitize(input, format)))
+        return jsbeautifier(objectToLiteralString(details(input, format)))
       } catch(error) {
         console.error(error)
         this.setObject('format', null)
