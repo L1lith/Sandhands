@@ -9,7 +9,7 @@ class Methods extends Component {
         <p className="description">This section describes the output of Sandhands&apos;s methods. To see the more about the sanitation format please see <Link to="/format">here</Link>.</p>
         <div className="method section">
           <h2 className="name">Valid</h2>
-          <p className="description">Returns true/false representing whether or not the input matched the format</p>
+          <p className="description">Throws the first error found in the input.</p>
           <code className="example">{
 `import {valid} from 'sandhands' // or const {valid} = require('sandhands')
 
