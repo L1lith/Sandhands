@@ -89,11 +89,10 @@ class Sandbox extends Component {
       }
     } else if (mode === "valid") {
       try {
-        return valid(input, format).toString()
+        valid(input, format)
+        return 'Error: null'
       } catch(error) {
-        console.error(error)
-        this.setObject('format', null)
-        return null
+        return 'Error: '+error.message
       }
     } else {
       return null
