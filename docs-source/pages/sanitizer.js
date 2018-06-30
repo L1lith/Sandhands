@@ -14,4 +14,4 @@ class Sanitizer extends Component {
   }
 }
 
-export default {path: "/sandbox", exact: true, component: Sanitizer}
+export default {path: "/sanitizer", exact: true, component: Sanitizer}
