@@ -39,7 +39,7 @@ function sanitizeObject() {
         if (typeof strict != 'boolean') throw new Error('Invalid Strict Option')
         if (strict === true) {
           for (let i = 0; i < input.length; i++) {
-            if (input.hasOwnProperty(i) && !format.hasOwnProperty(i)) {
+            if (Object.prototype.hasOwnProperty.call(input, i) && !format.hasOwnProperty(i)) {
               errors[i] = ["Invalid Index"]
             }
           }
