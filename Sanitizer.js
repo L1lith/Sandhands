@@ -1,6 +1,7 @@
 const sanitizeObject = require('./object')
 const valid = require('./valid')
 const sanitize = require('./sanitize')
+const {primitives} = require('./primitive')
 
 const standardMethods = {sanitize, valid, details: sanitizeObject}
 
