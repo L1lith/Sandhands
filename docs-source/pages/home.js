@@ -10,4 +10,4 @@ class Home extends Component {
   }
 }
 
-export default {path: '/', exact: true, component: Home}
+export default {path: '/Sandhands/', exact: true, component: Home}

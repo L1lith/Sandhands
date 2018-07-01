@@ -100,4 +100,4 @@ class Sandbox extends Component {
   }
 }
 
-export default {path: "/sandbox", exact: true, component: Sandbox}
+export default {path: "/Sandhands/sandbox", exact: true, component: Sandbox}
