@@ -11,7 +11,10 @@ class Methods extends Component {
           <h2 className="name">Sanitize</h2>
           <p className="description">Throws the first error found in the input.</p>
           <code className="example">{
-``
+`import {sanitize} from 'sandhands'
+
+sanitize(1, String) // throws error with message "Invalid Type"
+sanitize(14, {_: Number, min: 22}) // throws error with message "Too small"`
           }</code>
         </div>
         <div className="method section">
