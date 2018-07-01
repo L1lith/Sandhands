@@ -1,5 +1,4 @@
 const sanitizeObject = require('./object')
-const {sanitizePrimitive} = require('./primitive')
 const flattenErrorsObject = require('./flattenErrorsObject')
 
 function sanitize(...args) {
