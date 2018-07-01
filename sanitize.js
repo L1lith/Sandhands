@@ -7,4 +7,4 @@ function sanitize(...args) {
   if (errors.length > 0) throw new Error(errors[0])
 }
 
-module.exports = valid
+module.exports = sanitize
