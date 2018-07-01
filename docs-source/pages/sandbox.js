@@ -4,7 +4,7 @@ import brace from 'brace'
 import 'brace/mode/javascript'
 import 'brace/theme/ambiance'
 import titleCase from '@functions/titleCase'
-import {details, valid} from 'sandhands'
+import {sanitize, details, valid} from 'sandhands'
 import objectToLiteralString from '@functions/objectToLiteralString'
 import jsbeautifier from 'js-beautify'
 
@@ -29,22 +29,15 @@ class Sandbox extends Component {
         <div className="mode">
           <select className="modes" onChange={this.setMode}>
             <option value="details">Details</option>
+            <option value="sanitize">Sanitize</option>
             <option value="valid">Valid</option>
           </select>
         </div>
-        {this.state.output === null ? null : this.state.mode === "details" ? (
-              <div className="output details">
-                <code>
-                  {this.state.output}
-                </code>
-              </div>
-            ) : this.state.mode === "valid" ? (
-              <div className="output valid">
-                <code>
-                  {this.state.output}
-                </code>
-              </div>
-            ) : null }
+        <div className={"output "+this.state.mode}>
+          <code>
+            {this.state.output}
+          </code>
+        </div>
       </div>
     )
   }
@@ -87,13 +80,15 @@ class Sandbox extends Component {
         this.setObject('format', null)
         return null
       }
-    } else if (mode === "valid") {
+    } else if (mode === "sanitize") {
       try {
-        valid(input, format)
+        sanitize(input, format)
         return 'Error: null'
       } catch(error) {
         return 'Error: '+error.message
       }
+    } else if (mode === 'valid') {
+      return valid(input, format).toString()
     } else {
       return null
     }
