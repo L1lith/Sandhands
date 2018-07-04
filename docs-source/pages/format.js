@@ -153,3 +153,4 @@ console.log(valid({b: 12}, {}, {strict: false})) // true`
 }
 
 export default {path: '/Sandhands/format', exact: true, component: Format}
+
