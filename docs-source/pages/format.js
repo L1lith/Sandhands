@@ -90,6 +90,10 @@ console.log(valid("lily", {_: String, lowercase: true})) // true`
               <h3 className="name">whitespace</h3>
               <p className="description">Flag as false to require the string to contain no spaces.</p>
             </div>
+            <div className="option">
+              <h3 className="name">regex</h3>
+              <p className="description">Set a regular expression to test the input string.</p>
+            </div>
          </div>
          <div className="numbers section">
             <h2 className="name">Numbers</h2>
@@ -153,4 +157,3 @@ console.log(valid({b: 12}, {}, {strict: false})) // true`
 }
 
 export default {path: '/Sandhands/format', exact: true, component: Format}
-

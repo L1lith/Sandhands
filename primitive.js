@@ -56,7 +56,7 @@ function sanitizePrimitive() {
     } else if (options.hasOwnProperty('equalTo') && input !== options.equalTo) {
       errors.push('Incorrect value')
     } else if (format === String) {
-      const {minLength, maxLength, length, allowed, banned, lowercase, uppercase, email, whitespace} = options
+      const {regex, minLength, maxLength, length, allowed, banned, lowercase, uppercase, email, whitespace} = options
 
       if (options.hasOwnProperty('email')) {
         if (typeof email != 'boolean') throw new Error('Invalid Email Option')
@@ -119,6 +119,10 @@ function sanitizePrimitive() {
       if (options.hasOwnProperty('odd')) {
         if (typeof odd != 'boolean') throw new Error('Invalid Odd Option')
         if (odd === true && input % 2 != 1) errors.push('Not odd')
+      }
+      if (options.hasOwnProperty('regex')) {
+        if (!(regex instanceof RegExp)) throw new Error('Invalid Regex Option')
+        if (!regex.test(input)) errors.push('Failed regex')
       }
     }
   } else if ([null, undefined].includes(format)) {
