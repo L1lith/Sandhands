@@ -59,11 +59,11 @@ console.log(valid("lily", {_: String, lowercase: true})) // true`
               <p className="description">Flag as true to required the string be a valid email.</p>
             </div>
             <div className="option">
-              <h3 className="name">lower</h3>
+              <h3 className="name">lowercase</h3>
               <p className="description">Flag as true to required the string be lowercase.</p>
             </div>
             <div className="option">
-              <h3 className="name">upper</h3>
+              <h3 className="name">uppercase</h3>
               <p className="description">Flag as true to required the string be uppercase.</p>
             </div>
             <div className="option">
@@ -153,3 +153,4 @@ console.log(valid({b: 12}, {}, {strict: false})) // true`
 }
 
 export default {path: '/Sandhands/format', exact: true, component: Format}
+
