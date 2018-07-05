@@ -127,7 +127,7 @@ console.log(valid("lily", {_: String, lowercase: true})) // true`
             <p className="description">We can sanitize objects by creating our own object representing how we expect the input to look like.</p>
             <div className="option">
               <h3 className="name">strict</h3>
-              <p className="description">Flag as true to require all input values to be defined by the format in order to be valid. Defalt: true</p>
+              <p className="description">Flag as true to require all input values to be defined by the format in order to be valid. Default: true</p>
             </div>
             <div className="option">
               <h3 className="name">optional</h3>
