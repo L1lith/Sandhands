@@ -94,6 +94,10 @@ function sanitizePrimitive() {
         if (typeof whitespace != 'boolean') throw new Error('Invalid Whitespace Option')
         if (whitespace === false && input.includes(' ')) errors.push('No whitespace')
       }
+      if (options.hasOwnProperty('regex')) {
+        if (!(regex instanceof RegExp)) throw new Error('Invalid Regex Option')
+        if (regex.test(input) !== true) errors.push('Failed regex')
+      }
     } else if (format === Number) {
       const {allowNaN, finite, min, max, even, odd} = options
       if (options.hasOwnProperty('allowNaN')) {
@@ -119,10 +123,6 @@ function sanitizePrimitive() {
       if (options.hasOwnProperty('odd')) {
         if (typeof odd != 'boolean') throw new Error('Invalid Odd Option')
         if (odd === true && input % 2 != 1) errors.push('Not odd')
-      }
-      if (options.hasOwnProperty('regex')) {
-        if (!(regex instanceof RegExp)) throw new Error('Invalid Regex Option')
-        if (!regex.test(input)) errors.push('Failed regex')
       }
     }
   } else if ([null, undefined].includes(format)) {
