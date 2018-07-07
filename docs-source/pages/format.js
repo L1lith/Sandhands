@@ -59,11 +59,11 @@ console.log(valid("lily", {_: String, lowercase: true})) // true`
               <p className="description">Flag as true to required the string be a valid email.</p>
             </div>
             <div className="option">
-              <h3 className="name">lower</h3>
+              <h3 className="name">lowercase</h3>
               <p className="description">Flag as true to required the string be lowercase.</p>
             </div>
             <div className="option">
-              <h3 className="name">upper</h3>
+              <h3 className="name">uppercase</h3>
               <p className="description">Flag as true to required the string be uppercase.</p>
             </div>
             <div className="option">
@@ -89,6 +89,10 @@ console.log(valid("lily", {_: String, lowercase: true})) // true`
             <div className="option">
               <h3 className="name">whitespace</h3>
               <p className="description">Flag as false to require the string to contain no spaces.</p>
+            </div>
+            <div className="option">
+              <h3 className="name">regex</h3>
+              <p className="description">Set a regular expression to test the input string.</p>
             </div>
          </div>
          <div className="numbers section">
@@ -123,7 +127,7 @@ console.log(valid("lily", {_: String, lowercase: true})) // true`
             <p className="description">We can sanitize objects by creating our own object representing how we expect the input to look like.</p>
             <div className="option">
               <h3 className="name">strict</h3>
-              <p className="description">Flag as true to require all input values to be defined by the format in order to be valid. Defalt: true</p>
+              <p className="description">Flag as true to require all input values to be defined by the format in order to be valid. Default: true</p>
             </div>
             <div className="option">
               <h3 className="name">optional</h3>

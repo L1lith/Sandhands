@@ -3,6 +3,8 @@ Expressive Javascript Sanitation, Zero Dependencies.
 
 ## [Documentation](https://l1lith.github.io/Sandhands/)
 
+## [Discord](https://discord.gg/ugBT4XR)
+
 ## Example Usage
 ```
 import {sanitize, valid, details} from 'sandhands'
