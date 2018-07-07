@@ -118,43 +118,43 @@ declare namespace Sandhands {
     interface IParamaterizedBooleanOptions extends IBooleanOptions, IParameterizedOptionsBase { }
 
     interface IParameterizedObjectOptions extends IObjectOptions, IParameterizedOptionsBase { }
-    
+
     type ParameterTypes = IObjectOptions | INumberOptions | IStringOptions | IBooleanOptions;
     type ParameterizedOptions = IParamaterizedBooleanOptions | IParamaterizedNumberOptions | IParameterizedObjectOptions | IParamaterizedStringOptions;
     type VariableType = String | Boolean | Number | Object | undefined | null;
 
+    /**
+    * Contains core features of sandhands.
+    */
+    interface Sandhands {
+        /**
+         * Returns a array/object representing where and what the errors are dependant upon the format.
+         * @param value Value to get details for.
+         * @param type Type to get details for.
+         * @param options Options to get details with.
+         */
+        details: (value: any,
+            type: Sandhands.VariableType | Sandhands.ParameterizedOptions, options?: Sandhands.ParameterTypes) => string[] | Sandhands.IDetailsErrorObject;
+        /**
+         * Throws the first error found in the input.
+         * @param value Value to sanitize.
+         * @param type Type to check for.
+         * @param options Options to sanitize with.
+         */
+        sanitize: (value: any,
+            type: Sandhands.VariableType | Sandhands.ParameterizedOptions, options?: Sandhands.ParameterTypes) => void;
+        /**
+         * Returns a boolean repesenting whether or not the input matched the format.
+         * @param value Value to valid.
+         * @param type Type to check for.
+         * @param options Options to valid with.
+         */
+        valid: (value: any,
+            type: Sandhands.VariableType | Sandhands.ParameterizedOptions,
+            options?: Sandhands.ParameterTypes) => boolean;
+    }
+
+    var sandhands: Sandhands;
 }
 
-/**
- * Contains core features of sandhands.
- */
-declare interface Sandhands {
-    /**
-     * Returns a array/object representing where and what the errors are dependant upon the format.
-     * @param value Value to get details for.
-     * @param type Type to get details for.
-     * @param options Options to get details with.
-     */
-    details: (value: any,
-        type: Sandhands.VariableType | Sandhands.ParameterizedOptions, options?: Sandhands.ParameterTypes) => string[] | Sandhands.IDetailsErrorObject;
-    /**
-     * Throws the first error found in the input.
-     * @param value Value to sanitize.
-     * @param type Type to check for.
-     * @param options Options to sanitize with.
-     */
-    sanitize: (value: any,
-        type: Sandhands.VariableType | Sandhands.ParameterizedOptions, options?: Sandhands.ParameterTypes) => void;
-    /**
-     * Returns a boolean repesenting whether or not the input matched the format.
-     * @param value Value to valid.
-     * @param type Type to check for.
-     * @param options Options to valid with.
-     */
-    valid: (value: any,
-        type: Sandhands.VariableType | Sandhands.ParameterizedOptions,
-        options?: Sandhands.ParameterTypes) => boolean;
-}
-
-declare var sandhands: Sandhands;
-export = sandhands;
+export = Sandhands;
