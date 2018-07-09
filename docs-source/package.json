@@ -20,6 +20,7 @@
     "js-beautify": "^1.7.5",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
+    "packenv": "^1.0.1",
     "react": "^16.4.1",
     "react-ace": "^6.1.1",
     "react-dom": "^16.4.1",
