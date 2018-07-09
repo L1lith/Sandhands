@@ -7,6 +7,7 @@ import titleCase from '@functions/titleCase'
 import {sanitize, details, valid} from 'sandhands'
 import objectToLiteralString from '@functions/objectToLiteralString'
 import jsbeautifier from 'js-beautify'
+import {version} from '@root/node_modules/sandhands/package.json'
 
 class Sandbox extends Component {
   constructor(props) {
@@ -38,6 +39,7 @@ class Sandbox extends Component {
             {this.state.output}
           </code>
         </div>
+        <span className="version">Sandbox using Sandhands@{version}</span>
       </div>
     )
   }
