@@ -55,6 +55,10 @@ declare interface IStringOptions {
      */
     length?: number;
     /**
+     * Set a regular expression to test the input string.
+     */
+    regex?: RegExp;
+    /**
      * Flag as true to required the string be uppercase.
      */
     uppercase?: boolean;
@@ -119,7 +123,7 @@ declare interface IParameterizedObjectOptions extends IObjectOptions, IParameter
 
 declare type ParameterTypes = IObjectOptions | INumberOptions | IStringOptions | IBooleanOptions;
 declare type ParameterizedOptions = IParamaterizedBooleanOptions | IParamaterizedNumberOptions | IParameterizedObjectOptions | IParamaterizedStringOptions;
-declare type VariableType = String | Boolean | Number | Object | undefined | null;
+declare type VariableType = StringConstructor | BooleanConstructor | NumberConstructor | ObjectConstructor | undefined | null;
 
 /**
  * Contains core features of sandhands.
