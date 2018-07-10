@@ -7,6 +7,7 @@ Expressive Javascript Sanitation, Zero Dependencies.
 
 ## Installation
 To install Sandhands run the following command:
+
 ```npm i -s sandhands```
 
 ## Example Usage
