@@ -2,6 +2,7 @@
   "name": "sandhands",
   "version": "1.2.11",
   "description": "Expressive Javascript Sanitation",
+  "license": "MIT",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
