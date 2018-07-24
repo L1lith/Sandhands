@@ -11,7 +11,7 @@ const primitives = new Map([
   [undefined, require('./undefined')]
 ])
 
-function sanitizeAny(input, format, options) {
+function sanitizeAny(input, format, options={}) {
 
   resolveInlineOptions(format, options)
 

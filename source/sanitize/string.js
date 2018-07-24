@@ -3,6 +3,8 @@ const validEmail = require('../functions/validEmail')
 function sanitizeString(input, options) {
   const {regex, minLength, maxLength, length, allowed, banned, lowercase, uppercase, email, whitespace} = options
 
+  if (typeof input != 'string') return 'Expected String'
+
   if (options.hasOwnProperty('email')) {
     if (email === true && !validEmail(input)) return 'Email Invalid'
   }

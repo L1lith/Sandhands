@@ -1,6 +1,6 @@
 const firstError = require('../functions/firstError')
 const resolveInlineOptions = require('../functions/resolveInlineOptions')
-const sanitizeAny = reqire('./any')
+const sanitizeAny = require('./any')
 
 function sanitizeObject(input, format, options) {
   if (Array.isArray(input) || input === null) return 'Expected Object'
@@ -16,7 +16,7 @@ function sanitizeObject(input, format, options) {
       }
     })
   }
-  Object.entries(format).forEach([childKey, childFormat] => {
+  Object.entries(format).forEach(([childKey, childFormat]) => {
     if (!errors[childKey]) {
       const childOptions = {}
       resolveInlineOptions(childFormat, childOptions)
