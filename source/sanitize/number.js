@@ -1,7 +1,6 @@
 function sanitizeNumber(input, options) {
-  const {allowNaN, finite, min, max, even, odd} = options
-
   if (typeof input != 'number') return 'Expected Number'
+  const {allowNaN, finite, min, max, even, odd} = options
 
   if (options.hasOwnProperty('allowNaN')) {
     if (typeof allowNaN != 'boolean') throw new Error('Invalid AllowNaN Option')

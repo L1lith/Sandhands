@@ -5,7 +5,7 @@ function resolveInlineOptions(format, options={}) {
     delete newOptions._
     format = format._
   }
-  Object.assign({newOptions, options})
+  Object.assign(newOptions, options)
   return {options: newOptions, format}
 }
 
