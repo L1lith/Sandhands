@@ -2,6 +2,7 @@ const sanitizeAny = require('./any')
 const firstError = require('../functions/firstError')
 
 function sanitizeArray(input, format, options) {
+  if (!Array.isArray(input)) return 'Expected Array'
   let {firstAsStandard, strict} = options
   if (firstAsStandard === undefined && format.length === 1) firstAsStandard = true // Default to true only if there's only one entry in the array.
   if (firstAsStandard !== true && strict === undefined) strict = true // Default to true only if we're not using firstAsStandard
