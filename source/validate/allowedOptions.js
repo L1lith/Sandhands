@@ -8,4 +8,4 @@ const primitives = new Map([
 const object = ["strict"]
 const array = ["strict", "firstAsStandard"]
 
-module.exports = {universal, primitives}
+module.exports = {universal, primitives, object, array}

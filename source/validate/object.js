@@ -1,5 +1,3 @@
-
-
 function validateObjectOptions(options) {
   const {strict} = options
 
