@@ -3,7 +3,7 @@ const firstError = require('../functions/firstError')
 const ensureValidArguments = require('../functions/ensureValidArguments')
 
 function sanitize(...args) {
-  ensureValidArguments(args)
+  ensureValidArguments(...args)
   const error = firstError(sanitizeObject(...args), true)
   if (error !== null) throw new Error(error)
 }
