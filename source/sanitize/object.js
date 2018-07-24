@@ -3,7 +3,7 @@ const resolveInlineOptions = require('../functions/resolveInlineOptions')
 const sanitizeAny = require('./any')
 
 function sanitizeObject(input, format, options) {
-  if (Array.isArray(input) || input === null) return 'Expected Object'
+  if (typeof input != 'object' || input === null || Array.isArray(input)) return 'Expected Object'
 
   const errors = {_: null}
 
