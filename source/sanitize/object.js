@@ -1,8 +1,7 @@
 const firstError = require('../functions/firstError')
 const resolveInlineOptions = require('../functions/resolveInlineOptions')
-const sanitizeAny = require('./any')
 
-function sanitizeObject(input, format, options) {
+function sanitizeObject(sanitizeAny, input, format, options) {
   if (typeof input != 'object' || input === null || Array.isArray(input)) return 'Expected Object'
 
   const errors = {_: null}
