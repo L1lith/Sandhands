@@ -17,6 +17,8 @@ function sanitizeAny(input, format, options) {
     format = format._
   }
 
+  if (options.hasOwnProperty('equalTo') && input !== options.equalTo) return 'Input Not Equal'
+
   if (primitives.has(format)) {
     return primitives.get(format)(input, options)
   } else if (Array.isArray(format)) {
