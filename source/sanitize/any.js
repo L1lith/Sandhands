@@ -26,7 +26,7 @@ function sanitizeAny(input, format, options={}) {
   } else if (Array.isArray(format)) {
     options = Object.assign({}, defaultOptions.array, options)
     const arrayErrors = sanitizeArray(sanitizeAny, input, format, options)
-    if (flattenErrorsObject(arrayErrors).length > 0) return arrayErrors
+    if (arrayErrors !== null) return arrayErrors
   } else if (typeof format == 'object') {
     options = Object.assign({}, defaultOptions.object, options)
     const objectErrors = sanitizeObject(sanitizeAny, input, format, options)
