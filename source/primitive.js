@@ -1,6 +1,7 @@
 const validEmail = require('./email')
 
 const primitives = [String, Boolean, Number, null, undefined]
+const sanitizeString = require('./primitives/string')
 
 const defaultOptions = new Map([
   [String, {
@@ -56,74 +57,11 @@ function sanitizePrimitive() {
     } else if (options.hasOwnProperty('equalTo') && input !== options.equalTo) {
       errors.push('Incorrect value')
     } else if (format === String) {
-      const {regex, minLength, maxLength, length, allowed, banned, lowercase, uppercase, email, whitespace} = options
-
-      if (options.hasOwnProperty('email')) {
-        if (typeof email != 'boolean') throw new Error('Invalid Email Option')
-        if (email === true && !validEmail(input)) errors.push('Email Invalid')
-      }
-      if (options.hasOwnProperty('minLength')) {
-          if (typeof minLength != 'number' || !isFinite(minLength) || minLength < 0) throw new Error('Invalid Minimum Length Option')
-          if (input.length < minLength) errors.push('Too short')
-      }
-      if (options.hasOwnProperty('maxLength')) {
-        if (typeof options.maxLength != 'number' || !isFinite(options.maxLength) || options.maxLength < 0) throw new Error('Invalid Maximum Length Option')
-        if (input.length > options.maxLength) errors.push('Too long')
-      }
-      if (options.hasOwnProperty('length')) {
-        if (typeof length != 'number' || !isFinite(length) || length < 0) throw new Error('Invalid Length Option')
-        if (input.length != length) errors.push('Incorrect Length')
-      }
-      if (options.hasOwnProperty('allowed')) {
-        if (typeof allowed != 'string' || allowed.length < 1) throw new Error('Invalid Allowed Option')
-        if ([...input].some(letter => !allowed.includes(letter))) errors.push('Character not allowed')
-      }
-      if (options.hasOwnProperty('banned')) {
-        if (typeof banned != 'string' || banned.length < 1) throw new Error('Invalid Banned Option')
-        if ([...input].some(letter => banned.includes(letter))) errors.push('Character not allowed')
-      }
-      if (options.hasOwnProperty('lowercase')) {
-        if (typeof lowercase != 'boolean') throw new Error('Invalid Lowercase Option')
-        if (lowercase === true && input.toLowerCase() != input) errors.push('Lowercase only')
-      }
-      if (options.hasOwnProperty('uppercase')) {
-        if (typeof uppercase != 'boolean') throw new Error('Invalid Lowercase Option')
-        if (uppercase === true && input.toUpperCase() != input) errors.push('Uppercase only')
-      }
-      if (options.hasOwnProperty('whitespace')) {
-        if (typeof whitespace != 'boolean') throw new Error('Invalid Whitespace Option')
-        if (whitespace === false && input.includes(' ')) errors.push('No whitespace')
-      }
-      if (options.hasOwnProperty('regex')) {
-        if (!(regex instanceof RegExp)) throw new Error('Invalid Regex Option')
-        if (regex.test(input) !== true) errors.push('Failed regex')
-      }
+      const stringError = sanitizeString(input, options)
+      if (stringError) errors.push(stringError)
     } else if (format === Number) {
-      const {allowNaN, finite, min, max, even, odd} = options
-      if (options.hasOwnProperty('allowNaN')) {
-        if (typeof allowNaN != 'boolean') throw new Error('Invalid AllowNaN Option')
-        if (allowNaN === false && isNaN(input)) errors.push('NaN not allowed')
-      }
-      if (options.hasOwnProperty('finite')) {
-        if (typeof finite != 'boolean') throw new Error('Invalid Finite Option')
-        if (finite === true && !isFinite(input) && !isNaN(input)) errors.push('Infinity not allowed')
-      }
-      if (options.hasOwnProperty('min')) {
-        if (typeof min != 'number' && !isFinite(min)) throw new Error('Invalid Min Option')
-        if (input < min) errors.push('Too small')
-      }
-      if (options.hasOwnProperty('max')) {
-        if (typeof max != 'number' || !isFinite(max)) throw new Error('Invalid Max Option')
-        if (input > max) errors.push('Too great')
-      }
-      if (options.hasOwnProperty('even')) {
-        if (typeof even != 'boolean') throw new Error('Invalid Even Option')
-        if (even === true && input % 2 != 0) errors.push('Not even')
-      }
-      if (options.hasOwnProperty('odd')) {
-        if (typeof odd != 'boolean') throw new Error('Invalid Odd Option')
-        if (odd === true && input % 2 != 1) errors.push('Not odd')
-      }
+      const numberError = sanitizeNumber(input, options)
+      if (numberError) errors.push(numberError)
     }
   } else if ([null, undefined].includes(format)) {
     if (input !== format) errors.push('Invalid Type')
