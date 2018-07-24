@@ -20,7 +20,7 @@ function sanitizeAny(input, format, options) {
   if (primitives.has(format)) {
     if (defaultOptions.primitives.has(format)) options = Object.assign({}, defaultOptions.primitives.get(format), options)
     const primitiveError = primitives.get(format)(input, options)
-    if (primitiveError) return primitiveError
+    if (primitiveError !== null) return primitiveError
   } else if (Array.isArray(format)) {
     options = Object.assign({}, defaultOptions.array, options)
     const arrayErrors = sanitizeArray(input, format, options)
@@ -28,7 +28,7 @@ function sanitizeAny(input, format, options) {
   } else if (typeof format == 'object') {
     options = Object.assign({}, defaultOptions.object, options)
     const objectErrors = sanitizeObject(input, format, options)
-    if (flattenErrorsObject(objectErrors).length > 0) return objectErrors
+    if (objectErrors !== null) return objectErrors
   } else {
     throw new Error('Invalid Format')
   }
