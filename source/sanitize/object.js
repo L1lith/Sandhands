@@ -3,6 +3,7 @@ const resolveInlineOptions = require('../functions/resolveInlineOptions')
 const sanitizeAny = require('./any')
 
 function sanitizeObject(input, format, options) {
+  console.log({input, format, options})
   if (typeof input != 'object' || input === null || Array.isArray(input)) return 'Expected Object'
 
   const errors = {_: null}
@@ -19,8 +20,11 @@ function sanitizeObject(input, format, options) {
   Object.entries(format).forEach(([childKey, childFormat]) => {
     if (!errors[childKey]) {
       const childOptions = {}
-      resolveInlineOptions(childFormat, childOptions)
+      const inlineOptions = resolveInlineOptions(childFormat, childOptions)
+      childFormat = inlineOptions.format
+      childOptions = inlineOptions.options
       if (Object.prototype.hasOwnProperty.call(input, childKey)) {
+        delete childOptions.optional
         errors[childKey] = sanitizeAny(input[childKey], childFormat, childOptions)
       } else if (childOptions.optional !== true) {
         errors[childKey] = 'Property Required'

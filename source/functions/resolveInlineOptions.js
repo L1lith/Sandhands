@@ -1,11 +1,12 @@
-function resolveInlineOptions(format, options) {
+function resolveInlineOptions(format, options={}) {
   let newOptions = {}
-  while (format.hasOwnProperty('_')) {
-    newOptions = {...newOptions, ...format}
+  while (typeof format == 'object' && format !== null && format.hasOwnProperty('_')) {
+    Object.assign(newOptions, format)
     delete newOptions._
     format = format._
   }
-  options = {...newOptions, options}
+  Object.assign({newOptions, options})
+  return {options: newOptions, format}
 }
 
 module.exports = resolveInlineOptions

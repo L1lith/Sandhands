@@ -13,7 +13,9 @@ const primitives = new Map([
 
 function sanitizeAny(input, format, options={}) {
 
-  resolveInlineOptions(format, options)
+  const inlineOptions = resolveInlineOptions(format, options)
+  format = inlineOptions.format
+  options = inlineOptions.options
 
   if (options.hasOwnProperty('equalTo') && input !== options.equalTo) return 'Input Not Equal'
 
