@@ -1,4 +1,4 @@
-const validEmail = require('./email')
+const validEmail = require('../functions/validEmail')
 
 function sanitizeString(input, options) {
   const {regex, minLength, maxLength, length, allowed, banned, lowercase, uppercase, email, whitespace} = options
