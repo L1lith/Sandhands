@@ -5,6 +5,13 @@ Expressive Javascript Sanitation, Zero Dependencies.
 
 ## [Discord](https://discord.gg/ugBT4XR)
 
+## Installation
+To install Sandhands run the following command:
+
+```
+npm i -s sandhands
+```
+
 ## Example Usage
 ```
 import {sanitize, valid, details} from 'sandhands'
