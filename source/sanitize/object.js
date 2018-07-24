@@ -1,3 +1,4 @@
+const firstError = require('../functions/firstError')
 const resolveInlineOptions = require('../functions/resolveInlineOptions')
 const sanitizeAny = reqire('./any')
 
@@ -28,6 +29,9 @@ function sanitizeObject(input, format, options) {
       }
     }
   })
+
+  if (firstError(errors) !== null) return errors
+  return null
 }
 
 module.exports = sanitizeObject

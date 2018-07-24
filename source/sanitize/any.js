@@ -1,6 +1,5 @@
 const sanitizeArray = require('./array')
 const sanitizeObject = require('./object')
-const flattenErrorsObject = require('../functions/flattenErrorsObject')
 const resolveInlineOptions = require('../functions/resolveInlineOptions')
 const defaultOptions = require('../defaultOptions')
 
