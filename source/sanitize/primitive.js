@@ -1,7 +1,6 @@
-const validEmail = require('./email')
-
 const primitives = [String, Boolean, Number, null, undefined]
-const sanitizeString = require('./primitives/string')
+const sanitizeString = require('./string')
+const sanitizeNumber = require('./number')
 
 const defaultOptions = new Map([
   [String, {
