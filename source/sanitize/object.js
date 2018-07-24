@@ -18,10 +18,9 @@ function sanitizeObject(input, format, options) {
   }
   Object.entries(format).forEach(([childKey, childFormat]) => {
     if (!errors[childKey]) {
-      const childOptions = {}
-      const inlineOptions = resolveInlineOptions(childFormat, childOptions)
+      const inlineOptions = resolveInlineOptions(childFormat)
       childFormat = inlineOptions.format
-      childOptions = inlineOptions.options
+      const childOptions = inlineOptions.options
       if (Object.prototype.hasOwnProperty.call(input, childKey)) {
         delete childOptions.optional
         errors[childKey] = sanitizeAny(input[childKey], childFormat, childOptions)
