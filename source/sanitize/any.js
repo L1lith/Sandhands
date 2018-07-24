@@ -10,6 +10,13 @@ const primitives = new Map([
 ])
 
 function sanitizeAny(input, format, options) {
+  while (format.hasOwnProperty('_')) {
+    const newOptions = {...format}
+    delete newOptions._
+    Object.assign(options, newOptions)
+    format = format._
+  }
+
   if (primitives.has(format)) {
     return primitives.get(format)(input, options)
   } else if (Array.isArray(format)) {
