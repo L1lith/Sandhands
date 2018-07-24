@@ -1,6 +1,7 @@
 const sanitizeArray = require('./array')
 const sanitizeObject = require('./object')
 const flattenErrorsObject = require('../functions/flattenErrorsObject')
+const resolveInlineOptions = require('../functions/resolveInlineOptions')
 const defaultOptions = require('../defaultOptions')
 
 const primitives = new Map([
@@ -12,12 +13,8 @@ const primitives = new Map([
 ])
 
 function sanitizeAny(input, format, options) {
-  while (format.hasOwnProperty('_')) {
-    const newOptions = {...format}
-    delete newOptions._
-    Object.assign(options, newOptions)
-    format = format._
-  }
+
+  resolveInlineOptions(format, options)
 
   if (options.hasOwnProperty('equalTo') && input !== options.equalTo) return 'Input Not Equal'
 
