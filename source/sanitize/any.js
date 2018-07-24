@@ -1,6 +1,7 @@
 const sanitizeArray = require('./array')
 const sanitizeObject = require('./object')
 const flattenErrorsObject = require('../functions/flattenErrorsObject')
+const defaultOptions = require('../defaultOptions')
 
 const primitives = new Map([
   [String, require('./string')],
@@ -21,12 +22,15 @@ function sanitizeAny(input, format, options) {
   if (options.hasOwnProperty('equalTo') && input !== options.equalTo) return 'Input Not Equal'
 
   if (primitives.has(format)) {
+    if (defaultOptions.primitives.has(format)) options = Object.assign({}, defaultOptions.primitives.get(format), options)
     const primitiveError = primitives.get(format)(input, options)
     if (primitiveError) return primitiveError
   } else if (Array.isArray(format)) {
+    options = Object.assign({}, defaultOptions.array, options)
     const arrayErrors = sanitizeArray(input, format, options)
     if (flattenErrorsObject(arrayErrors).length > 0) return arrayErrors
   } else if (typeof format == 'object') {
+    options = Object.assign({}, defaultOptions.object, options)
     const objectErrors = sanitizeObject(input, format, options)
     if (flattenErrorsObject(objectErrors).length > 0) return objectErrors
   } else {
