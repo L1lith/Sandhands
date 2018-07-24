@@ -24,6 +24,13 @@ function sanitizeArray(sanitizeAny, input, format, options) {
       errors[index] = null
     }
   })
+  if (strict === true) {
+    format.forEach((value, index) => {
+      if (!Object.prototype.hasOwnProperty.call(input, index)) {
+        errors[index] = 'Property Missing'
+      }
+    })
+  }
   if (firstError(errors) !== null) return errors
   return null
 }
