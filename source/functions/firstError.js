@@ -3,7 +3,7 @@ function firstError(errors, deep=false) {
     if (Array.isArray(errors)) {
       for (let i = 0; i < errors.length; i++) {
         let error = errors[i]
-        if (deep === true) error = firstError(error)
+        if (deep === true) error = firstError(error, true)
         if (error !== null) return error
       }
       return null
@@ -11,7 +11,7 @@ function firstError(errors, deep=false) {
       const values = Object.values(errors)
       for (let i = 0; i < values.length; i++) {
         let error = values[i]
-        if (deep === true) error = firstError(error)
+        if (deep === true) error = firstError(error, true)
         if (error !== null) return error
       }
       return null
