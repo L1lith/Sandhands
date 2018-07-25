@@ -23,6 +23,9 @@ details(12, String) // returns ["Invalid Type"]
 
 ## Update Logs
 
+#### Version 1.3.31 - Standard Custom Formats
+Add the username and password standard custom format.
+
 #### Version 1.3.3 - Custom Formats
 Sandhands now supports custom formats!
 
