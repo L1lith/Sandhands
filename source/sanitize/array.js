@@ -15,13 +15,13 @@ function sanitizeArray(sanitizeAny, input, format, options) {
 
   Array.prototype.forEach.call(input, (inputValue, index) => {
     if (format.hasOwnProperty(index)) {
-      errors[index] = sanitizeAny(inputValue, format[index])
+      const inputError = sanitizeAny(inputValue, format[index])
+      if (inputError !== null) errors[index] = inputError
     } else if (firstAsStandard === true) {
-      errors[index] = sanitizeAny(inputValue, standard)
+      const inputError = sanitizeAny(inputValue, standard)
+      if (inputError !== null) errors[index] = inputError
     } else if (strict === true) {
       errors[index] = "Invalid Property"
-    } else {
-      errors[index] = null
     }
   })
   if (strict === true) {
@@ -31,8 +31,8 @@ function sanitizeArray(sanitizeAny, input, format, options) {
       }
     })
   }
-  if (firstError(errors) !== null) return errors
-  return null
+  if (errors.length < 1) return null
+  return errors
 }
 
 module.exports = sanitizeArray
