@@ -38,9 +38,27 @@ function sanitizeAny(input, format, options={}) {
 
   if (options.hasOwnProperty('validate')) {
     if (Array.isArray(options.validate)) {
-      if (options.validate.some(func => func(input) !== true)) return 'Input Failed Validation Function'
+      for (let i = 0; i < options.validate.length; i++) {
+        const output = options.validate[i](input)
+        if (typeof output == 'string') {
+          if (output.length < 1) throw new Error('Custom Error Message Must be longer than 0 characters.')
+          return output
+        } else if (typeof output == 'boolean') {
+          if (output === false) return 'Failed Validation Function'
+        } else {
+          throw new Error('Validation Function Returned Unexpected output')
+        }
+      }
     } else {
-      if (options.validate(input) !== true) return 'Input Failed Validation Function'
+      const output = options.validate(input)
+      if (typeof output == 'string') {
+        if (output.length < 1) throw new Error('Custom Error Message Must be longer than 0 characters.')
+        return output
+      } else if (typeof output == 'boolean') {
+        if (output === false) return 'Failed Validation Function'
+      } else {
+        throw new Error('Validation Function Returned Unexpected output')
+      }
     }
   }
 
