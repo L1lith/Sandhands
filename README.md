@@ -23,7 +23,10 @@ details(12, String) // returns ["Invalid Type"]
 
 ## Update Logs
 
-#### Version 1.3.31 - Standard Custom Formats
+##### Version 1.3.32 - Validation Functions
+Validation functions can now return either an error string or a success boolean. Standard username custom format has also been updated.
+
+##### Version 1.3.31 - Standard Custom Formats
 Add the username and password standard custom format.
 
 #### Version 1.3.3 - Custom Formats
