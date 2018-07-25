@@ -6,7 +6,7 @@ const app = express()
 
 app.use(bodyParser.json())
 
-app.use('/', sandhands({email: {_: String, email: true}}))
+app.get('/', sandhands({email: {_: String, email: true}}))
 
 const port = 8050
 
