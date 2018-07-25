@@ -4,7 +4,7 @@ const ensureValidArguments = require('../functions/ensureValidArguments')
 
 function sanitize(...args) {
   ensureValidArguments(...args)
-  const error = firstError(sanitizeObject(...args), true)
+  const error = firstError(sanitizeAny(...args), true)
   if (error !== null) throw new Error(error)
 }
 
