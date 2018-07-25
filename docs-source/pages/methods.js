@@ -40,6 +40,16 @@ console.log(details('foo bar', String)) // []
 console.log(details({a: 24}, {a: String, b: String})) // { _: ["Property Missing"], a: ["Invalid Type"] }`
           }</code>
         </div>
+        <div className="method section">
+          <h2 className="name">Set Default</h2>
+          <p className="description"></p>
+          <code className="example">
+`import {setDefault, valid} from 'sandhands'
+console.log(valid('', String)) // returns false because the default minimum length for strings is 1
+setDefault(String, {minLength: 0})
+console.log(valid('', String)) // returns true because we've now lowered the minimum length to 0`
+          </code>
+        </div>
       </div>
     )
   }
