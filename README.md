@@ -23,6 +23,9 @@ details(12, String) // returns ["Invalid Type"]
 
 ## Update Logs
 
+##### Version 1.3.4 - Details Object/Array output
+The details function no longer returns null property placeholder values.
+
 ##### Version 1.3.32 - Validation Functions
 Validation functions can now return either an error string or a success boolean. Standard username custom format has also been updated.
 
