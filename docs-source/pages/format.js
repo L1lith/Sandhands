@@ -124,7 +124,7 @@ console.log(valid("lily", {_: String, lowercase: true})) // true`
          </div>
          <div className="object section">
             <h2 className="name">Objects</h2>
-            <p className="description">We can sanitize objects by creating our own object representing how we expect the input to look like.</p>
+            <p className="description">We can sanitize objects by creating our own object representing how we expect the input to be formatted.</p>
             <div className="option">
               <h3 className="name">strict</h3>
               <p className="description">Flag as true to require all input values to be defined by the format in order to be valid. Default: true</p>
@@ -143,6 +143,29 @@ console.log(valid({}, {a: {_: String, optional: true}})) // true
 console.log(valid({b: 12}, {})) // false
 console.log(valid({b: 12}, {}, {strict: false})) // true`
             }</code>
+         </div>
+         <div className="array section">
+            <h2 className="name">Arrays</h2>
+            <p className="description">We can sanitize arrays by creating our own array representing how we expect the input to be formatted. The default array behavior might seem confusing at first, however once you understand it in practice it is simple and expressive.</p>
+            <div className="option">
+              <h3 className="name">firstAsStandard</h3>
+              <p className="description">Flag as true to remove the first element of the format array and use it to validate all values of the input array that are not explicitly defined by the format array. The values of all of the format array are all shifted to the left by one index. Default: true if the array length is equal to 1</p>
+            </div>
+            <div className="option">
+              <h3 className="name">strict</h3>
+              <p className="description">Flag as true to require all array indexs to be defined by the format in order to be valid. Default: true if firstAsStandard is undefined</p>
+            </div>
+            <code>{
+`import {valid} from 'sandhands'
+
+console.log(valid([], [])) // true
+console.log(valid([], [Number])) // true - Because the format array is only one element long the first value is set as the firstAsStandard format, and strict is not assumed to be true.
+console.log(valid([12], [Number])) // true
+console.log(valid([54, 25], [Number])) // true - As you can see
+console.log(valid([12, 12], [Number, Number])) // true - Because the format array is longer than one element firstAsStandard is not assumed and strict is set to true.
+console.log(valid([52, 63, 14], [Number, Number])) // false - Because strict is assumed extra array elements will cause validation to fail.
+console.log(valid(['a', 15, 25], {_:[Number, String], firstAsStandard: true})) // true - We can also use firstAsStandard alongside with specific formats for certain array indexes by setting it explicitly in the inline options. The first index (Number) will be the standard format for all indexes, and the second index will now become the beginning of the array of custom formats for specific indexes, meaning the first array index will be expected to be a string, and all following indexes will be expected to be numbers.`
+}</code>
          </div>
          <div className="universal section">
             <h2 className="name">Universal Options</h2>
