@@ -9,7 +9,7 @@ function setDefault(type, defaults) {
 
   if (!defaultOptions.has(type)) throw new Error("Invalid Type")
 
-  const formatError = firstError(validate(type === Object ? {} : type === Array ? [] : type, defaults), true)
+  const formatError = validate(type === Object ? {} : type === Array ? [] : type, defaults)
   if (formatError !== null) throw new Error(`Invalid Default Options, Error: "${formatError}"`)
 
   defaultOptions.set(type, Object.assign({}, defaultOptions.get(type), defaults))

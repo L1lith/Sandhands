@@ -1,6 +1,7 @@
 const sanitizeArray = require('./array')
 const sanitizeObject = require('./object')
 const resolveInlineOptions = require('../functions/resolveInlineOptions')
+const interpretCustomFormats = require('../functions/interpretCustomFormats')
 const defaultOptions = require('../defaultOptions')
 
 const primitives = new Map([
@@ -46,4 +47,9 @@ function sanitizeAny(input, format, options={}) {
   return null
 }
 
-module.exports = sanitizeAny
+function sanitizeAnyWithCustomFormats(input, format, options) {
+  arguments[1] = interpretCustomFormats[arguments[1]]
+  return sanitizeAny(...arguments)
+}
+
+module.exports = sanitizeAnyWithCustomFormats
