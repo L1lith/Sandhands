@@ -163,7 +163,9 @@ console.log(valid([], [Number])) // true - Because the format array is only one 
 console.log(valid([12], [Number])) // true
 console.log(valid([54, 25], [Number])) // true - As you can see
 console.log(valid([12, 12], [Number, Number])) // true - Because the format array is longer than one element firstAsStandard is not assumed and strict is set to true.
+
 console.log(valid([52, 63, 14], [Number, Number])) // false - Because strict is assumed extra array elements will cause validation to fail.
+
 console.log(valid(['a', 15, 25], {_:[Number, String], firstAsStandard: true})) // true - We can also use firstAsStandard alongside with specific formats for certain array indexes by setting it explicitly in the inline options. The first index (Number) will be the standard format for all indexes, and the second index will now become the beginning of the array of custom formats for specific indexes, meaning the first array index will be expected to be a string, and all following indexes will be expected to be numbers.`
 }</code>
          </div>
