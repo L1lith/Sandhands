@@ -6,7 +6,11 @@ const app = express()
 
 app.use(bodyParser.json())
 
-app.post('/register', sandhands({email: {_: String, email: true}, username: {_: String, allowed: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-0123456789"}, password: {_: String, minLength: 8}}))
+app.post('/register', sandhands({
+  username: 'username',
+  email: 'email',
+  password: 'password'
+}))
 
 app.post('/register', (req, res) => {
   console.log('Got Registration Details', req.body)
