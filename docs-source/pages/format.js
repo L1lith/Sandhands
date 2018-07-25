@@ -150,6 +150,10 @@ console.log(valid({b: 12}, {}, {strict: false})) // true`
               <h3 className="name">validate</h3>
               <p className="description">Expects a function or array of functions to compare the input with. If any don't return true, reject the input.</p>
             </div>
+            <div className="option">
+              <h3 className="name">equalTo</h3>
+              <p className="description">Expects the input to be strictly equal (using the === operator) to the value of the equalTo option.</p>
+            </div>
          </div>
     </div>
     )
