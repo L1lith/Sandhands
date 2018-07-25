@@ -23,6 +23,9 @@ details(12, String) // returns ["Invalid Type"]
 
 ## Update Logs
 
+#### Version 1.3.2 - Middleware!
+Sandhands now has middleware support, starting with express!
+
 #### Version 1.3.12 - Sanitize Method Fixed
 There was a reference error in the sanitize method causing it to fail completely. This has been fixed.
 
