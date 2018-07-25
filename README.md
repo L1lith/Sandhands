@@ -23,7 +23,7 @@ details(12, String) // returns ["Invalid Type"]
 
 ## Update Logs
 
-#### Version 1.3.3
+#### Version 1.3.3 - Custom Formats
 Sandhands now supports custom formats!
 
 ##### Version 1.3.21
