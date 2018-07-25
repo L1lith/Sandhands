@@ -1,7 +1,10 @@
 const customFormats = require('../customFormats')
 
 function interpretCustomFormats(format) {
-  if (typeof format == 'string' && customFormats.hasOwnProperty(format)) format = customFormats[format]
+  if (typeof format == 'string' ) {
+    if (!customFormats.hasOwnProperty(format)) throw new Error(`Custom Format "${format}" Not Found`)
+    return customFormats[format])
+  }
   if (typeof format == 'object' && format !== null) {
     if (Array.isArray(format)) {
       return format.map(interpretCustomFormats)
