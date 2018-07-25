@@ -47,9 +47,4 @@ function sanitizeAny(input, format, options={}) {
   return null
 }
 
-function sanitizeAnyWithCustomFormats(input, format, options) {
-  arguments[1] = interpretCustomFormats[arguments[1]]
-  return sanitizeAny(...arguments)
-}
-
-module.exports = sanitizeAnyWithCustomFormats
+module.exports = sanitizeAny

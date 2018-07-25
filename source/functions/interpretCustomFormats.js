@@ -7,7 +7,7 @@ function interpretCustomFormats(format) {
       return format.map(interpretCustomFormats)
     } else {
       const output = {}
-      Object.entries(format).forEach([key, value] => {
+      Object.entries(format).forEach(([key, value]) => {
         output[key] = interpretCustomFormats(value)
       })
       return output
