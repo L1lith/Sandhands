@@ -5,7 +5,7 @@ const defaultOptions = require('../defaultOptions')
 
 function setDefault(type, defaults) {
   if (isEmptyObject(type)) type = Object
-  if (isArray(type) && type.length === 0) type = []
+  if (Array.isArray(type) && type.length === 0) type = []
 
   if (!defaultOptions.has(type)) throw new Error("Invalid Type")
 
@@ -14,3 +14,5 @@ function setDefault(type, defaults) {
 
   defaultOptions.set(type, Object.assign({}, defaultOptions.get(type), defaults))
 }
+
+module.exports = setDefault
