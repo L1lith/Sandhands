@@ -10,6 +10,7 @@ app.post('/register', sandhands({email: {_: String, email: true}}))
 
 app.post('/register', (req, res) => {
   console.log('Got Registration Details', req.body)
+  res.send('Registered')
 })
 
 const port = 8050
