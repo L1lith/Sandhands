@@ -23,6 +23,9 @@ details(12, String) // returns ["Invalid Type"]
 
 ## Update Logs
 
+#### Version 1.3.21
+Minor Change to middleware behavior, null values from arrays and objects are stripped out.
+
 #### Version 1.3.2 - Middleware!
 Sandhands now has middleware support, starting with express!
 
