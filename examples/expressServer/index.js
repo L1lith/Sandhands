@@ -6,7 +6,11 @@ const app = express()
 
 app.use(bodyParser.json())
 
-app.get('/', sandhands({email: {_: String, email: true}}))
+app.post('/register', sandhands({email: {_: String, email: true}}))
+
+app.post('/register', (req, res) => {
+  console.log('Got Registration Details', req.body)
+})
 
 const port = 8050
 
