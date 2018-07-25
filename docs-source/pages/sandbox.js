@@ -12,7 +12,7 @@ import {version} from '@root/node_modules/sandhands/package.json'
 class Sandbox extends Component {
   constructor(props) {
     super(props)
-    this.state = {mode: "details", editors: ["input", "format"], objects: {input: {userEmail: 12}, format: {userEmail: {_:String, email: true}}}, values: {input: "{userEmail: 12}", format: "{userEmail: {_: String, email: true}}"}, output: "{\n    _: null,\n    userEmail: \"Expected String\"\n}"};
+    this.state = {mode: "details", editors: ["input", "format"], objects: {input: {userEmail: 12}, format: {userEmail: {_:String, email: true}}}, values: {input: "{userEmail: 12}", format: "{userEmail: {_: String, email: true}}"}, output: "{\n    userEmail: \"Expected String\"\n}"};
     ['setMode', 'getOutput', 'setObject', 'handleChange', 'onError'].forEach(prop => this[prop] = this[prop].bind(this))
   }
   render() {
