@@ -20,15 +20,15 @@ function sanitizeAny(input, format, options={}) {
   if (options.hasOwnProperty('equalTo') && input !== options.equalTo) return 'Input Not Equal'
 
   if (primitives.has(format)) {
-    if (defaultOptions.primitives.has(format)) options = Object.assign({}, defaultOptions.primitives.get(format), options)
+    if (defaultOptions.has(format)) options = Object.assign({}, defaultOptions.get(format), options)
     const primitiveError = primitives.get(format)(input, options)
     if (primitiveError !== null) return primitiveError
   } else if (Array.isArray(format)) {
-    options = Object.assign({}, defaultOptions.array, options)
+    options = Object.assign({}, defaultOptions.get(Array), options)
     const arrayErrors = sanitizeArray(sanitizeAny, input, format, options)
     if (arrayErrors !== null) return arrayErrors
   } else if (typeof format == 'object') {
-    options = Object.assign({}, defaultOptions.object, options)
+    options = Object.assign({}, defaultOptions.get(Object), options)
     const objectErrors = sanitizeObject(sanitizeAny, input, format, options)
     if (objectErrors !== null) return objectErrors
   } else {

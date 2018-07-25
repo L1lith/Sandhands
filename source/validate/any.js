@@ -21,6 +21,7 @@ const primitiveNames = new Map([
 ])
 
 function validateAny(format, options={}) {
+  if (typeof options != 'object' || options === null) return 'Options Not Object'
   const inlineOptions = resolveInlineOptions(format, options)
   format = inlineOptions.format
   options = inlineOptions.options
