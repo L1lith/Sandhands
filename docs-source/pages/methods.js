@@ -42,7 +42,7 @@ console.log(details({a: 24}, {a: String, b: String})) // { _: ["Property Missing
         </div>
         <div className="method section">
           <h2 className="name">Set Default</h2>
-          <p className="description"></p>
+          <p className="description">Set the default options for any data type</p>
           <code className="example">{
 `import {setDefault, valid} from 'sandhands'
 console.log(valid('', String)) // returns false because the default minimum length for strings is 1
