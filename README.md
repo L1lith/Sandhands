@@ -23,6 +23,9 @@ details(12, String) // returns ["Invalid Type"]
 
 ## Update Logs
 
+#### Version 1.3.12 - Sanitize Method Fixed
+There was a reference error in the sanitize method causing it to fail completely. This has been fixed.
+
 #### Version 1.3.1 - setDefault
 A new method called setDefault has been introduced. It allows you to override the default settings for each data type.
 
