@@ -23,6 +23,9 @@ details(12, String) // returns ["Invalid Type"]
 
 ## Update Logs
 
+##### 1.3.41
+Fix issue/reorganize interpretCustomFormats call
+
 #### Version 1.3.4 - Details Object/Array output
 The details function no longer returns null property placeholder values.
 
