@@ -1,4 +1,4 @@
-const validate = require('./validate/any')
+const validate = require('../validate/any')
 const isEmptyObject = require('../functions/isEmptyObject')
 const firstError = require('../functions/firstError')
 const defaultOptions = require('../defaultOptions')

@@ -8,13 +8,10 @@ function sanitizeObject(sanitizeAny, input, format, options) {
 
   if (options.strict === true) {
     Object.keys(input).forEach(inputKey => {
-      if (!format.hasOwnProperty(inputKey)) {
-        errors[inputKey] = 'Invalid Property'
-      } else {
-        errors[inputKey] = null
-      }
+      if (!format.hasOwnProperty(inputKey)) errors[inputKey] = 'Invalid Property'
     })
   }
+  
   Object.entries(format).forEach(([childKey, childFormat]) => {
     if (!errors[childKey]) {
       const inlineOptions = resolveInlineOptions(childFormat)
@@ -23,7 +20,7 @@ function sanitizeObject(sanitizeAny, input, format, options) {
       if (Object.prototype.hasOwnProperty.call(input, childKey)) {
         delete childOptions.optional
         errors[childKey] = sanitizeAny(input[childKey], childFormat, childOptions)
-      } else if (childOptions.optional !== true) {
+      } else if (childOptions.optional !== true && options.strict === true) {
         errors[childKey] = 'Property Required'
       } else {
         errors[childKey] = null
