@@ -23,13 +23,16 @@ details(12, String) // returns ["Invalid Type"]
 
 ## Update Logs
 
-#### Version 1.3.21
+#### Version 1.3.3
+Sandhands now supports custom formats!
+
+##### Version 1.3.21
 Minor Change to middleware behavior, null values from arrays and objects are stripped out.
 
 #### Version 1.3.2 - Middleware!
 Sandhands now has middleware support, starting with express!
 
-#### Version 1.3.12 - Sanitize Method Fixed
+##### Version 1.3.12 - Sanitize Method Fixed
 There was a reference error in the sanitize method causing it to fail completely. This has been fixed.
 
 #### Version 1.3.1 - setDefault
