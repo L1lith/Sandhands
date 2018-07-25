@@ -23,7 +23,7 @@ details(12, String) // returns ["Invalid Type"]
 
 ## Update Logs
 
-##### Version 1.3.4 - Details Object/Array output
+#### Version 1.3.4 - Details Object/Array output
 The details function no longer returns null property placeholder values.
 
 ##### Version 1.3.32 - Validation Functions
