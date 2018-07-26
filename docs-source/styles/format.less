@@ -2,8 +2,15 @@
   & > .section {
     & > .option {
       margin: 15px 0;
-      border: 2px outset;
+      border: 4px outset white;
+      border-color: white #bbbbbb #bbbbbb white;
       padding: 10px;
+      transition: border-color 0.2s linear;
+      border-radius: 3px;
+      &:hover {
+        border-left-color: #e3e3fd;
+        border-top-color: #e3e3fd;
+      }
       & > .name {
         margin-left: 15px;
       }
