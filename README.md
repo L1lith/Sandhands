@@ -23,6 +23,9 @@ details(12, String) // returns ["Invalid Type"]
 
 ## Update Logs
 
+##### 1.3.42
+Default strict to true in arrays when the array length is greater than 1.
+
 ##### 1.3.41
 Fix issue/reorganize interpretCustomFormats call
 
