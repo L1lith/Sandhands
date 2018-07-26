@@ -23,6 +23,9 @@ details(12, String) // returns ["Invalid Type"]
 
 ## Update Logs
 
+##### 1.3.425
+Further improve array strict default by defaulting to true when the array length is not 1
+
 ##### 1.3.42
 Default strict to true in arrays when the array length is greater than 1.
 
