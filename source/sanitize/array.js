@@ -4,7 +4,7 @@ function sanitizeArray(sanitizeAny, input, format, options) {
   if (!Array.isArray(input)) return 'Expected Array'
   let {firstAsStandard, strict} = options
   if (firstAsStandard === undefined && format.length === 1) firstAsStandard = true // Default to true only if there's only one entry in the array.
-  if (format.length > 1 && !options.hasOwnPropoerty('strict')) strict = true // Default to true only if we're not using firstAsStandard
+  if (format.length !== 1 && !options.hasOwnProperty('strict')) strict = true // Default to true only if we're not using firstAsStandard
   let standard = null
   if (firstAsStandard === true) {
     if (format.length < 1) throw new Error('Missing First Array Value for First As Standard')
