@@ -50,6 +50,17 @@ setDefault(String, {minLength: 0})
 console.log(valid('', String)) // returns true because we've now lowered the minimum length to 0`
           }</code>
         </div>
+        <div className="method section">
+          <h2 className="name">Custom Format</h2>
+          <p className="description">Set a custom format</p>
+          <code className="example">{
+`import {valid, customFormat} from 'sandhands'
+customFormat('ticketNumber', {_: Number, min: 1000, max: 2000})
+console.log(valid(12, 'ticketNumber')) // false
+console.log(valid(1532, 'ticketNumber')) // true
+consooe.log(valid(1523, {_: 'ticketNumber', even: true})) // false`
+          }</code>
+        </div>
       </div>
     )
   }
