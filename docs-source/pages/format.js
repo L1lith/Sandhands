@@ -153,7 +153,7 @@ console.log(valid({b: 12}, {}, {strict: false})) // true`
             </div>
             <div className="option">
               <h3 className="name">strict</h3>
-              <p className="description">Flag as true to require all array indexs to be defined by the format in order to be valid. Default: true if firstAsStandard is undefined</p>
+              <p className="description">Flag as true to require all array indexs to be defined by the format in order to be valid. Default: true if the array length is greater than 1</p>
             </div>
             <code>{
 `import {valid} from 'sandhands'
