@@ -13,7 +13,9 @@ const expectedMatches = [
   ['fish face', {_: String, whitespace: false}, false, 'doesn\'t match strings with whitespace for whitespace true'],
   ['goku@gmail.com', {_: String, email: true}, true, 'matches email strings flagged as emails'],
   ['basdfwawfe', {_: String, email: true}, false, 'doesn\'t match random strings as emails'],
-  ['', {_: String, email: true, minLength: 0}, false, 'doesn\'t match empty strings as emails']
+  ['', {_: String, email: true, minLength: 0}, false, 'doesn\'t match empty strings as emails'],
+  ['banana boat', {_: String, allowed: "abnot "}, true, 'matches a string contained in the allow flag'],
+  ['horse radish', {_: String, allowed: "abnot "}, false, 'doesn\'t match a string not contained in the allow flag']
 ]
 
 describe('String Matching', ()=>{
