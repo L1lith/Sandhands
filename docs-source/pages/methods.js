@@ -34,10 +34,10 @@ console.log(valid('foo bar', String)) // true`
           <code className="example">{
 `import {details} from 'sandhands'
 
-console.log(details(12, String)) // ["Invalid Type"]
-console.log(details('', String)) // ["Too short"]
-console.log(details('foo bar', String)) // []
-console.log(details({a: 24}, {a: String, b: String})) // { _: ["Property Missing"], a: ["Invalid Type"] }`
+console.log(details(12, String)) // "Invalid Type"
+console.log(details('', String)) // "Too short"
+console.log(details('foo bar', String)) // null
+console.log(details({a: 24}, {a: String, b: String})) // {a: "Expected String", b: "Property Required"}`
           }</code>
         </div>
         <div className="method section">
