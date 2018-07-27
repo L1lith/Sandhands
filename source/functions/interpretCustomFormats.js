@@ -9,11 +9,15 @@ function interpretCustomFormats(format) {
     if (Array.isArray(format)) {
       return format.map(interpretCustomFormats)
     } else {
-      const output = {}
-      Object.entries(format).forEach(([key, value]) => {
-        output[key] = interpretCustomFormats(value)
-      })
-      return output
+      if (format.hasOwnProperty('_')) {
+        return {...format, _: interpretCustomFormats(format._)}
+      } else {
+        const output = {}
+        Object.entries(format).forEach(([key, value]) => {
+          output[key] = interpretCustomFormats(value)
+        })
+        return output
+      }
     }
   }
   return format
