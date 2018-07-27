@@ -8,7 +8,9 @@ const expectedMatches = [
   ['words', {_: String, lowercase: true}, true, 'matches lowercase strings with the lowercase flag'],
   ['SANDWICH', {_: String, lowercase: true}, false, 'doesn\'t match uppercase strings for the uppercase flag'],
   ['SALMON', {_: String, uppercase: true}, true, 'matches uppercase strings with the uppercase flag'],
-  ['tuna', {_: String, uppercase: true}, false, 'doesn\'t match lowercase strings for the uppercase flag']
+  ['tuna', {_: String, uppercase: true}, false, 'doesn\'t match lowercase strings for the uppercase flag'],
+  ['tricky', {_: String, whitespace: false}, true, 'matches strings without whitespace for whitespace false'],
+  ['fish face', {_: String, whitespace: false}, false, 'doesn\'t match strings with whitespace for whitespace true']
 ]
 
 describe('String Matching', ()=>{
