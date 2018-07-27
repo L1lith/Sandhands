@@ -9,7 +9,11 @@ const expectedMatches = [
   [[], Number, false, 'doesn\'t match arrays as numbers', {spreadArray: false}],
   [null, Number, false, 'doesn\'t match null as a number'],
   [undefined, Number, false, 'doesn\'t match undefined as a number'],
-  [[true, false], Number, false, 'doesn\'t match booleans as numbers']
+  [[true, false], Number, false, 'doesn\'t match booleans as numbers'],
+  [18, {_: Number, min: 10}, true, 'matches a number that exceeds the min value flag'],
+  [7, {_: Number, min: 10}, false, 'doesn\'t match a number the is smaller than the min value flag'],
+  [25, {_: Number, max: 30}, true, 'matches a number that is smaller than the value flag'],
+  [64, {_: Number, max: 30}, false, 'doesn\'t match a number the is bigger than the max value flag'],
 ]
 
 describe('Number Matching', ()=>{
