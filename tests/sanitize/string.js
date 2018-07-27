@@ -15,7 +15,9 @@ const expectedMatches = [
   ['basdfwawfe', {_: String, email: true}, false, 'doesn\'t match random strings as emails'],
   ['', {_: String, email: true, minLength: 0}, false, 'doesn\'t match empty strings as emails'],
   ['banana boat', {_: String, allowed: "abnot "}, true, 'matches a string contained in the allow flag'],
-  ['horse radish', {_: String, allowed: "abnot "}, false, 'doesn\'t match a string not contained in the allow flag']
+  ['horse radish', {_: String, allowed: "abnot "}, false, 'doesn\'t match a string not contained in the allow flag'],
+  ['Once upon a time...', {_: String, regex: /upon/}, true, 'matches a basic regex search with a matching string'],
+  ['...In a land far far away', {_: String, regex: /upon/}, false, 'doesn\'t match a basic regex search with a non-matching string']
 ]
 
 describe('String Matching', ()=>{
