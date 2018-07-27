@@ -6,7 +6,7 @@ class Format extends Component {
     return (
       <div className="format">
         <h1 className="pagetitle">Format</h1>
-        <p className="description">This section describes the format (the sanitation schema) given to Sandhands to define how it should sanitize the input.</p>
+        <p className="description">This section describes the format (the sanitation schema) we give to Sandhands to define how it should sanitize the input.</p>
         <div className="primitives section">
           <h2 className="name">Primitives Basics</h2>
           Null and undefined can be passed in as is, and it will expect strict equality.
