@@ -1,6 +1,7 @@
 const testValid = require('../functions/testValid')
 
 const expected = [
+  // INPUT, FORMAT, EXPECTED VALID, DESCRIPTION, TESTOPTIONS
   [[], [], true, 'empty arrays with empty arrays', {spreadArray: false}],
   [[12], [], false, 'non-empty arrays with empty arrays', {spreadArray: false}],
   [[51, 2434, 263, 236], [Number], true, 'any length of matching array to an array with a length of one', {spreadArray: false}],

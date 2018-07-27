@@ -1,6 +1,7 @@
 const testValid = require('../functions/testValid')
 
 const expected = [
+  // INPUT, FORMAT, EXPECTED VALID, DESCRIPTION, TESTOPTIONS
   [{}, {}, true, 'an empty object with an empty object'],
   [{a: 12}, {}, false, 'an object with properties with an empty object'],
   [{}, {age: Number}, false, 'an object with missing properties'],

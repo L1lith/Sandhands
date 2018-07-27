@@ -1,6 +1,7 @@
 const testValid = require('../functions/testValid')
 
 const expected = [
+  // INPUT, FORMAT, EXPECTED VALID, DESCRIPTION, TESTOPTIONS
   ['words', String, true, 'by default for a string longer than 1'],
   ['', String, false, 'by default for empty strings'],
   [[-1, 0, 1, 12], String, false, 'numbers as strings'],
