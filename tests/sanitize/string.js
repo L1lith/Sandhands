@@ -19,7 +19,13 @@ const expectedMatches = [
   ['banana boat', {_: String, allowed: "abnot "}, true, 'matches a string contained in the allow flag'],
   ['horse radish', {_: String, allowed: "abnot "}, false, 'doesn\'t match a string not contained in the allow flag'],
   ['Once upon a time...', {_: String, regex: /upon/}, true, 'matches a basic regex search with a matching string'],
-  ['...In a land far far away', {_: String, regex: /upon/}, false, 'doesn\'t match a basic regex search with a non-matching string']
+  ['...In a land far far away', {_: String, regex: /upon/}, false, 'doesn\'t match a basic regex search with a non-matching string'],
+  ['v a p o r w a v e', {_: String, minLength: 5}, true, 'matches a long enough string string for the minLength flag'],
+  ['meep', {_: String, minLength: 5}, false, 'doesn\'t match a too short string string for the minLength flag'],
+  ['Soup', {_: String, maxLength: 10}, true, 'matches a short enough string for the maxLength flag'],
+  ['Soup & Salad', {_: String, maxLength: 10}, false, 'doesn\'t match a too long string for the maxLength flag'],
+  ['Rainbow', {_: String, length: 7}, true, 'matches a correct length string for the length flag'],
+  ['Rainbows', {_: String, length: 7}, false, 'doesn\'t match a incorrect length string for the length flag'],
 ]
 
 describe('String Matching', ()=>{
