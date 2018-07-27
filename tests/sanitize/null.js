@@ -1,4 +1,3 @@
-const valid = require('../../source/exports/valid')
 const testValid = require('../functions/testValid')
 
 const expectedMatches = [
