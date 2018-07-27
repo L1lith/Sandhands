@@ -26,7 +26,7 @@ describe('String Matching', ()=>{
   expectedMatches.forEach(([input, format, expectedResult, description, options={})=>{
     const {spreadArray=true} = options
     it(description, ()=> {
-      if (speadArray === true && Array.isArray(input)) {
+      if (speadArray === true && Array.isArray(input) && input.length > 0) {
         input.forEach(testInput => {
           assert.equal(valid(testInput, format), expectedResult)
         })

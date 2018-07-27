@@ -8,7 +8,7 @@ const expectedMatches = [
   [-1, Number, true, 'matches -1 as a number'],
   [['', 'violin'], Number, false, 'doesn\'t match strings as numbers'],
   [{}, Number, false, 'doesn\'t match objects as numbers'],
-  [[], Number, false, 'doesn\'t match arrays as numbers'],
+  [[], Number, false, 'doesn\'t match arrays as numbers', {spreadArray: false}],
   [null, Number, false, 'doesn\'t match null as a number'],
   [undefined, Number, false, 'doesn\'t match undefined as a number'],
   [[true, false], Number, false, 'doesn\'t match booleans as numbers']
@@ -18,7 +18,7 @@ describe('String Matching', ()=>{
   expectedMatches.forEach(([input, format, expectedResult, description, options={})=>{
     const {spreadArray=true} = options
     it(description, ()=> {
-      if (speadArray === true && Array.isArray(input)) {
+      if (speadArray === true && Array.isArray(input) && input.length > 0) {
         input.forEach(testInput => {
           assert.equal(valid(testInput, format), expectedResult)
         })
