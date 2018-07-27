@@ -7,7 +7,7 @@ const expectedMatches = [
   [[-1, 0, 1], Boolean, false, 'doesn\'t match numbers as booleans'],
   [['', 'tomato'], Boolean, false, 'doesn\'t match strings as booleans'],
   [{}, Boolean, false, 'doesn\'t match objects as booleans'],
-  [[], Boolean, false, 'doesn\'t match arrays as booleans']
+  [[], Boolean, false, 'doesn\'t match arrays as booleans', {spreadArray: false}]
 ]
 
 describe('Boolean Matching', ()=>{
