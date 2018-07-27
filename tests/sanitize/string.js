@@ -33,5 +33,5 @@ const expected= [
 ]
 
 describe('String Matching', ()=>{
-  testValid(expectedMatches)
+  testValid(expected)
 })

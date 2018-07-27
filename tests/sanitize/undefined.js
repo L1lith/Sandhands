@@ -11,5 +11,5 @@ const expected = [
 ]
 
 describe('Undefined Matching', ()=>{
-  testValid(expectedMatches)
+  testValid(expected)
 })

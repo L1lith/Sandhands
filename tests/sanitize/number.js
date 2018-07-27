@@ -1,6 +1,6 @@
 const testValid = require('../functions/testValid')
 
-const expected= [
+const expected = [
   [0, Number, true, '0 as a number'],
   [1, Number, true, '1 as a number'],
   [-1, Number, true, '-1 as a number'],
@@ -21,5 +21,5 @@ const expected= [
 ]
 
 describe('Number Matching', ()=>{
-  testValid(expectedMatches)
+  testValid(expected)
 })

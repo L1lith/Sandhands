@@ -12,5 +12,5 @@ const expected= [
 ]
 
 describe('Boolean Matching', ()=>{
-  testValid(expectedMatches)
+  testValid(expected)
 })

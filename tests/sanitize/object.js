@@ -1,6 +1,6 @@
 const testValid = require('../functions/testValid')
 
-const expected= [
+const expected = [
   [{}, {}, true, 'an empty object with an empty object'],
   [{a: 12}, {}, false, 'an object with properties with an empty object'],
   [true, {}, false, 'true as an object'],
@@ -13,5 +13,5 @@ const expected= [
 ]
 
 describe('Object Matching', ()=>{
-  testValid(expectedMatches)
+  testValid(expected)
 })

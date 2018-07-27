@@ -1,6 +1,6 @@
 const testValid = require('../functions/testValid')
 
-const expected= [
+const expected = [
   [null, null, true, 'null as null'],
   [undefined, null, false, 'undefined as null'],
   [[true, false], null, false, 'booleans as null'],
@@ -11,5 +11,5 @@ const expected= [
 ]
 
 describe('Null Matching', ()=>{
-  testValid(expectedMatches)
+  testValid(expected)
 })
