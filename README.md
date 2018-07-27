@@ -3,6 +3,8 @@ Expressive Javascript Sanitation, Zero Dependencies.
 
 ## [Documentation](https://l1lith.github.io/Sandhands/)
 
+## [Updates](https://github.com/L1lith/Sandhands/blob/master/UPDATES.md)
+
 ## [Discord](https://discord.gg/ugBT4XR)
 
 ## Installation
@@ -20,5 +22,3 @@ valid(12, String) // returns false
 sanitize(12, String) // throws error with message "Invalid Type"
 details(12, String) // returns ["Invalid Type"]
 ```
-
-## Updates
