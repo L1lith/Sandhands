@@ -13,6 +13,6 @@ const expectedMatches = [
   [[true, false], Number, false, 'doesn\'t match booleans as numbers']
 ]
 
-describe('String Matching', ()=>{
+describe('Number Matching', ()=>{
   testValid(expectedMatches)
 })
