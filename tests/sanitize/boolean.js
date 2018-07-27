@@ -1,14 +1,14 @@
 const testValid = require('../functions/testValid')
 
-const expectedMatches = [
-  [true, Boolean, true, 'matches true as a boolean'],
-  [false, Boolean, true, 'matches false as a boolean'],
-  [null, Boolean, false, 'doesn\'t match null as a boolean'],
-  [undefined, Boolean, false, 'doesn\'t match undefined as a boolean'],
-  [[-1, 0, 1], Boolean, false, 'doesn\'t match numbers as booleans'],
-  [['', 'tomato'], Boolean, false, 'doesn\'t match strings as booleans'],
-  [{}, Boolean, false, 'doesn\'t match objects as booleans'],
-  [[], Boolean, false, 'doesn\'t match arrays as booleans', {spreadArray: false}]
+const expected= [
+  [true, Boolean, true, 'true as a boolean'],
+  [false, Boolean, true, 'false as a boolean'],
+  [null, Boolean, false, 'null as a boolean'],
+  [undefined, Boolean, false, 'undefined as a boolean'],
+  [[-1, 0, 1], Boolean, false, 'numbers as booleans'],
+  [['', 'tomato'], Boolean, false, 'strings as booleans'],
+  [{}, Boolean, false, 'objects as booleans'],
+  [[], Boolean, false, 'arrays as booleans', {spreadArray: false}]
 ]
 
 describe('Boolean Matching', ()=>{
