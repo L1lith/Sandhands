@@ -14,8 +14,16 @@ const expectedMatches = [
   [true, Number, false, 'doesn\'t match true as a number']
 ]
 
-describe('Number Matching', ()=>{
+describe('String Matching', ()=>{
   expectedMatches.forEach(([input, format, expectedResult, description])=>{
-    it(description, ()=> assert.equal(valid(input, format), expectedResult))
+    it(description, ()=> {
+      if (Array.isArray(input)) {
+        input.forEach(testInput => {
+          assert.equal(valid(testInput, format), expectedResult)
+        })
+      } else {
+        assert.equal(valid(input, format), expectedResult)
+      }
+    })
   })
 })

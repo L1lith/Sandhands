@@ -5,6 +5,8 @@ const {assert} = chai
 const expectedMatches = [
   ['words', String, true, 'matches by default for a string longer than 1'],
   ['', String, false, 'doesn\'t match by default for empty strings'],
+  [[-1, 0, 1, 12], String, false, 'doesn\'t match numbers as strings'],
+  [true, String, false, 'doesn\'t match booleans as strings'],
   ['words', {_: String, lowercase: true}, true, 'matches lowercase strings with the lowercase flag'],
   ['SANDWICH', {_: String, lowercase: true}, false, 'doesn\'t match uppercase strings for the uppercase flag'],
   ['SALMON', {_: String, uppercase: true}, true, 'matches uppercase strings with the uppercase flag'],
@@ -22,6 +24,14 @@ const expectedMatches = [
 
 describe('String Matching', ()=>{
   expectedMatches.forEach(([input, format, expectedResult, description])=>{
-    it(description, ()=> assert.equal(valid(input, format), expectedResult))
+    it(description, ()=> {
+      if (Array.isArray(input)) {
+        input.forEach(testInput => {
+          assert.equal(valid(testInput, format), expectedResult)
+        })
+      } else {
+        assert.equal(valid(input, format), expectedResult)
+      }
+    })
   })
 })
