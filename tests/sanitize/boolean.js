@@ -1,6 +1,6 @@
 const testValid = require('../functions/testValid')
 
-const expected= [
+const expected = [
   [true, Boolean, true, 'true as a boolean'],
   [false, Boolean, true, 'false as a boolean'],
   [null, Boolean, false, 'null as a boolean'],
