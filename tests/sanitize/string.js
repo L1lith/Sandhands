@@ -5,6 +5,8 @@ const expectedMatches = [
   ['', String, false, 'doesn\'t match by default for empty strings'],
   [[-1, 0, 1, 12], String, false, 'doesn\'t match numbers as strings'],
   [true, String, false, 'doesn\'t match booleans as strings'],
+  [{}, String, false, 'doesn\'t match objects as strings'],
+  [[], String, false, 'doesn\'t match arrays as strings', {spreadArray: false}],
   ['words', {_: String, lowercase: true}, true, 'matches lowercase strings with the lowercase flag'],
   ['SANDWICH', {_: String, lowercase: true}, false, 'doesn\'t match uppercase strings for the uppercase flag'],
   ['SALMON', {_: String, uppercase: true}, true, 'matches uppercase strings with the uppercase flag'],
