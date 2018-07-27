@@ -1,6 +1,4 @@
-const valid = require('../../source/exports/valid')
-const chai = require('chai')
-const {assert} = chai
+const testValid = require('../functions/testValid')
 
 const expectedMatches = [
   ['words', String, true, 'matches by default for a string longer than 1'],
@@ -23,16 +21,5 @@ const expectedMatches = [
 ]
 
 describe('String Matching', ()=>{
-  expectedMatches.forEach(([input, format, expectedResult, description, options={})=>{
-    const {spreadArray=true} = options
-    it(description, ()=> {
-      if (speadArray === true && Array.isArray(input) && input.length > 0) {
-        input.forEach(testInput => {
-          assert.equal(valid(testInput, format), expectedResult)
-        })
-      } else {
-        assert.equal(valid(input, format), expectedResult)
-      }
-    })
-  })
+  testValid(expectedMatches)
 })
