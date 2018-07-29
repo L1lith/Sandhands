@@ -1,7 +1,7 @@
-const validate = require('../../validate/any')
-const sanitize = require('../../sanitize/any')
-const stripNullValues = require('../../functions/stripNullValues')
-const details = require('../details')
+const validate = require('../validate/any')
+const sanitize = require('../sanitize/any')
+const stripNullValues = require('../functions/stripNullValues')
+const details = require('./details')
 
 function sandhandsExpress(format, options={}) {
   const formatError = validate(format, options)
