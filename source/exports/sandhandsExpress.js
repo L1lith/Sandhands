@@ -3,7 +3,7 @@ const sanitize = require('../../sanitize/any')
 const stripNullValues = require('../../functions/stripNullValues')
 const details = require('../details')
 
-function expressMiddleware(format, options={}) {
+function sandhandsExpress(format, options={}) {
   const formatError = validate(format, options)
   if (formatError !== null) throw new Error(formatError)
   return (req, res, next) => {
@@ -15,4 +15,4 @@ function expressMiddleware(format, options={}) {
   }
 }
 
-module.exports = expressMiddleware
+module.exports = sandhandsExpress
