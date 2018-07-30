@@ -63,7 +63,7 @@ consooe.log(valid(1523, {_: 'ticketNumber', even: true})) // false`
         </div>
         <div className="method section">
           <h2 className="name">Sandhands Express</h2>
-          <p className="description">The express middleware allows you to seamlessly sanitize your inputs. You must also use a body parsing library in conjunction to set the req.body to be sanitized.</h2>
+          <p className="description">The express middleware allows you to seamlessly sanitize your inputs. You must also use a body parsing library in conjunction to set the req.body to be sanitized.</p>
           <code className="example">{
 `const server = require('express')()
 const {sandhandsExpress} = require('sandhands')
