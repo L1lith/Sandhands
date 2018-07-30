@@ -61,6 +61,33 @@ console.log(valid(1532, 'ticketNumber')) // true
 consooe.log(valid(1523, {_: 'ticketNumber', even: true})) // false`
           }</code>
         </div>
+        <div className="method section">
+          <h2 className="name">Sandhands Express</h2>
+          <p className="description">The express middleware allows you to seamlessly sanitize your inputs. You must also use a body parsing library in conjunction to set the req.body to be sanitized.</h2>
+          <code className="example">{
+`const server = require('express')()
+const {sandhandsExpress} = require('sandhands')
+const bodyParser = require('body-parser')
+
+server.use(bodyParser.json())
+
+server.post('/register', sandhandsExpress({
+  username: 'username',
+  email: 'email',
+  password: 'password'
+}))
+
+server.post('/register', (req, res) => {
+  console.log('Got Registration Details', req.body)
+  res.send('Registered')
+})
+
+server.listen(8050, err => {
+  if (err) return console.log(err)
+  console.log(`Server Running.}`)
+})`
+          }</code>
+        </div>
       </div>
     )
   }
