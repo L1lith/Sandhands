@@ -52,7 +52,7 @@ console.log(valid('', String)) // returns true because we've now lowered the min
         </div>
         <div className="method section">
           <h2 className="name">Custom Format</h2>
-          <p className="description">Set a custom format</p>
+          <p className="description">Set a custom format. The default custom formats can be found <a href="https://github.com/L1lith/Sandhands/blob/master/source/customFormats.js">here</a>, but they can be overriden.</p>
           <code className="example">{
 `import {valid, customFormat} from 'sandhands'
 customFormat('ticketNumber', {_: Number, min: 1000, max: 2000})
