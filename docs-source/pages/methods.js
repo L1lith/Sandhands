@@ -6,7 +6,7 @@ class Methods extends Component {
     return (
       <div className="methods">
         <h1 className="pagetitle">Methods</h1>
-        <p className="description">This section describes the output of Sandhands&apos;s methods. To see the more about the sanitation format please see <Link to="/Sandhands/format">here</Link>.</p>
+        <p className="description">This section describes the usage of Sandhands&apos;s methods. To see the more about the sanitation format please see <Link to="/Sandhands/format">here</Link>.</p>
         <div className="method section">
           <h2 className="name">Sanitize</h2>
           <p className="description">Throws the first error found in the input.</p>
