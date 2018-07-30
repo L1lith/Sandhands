@@ -84,7 +84,7 @@ server.post('/register', (req, res) => {
 
 server.listen(8050, err => {
   if (err) return console.log(err)
-  console.log(`Server Running.}`)
+  console.log("Server Running.")
 })`
           }</code>
         </div>
