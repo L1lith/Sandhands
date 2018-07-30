@@ -1,4 +1,6 @@
 # Updates
+##### 1.3.43
+Reorganize express middleware export
 
 ##### 1.3.425
 Further improve array strict default by defaulting to true when the array length is not 1
