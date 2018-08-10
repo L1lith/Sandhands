@@ -11,6 +11,11 @@ function sanitizeArray(sanitizeAny, input, format, options) {
     standard = format.splice(0,1)[0]
   }
 
+  if (!options.hasOwnProperty('minLength') && format.length > 0) options.minLength = 1
+  if (options.hasOwnProperty('minLength') && input.length < options.minLength) return 'Array Too Short'
+  if (options.hasOwnProperty('maxLength') && input.length > options.maxLength) return 'Array Too Long'
+  if (options.hasOwnProperty('length') && input.length !== options.length) return 'Incorrect Array Length'
+
   const errors = []
 
   Array.prototype.forEach.call(input, (inputValue, index) => {
