@@ -9,7 +9,7 @@ function customFormat(name, format) {
     return
   }
   if (typeof name != 'string' || name.length < 1) throw new Error('Custom Format Name Invalid')
-  const formatError = validate(format)
+  const formatErrors = validate(format)
   if (formatErrors !== null) throw new Error(`Custom Format Invalid, "${format}"`)
 
   customFormats[name] = format
