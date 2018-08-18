@@ -155,6 +155,18 @@ console.log(valid({b: 12}, {}, {strict: false})) // true`
               <h3 className="name">strict</h3>
               <p className="description">Flag as true to require all array indexs to be defined by the format in order to be valid. Default: true if the array length is not 1</p>
             </div>
+            <div className="option">
+              <h3 className="name">minLength</h3>
+              <p className="description">Set the minimum required length of the array. Default: 1 unless the array has no formats.</p>
+            </div>
+            <div className="option">
+              <h3 className="name">maxLength</h3>
+              <p className="description">Set the maximum length of the array.</p>
+            </div>
+            <div className="option">
+              <h3 className="name">length</h3>
+              <p className="description">Set the exact required length of the array.</p>
+            </div>
             <code>{
 `import {valid} from 'sandhands'
 

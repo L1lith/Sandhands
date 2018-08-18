@@ -6,7 +6,7 @@ import {join} from 'path'
 
 
 const stylesRequireContext = require.context('./styles', true, /\.less$/)
-stylesRequireContext.keys().map(stylesRequireContext)
+stylesRequireContext.keys().forEach(stylesRequireContext)
 
 function run() {
   const root = document.getElementById('root')
