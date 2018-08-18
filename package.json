@@ -1,6 +1,6 @@
 {
   "name": "sandhands",
-  "version": "1.3.43",
+  "version": "1.3.5",
   "description": "Expressive Javascript Sanitation",
   "license": "MIT",
   "main": "index.js",

@@ -1,4 +1,7 @@
 # Updates
+#### 1.3.5
+Implement and document new array formats (minLength, length, maxLength), and modify array behavior (default minLength of 1 usually).
+
 ##### 1.3.43
 Reorganize express middleware export
 
