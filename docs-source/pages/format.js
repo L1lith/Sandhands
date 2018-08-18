@@ -149,15 +149,15 @@ console.log(valid({b: 12}, {}, {strict: false})) // true`
             <p className="description">We can sanitize arrays by creating our own array representing how we expect the input to be formatted. The default array behavior might seem confusing at first, however once you understand it in practice it is simple and expressive.</p>
             <div className="option">
               <h3 className="name">firstAsStandard</h3>
-              <p className="description">Flag as true to remove the first element of the format array and use it to validate all values of the input array that are not explicitly defined by the format array. The values of all of the format array are all shifted to the left by one index. Default: true if the array length is equal to 1</p>
+              <p className="description">Flag as true to splice the first element of the format array and use it to validate all values of the input array that are not explicitly defined by the format array. The values of all of the format array are all shifted to the left by one index. Default: true if the array length is equal to 1</p>
             </div>
             <div className="option">
               <h3 className="name">strict</h3>
-              <p className="description">Flag as true to require all array indexs to be defined by the format in order to be valid. Default: true if the array length is not 1</p>
+              <p className="description">Flag as true to require all array indexs to be defined by the format in order to be valid. Default: true if the format length is at least 1</p>
             </div>
             <div className="option">
               <h3 className="name">minLength</h3>
-              <p className="description">Set the minimum required length of the array. Default: 1 unless the array has no formats.</p>
+              <p className="description">Set the minimum required length of the array. Default: 1 unless the format array is empty.</p>
             </div>
             <div className="option">
               <h3 className="name">maxLength</h3>

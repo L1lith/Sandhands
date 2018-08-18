@@ -1,4 +1,6 @@
 # Updates
+##### 1.3.51
+Improve Array format further
 #### 1.3.5
 Implement and document new array formats (minLength, length, maxLength), and modify array behavior (default minLength of 1 usually).
 
