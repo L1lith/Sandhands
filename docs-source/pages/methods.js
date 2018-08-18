@@ -75,9 +75,7 @@ server.post('/register', sandhandsExpress({
   username: 'username',
   email: 'email',
   password: 'password'
-}))
-
-server.post('/register', (req, res) => {
+}), (req, res) => {
   console.log('Got Registration Details', req.body)
   res.send('Registered')
 })
