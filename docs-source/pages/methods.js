@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
+import Highlight from 'react-highlight'
 
 class Methods extends Component {
   render() {
@@ -10,61 +11,61 @@ class Methods extends Component {
         <div className="method section">
           <h2 className="name">Sanitize</h2>
           <p className="description">Throws the first error found in the input.</p>
-          <code className="example">{
-`import {sanitize} from 'sandhands'
+          <Highlight className="javascript example">{
+`const {sanitize} = require('sandhands')
 
 sanitize(1, String) // throws error with message "Invalid Type"
 sanitize(14, {_: Number, min: 22}) // throws error with message "Too small"`
-          }</code>
+}</Highlight>
         </div>
         <div className="method section">
           <h2 className="name">Valid</h2>
           <p className="description">Returns a boolean repesenting whether or not the input matched the format.</p>
-          <code className="example">{
-`import {valid} from 'sandhands' // or const {valid} = require('sandhands')
+          <Highlight className="javascript example">{
+`const {valid} = require('sandhands')
 
 console.log(valid(12, String)) // false
 console.log(valid('', String)) // false (the default minimum string length is 1)
 console.log(valid('foo bar', String)) // true`
-          }</code>
+          }</Highlight>
         </div>
         <div className="method section">
           <h2 className="name">Details</h2>
           <p className="description">Returns a array/object representing where and what the errors are dependant upon the format</p>
-          <code className="example">{
-`import {details} from 'sandhands'
+          <Highlight className="javascript example">{
+`const {details} = require('sandhands')
 
 console.log(details(12, String)) // "Invalid Type"
 console.log(details('', String)) // "Too short"
 console.log(details('foo bar', String)) // null
 console.log(details({a: 24}, {a: String, b: String})) // {a: "Expected String", b: "Property Required"}`
-          }</code>
+          }</Highlight>
         </div>
         <div className="method section">
           <h2 className="name">Set Default</h2>
           <p className="description">Set the default options for any data type</p>
-          <code className="example">{
-`import {setDefault, valid} from 'sandhands'
+          <Highlight className="javascript example">{
+`const {setDefault, valid} = require('sandhands')
 console.log(valid('', String)) // returns false because the default minimum length for strings is 1
 setDefault(String, {minLength: 0})
 console.log(valid('', String)) // returns true because we've now lowered the minimum length to 0`
-          }</code>
+          }</Highlight>
         </div>
         <div className="method section">
           <h2 className="name">Custom Format</h2>
           <p className="description">Set a custom format. The default custom formats can be found <a href="https://github.com/L1lith/Sandhands/blob/master/source/customFormats.js">here</a>, but they can be overriden.</p>
-          <code className="example">{
-`import {valid, customFormat} from 'sandhands'
+          <Highlight className="javascript example">{
+`const {valid, customFormat} = require('sandhands')
 customFormat('ticketNumber', {_: Number, min: 1000, max: 2000})
 console.log(valid(12, 'ticketNumber')) // false
 console.log(valid(1532, 'ticketNumber')) // true
 consooe.log(valid(1523, {_: 'ticketNumber', even: true})) // false`
-          }</code>
+          }</Highlight>
         </div>
         <div className="method section">
           <h2 className="name">Sandhands Express</h2>
           <p className="description">The express middleware allows you to seamlessly sanitize your inputs. You must also use a body parsing library in conjunction to set the req.body to be sanitized.</p>
-          <code className="example">{
+          <Highlight className="javascript example">{
 `const server = require('express')()
 const {sandhandsExpress} = require('sandhands')
 const bodyParser = require('body-parser')
@@ -84,7 +85,7 @@ server.listen(8050, err => {
   if (err) return console.log(err)
   console.log("Server Running.")
 })`
-          }</code>
+          }</Highlight>
         </div>
       </div>
     )

@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
+import Highlight from 'react-highlight'
 
 class Format extends Component {
   render() {
@@ -10,20 +11,20 @@ class Format extends Component {
         <div className="primitives section">
           <h2 className="name">Primitives Basics</h2>
           Null and undefined can be passed in as is, and it will expect strict equality.
-          <code>{
-`import {valid} from 'sandhands'
+          <Highlight className="javascript">{
+`const {valid} = require('sandhands')
 
 valid('', null) // false
 valid(undefined, null) // false
 valid(null, null) // true
 
 valid('', undefined) // false
-valid(null, undefined') // false
+valid(null, undefined) // false
 valid(undefined, undefined) // true`
-          }</code>
+          }</Highlight>
           Numbers, Strings, and Booleans can be passed in by using their class names.
-          <code>{
-`import {valid} from 'sandhands'
+          <Highlight className="javascript">{
+`const {valid} = require('sandhands')
 
 valid(12, String) // false
 valid(String, String) // false
@@ -32,24 +33,24 @@ valid('hello world', String) // true
 valid('ganondorf', Number) // false
 valid(Number, Number) // false
 valid(42, Number) // true`
-          }</code>
+          }</Highlight>
         </div>
         <div className="options section">
           <h2 className="name">Options</h2>
           <p className="description">All data types have a set of default options which accompany them. We can override the defaults with our own arguments two different ways<br/>The first way is we can pass the options as the third argument after the format to the method.</p>
-          <code>{
-`import {valid} from 'sandhands'
+          <Highlight className="javascript">{
+`const {valid} = require('sandhands')
 
 console.log(valid('hello', String, {minLength: 8})) // false
 console.log(valid('hello world', String, {minLength: 8})) // true`
-         }</code>
+         }</Highlight>
           <p className="description">The second way to pass options is inside the format itself. We use a special object syntax to designate this:</p>
-          <code>{
-`import valid from 'sandhands'
+          <Highlight className="javascript">{
+`const {valid} = require('sandhands')
 
 console.log(valid("Lily", {_: String, lowercase: true})) // false
 console.log(valid("lily", {_: String, lowercase: true})) // true`
-         }</code>
+         }</Highlight>
          </div>
          <div className="strings section">
             <h2 className="name">Strings</h2>
@@ -133,8 +134,8 @@ console.log(valid("lily", {_: String, lowercase: true})) // true`
               <h3 className="name">optional</h3>
               <p className="description">Flag as true on a property to make that property not required (if the input has the property the format for that property is applied)</p>
             </div>
-            <code>{
-`import {valid} from 'sandhands'
+            <Highlight className="javascript">{
+`const {valid} = require('sandhands')
 
 console.log(valid({}, {})) // true
 console.log(valid({}, {a: String})) // false
@@ -142,7 +143,7 @@ console.log(valid({a: 'hello world'}, {a: String})) // true
 console.log(valid({}, {a: {_: String, optional: true}})) // true
 console.log(valid({b: 12}, {})) // false
 console.log(valid({b: 12}, {}, {strict: false})) // true`
-            }</code>
+            }</Highlight>
          </div>
          <div className="array section">
             <h2 className="name">Arrays</h2>
@@ -167,8 +168,8 @@ console.log(valid({b: 12}, {}, {strict: false})) // true`
               <h3 className="name">length</h3>
               <p className="description">Set the exact required length of the array.</p>
             </div>
-            <code>{
-`import {valid} from 'sandhands'
+            <Highlight className="javascript">{
+`const {valid} = require('sandhands')
 
 console.log(valid([], [])) // true
 console.log(valid([], [Number])) // true - Because the format array is only one element long the first value is set as the firstAsStandard format, and strict is not assumed to be true.
@@ -179,7 +180,7 @@ console.log(valid([12, 12], [Number, Number])) // true - Because the format arra
 console.log(valid([52, 63, 14], [Number, Number])) // false - Because strict is assumed extra array elements will cause validation to fail.
 
 console.log(valid(['a', 15, 25], {_:[Number, String], firstAsStandard: true})) // true - We can also use firstAsStandard alongside with specific formats for certain array indexes by setting it explicitly in the inline options. The first index (Number) will be the standard format for all indexes, and the second index will now become the beginning of the array of custom formats for specific indexes, meaning the first array index will be expected to be a string, and all following indexes will be expected to be numbers.`
-}</code>
+}</Highlight>
          </div>
          <div className="universal section">
             <h2 className="name">Universal Options</h2>

@@ -8,6 +8,7 @@ import {sanitize, details, valid} from 'sandhands'
 import objectToLiteralString from '@functions/objectToLiteralString'
 import jsbeautifier from 'js-beautify'
 import {version} from '@root/node_modules/sandhands/package.json'
+import Highlight from 'react-highlight'
 
 class Sandbox extends Component {
   constructor(props) {
@@ -35,9 +36,9 @@ class Sandbox extends Component {
           </select>
         </div>
         <div className={"output "+this.state.mode}>
-          <code>
+          <Highlight className="javascript">
             {this.state.output}
-          </code>
+          </Highlight>
         </div>
         <span className="version">Sandbox using Sandhands@{version}</span>
       </div>
