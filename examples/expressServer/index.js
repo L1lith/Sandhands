@@ -10,9 +10,7 @@ app.post('/register', sandhandsExpress({
   username: 'username',
   email: 'email',
   password: 'password'
-}))
-
-app.post('/register', (req, res) => {
+}), (req, res) => {
   console.log('Got Registration Details', req.body)
   res.send('Registered')
 })
