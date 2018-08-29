@@ -1,4 +1,6 @@
 # Updates
+##### 1.3.52
+Fix custom formats.
 ##### 1.3.51
 Improve Array format further
 #### 1.3.5
