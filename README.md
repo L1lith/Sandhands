@@ -22,3 +22,6 @@ valid(12, String) // returns false
 sanitize(12, String) // throws error with message "Invalid Type"
 details(12, String) // returns "Invalid Type"
 ```
+
+## Forms
+Sandhands has a sister library [SandForms](https://github.com/L1lith/SandForms) for straightforward form management which uses Sandhands internally.
