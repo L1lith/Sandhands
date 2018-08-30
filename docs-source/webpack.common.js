@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const { resolve } = require('path')
 
 module.exports = {
+  context: resolve(__dirname, './source'),
   entry: "./index.js",
   output: {
     path: resolve(__dirname, 'dist'),
@@ -40,10 +41,10 @@ module.exports = {
   },
   resolve: {
     alias: {
-      '@components': resolve(__dirname, 'components/'),
-      '@functions': resolve(__dirname, 'functions/'),
-      '@styles': resolve(__dirname, 'functions/'),
-      '@root': __dirname
+      '@components': resolve(__dirname, 'source/components/'),
+      '@functions': resolve(__dirname, 'source/functions/'),
+      '@styles': resolve(__dirname, 'source/functions/'),
+      '@root': resolve(__dirname, 'source/')
     }
   }
 }
