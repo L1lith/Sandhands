@@ -17,7 +17,7 @@ module.exports = {
       }
     }),
     new CopyWebpackPlugin([{
-      from: resolve(__dirname, 'static/')
+      from: resolve(__dirname, 'source/static/')
     }])
   ],
   module: {

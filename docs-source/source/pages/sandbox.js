@@ -7,7 +7,7 @@ import titleCase from '@functions/titleCase'
 import {sanitize, details, valid} from 'sandhands'
 import objectToLiteralString from '@functions/objectToLiteralString'
 import jsbeautifier from 'js-beautify'
-import {version} from '@root/node_modules/sandhands/package.json'
+import {version} from '@root/../node_modules/sandhands/package.json'
 import Highlight from 'react-highlight'
 
 class Sandbox extends Component {
