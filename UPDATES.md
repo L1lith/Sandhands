@@ -1,6 +1,9 @@
 # Updates
+##### 1.3.63
+Fix bugs with the format shorthand.
+
 #### 1.3.6
-Create new options definition shorthand.
+Create format shorthand.
 
 ##### 1.3.52
 Fix custom formats.
