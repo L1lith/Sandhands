@@ -1,4 +1,7 @@
 # Updates
+#### 1.3.6
+Create new options definition shorthand.
+
 ##### 1.3.52
 Fix custom formats.
 ##### 1.3.51
