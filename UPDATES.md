@@ -1,4 +1,6 @@
 # Updates
+##### 1.3.64
+Add support for deep format shorthand.
 ##### 1.3.63
 Fix bugs with the format shorthand.
 
