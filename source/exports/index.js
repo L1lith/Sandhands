@@ -6,4 +6,4 @@ const customFormat = require('./customFormat')
 const sandhandsExpress = require('./sandhandsExpress')
 const Format = require('./Format').format
 
-module.exports = Object.freeze({details, sanitize, valid, setDefault, customFormat, sandhandsExpress, Format})
+module.exports = Object.freeze({details, sanitize, valid, setDefault, customFormat, sandhandsExpress, Format, F: Format})
