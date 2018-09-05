@@ -3,6 +3,7 @@ const sanitizeObject = require('./object')
 const resolveInlineOptions = require('../functions/resolveInlineOptions')
 const interpretCustomFormats = require('../functions/interpretCustomFormats')
 const defaultOptions = require('../defaultOptions')
+const FormatShorthand = require('../exports/Format').Format
 
 const primitives = new Map([
   [String, require('./string')],
@@ -13,6 +14,7 @@ const primitives = new Map([
 ])
 
 function sanitizeAny(input, format, options={}) {
+  if (format instanceof FormatShorthand) format = format.format
 
   const inlineOptions = resolveInlineOptions(format, options)
   format = inlineOptions.format

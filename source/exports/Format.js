@@ -28,4 +28,4 @@ function createFormat(...args) {
   return new Proxy(new Format(format, options), formatProxy)
 }
 
-module.exports = new Proxy(createFormat, formatProxy)
+module.exports = {format: new Proxy(createFormat, formatProxy), Format: Format}

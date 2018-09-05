@@ -4,6 +4,6 @@ const valid = require('./valid')
 const setDefault = require('./setDefault')
 const customFormat = require('./customFormat')
 const sandhandsExpress = require('./sandhandsExpress')
-const Format = require('./Format')
+const Format = require('./Format').format
 
 module.exports = Object.freeze({details, sanitize, valid, setDefault, customFormat, sandhandsExpress, Format})
