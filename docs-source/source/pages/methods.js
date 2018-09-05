@@ -43,12 +43,13 @@ console.log(details({a: 24}, {a: String, b: String})) // {a: "Expected String", 
         </div>
         <div className="method section">
           <h2 className="name">Format</h2>
-          <p className="description">Allows you to create simpler formats inline instead of supplying a options object, like this:</p>
+          <p className="description">Shorthand for creating formats that have options. This can be useful for writing inline options.</p>
           <Highlight className="javascript Example">{
 `import {details, Format} from 'sandhands'
 
 console.log(details('Mixed Case', Format(String).lowercase())) // "Lowercase Only"
-console.log(details('myname@jef.com', Format(String).email().minLength(25))) // "Too short"`}
+console.log(details('myname@jef.com', Format(String).email().minLength(25))) // "Too short"
+console.log(details({name: Format(String).lowerCase()})) // Also writeable as {_: String, lowercase: true}`}
           </Highlight>
         </div>
         <div className="method section">
