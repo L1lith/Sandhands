@@ -9,7 +9,7 @@ function sandhandsExpress(format, options={}) {
   format = interpretCustomFormats(format)
   const formatError = validate(format, options)
   if (formatError !== null) throw new Error(formatError)
-  return (req, res) => {
+  return (req, res, next) => {
     if (!req.hasOwnProperty('body')) return res.status(400).send("Expected Body")
     const inputErrors = details(req.body, format, options)
     if (inputErrors !== null) return res.status(400).json(inputErrors)
