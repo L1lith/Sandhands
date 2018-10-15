@@ -5,7 +5,7 @@ const interpretCustomFormats = require('../functions/interpretCustomFormats')
 const interpretFormatShorthand = require('../functions/interpretFormatShorthand')
 
 function sandhandsExpress(format, options={}) {
-  args[1] = interpretFormatShorthand(args[1])
+  format = interpretFormatShorthand(format)
   format = interpretCustomFormats(format)
   const formatError = validate(format, options)
   if (formatError !== null) throw new Error(formatError)
