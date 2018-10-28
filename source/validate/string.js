@@ -1,5 +1,5 @@
 function validateStringOptions(options) {
-  const {regex, minLength, maxLength, length, allowed, banned, lowercase, uppercase, email, whitespace} = options
+  const {regex, minLength, maxLength, length, allowed, banned, lowercase, uppercase, email, whitespace, trimmed} = options
 
   if (options.hasOwnProperty('email')) {
     if (typeof email != 'boolean') return 'Invalid Email Option'
@@ -30,6 +30,9 @@ function validateStringOptions(options) {
   }
   if (options.hasOwnProperty('regex')) {
     if (!(regex instanceof RegExp)) return 'Invalid Regex Option'
+  }
+  if (options.hasOwnProperty('trimmed')) {
+    if (typeof trimmed != 'boolean') return 'Invalid Trimmed Option'
   }
   return null
 }

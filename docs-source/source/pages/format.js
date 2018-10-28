@@ -89,11 +89,15 @@ console.log(valid("lily", {_: String, lowercase: true})) // true`
             </div>
             <div className="option">
               <h3 className="name">whitespace</h3>
-              <p className="description">Flag as false to require the string to contain no spaces.</p>
+              <p className="description">Flag as false to require the string to contain no whitespaces.</p>
             </div>
             <div className="option">
               <h3 className="name">regex</h3>
               <p className="description">Set a regular expression to test the input string.</p>
+            </div>
+            <div className="option">
+              <h3 className="name">trimmed</h3>
+              <p className="description">Flag as true to require the string to not begin or end with whitespace.</p>
             </div>
          </div>
          <div className="numbers section">

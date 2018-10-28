@@ -1,4 +1,6 @@
 # Updates
+#### 1.3.73
+Improve whitespace flag and create new trimmed flag.
 ##### 1.3.64
 Add support for deep format shorthand.
 ##### 1.3.63

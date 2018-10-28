@@ -1,7 +1,7 @@
 const validEmail = require('../functions/validEmail')
 
 function sanitizeString(input, options) {
-  const {regex, minLength, maxLength, length, allowed, banned, lowercase, uppercase, email, whitespace} = options
+  const {regex, minLength, maxLength, length, allowed, banned, lowercase, uppercase, email, whitespace, trimmed} = options
 
   if (typeof input != 'string') return 'Expected String'
 
@@ -30,10 +30,16 @@ function sanitizeString(input, options) {
     if (uppercase === true && input.toUpperCase() != input) return 'Uppercase only'
   }
   if (options.hasOwnProperty('whitespace')) {
-    if (whitespace === false && input.includes(' ')) return 'No whitespace'
+    if (whitespace === false && input !== input.trim()) return 'No whitespace'
   }
   if (options.hasOwnProperty('regex')) {
     if (regex.test(input) !== true) return 'Failed regex'
+  }
+  if (options.hasOwnProperty('trimmed')) {
+    if (trimmed === true) {
+      if (/^\s/.test(input)) return 'Cannot start with whitespace'
+      if (/\s$/.test(input)) return 'Cannot end with whitespace'
+    }
   }
   return null
 }
