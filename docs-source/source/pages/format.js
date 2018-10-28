@@ -162,7 +162,7 @@ console.log(valid({b: 12}, {}, {strict: false})) // true`
             </div>
             <div className="option">
               <h3 className="name">minLength</h3>
-              <p className="description">Set the minimum required length of the array. Default: 1 unless the format array is empty.</p>
+              <p className="description">Set the minimum required length of the array. Default: 1 unless the format array is empty and there is no standard.</p>
             </div>
             <div className="option">
               <h3 className="name">maxLength</h3>
