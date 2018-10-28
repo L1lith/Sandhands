@@ -14,6 +14,7 @@ const primitives = new Map([
 ])
 
 function sanitizeAny(input, format, options={}) {
+  console.log(input, format)
   if (format instanceof FormatShorthand) format = format.format
 
   const inlineOptions = resolveInlineOptions(format, options)
@@ -21,7 +22,6 @@ function sanitizeAny(input, format, options={}) {
   options = inlineOptions.options
 
   if (options.hasOwnProperty('equalTo') && input !== options.equalTo) return 'Input Not Equal'
-
   if (primitives.has(format)) {
     if (defaultOptions.has(format)) options = Object.assign({}, defaultOptions.get(format), options)
     const primitiveError = primitives.get(format)(input, options)
