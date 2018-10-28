@@ -11,8 +11,8 @@ function sanitizeArray(sanitizeAny, input, format, options) {
   }
   if (!options.hasOwnProperty('strict') && format.length > 0) strict = true // Default to true only if the format length is greater than 0
 
-  if (!options.hasOwnProperty('minLength') && format.length > 0) options.minLength = 1
-  if (options.hasOwnProperty('minLength') && input.length < minLength) return 'Array Too Short'
+  if (!options.hasOwnProperty('minLength') && (format.length > 0 || firstAsStandard === true)) minLength = 1
+  if (typeof minLength == 'number' && input.length < minLength) return 'Array Too Short'
   if (options.hasOwnProperty('maxLength') && input.length > maxLength) return 'Array Too Long'
   if (options.hasOwnProperty('length') && input.length !== length) return 'Incorrect Array Length'
 

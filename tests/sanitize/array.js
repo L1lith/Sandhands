@@ -3,7 +3,8 @@ const testValid = require('../functions/testValid')
 const expected = [
   // INPUT, FORMAT, EXPECTED VALID, DESCRIPTION, TESTOPTIONS
   [[], [], true, 'empty arrays with empty arrays', {spreadArray: false}],
-  [[12], [], false, 'non-empty arrays with empty arrays', {spreadArray: false}],
+  [[12], [], true, 'non-empty arrays with empty arrays', {spreadArray: false}],
+  [[], [Number], false, 'empty arrays with non-empty arrays', {spreadArray: false}],
   [[51, 2434, 263, 236], [Number], true, 'any length of matching array to an array with a length of one', {spreadArray: false}],
   [[234234, 63452, 52523, 'Hamburgers'], [Number], false, 'any length of non-matching array to an array with a length of one', {spreadArray: false}],
   [[424, 234324], [Number, Number], true, 'a valid array with equal length to an array longer than 1', {spreadArray: false}],
