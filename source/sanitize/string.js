@@ -30,7 +30,7 @@ function sanitizeString(input, options) {
     if (uppercase === true && input.toUpperCase() != input) return 'Uppercase only'
   }
   if (options.hasOwnProperty('whitespace')) {
-    if (whitespace === false && input !== input.trim()) return 'No whitespace'
+    if (whitespace === false && /\s/.test(input)) return 'No whitespace'
   }
   if (options.hasOwnProperty('regex')) {
     if (regex.test(input) !== true) return 'Failed regex'
