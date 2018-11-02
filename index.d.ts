@@ -63,9 +63,13 @@ declare interface IStringOptions {
      */
     uppercase?: boolean;
     /**
-     * Set a string to blacklist the input string.
+     * Flag as false to ban whitespace.
      */
     whitespace?: boolean;
+    /**
+    * Flag as false to ban whitespace at the beginning and end of the string
+    **/
+    trimmed?: boolean;
 }
 
 /**
