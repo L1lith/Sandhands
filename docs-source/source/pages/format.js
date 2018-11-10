@@ -10,7 +10,7 @@ class Format extends Component {
         <p className="description">This section describes the format (the sanitation schema) we give to Sandhands to define how it should sanitize the input.</p>
         <div className="primitives section">
           <h2 className="name">Primitives Basics</h2>
-          Null and undefined can be passed in as is, and it will expect strict equality.
+          <p className="description">Null and undefined can be passed in as is, and it will expect strict equality.</p>
           <Highlight className="javascript">{
 `const {valid} = require('sandhands')
 
@@ -22,7 +22,7 @@ valid('', undefined) // false
 valid(null, undefined) // false
 valid(undefined, undefined) // true`
           }</Highlight>
-          Numbers, Strings, and Booleans can be passed in by using their class names.
+          <p className="description">Numbers, Strings, and Booleans can be passed in by using their class names.</p>
           <Highlight className="javascript">{
 `const {valid} = require('sandhands')
 
