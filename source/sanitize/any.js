@@ -14,7 +14,6 @@ const primitives = new Map([
 ])
 
 function sanitizeAny(input, format, options={}) {
-  console.log(input, format)
   if (format instanceof FormatShorthand) format = format.format
 
   const inlineOptions = resolveInlineOptions(format, options)
