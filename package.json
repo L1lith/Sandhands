@@ -27,6 +27,9 @@
     "mocha": "^5.2.0"
   },
   "optionalDependencies": {
-    "express": "^3.21.2"
+    "express": "^3.21.2",
+    "is-my-ip-valid": "^1.0.0"
+  },
+  "dependencies": {
   }
 }
