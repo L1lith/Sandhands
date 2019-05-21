@@ -25,11 +25,11 @@ function sanitizeAny(input, format, options={}) {
     if (defaultOptions.has(format)) options = Object.assign({}, defaultOptions.get(format), options)
     const primitiveError = primitives.get(format)(input, options)
     if (primitiveError !== null) return primitiveError
-  } else if (Array.isArray(format)) {
+  } else if (Array.isArray(format) || format === Array) {
     options = Object.assign({}, defaultOptions.get(Array), options)
     const arrayErrors = sanitizeArray(sanitizeAny, input, format, options)
     if (arrayErrors !== null) return arrayErrors
-  } else if (typeof format == 'object') {
+  } else if (typeof format == 'object' || format === Object) {
     options = Object.assign({}, defaultOptions.get(Object), options)
     const objectErrors = sanitizeObject(sanitizeAny, input, format, options)
     if (objectErrors !== null) return objectErrors
