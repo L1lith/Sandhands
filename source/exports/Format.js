@@ -9,7 +9,10 @@ class Format {
 
 const formatProxy = {
   get: (target, prop) => {
-    if (!(target instanceof Format)) throw new Error("Expected Format Instance")
+    if (target === createFormat) return createFormat[prop]
+    if (!(target instanceof Format)) {
+      throw new Error("Expected Format Instance")
+    }
     if (prop === "_") throw new Error("You must assign the format in the constructor")
     if (prop === "format") return target.format
     return (newValue=true)=>{
