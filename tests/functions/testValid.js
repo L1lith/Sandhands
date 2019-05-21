@@ -1,20 +1,19 @@
 const chai = require('chai')
 const {assert} = chai
-const valid = require('../../source/exports/valid')
+const isValid = require('../../source/exports/valid')
 
 
 function testValid(tests) {
   tests.forEach(test=>{
-    const {input, format, description, options={}} = test
-    const expectedResult = test.valid
+    const {input, format, description, valid=true, options={}} = test
     const {spreadArray=true, assumeBeginning=true} = options
-    it((assumeBeginning === true ? expectedResult === true ? 'matches ' : "doesn\'t match " : '' )+ description, ()=> {
+    it((assumeBeginning === true ? valid === true ? 'matches' : "doesn\'t match" : '' ) + " " + description, ()=> {
       if (spreadArray === true && Array.isArray(input) && input.length > 0) {
         input.forEach(testInput => {
-          assert.equal(valid(testInput, format), expectedResult)
+          assert.equal(isValid(testInput, format), valid)
         })
       } else {
-        assert.equal(valid(input, format), expectedResult)
+        assert.equal(isValid(input, format), valid)
       }
     })
   })
