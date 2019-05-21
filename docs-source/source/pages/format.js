@@ -153,6 +153,10 @@ console.log(valid({b: 12}, {}, {strict: false})) // true`
             <h2 className="name">Arrays</h2>
             <p className="description">We can sanitize arrays by creating our own array representing how we expect the input to be formatted. The default array behavior might seem confusing at first, however once you understand it in practice it is simple and expressive.</p>
             <div className="option">
+              <h3 className="name">standard</h3>
+              <p className="description">Manually set the standard to use for all array values</p>
+            </div>
+            <div className="option">
               <h3 className="name">firstAsStandard</h3>
               <p className="description">Flag as true to splice the first element of the format array and use it to validate all values of the input array that are not explicitly defined by the format array. The values of all of the format array are all shifted to the left by one index. Default: true if the array length is equal to 1</p>
             </div>
