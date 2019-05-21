@@ -1,16 +1,45 @@
 const testValid = require('../functions/testValid')
 
-const expected = [
-  // INPUT, FORMAT, EXPECTED VALID, DESCRIPTION, TESTOPTIONS
-  [null, null, true, 'null as null'],
-  [undefined, null, false, 'undefined as null'],
-  [[true, false], null, false, 'booleans as null'],
-  [[141, 0, -2523, 1, -1], null, false, 'numbers as null'],
-  [['', 'Jimmy Johns'], null, false, 'strings as null'],
-  [{}, null, false, 'objects as null'],
-  [[], null, false, 'arrays as null', {spreadArray: false}]
-]
+const expected = [{
+  "input": null,
+  "format": null,
+  "valid": true,
+  "description": "null as null"
+}, {
+  "input": undefined,
+  "format": null,
+  "valid": false,
+  "description": "undefined as null"
+}, {
+  "input": [true, false],
+  "format": null,
+  "valid": false,
+  "description": "booleans as null"
+}, {
+  "input": [141, 0, -2523, 1, -1],
+  "format": null,
+  "valid": false,
+  "description": "numbers as null"
+}, {
+  "input": ["", "Jimmy Johns"],
+  "format": null,
+  "valid": false,
+  "description": "strings as null"
+}, {
+  "input": {},
+  "format": null,
+  "valid": false,
+  "description": "objects as null"
+}, {
+  "input": [],
+  "format": null,
+  "valid": false,
+  "description": "arrays as null",
+  "options": {
+    "spreadArray": false
+  }
+}]
 
-describe('Null Matching', ()=>{
+describe('Null Matching', () => {
   testValid(expected)
 })

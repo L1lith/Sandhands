@@ -1,15 +1,44 @@
 const testValid = require('../functions/testValid')
 
-const expected = [
-  // INPUT, FORMAT, EXPECTED VALID, DESCRIPTION, TESTOPTIONS
-  [undefined, undefined, true, 'undefined as undefined'],
-  [null, undefined, false, 'null as undefined'],
-  [[true, false], undefined, false, 'booleans as undefined'],
-  [[141, 0, -2523, 1, -1], undefined, false, 'numbers as undefined'],
-  [['', 'Princess Bride'], undefined, false, 'strings as undefined'],
-  [{}, undefined, false, 'objects as undefined'],
-  [[], undefined, false, 'arrays as undefined', {spreadArray: false}]
-]
+const expected = [{
+  "input": undefined,
+  "format": undefined,
+  "valid": true,
+  "description": "undefined as undefined"
+}, {
+  "input": null,
+  "format": undefined,
+  "valid": false,
+  "description": "null as undefined"
+}, {
+  "input": [true, false],
+  "format": undefined,
+  "valid": false,
+  "description": "booleans as undefined"
+}, {
+  "input": [141, 0, -2523, 1, -1],
+  "format": undefined,
+  "valid": false,
+  "description": "numbers as undefined"
+}, {
+  "input": ["", "Princess Bride"],
+  "format": undefined,
+  "valid": false,
+  "description": "strings as undefined"
+}, {
+  "input": {},
+  "format": undefined,
+  "valid": false,
+  "description": "objects as undefined"
+}, {
+  "input": [],
+  "format": undefined,
+  "valid": false,
+  "description": "arrays as undefined",
+  "options": {
+    "spreadArray": false
+  }
+}]
 
 describe('Undefined Matching', ()=>{
   testValid(expected)

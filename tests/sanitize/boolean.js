@@ -1,17 +1,50 @@
 const testValid = require('../functions/testValid')
 
-const expected = [
-  // INPUT, FORMAT, EXPECTED VALID, DESCRIPTION, TESTOPTIONS
-  [true, Boolean, true, 'true as a boolean'],
-  [false, Boolean, true, 'false as a boolean'],
-  [null, Boolean, false, 'null as a boolean'],
-  [undefined, Boolean, false, 'undefined as a boolean'],
-  [[-1, 0, 1], Boolean, false, 'numbers as booleans'],
-  [['', 'tomato'], Boolean, false, 'strings as booleans'],
-  [{}, Boolean, false, 'objects as booleans'],
-  [[], Boolean, false, 'arrays as booleans', {spreadArray: false}]
-]
+const expected = [{
+  "input": true,
+  "format": Boolean,
+  "valid": true,
+  "description": "true as a boolean"
+}, {
+  "input": false,
+  "format": Boolean,
+  "valid": true,
+  "description": "false as a boolean"
+}, {
+  "input": null,
+  "format": Boolean,
+  "valid": false,
+  "description": "null as a boolean"
+}, {
+  "input": undefined,
+  "format": Boolean,
+  "valid": false,
+  "description": "undefined as a boolean"
+}, {
+  "input": [-1, 0, 1],
+  "format": Boolean,
+  "valid": false,
+  "description": "numbers as booleans"
+}, {
+  "input": ["", "tomato"],
+  "format": Boolean,
+  "valid": false,
+  "description": "strings as booleans"
+}, {
+  "input": {},
+  "format": Boolean,
+  "valid": false,
+  "description": "objects as booleans"
+}, {
+  "input": [],
+  "format": Boolean,
+  "valid": false,
+  "description": "arrays as booleans",
+  "options": {
+    "spreadArray": false
+  }
+}]
 
-describe('Boolean Matching', ()=>{
+describe('Boolean Matching', () => {
   testValid(expected)
 })
