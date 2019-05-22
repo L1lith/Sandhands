@@ -1,6 +1,6 @@
 const chai = require('chai')
 const {assert} = chai
-const isValid = require('./dist/Sandhands-commonjs.min.js').valid
+const isValid = require('./dist/Sandhands-commonjs.js').valid
 
 
 function testValid(tests) {
