@@ -1,8 +1,11 @@
 dist/
 node_modules/
 .DS_Store
+/test.js
+/testing/
 /docs/
 /docs-source/
 /examples/
-/test.js
 /tests/
+
+!/**/.gitkeep
