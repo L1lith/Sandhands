@@ -3,7 +3,7 @@
   "version": "1.4.0",
   "description": "Expressive Javascript Sanitation",
   "license": "MIT",
-  "main": "index.js",
+  "main": "Sandhands-commonjs.js",
   "scripts": {
     "build": "rollup -c",
     "test": "mocha \"tests/**/*.js\""

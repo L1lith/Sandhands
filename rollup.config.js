@@ -37,7 +37,7 @@ const branchConfigs = [
 	{
 		output: {
 			format: "cjs",
-			file: join(__dirname, "dist", "Sandhands-commonjs.min.js")
+			file: join(__dirname, "dist", "Sandhands-commonjs.js")
 		}
 	},
 	{
