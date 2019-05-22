@@ -1,5 +1,5 @@
-const firstError = require('../functions/firstError')
-const resolveInlineOptions = require('../functions/resolveInlineOptions')
+import firstError from '../functions/firstError'
+import resolveInlineOptions from '../functions/resolveInlineOptions'
 
 function sanitizeObject(sanitizeAny, input, format, options) {
   if (typeof input != 'object' || input === null || Array.isArray(input)) return 'Expected Object'
@@ -31,4 +31,4 @@ function sanitizeObject(sanitizeAny, input, format, options) {
   return errors
 }
 
-module.exports = sanitizeObject
+export default sanitizeObject

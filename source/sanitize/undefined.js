@@ -3,4 +3,4 @@ function sanitizeUndefined(input, options) {
   return null
 }
 
-module.exports = sanitizeUndefined
+export default sanitizeUndefined

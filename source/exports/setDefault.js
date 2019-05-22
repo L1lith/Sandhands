@@ -1,7 +1,7 @@
-const validate = require('../validate/any')
-const isEmptyObject = require('../functions/isEmptyObject')
-const firstError = require('../functions/firstError')
-const defaultOptions = require('../defaultOptions')
+import validate from '../validate/any'
+import isEmptyObject from '../functions/isEmptyObject'
+import firstError from '../functions/firstError'
+import defaultOptions from '../defaultOptions'
 
 function setDefault(type, defaults) {
   if (isEmptyObject(type)) type = Object
@@ -15,4 +15,4 @@ function setDefault(type, defaults) {
   defaultOptions.set(type, Object.assign({}, defaultOptions.get(type), defaults))
 }
 
-module.exports = setDefault
+export default setDefault

@@ -1,7 +1,7 @@
-const sanitizeAny = require('../sanitize/any')
-const ensureValidArguments = require('../functions/ensureValidArguments')
-const interpretCustomFormats = require('../functions/interpretCustomFormats')
-const interpretFormatShorthand = require('../functions/interpretFormatShorthand')
+import sanitizeAny from '../sanitize/any'
+import ensureValidArguments from '../functions/ensureValidArguments'
+import interpretCustomFormats from '../functions/interpretCustomFormats'
+import interpretFormatShorthand from '../functions/interpretFormatShorthand'
 
 function details(...args) {
   args[1] = interpretFormatShorthand(args[1])
@@ -10,4 +10,4 @@ function details(...args) {
   return sanitizeAny(...args)
 }
 
-module.exports = details
+export default details

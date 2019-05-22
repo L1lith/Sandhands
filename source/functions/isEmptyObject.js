@@ -3,4 +3,4 @@ function isEmptyObject(object) {
   return true
 }
 
-module.exports = isEmptyObject
+export default isEmptyObject

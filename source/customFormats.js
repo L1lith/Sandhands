@@ -10,3 +10,5 @@ try {
   const validate = validator()
   customFormats.IP = {_: String, validate: str => validate(str)}
 } catch(error) {}
+
+export default customFormats

@@ -1,5 +1,5 @@
-const validate = require('../validate/any')
-const customFormats = require('../customFormats')
+import validate from '../validate/any'
+import customFormats from '../customFormats'
 
 function customFormat(name, format) {
   if (arguments.length === 1 && typeof arguments[0] == 'object' && arguments[0] !== null) {
@@ -15,4 +15,4 @@ function customFormat(name, format) {
   customFormats[name] = format
 }
 
-module.exports = customFormat
+export default customFormat

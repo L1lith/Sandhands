@@ -7,4 +7,4 @@ function validateObjectOptions(options) {
   return null
 }
 
-module.exports = validateObjectOptions
+export default validateObjectOptions

@@ -1,9 +1,11 @@
-const details = require('./details')
-const sanitize = require('./sanitize')
-const valid = require('./valid')
-const setDefault = require('./setDefault')
-const customFormat = require('./customFormat')
-const sandhandsExpress = require('./sandhandsExpress')
-const Format = require('./Format').format
+import details from './details'
+import sanitize from './sanitize'
+import valid from './valid'
+import setDefault from './setDefault'
+import customFormat from './customFormat'
+import sandhandsExpress from './sandhandsExpress'
+import {format as Format} from './Format'
 
-module.exports = Object.freeze({details, sanitize, valid, setDefault, customFormat, sandhandsExpress, Format, F: Format})
+const F = Format
+
+export {details, sanitize, valid, setDefault, customFormat, sandhandsExpress, Format, F}

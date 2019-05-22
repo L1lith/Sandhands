@@ -22,4 +22,4 @@ function validateNumberOptions(options) {
   return null
 }
 
-module.exports = validateNumberOptions
+export default validateNumberOptions

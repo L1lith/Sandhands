@@ -3,4 +3,4 @@ function sanitizeNull(input, options) {
   return null
 }
 
-module.exports = sanitizeNull
+export default sanitizeNull

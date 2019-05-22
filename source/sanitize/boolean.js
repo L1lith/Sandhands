@@ -3,4 +3,4 @@ function sanitizeBoolean(input, options) {
   return null
 }
 
-module.exports = sanitizeBoolean
+export default sanitizeBoolean

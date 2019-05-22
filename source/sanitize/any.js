@@ -1,20 +1,25 @@
-const sanitizeArray = require('./array')
-const sanitizeObject = require('./object')
-const resolveInlineOptions = require('../functions/resolveInlineOptions')
-const interpretCustomFormats = require('../functions/interpretCustomFormats')
-const defaultOptions = require('../defaultOptions')
-const FormatShorthand = require('../exports/Format').Format
+import sanitizeArray from './array'
+import sanitizeObject from './object'
+import resolveInlineOptions from '../functions/resolveInlineOptions'
+import interpretCustomFormats from '../functions/interpretCustomFormats'
+import defaultOptions from '../defaultOptions'
+import {Format as FormatClass} from '../exports/Format'
+import string from './string'
+import number from './number'
+import boolean from './boolean'
+import sanitizeNull from './null'
+import sanitizeUndefined from './undefined'
 
 const primitives = new Map([
-  [String, require('./string')],
-  [Number, require('./number')],
-  [Boolean, require('./boolean')],
-  [null, require('./null')],
-  [undefined, require('./undefined')]
+  [String, string],
+  [Number, number],
+  [Boolean, boolean],
+  [null, sanitizeNull],
+  [undefined, sanitizeUndefined]
 ])
 
 function sanitizeAny(input, format, options={}) {
-  if (format instanceof FormatShorthand) format = format.format
+  if (format instanceof FormatClass) format = format.format
 
   const inlineOptions = resolveInlineOptions(format, options)
   format = inlineOptions.format
@@ -71,4 +76,4 @@ function sanitizeAnyWithCustomFormats(input, format, options) {
   return sanitizeAny(...arguments)
 }
 
-module.exports = sanitizeAnyWithCustomFormats
+export default sanitizeAnyWithCustomFormats

@@ -29,4 +29,4 @@ function sanitizeNumber(input, options) {
   return null
 }
 
-module.exports = sanitizeNumber
+export default sanitizeNumber

@@ -1,4 +1,4 @@
-const firstError = require('../functions/firstError')
+import firstError from '../functions/firstError'
 
 function sanitizeArray(sanitizeAny, input, format, options) {
   if (!Array.isArray(input)) return 'Expected Array'
@@ -42,4 +42,4 @@ function sanitizeArray(sanitizeAny, input, format, options) {
   return errors
 }
 
-module.exports = sanitizeArray
+export default sanitizeArray

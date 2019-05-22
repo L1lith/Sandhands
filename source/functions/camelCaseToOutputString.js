@@ -1,7 +1,7 @@
-const titleCase = require('./titleCase')
+import titleCase from './titleCase'
 
 function camelCaseToOutputString(str) {
 	return toTitleCase(str.split(/(?=[A-Z])/g).join(' '))
 }
 
-module.exports = camelCaseToOutputString
+export default camelCaseToOutputString

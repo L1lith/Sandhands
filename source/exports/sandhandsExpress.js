@@ -1,8 +1,8 @@
-const validate = require('../validate/any')
-const sanitize = require('../sanitize/any')
-const details = require('./details')
-const interpretCustomFormats = require('../functions/interpretCustomFormats')
-const interpretFormatShorthand = require('../functions/interpretFormatShorthand')
+import validate from '../validate/any'
+import sanitize from '../sanitize/any'
+import details from './details'
+import interpretCustomFormats from '../functions/interpretCustomFormats'
+import interpretFormatShorthand from '../functions/interpretFormatShorthand'
 
 function sandhandsExpress(format, options={}) {
   format = interpretFormatShorthand(format)
@@ -17,4 +17,4 @@ function sandhandsExpress(format, options={}) {
   }
 }
 
-module.exports = sandhandsExpress
+export default sandhandsExpress

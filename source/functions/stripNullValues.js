@@ -20,4 +20,4 @@ function stripNullValues(object) {
   }
 }
 
-module.exports = stripNullValues
+export default stripNullValues

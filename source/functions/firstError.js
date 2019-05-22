@@ -20,4 +20,4 @@ function firstError(errors, deep=false) {
   return errors
 }
 
-module.exports = firstError
+export default firstError

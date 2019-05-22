@@ -4,4 +4,4 @@ function numberLength(number) {
   return Math.ceil( Math.log10( num + 1 ))
 }
 
-module.exports = numberLength
+export default numberLength

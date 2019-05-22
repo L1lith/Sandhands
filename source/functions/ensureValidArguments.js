@@ -1,4 +1,4 @@
-const validateAny = require('../validate/any')
+import validateAny from '../validate/any'
 
 function ensureValidArguments(input, format, options) {
   if (arguments.length < 1) throw new Error('Missing Input Argument')
@@ -8,4 +8,4 @@ function ensureValidArguments(input, format, options) {
   if (error !== null) throw new Error(error)
 }
 
-module.exports = ensureValidArguments
+export default ensureValidArguments

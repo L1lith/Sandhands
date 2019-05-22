@@ -9,4 +9,4 @@ function resolveInlineOptions(format, options={}) {
   return {options: newOptions, format}
 }
 
-module.exports = resolveInlineOptions
+export default resolveInlineOptions

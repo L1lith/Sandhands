@@ -1,4 +1,4 @@
-const FormatClass = require('../exports/Format').Format
+import {Format as FormatClass} from '../exports/Format'
 
 function interpretFormatShorthand(format) {
   if(typeof format == 'object' && format !== null) {
@@ -13,4 +13,4 @@ function interpretFormatShorthand(format) {
   return format
 }
 
-module.exports = interpretFormatShorthand
+export default interpretFormatShorthand

@@ -37,4 +37,4 @@ function validateStringOptions(options) {
   return null
 }
 
-module.exports = validateStringOptions
+export default validateStringOptions

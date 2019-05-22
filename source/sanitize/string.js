@@ -1,4 +1,4 @@
-const validEmail = require('../functions/validEmail')
+import validEmail from '../functions/validEmail'
 
 function sanitizeString(input, options) {
   const {regex, minLength, maxLength, length, allowed, banned, lowercase, uppercase, email, whitespace, trimmed} = options
@@ -44,4 +44,4 @@ function sanitizeString(input, options) {
   return null
 }
 
-module.exports = sanitizeString
+export default sanitizeString

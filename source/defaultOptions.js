@@ -1,4 +1,4 @@
-module.exports = new Map([
+const defaultOptions = new Map([
   [String, {
     minLength: 1
   }],
@@ -22,3 +22,5 @@ module.exports = new Map([
     strict: true
   }]
 ])
+
+export default defaultOptions

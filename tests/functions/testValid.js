@@ -19,4 +19,4 @@ function testValid(tests) {
   })
 }
 
-module.exports = testValid
+export default testValid

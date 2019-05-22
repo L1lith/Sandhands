@@ -1,1 +1,1 @@
-module.exports = require('./source/exports')
+export * from './source/exports'

@@ -1,15 +1,17 @@
-const allowedOptions = require('./allowedOptions')
-const resolveInlineOptions = require('../functions/resolveInlineOptions')
-const isEmptyObject = require('../functions/isEmptyObject')
-const validateObjectOptions = require('./object')
-const validateArrayOptions = require('./array')
-const camelCaseToOutputString = require('../functions/camelCaseToOutputString')
+import allowedOptions from './allowedOptions'
+import resolveInlineOptions from '../functions/resolveInlineOptions'
+import isEmptyObject from '../functions/isEmptyObject'
+import validateObjectOptions from './object'
+import validateArrayOptions from './array'
+import camelCaseToOutputString from '../functions/camelCaseToOutputString'
+import string from './string'
+import number from './number'
 
 const validPrimitives = [String, Number, Boolean, null, undefined]
 
 const validatePrimitiveOptions = new Map([
-  [String, require('./string')],
-  [Number, require('./number')]
+  [String, string],
+  [Number, number]
 ])
 
 const primitiveNames = new Map([
@@ -55,4 +57,4 @@ function validateAny(format, options={}) {
   return null
 }
 
-module.exports = validateAny
+export default validateAny

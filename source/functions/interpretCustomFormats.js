@@ -1,4 +1,4 @@
-const customFormats = require('../customFormats')
+import customFormats from '../customFormats'
 
 function interpretCustomFormats(format) {
   if (typeof format == 'string' ) {
@@ -23,4 +23,4 @@ function interpretCustomFormats(format) {
   return format
 }
 
-module.exports = interpretCustomFormats
+export default interpretCustomFormats

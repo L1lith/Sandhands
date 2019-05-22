@@ -1,4 +1,4 @@
-const validate = require('../validate/any')
+import validate from '../validate/any'
 
 class Format {
   constructor(format, options) {
@@ -30,5 +30,5 @@ function createFormat(...args) {
   const [format, options] = args
   return new Proxy(new Format(format, options), formatProxy)
 }
-
-module.exports = {format: new Proxy(createFormat, formatProxy), Format: Format}
+const format = new Proxy(createFormat, formatProxy)
+export {format, Format}

@@ -19,4 +19,4 @@ function validateArrayOptions(options) {
   return null
 }
 
-module.exports = validateArrayOptions
+export default validateArrayOptions

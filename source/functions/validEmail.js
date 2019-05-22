@@ -5,4 +5,4 @@ function validEmail(data) {
   return emailRegex.test(data)
 }
 
-module.exports = validEmail
+export default validEmail

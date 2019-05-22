@@ -5,6 +5,7 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
+    "build": "rollup -c",
     "test": "mocha \"tests/**/*.js\""
   },
   "repository": {
@@ -23,12 +24,19 @@
   },
   "homepage": "https://github.com/L1lith/Sandhands#readme",
   "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
     "chai": "^4.2.0",
-    "mocha": "^5.2.0"
+    "deepmerge": "^3.2.0",
+    "mocha": "^5.2.0",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-commonjs": "^10.0.0",
+    "rollup-plugin-node-resolve": "^5.0.0",
+    "rollup-plugin-require-context": "^1.0.0",
+    "rollup-plugin-uglify": "^6.0.2"
   },
   "optionalDependencies": {
     "express": "^3.21.2",
     "is-my-ip-valid": "^1.0.0"
-  },
-  "dependencies": {}
+  }
 }
