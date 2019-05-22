@@ -1,9 +1,9 @@
 {
   "name": "sandhands",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Expressive Javascript Sanitation",
   "license": "MIT",
-  "main": "Sandhands-commonjs.js",
+  "main": "./dist/Sandhands-commonjs.js",
   "scripts": {
     "build": "rollup -c",
     "test": "mocha \"tests/**/*.js\""
@@ -17,6 +17,9 @@
     "js",
     "sanitation",
     "expressive"
+  ],
+  "files": [
+    "/dist/Sandhands-commonjs.js"
   ],
   "author": "Lilith",
   "bugs": {
