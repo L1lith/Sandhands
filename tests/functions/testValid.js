@@ -1,6 +1,6 @@
 const chai = require('chai')
 const {assert} = chai
-const isValid = require('./dist/Sandhands-commonjs.js').valid
+const isValid = require('../../dist/Sandhands-commonjs.js').valid
 
 
 function testValid(tests) {
@@ -19,4 +19,4 @@ function testValid(tests) {
   })
 }
 
-export default testValid
+module.exports = testValid
