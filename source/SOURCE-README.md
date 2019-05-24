@@ -6,7 +6,7 @@ The functions exported by the library. They handle implementing the internals of
 
 #### source/Functions
 
-A set of random miscellanious functions used throughout the library
+A set of random miscellaneous functions used throughout the library
 
 #### source/Sanitize
 
