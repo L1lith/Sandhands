@@ -1,9 +1,21 @@
 import validate from '../validate/any'
+import sanitize from './sanitize'
+import valid from './valid'
+import details from './details'
 
 class Format {
     constructor(format, options) {
         validate(format, options)
         this.format = { ...(options || {}), _: format }
+    }
+    details(input) {
+        return details(input, this.format)
+    }
+    valid(input) {
+        return valid(input, this.format)
+    }
+    sanitize(input) {
+        return sanitize(input, this.format)
     }
 }
 
@@ -15,6 +27,8 @@ const formatProxy = {
         }
         if (prop === '_') throw new Error('You must assign the format in the constructor')
         if (prop === 'format') return target.format
+        if (target.hasOwnProperty(prop) && typeof target[prop] == 'function')
+            return target[prop].bind(target)
         return (newValue = true) => {
             target.format[prop] = newValue
             return new Proxy(target, formatProxy)
