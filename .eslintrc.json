@@ -4,7 +4,7 @@
         "es6": true,
         "node": true
     },
-    "extends": "eslint:recommended",
+    "extends": ["prettier"],
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
@@ -14,7 +14,7 @@
         "sourceType": "module"
     },
     "rules": {
-      "semi": ["error", "never"],
-      "indent": ["error", 2]
+        "semi": ["error", "never"],
+        "indent": ["error", 4]
     }
 }
