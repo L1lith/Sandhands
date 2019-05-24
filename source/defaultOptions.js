@@ -1,3 +1,4 @@
+//prettier-ignore
 const defaultOptions = new Map([
   [String, {
     minLength: 1
