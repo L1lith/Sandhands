@@ -1,4 +1,4 @@
-![logo](https://raw.githubusercontent.com/l1lith/Sandhands/master/logo/100x100.png/questions/14494747/add-images-to-readme-md-on-github)
+![logo](https://raw.githubusercontent.com/l1lith/Sandhands/master/logo/100x100.png)
 # Sandhands ![License](https://img.shields.io/badge/license-MIT-blue.svg) ![NPM Version](https://img.shields.io/npm/v/sandhands.svg?style=flat)
 Expressive Javascript Sanitation, Zero Dependencies.
 
