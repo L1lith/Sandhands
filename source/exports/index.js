@@ -5,6 +5,7 @@ import setDefault from './setDefault'
 import customFormat from './customFormat'
 import sandhandsExpress from './sandhandsExpress'
 import { format as Format } from './Format'
+import All from './All'
 
 const F = Format
 

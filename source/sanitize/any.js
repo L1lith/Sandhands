@@ -9,6 +9,7 @@ import number from './number'
 import boolean from './boolean'
 import sanitizeNull from './null'
 import sanitizeUndefined from './undefined'
+import All from '../exports/All'
 
 const primitives = new Map([
     [String, string],
@@ -39,6 +40,8 @@ function sanitizeAny(input, format, options = {}) {
         options = Object.assign({}, defaultOptions.get(Object), options)
         const objectErrors = sanitizeObject(sanitizeAny, input, format, options)
         if (objectErrors !== null) return objectErrors
+    } else if (format === All) {
+      // Do Nothing
     } else {
         throw new Error('Invalid Format')
     }
