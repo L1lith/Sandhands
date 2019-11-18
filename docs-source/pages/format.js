@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import Highlight from 'react-highlight'
+import '../styles/format.less'
 
 class Format extends Component {
   render() {
@@ -103,6 +104,10 @@ console.log(valid("lily", {_: String, lowercase: true})) // true`
          <div className="numbers section">
             <h2 className="name">Numbers</h2>
             <div className="option">
+              <h3 className="name">integer</h3>
+              <p className="description">Flag as true to require whole numbers. Default: false</p>
+            </div>
+            <div className="option">
               <h3 className="name">allowNaN</h3>
               <p className="description">Flag as true to allow NaN. Default: false</p>
             </div>
@@ -200,6 +205,17 @@ console.log(valid(['a', 15, 25], {_:[Number, String], firstAsStandard: true})) /
               <h3 className="name">equalTo</h3>
               <p className="description">Expects the input to be strictly equal (using the === operator) to the value of the equalTo option.</p>
             </div>
+         </div>
+         <div className="numbers section">
+            <h2 className="name">All</h2>
+            <p className="description">The All format is a special class we can import that acts as a wildcard. Please be careful with this as any kind of dangerous input could be passed. Please only use this if you know what you are doing.</p>
+            <Highlight className="javascript">{
+`const {valid, All} = require('sandhands')
+
+console.log(valid("Hello :)", All)) // true
+console.log(valid(Infinity, All)) // true
+console.log(valid({a: 'hello world', b: 12}, {a: String, b: All})) // true`
+            }</Highlight>
          </div>
     </div>
     )
