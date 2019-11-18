@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Link from 'next/Link'
-import '../../styles/home.less'
+import '../styles/home.less'
 
 class Home extends Component {
     render() {
@@ -10,11 +10,11 @@ class Home extends Component {
                 <p>
                     Sandhands is used to sanitize all kinds of arbitarily complex user input! Make sure to check out the {' '}
                     <li>
-                        <Link href="/Sandhands/format.html"><a>Format section</a></Link>
+                        <Link href="/format.html"><a>Format section</a></Link>
                     </li>{' '}
                     and{' '}
                     <li>
-                        <Link href="/Sandhands/sandbox.html"><a>play around with the sandbox!</a></Link>
+                        <Link href="/sandbox.html"><a>play around with the sandbox!</a></Link>
                     </li>
                 </p>
             </div>

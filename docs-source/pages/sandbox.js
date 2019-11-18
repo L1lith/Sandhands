@@ -1,12 +1,12 @@
 import React, {Component} from 'react'
-import AceEditor from '../../components/editor'
-import titleCase from '../../functions/titleCase'
+import AceEditor from '../components/editor'
+import titleCase from '../functions/titleCase'
 import {sanitize, details, valid} from 'sandhands'
-import objectToLiteralString from '../../functions/objectToLiteralString'
+import objectToLiteralString from '../functions/objectToLiteralString'
 import jsbeautifier from 'js-beautify'
 import {version} from 'sandhands/package.json'
 import Highlight from 'react-highlight'
-import '../../styles/sandbox.less'
+import '../styles/sandbox.less'
 
 class Sandbox extends Component {
   constructor(props) {

@@ -1,11 +1,12 @@
 const withLess = require('@zeit/next-less')
 module.exports = withLess({
+  assetPrefix: '/Sandhands',
   exportPathMap: function() {
     return {
-      '/Sandhands/home.html': { page: '/Sandhands/home' },
-      '/Sandhands/sandbox.html': { page: '/Sandhands/sandbox' },
-      '/Sandhands/methods.html': { page: '/Sandhands/methods' },
-      '/Sandhands/format.html': { page: '/Sandhands/format' },
+      '/home.html': { page: '/home' },
+      '/sandbox.html': { page: '/sandbox' },
+      '/methods.html': { page: '/methods' },
+      '/format.html': { page: '/format' },
     };
   }
 })
