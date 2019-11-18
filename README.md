@@ -5,7 +5,7 @@ Expressive Javascript Sanitation, Zero Dependencies.
 
 Please read our Docs 😊 Sandhands is a big passion project of mine, and I think you could love it too! Need help or want to talk about it? Message me on Discord! Lilith#7915
 
-## [Documentation](https://l1lith.github.io/Sandhands/)
+## [Documentation](https://l1lith.github.io/Sandhands/home)
 
 ## [Updates](https://github.com/L1lith/Sandhands/blob/master/UPDATES.md)
 
