@@ -1,6 +1,6 @@
 function sanitizeNumber(input, options) {
     if (typeof input != 'number') return 'Expected Number'
-    const { allowNaN, finite, min, max, even, odd } = options
+    const { allowNaN, finite, min, max, even, odd, integer } = options
 
     if (options.hasOwnProperty('allowNaN')) {
         if (typeof allowNaN != 'boolean') throw new Error('Invalid AllowNaN Option')
@@ -25,6 +25,10 @@ function sanitizeNumber(input, options) {
     if (options.hasOwnProperty('odd')) {
         if (typeof odd != 'boolean') throw new Error('Invalid Odd Option')
         if (odd === true && input % 2 != 1) return 'Not odd'
+    }
+    if (options.hasOwnProperty('integer')) {
+      if (typeof integer != 'boolean') throw new Error("Invalid Integer Option")
+      if (integer === true && input % 1 !== 0) return 'Not an integer'
     }
     return null
 }
