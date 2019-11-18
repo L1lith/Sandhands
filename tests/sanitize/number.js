@@ -123,6 +123,24 @@ const expected = [
         },
         valid: false,
         description: 'a number the is bigger than the max value flag'
+    },
+    {
+        input: 423,
+        format: {
+          _: Number,
+          integer: true
+        },
+        valid: true,
+        description: 'a integer as an integer'
+    },
+    {
+        input: 51.2,
+        format: {
+          _: Number,
+          integer: true
+        },
+        valid: false,
+        description: 'a non-integer as an integer'
     }
 ]
 
