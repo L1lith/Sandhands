@@ -9,4 +9,4 @@ import All from './All'
 
 const F = Format
 
-export { details, sanitize, valid, setDefault, customFormat, sandhandsExpress, Format, F }
+export { details, sanitize, valid, setDefault, customFormat, sandhandsExpress, Format, F, All }

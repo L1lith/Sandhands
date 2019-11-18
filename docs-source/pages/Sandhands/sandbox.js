@@ -1,14 +1,12 @@
 import React, {Component} from 'react'
-import AceEditor from 'react-ace'
-import brace from 'brace'
-import 'brace/mode/javascript'
-import 'brace/theme/ambiance'
-import titleCase from '@functions/titleCase'
+import AceEditor from '../../components/editor'
+import titleCase from '../../functions/titleCase'
 import {sanitize, details, valid} from 'sandhands'
-import objectToLiteralString from '@functions/objectToLiteralString'
+import objectToLiteralString from '../../functions/objectToLiteralString'
 import jsbeautifier from 'js-beautify'
-import {version} from '@root/../node_modules/sandhands/package.json'
+import {version} from 'sandhands/package.json'
 import Highlight from 'react-highlight'
+import '../../styles/sandbox.less'
 
 class Sandbox extends Component {
   constructor(props) {
@@ -98,4 +96,4 @@ class Sandbox extends Component {
   }
 }
 
-export default {path: "/Sandhands/sandbox", exact: true, component: Sandbox}
+export default Sandbox

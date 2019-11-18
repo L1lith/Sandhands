@@ -206,4 +206,4 @@ console.log(valid(['a', 15, 25], {_:[Number, String], firstAsStandard: true})) /
   }
 }
 
-export default {path: '/Sandhands/format', exact: true, component: Format}
+export default Format
