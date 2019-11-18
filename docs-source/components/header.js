@@ -7,7 +7,7 @@ class Header extends Component {
   render() {
     return (
       <header className="main">
-        <h1 className="sitetitle"><Link href="/Sandhands/"><a>Sandhands Docs</a></Link></h1>
+        <h1 className="sitetitle"><Link href="/Sandhands/home"><a>Sandhands Docs</a></Link></h1>
         <ul>
           <li><Link href="/Sandhands/format"><a>Format</a></Link></li>
           <li><Link href="/Sandhands/methods"><a>Methods</a></Link></li>
