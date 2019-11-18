@@ -18,6 +18,7 @@ class Home extends Component {
                         <Link href="/sandbox.html"><a>play around with the sandbox!</a></Link>
                     </li>
                 </p>
+                <br/>
                 <h2>A Basic Express Example</h2>
               <Highlight className="javascript example">{`const express = require('express')
 const {sandhandsExpress} = require('sandhands')
