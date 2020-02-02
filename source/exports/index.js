@@ -6,7 +6,8 @@ import customFormat from './customFormat'
 import sandhandsExpress from './sandhandsExpress'
 import { format as Format } from './Format'
 import All from './All'
+import allowedOptions from '../validate/allowedOptions'
 
 const F = Format
 
-export { details, sanitize, valid, setDefault, customFormat, sandhandsExpress, Format, F, All }
+export { allowedOptions, details, sanitize, valid, setDefault, customFormat, sandhandsExpress, Format, F, All }
