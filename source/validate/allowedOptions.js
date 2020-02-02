@@ -1,12 +1,23 @@
-const universal = ['equalTo', 'validate']
+const universal = Object.freeze(['equalTo', 'validate'])
 
 //prettier-ignore
-const primitives = new Map([
-  [String, ["regex", "minLength", "maxLength", "length", "allowed", "banned", "lowercase", "uppercase", "email", "whitespace"]],
-  [Number, ["allowNaN", "finite", "min", "max", "even", "odd", "integer"]]
+let primitives = new Map([
+  [String, Object.freeze(["regex", "minLength", "maxLength", "length", "allowed", "banned", "lowercase", "uppercase", "email", "whitespace"])],
+  [Number, Object.freeze(["allowNaN", "finite", "min", "max", "even", "odd", "integer"])]
 ])
+Object.defineProperties(primitives, {
+  set: {
+    get: () => {throw new Error("cannot Modify")},
+    configurable: false
+  },
+  delete: {
+    get: () => {throw new Error("cannot Modify")},
+    configurable: false
+  }
+})
+Object.freeze(primitives)
 
-const object = ['strict']
-const array = ['strict', 'firstAsStandard', 'minLength', 'maxLength', 'length']
+const object = Object.freeze(['strict'])
+const array = Object.freeze(['strict', 'firstAsStandard', 'minLength', 'maxLength', 'length'])
 
-export default { universal, primitives, object, array }
+export default Object.freeze({ universal, primitives, object, array })
