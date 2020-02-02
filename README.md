@@ -9,8 +9,6 @@ Please read our Docs 😊 Sandhands is a big passion project of mine, and I thin
 
 ## [Updates](https://github.com/L1lith/Sandhands/blob/master/UPDATES.md)
 
-## [Discord](https://discord.gg/ugBT4XR)
-
 ## Installation
 To install Sandhands run the following command:
 
@@ -26,6 +24,21 @@ valid(12, String) // returns false
 sanitize(12, String) // throws error with message "Invalid Type"
 details(12, String) // returns "Invalid Type"
 ```
+
+## Working With Express
+Sandhands has built-in support for Express!
+```js
+...
+server.post('/register', sandhandsExpress({
+  username: 'username',
+  email: 'email',
+  password: 'password'
+}), (req, res) => {
+  console.log('Got Registration Details', req.body)
+  res.send('Registered')
+}
+```
+To see the full example please [visit this page.](https://l1lith.github.io/Sandhands/methods.html)
 
 ## Forms
 Sandhands has a sister library [SandForms](https://github.com/L1lith/SandForms) for straightforward form management which uses Sandhands internally.
