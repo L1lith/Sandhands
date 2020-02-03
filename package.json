@@ -6,6 +6,7 @@
   "main": "./dist/Sandhands-commonjs.js",
   "scripts": {
     "build": "rollup -c",
+    "build-production": "rollup -c --prod",
     "test": "mocha \"tests/**/*.js\""
   },
   "repository": {
