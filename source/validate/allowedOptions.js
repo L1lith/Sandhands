@@ -2,7 +2,7 @@ const universal = Object.freeze(['equalTo', 'validate'])
 
 //prettier-ignore
 let primitives = new Map([
-  [String, Object.freeze(["regex", "minLength", "maxLength", "length", "allowed", "banned", "lowercase", "uppercase", "email", "whitespace"])],
+  [String, Object.freeze(["trimmed", "regex", "minLength", "maxLength", "length", "allowed", "banned", "lowercase", "uppercase", "email", "whitespace"])],
   [Number, Object.freeze(["allowNaN", "finite", "min", "max", "even", "odd", "integer"])]
 ])
 Object.defineProperties(primitives, {

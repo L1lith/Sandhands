@@ -14,7 +14,7 @@
 // }
 import Either from '../Either'
 
-function either(formats) {
+function either(...formats) {
   return new Either(formats)
 }
 
