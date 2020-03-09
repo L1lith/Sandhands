@@ -17,7 +17,15 @@
     "javascript",
     "js",
     "sanitation",
-    "expressive"
+    "expressive",
+    "data",
+    "sanitize",
+    "validate",
+    "validation",
+    "input",
+    "express",
+    "server",
+    "web"
   ],
   "files": [
     "/dist/Sandhands-commonjs.js"
