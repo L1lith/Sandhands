@@ -19,7 +19,7 @@ function sanitizeArray(sanitizeAny, input, format, options) {
         standard = validators.splice(0, 1)[0]
     }
 
-    if (!options.hasOwnProperty('minLength') && (validators.length > 0 || firstAsStandard === true))
+    if (!options.hasOwnProperty('minLength') && (validators.length > 0 || hasStandard === true))
         minLength = 1
     if (typeof minLength == 'number' && input.length < minLength) return 'Array Too Short'
     if (options.hasOwnProperty('maxLength') && input.length > maxLength) return 'Array Too Long'

@@ -35,16 +35,28 @@ const expected = [
           spreadArray: false
         },
         valid: true,
-        description: 'valid array with a first as standard format array'
+        description: 'valid array with first as standard'
     },
     {
-        input: ['hi', 'there', 1],
+        input: ['aab', 5, '123312'],
         format: [String],
         testOptions: {
           spreadArray: false
         },
         valid: false,
-        description: 'invalid array with a first as standard format array'
+        description: 'invalid array with first as standard'
+    },
+    {
+        input: [],
+        format: {
+          _: [],
+          standard: Number
+        },
+        testOptions: {
+          spreadArray: false
+        },
+        valid: false,
+        description: 'empty array with manual standard'
     }
 ]
 
