@@ -57,6 +57,30 @@ const expected = [
         },
         valid: false,
         description: 'empty array with manual standard'
+    },
+    {
+        input: ['big', 'old', 'shoe'],
+        format: {
+          _: [],
+          standard: String
+        },
+        testOptions: {
+          spreadArray: false
+        },
+        valid: true,
+        description: 'valid array with manual standard'
+    },
+    {
+        input: ['unicorn', 58323],
+        format: {
+          _: [],
+          standard: String
+        },
+        testOptions: {
+          spreadArray: false
+        },
+        valid: false,
+        description: 'invalid array with manual standard'
     }
 ]
 
