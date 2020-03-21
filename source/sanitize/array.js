@@ -19,8 +19,6 @@ function sanitizeArray(sanitizeAny, input, format, options) {
         standard = validators.splice(0, 1)[0]
     }
 
-    console.log({hasStandard, standard}, options.hasOwnProperty('standard'))
-
     if (!options.hasOwnProperty('minLength') && (validators.length > 0 || firstAsStandard === true))
         minLength = 1
     if (typeof minLength == 'number' && input.length < minLength) return 'Array Too Short'
@@ -47,7 +45,6 @@ function sanitizeArray(sanitizeAny, input, format, options) {
             }
         })
     }
-    console.log({errors})
     if (errors.length < 1) return null
     return errors
 }

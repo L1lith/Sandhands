@@ -2,55 +2,49 @@ const testValid = require('../functions/testValid')
 
 const expected = [
     {
-        input: true,
-        format: Boolean,
+        input: [],
+        format: [],
+        testOptions: {
+          spreadArray: false
+        },
         valid: true,
-        description: 'true as a boolean'
+        description: 'empty array as empty array'
     },
     {
-        input: false,
-        format: Boolean,
+        input: [1, 2],
+        format: [],
+        testOptions: {
+          spreadArray: false
+        },
         valid: true,
-        description: 'false as a boolean'
-    },
-    {
-        input: null,
-        format: Boolean,
-        valid: false,
-        description: 'null as a boolean'
-    },
-    {
-        input: undefined,
-        format: Boolean,
-        valid: false,
-        description: 'undefined as a boolean'
-    },
-    {
-        input: [-1, 0, 1],
-        format: Boolean,
-        valid: false,
-        description: 'numbers as booleans'
-    },
-    {
-        input: ['', 'tomato'],
-        format: Boolean,
-        valid: false,
-        description: 'strings as booleans'
-    },
-    {
-        input: {},
-        format: Boolean,
-        valid: false,
-        description: 'objects as booleans'
+        description: 'non-empty array as empty array'
     },
     {
         input: [],
-        format: Boolean,
+        format: [String],
+        testOptions: {
+          spreadArray: false
+        },
         valid: false,
-        description: 'arrays as booleans',
-        options: {
-            spreadArray: false
-        }
+        description: 'empty array with a first as standard format array'
+    },
+    {
+        input: ['hi', 'there'],
+        format: [String],
+        testOptions: {
+          spreadArray: false
+        },
+        valid: true,
+        description: 'valid array with a first as standard format array'
+    },
+    {
+        input: ['hi', 'there', 1],
+        format: [String],
+        testOptions: {
+          spreadArray: false
+        },
+        valid: false,
+        description: 'invalid array with a first as standard format array'
     }
 ]
 
