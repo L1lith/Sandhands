@@ -3,6 +3,7 @@ import firstError from '../functions/firstError'
 function sanitizeArray(sanitizeAny, input, format, options) {
     if (!Array.isArray(input)) return 'Expected Array'
     let { firstAsStandard, strict, minLength, maxLength, length } = options
+    const validators = [...format]
     if (
         !options.hasOwnProperty('firstAsStandard') &&
         !options.hasOwnProperty('standard') &&
@@ -11,15 +12,16 @@ function sanitizeArray(sanitizeAny, input, format, options) {
         firstAsStandard = true // Default to true only if there's only one entry in the array.
     if (options.firstAsStandard === true && options.hasOwnProperty('standard'))
         throw new Error('Cannot both specify standard manually and set firstAsStandard to true.')
-    const hasStandard = options.firstAsStandard === true || options.hasOwnProperty('standard')
+    const hasStandard = firstAsStandard === true || options.hasOwnProperty('standard')
     let standard = options.standard || null
     if (firstAsStandard === true) {
         if (format.length < 1) throw new Error('Missing First Array Value for First As Standard')
-        standard = format.splice(0, 1)[0]
+        standard = validators.splice(0, 1)[0]
     }
-    if (!options.hasOwnProperty('strict') && format.length > 0) strict = true // Default to true only if the format length is greater than 0
 
-    if (!options.hasOwnProperty('minLength') && (format.length > 0 || firstAsStandard === true))
+    console.log({hasStandard, standard}, options.hasOwnProperty('standard'))
+
+    if (!options.hasOwnProperty('minLength') && (validators.length > 0 || firstAsStandard === true))
         minLength = 1
     if (typeof minLength == 'number' && input.length < minLength) return 'Array Too Short'
     if (options.hasOwnProperty('maxLength') && input.length > maxLength) return 'Array Too Long'
@@ -28,7 +30,7 @@ function sanitizeArray(sanitizeAny, input, format, options) {
     const errors = []
 
     Array.prototype.forEach.call(input, (inputValue, index) => {
-        if (format.hasOwnProperty(index)) {
+        if (validators.hasOwnProperty(index)) {
             const inputError = sanitizeAny(inputValue, format[index])
             if (inputError !== null) errors[index] = inputError
         } else if (hasStandard) {
@@ -39,12 +41,13 @@ function sanitizeArray(sanitizeAny, input, format, options) {
         }
     })
     if (strict === true) {
-        format.forEach((value, index) => {
+        validators.forEach((value, index) => {
             if (!Object.prototype.hasOwnProperty.call(input, index)) {
-                errors[index] = 'Property Missing'
+                errors[index] = 'Index Missing'
             }
         })
     }
+    console.log({errors})
     if (errors.length < 1) return null
     return errors
 }
