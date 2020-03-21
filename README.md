@@ -7,14 +7,8 @@ Please read our Docs 😊 Sandhands is a big passion project of mine, and I thin
 
 ## [Documentation](https://l1lith.github.io/Sandhands/home)
 
-## [Updates](https://github.com/L1lith/Sandhands/blob/master/UPDATES.md)
-
-## Installation
-To install Sandhands run the following command:
-
-```
-npm i -s sandhands
-```
+## Important Notice: Arrays
+There has been a number of issues plaguing the Array format, and for that I apologize. Worry no more! With the release of v1.6.0 I've fixed these issues, and to ensure there are no future issues I've also written a test suite! Sweet!
 
 ## Example Usage
 ```
