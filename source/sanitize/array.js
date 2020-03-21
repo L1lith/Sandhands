@@ -35,7 +35,7 @@ function sanitizeArray(sanitizeAny, input, format, options) {
             const inputError = sanitizeAny(inputValue, standard)
             if (inputError !== null) errors[index] = inputError
         } else if (strict === true) {
-            errors[index] = 'Invalid Property'
+            errors[index] = 'Invalid Index #' + index
         }
     })
     if (strict === true) {
