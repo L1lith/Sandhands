@@ -41,7 +41,7 @@ function sanitizeArray(sanitizeAny, input, format, options) {
     if (strict === true) {
         validators.forEach((value, index) => {
             if (!Object.prototype.hasOwnProperty.call(input, index)) {
-                errors[index] = 'Index Missing'
+                errors[index] = 'Missing Index #' + index
             }
         })
     }

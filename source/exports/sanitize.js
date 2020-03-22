@@ -8,8 +8,15 @@ function sanitize(...args) {
     args[1] = interpretFormatShorthand(args[1])
     args[1] = interpretCustomFormats(args[1])
     ensureValidArguments(...args)
-    const error = firstError(sanitizeAny(...args), true)
-    if (error !== null) throw new Error(error)
+    const sanitationDetails = sanitizeAny(...args)
+    const error = firstError(sanitationDetails, true)
+
+    if (error !== null) {
+      const finalError = new Error(error)
+      finalError.sanitationDetails = sanitationDetails
+      throw finalError
+    }
+    return true
 }
 
 export default sanitize
