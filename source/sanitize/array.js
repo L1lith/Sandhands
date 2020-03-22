@@ -3,6 +3,10 @@ import firstError from '../functions/firstError'
 function sanitizeArray(sanitizeAny, input, format, options) {
     if (!Array.isArray(input)) return 'Expected Array'
     let { firstAsStandard, strict, minLength, maxLength, length } = options
+    if (format === Array) {
+      format = []
+      if (typeof strict != 'boolean') strict = false
+    }
     const validators = [...format]
     if (
         !options.hasOwnProperty('firstAsStandard') &&
