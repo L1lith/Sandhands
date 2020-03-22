@@ -7,6 +7,7 @@
   "scripts": {
     "build": "rollup -c",
     "build-production": "rollup -c --prod",
+    "build-docs": "cd docs-source && npm run-script build && npm run-script export",
     "test": "mocha \"tests/**/*.js\""
   },
   "repository": {
