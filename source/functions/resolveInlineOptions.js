@@ -1,6 +1,6 @@
 function resolveInlineOptions(format, options = {}) {
     let newOptions = {}
-    while (typeof format == 'object' && format !== null && format.hasOwnProperty('_')) {
+    while (typeof format == 'object' && format !== null && !Array.isArray(format) && format.hasOwnProperty('_')) {
         Object.assign(newOptions, format)
         delete newOptions._
         format = format._
