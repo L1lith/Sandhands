@@ -14,7 +14,22 @@ const expected = [
           spreadArray: false
         },
         valid: true,
-        description: 'complex objects'
+        description: 'valid complex objects'
+    },
+    {
+        input: ['a', 12, 14, 'b'],
+        format: {
+          _: [
+            String
+          ],
+          standard: Number,
+          strict: false
+        },
+        testOptions: {
+          spreadArray: false
+        },
+        valid: false,
+        description: 'invalid complex objects'
     }
 ]
 
