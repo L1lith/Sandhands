@@ -38,10 +38,10 @@ function validateAny(format, options = {}) {
             const optionsError = validatePrimitiveOptions.get(format)(options)
             if (optionsError !== null) return optionsError
         }
-    } else if (Array.isArray(format)) {
+    } else if (Array.isArray(format) || format === Array) {
         formatName = 'Array'
         allowed = allowedOptions.array
-    } else if (typeof format == 'object' && format !== null) {
+    } else if (typeof format == 'object' && format !== null || format === Object) {
         formatName = 'Object'
         allowed = allowedOptions.object
         const optionsError = validateObjectOptions(options)
