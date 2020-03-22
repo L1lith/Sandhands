@@ -119,6 +119,12 @@ const expected = [
         options: {
             spreadArray: false
         }
+    },
+    {
+        input: {},
+        format: {},
+        valid: true,
+        description: 'Object constructor for blank object'
     }
 ]
 

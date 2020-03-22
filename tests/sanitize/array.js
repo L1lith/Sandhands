@@ -81,6 +81,12 @@ const expected = [
         },
         valid: false,
         description: 'invalid array with manual standard'
+    },
+    {
+        input: Array,
+        format: [],
+        valid: true,
+        description: 'Array constructor for blank arrays'
     }
 ]
 
