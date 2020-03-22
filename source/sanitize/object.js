@@ -2,6 +2,9 @@ import firstError from '../functions/firstError'
 import resolveInlineOptions from '../functions/resolveInlineOptions'
 
 function sanitizeObject(sanitizeAny, input, format, options) {
+    if (format === Object) {
+      format = {}
+    }
     if (typeof input != 'object' || input === null || Array.isArray(input)) return 'Expected Object'
 
     const errors = {}
