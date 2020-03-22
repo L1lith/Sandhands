@@ -8,10 +8,17 @@ function sanitizeObject(sanitizeAny, input, format, options) {
     if (typeof input != 'object' || input === null || Array.isArray(input)) return 'Expected Object'
 
     const errors = {}
+    const {strict, standard} = options
+    if (!options.hasOwnProperty('strict') && options.hasOwnProperty('standard')) strict = false
 
-    if (options.strict === true) {
+    if (strict === true || options.hasOwnProperty('standard')) {
         Object.keys(input).forEach(inputKey => {
-            if (!format.hasOwnProperty(inputKey)) errors[inputKey] = 'Invalid Property'
+            if (options.hasOwnProperty('standard')) {
+              const valid = sanitizeAny(input[inputKey], standard)
+              if (valid !== null) errors[inputKey] = valid
+            } else if (!format.hasOwnProperty(inputKey)) {
+              errors[inputKey] = 'Invalid Property'
+            }
         })
     }
 
@@ -25,7 +32,7 @@ function sanitizeObject(sanitizeAny, input, format, options) {
                 //prettier-ignore
                 const childError = sanitizeAny(input[childKey], childFormat, childOptions)
                 if (childError !== null) errors[childKey] = childError
-            } else if (childOptions.optional !== true && options.strict === true) {
+            } else if (childOptions.optional !== true && strict === true) {
                 errors[childKey] = 'Property Required'
             }
         }

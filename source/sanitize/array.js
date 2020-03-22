@@ -5,7 +5,7 @@ function sanitizeArray(sanitizeAny, input, format, options) {
     let { firstAsStandard, strict, minLength, maxLength, length } = options
     if (format === Array) {
       format = []
-      if (typeof strict != 'boolean') strict = false
+      if (!options.hasOwnProperty('strict')) strict = false
     }
     const validators = [...format]
     if (
