@@ -1,4 +1,7 @@
 # Updates
+### 1.6.0
+Fixed more breaking bugs in the Array format, should be working now :)
+
 #### 1.3.8
 Fix major bug breaking array format and slightly change array format so that arrays using explicit or implied firstAsStandard option now have a default minimum length of 1
 
