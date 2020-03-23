@@ -165,6 +165,22 @@ const expected = [
       },
       valid: true,
       description: "object with standard option and properties"
+    },
+    {
+      input: {
+        a: '12',
+        soup: 'yummy',
+        age: 55,
+        age2: 14
+      },
+      format: {
+        _: {
+          age: Number
+        },
+        standard: String
+      },
+      valid: false,
+      description: "invalid object against an object with standard option and properties"
     }
 ]
 
