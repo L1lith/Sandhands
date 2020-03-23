@@ -1,4 +1,7 @@
 # Updates
+#### 1.6.1
+Support the standard option for objects :)
+
 ### 1.6.0
 Fixed more breaking bugs in the Array format, should be working now :)
 
