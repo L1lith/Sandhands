@@ -13,12 +13,14 @@ function sanitizeObject(sanitizeAny, input, format, options) {
 
     if (strict === true || options.hasOwnProperty('standard')) {
         Object.keys(input).forEach(inputKey => {
+          if (!format.hasOwnProperty(inputKey)) {
             if (options.hasOwnProperty('standard')) {
               const valid = sanitizeAny(input[inputKey], standard)
               if (valid !== null) errors[inputKey] = valid
-            } else if (!format.hasOwnProperty(inputKey)) {
+            } else {
               errors[inputKey] = 'Invalid Property'
             }
+          }
         })
     }
 
