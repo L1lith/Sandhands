@@ -125,6 +125,46 @@ const expected = [
         format: {},
         valid: true,
         description: 'Object constructor for blank object'
+    },
+    {
+      input: {
+        a: '12',
+        soup: 'yummy'
+      },
+      format: {
+        _: Object,
+        standard: String
+      },
+      valid: true,
+      description: "object with standard option"
+    },
+    {
+      input: {
+        a: '12',
+        soup: 'yummy',
+        age: 55
+      },
+      format: {
+        _: Object,
+        standard: String
+      },
+      valid: false,
+      description: "invalid object against an object with standard option"
+    },
+    {
+      input: {
+        a: '12',
+        soup: 'yummy',
+        age: 55
+      },
+      format: {
+        _: {
+          age: Number
+        },
+        standard: String
+      },
+      valid: true,
+      description: "object with standard option and properties"
     }
 ]
 
