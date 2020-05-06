@@ -17,7 +17,7 @@ suite.on('cycle', function(event) {
   console.log('Executions Per Second:', event.target.hz); // The number of executions per second.
   console.log('RME:', event.target.stats.rme);
   console.log('Sample Length:', event.target.stats.sample.length);
-  console.log('Test Count:',event.target.count); // The number of times a test was executed.
+  console.log('Test Count:', event.target.count); // The number of times a test was executed.
   console.log('Cycles:', event.target.cycles); // The number of cycles performed while benchmarking.
 })
 .on('complete', function() {
