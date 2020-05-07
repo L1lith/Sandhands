@@ -70,6 +70,6 @@ const expected = [
     }
 ]
 
-describe('Boolean Matching', () => {
+describe('Function Matching', () => {
     testValid(expected)
 })

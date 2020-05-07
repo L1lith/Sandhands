@@ -8,6 +8,7 @@ import string from './string'
 import number from './number'
 import boolean from './boolean'
 import sanitizeNull from './null'
+import sanitizeFunction from './function'
 import sanitizeUndefined from './undefined'
 import All from '../exports/All'
 
@@ -16,7 +17,8 @@ const primitives = new Map([
     [Number, number],
     [Boolean, boolean],
     [null, sanitizeNull],
-    [undefined, sanitizeUndefined]
+    [undefined, sanitizeUndefined],
+    [Function, sanitizeFunction]
 ])
 
 function sanitizeAny(input, format, options = {}) {

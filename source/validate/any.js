@@ -6,13 +6,15 @@ import validateArrayOptions from './array'
 import camelCaseToOutputString from '../functions/camelCaseToOutputString'
 import string from './string'
 import number from './number'
+import validateFunctionOptions from './function'
 import All from '../exports/All'
 
-const validPrimitives = [String, Number, Boolean, null, undefined]
+const validPrimitives = [String, Number, Boolean, null, undefined, Function]
 //prettier-ignore
 const validatePrimitiveOptions = new Map([
   [String, string],
-  [Number, number]
+  [Number, number],
+  [Function, validateFunctionOptions]
 ])
 
 const primitiveNames = new Map([
@@ -20,7 +22,8 @@ const primitiveNames = new Map([
     [Number, 'Number'],
     [Boolean, 'Boolean'],
     [null, 'Null'],
-    [undefined, 'Undefined']
+    [undefined, 'Undefined'],
+    [Function, 'Function']
 ])
 
 function validateAny(format, options = {}) {
