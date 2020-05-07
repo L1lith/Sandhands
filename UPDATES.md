@@ -1,4 +1,7 @@
 # Updates
+#### 1.6.4
+Support supplying the Function class to indicate a function is expected
+
 #### 1.6.1
 Support the standard option for objects :)
 
