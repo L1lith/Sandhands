@@ -19,6 +19,7 @@ suite.on('cycle', function(event) {
   console.log('Sample Length:', event.target.stats.sample.length);
   console.log('Test Count:', event.target.count); // The number of times a test was executed.
   console.log('Cycles:', event.target.cycles); // The number of cycles performed while benchmarking.
+  console.log('') // Add some space for readability
 })
 .on('complete', function() {
     // for (var i = 0; i < this.length; i++) {
