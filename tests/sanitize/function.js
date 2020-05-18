@@ -85,7 +85,16 @@ const expected = [
       },
       valid: true,
       description: 'the same function as the equalTo flag'
-    }
+    },
+    {
+      input: (a, b) => a + b,
+      format: {
+        _: Function,
+        equalTo: (a, b) => a + b
+      },
+      valid: true,
+      description: 'a separate but identical function to the equalTo flag'
+    },
 ]
 
 describe('Function Matching', () => {

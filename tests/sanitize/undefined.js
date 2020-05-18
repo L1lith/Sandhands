@@ -45,6 +45,24 @@ const expected = [
         options: {
             spreadArray: false
         }
+    },
+    {
+      input: null,
+      format: {
+        _: undefined,
+        equalTo: undefined
+      },
+      valid: false,
+      description: 'a value not equal to the equalTo flag'
+    },
+    {
+      input: undefined,
+      format: {
+        _: undefined,
+        equalTo: undefined
+      },
+      valid: true,
+      description: 'a value equal to the equalTo flag'
     }
 ]
 

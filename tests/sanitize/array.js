@@ -1,5 +1,7 @@
 const testValid = require('../functions/testValid')
 
+const equalArray = [1,2,7]
+
 const expected = [
     {
         input: [],
@@ -87,6 +89,38 @@ const expected = [
         format: Array,
         valid: true,
         description: 'Array constructor for blank arrays'
+    },
+    {
+      input: [3, 5, 0],
+      format: {
+        _: Array,
+        equalTo: equalArray
+      },
+      valid: false,
+      description: 'a non-equal array to the equalTo flag'
+    },
+    {
+      input: [1,2,7],
+      format: {
+        _: Array,
+        equalTo: equalArray,
+        strict: false
+      },
+      testOptions: {
+        spreadArray: false
+      },
+      valid: true,
+      description: 'a deeply equal array to the equalTo flag'
+    },
+    {
+      input: equalArray,
+      format: {
+        _: Array,
+        equalTo: equalArray,
+        strict: false
+      },
+      valid: true,
+      description: 'the same array as the equalTo flag'
     }
 ]
 

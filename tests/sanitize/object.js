@@ -213,10 +213,7 @@ const expected = [
       description: 'a deeply equal object to the equalTo flag'
     },
     {
-      input: {
-        height: 12,
-        width: 25
-      },
+      input: equalObject,
       format: {
         _: Object,
         equalTo: equalObject,
