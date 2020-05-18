@@ -206,7 +206,8 @@ const expected = [
       },
       format: {
         _: Object,
-        equalTo: equalObject
+        equalTo: equalObject,
+        strict: false
       },
       valid: true,
       description: 'a deeply equal object to the equalTo flag'
@@ -218,7 +219,8 @@ const expected = [
       },
       format: {
         _: Object,
-        equalTo: equalObject
+        equalTo: equalObject,
+        strict: false
       },
       valid: true,
       description: 'the same object as the equalTo flag'
