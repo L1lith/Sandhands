@@ -141,6 +141,24 @@ const expected = [
         },
         valid: false,
         description: 'a non-integer as an integer'
+    },
+    {
+      input: 24,
+      format: {
+        _: Number,
+        equalTo: 40
+      },
+      valid: false,
+      description: 'a non-equal number to the equalTo flag'
+    },
+    {
+      input: 43,
+      format: {
+        _: Number,
+        equalTo: 43
+      },
+      valid: true,
+      description: 'an equal number to the equalTo flag'
     }
 ]
 

@@ -67,6 +67,24 @@ const expected = [
         options: {
             spreadArray: false
         }
+    },
+    {
+      input: (a, b) => (a - b),
+      format: {
+        _: Function,
+        equalTo: sum
+      },
+      valid: false,
+      description: 'a different function from the equalTo flag'
+    },
+    {
+      input: sum,
+      format: {
+        _: Function,
+        equalTo: sum
+      },
+      valid: true,
+      description: 'the same function as the equalTo flag'
     }
 ]
 

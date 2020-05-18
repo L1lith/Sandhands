@@ -1,6 +1,9 @@
 const chai = require('chai')
 const { assert } = chai
+const {inspect} = require('util')
 const isValid = require('../../dist/Sandhands-commonjs.js').valid
+const details = require('../../dist/Sandhands-commonjs.js').details
+const sanitize = require('../../dist/Sandhands-commonjs.js').sanitize
 
 function testValid(tests) {
     tests.forEach(test => {
@@ -13,10 +16,30 @@ function testValid(tests) {
             () => {
                 if (spreadArray === true && Array.isArray(input) && input.length > 0) {
                     input.forEach(testInput => {
-                        assert.equal(isValid(testInput, format), valid)
+                      if (valid === true) {
+                        const errors = details(input, format)
+                        if (errors !== null) {
+                          assert.fail(inspect(errors))
+                        }
+                      } else {
+                        const errors = details(input, format)
+                        if (errors === null) {
+                          assert.fail("No error was found with the input")
+                        }
+                      }
                     })
                 } else {
-                    assert.equal(isValid(input, format), valid)
+                  if (valid === true) {
+                    const errors = details(input, format)
+                    if (errors !== null) {
+                      assert.fail(inspect(errors))
+                    }
+                  } else {
+                    const errors = details(input, format)
+                    if (errors === null) {
+                      assert.fail("No error was found with the input")
+                    }
+                  }
                 }
             }
         )

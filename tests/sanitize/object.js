@@ -1,5 +1,10 @@
 const testValid = require('../functions/testValid')
 
+const equalObject = {
+  height: 12,
+  width: 25
+}
+
 const expected = [
     {
         input: {},
@@ -181,6 +186,42 @@ const expected = [
       },
       valid: false,
       description: "invalid object against an object with standard option and properties"
+    },
+    {
+      input: {
+        height: 12,
+        width: 95
+      },
+      format: {
+        _: Object,
+        equalTo: equalObject
+      },
+      valid: false,
+      description: 'a non-equal object to the equalTo flag'
+    },
+    {
+      input: {
+        height: 12,
+        width: 25
+      },
+      format: {
+        _: Object,
+        equalTo: equalObject
+      },
+      valid: true,
+      description: 'a deeply equal object to the equalTo flag'
+    },
+    {
+      input: {
+        height: 12,
+        width: 25
+      },
+      format: {
+        _: Object,
+        equalTo: equalObject
+      },
+      valid: true,
+      description: 'the same object as the equalTo flag'
     }
 ]
 

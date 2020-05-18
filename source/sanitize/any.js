@@ -10,6 +10,7 @@ import boolean from './boolean'
 import sanitizeNull from './null'
 import sanitizeFunction from './function'
 import sanitizeUndefined from './undefined'
+import deepEqual from '../functions/deepEqual'
 import All from '../exports/All'
 
 const primitives = new Map([
@@ -28,7 +29,7 @@ function sanitizeAny(input, format, options = {}) {
     format = inlineOptions.format
     options = inlineOptions.options
 
-    if (options.hasOwnProperty('equalTo') && input !== options.equalTo) return 'Input Not Equal'
+    if (options.hasOwnProperty('equalTo') && !deepEqual(input, options.equalTo)) return 'Input Not Equal'
     if (primitives.has(format)) {
         if (defaultOptions.has(format))
             options = Object.assign({}, defaultOptions.get(format), options)
