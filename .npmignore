@@ -8,6 +8,7 @@ node_modules/
 /examples/
 /tests/
 /source/
+/test-performance/
 
 !/dist/Sandhands-commonjs.min.js
 !/**/.gitkeep
