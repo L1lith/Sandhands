@@ -48,13 +48,11 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-require-context": "^1.0.0",
-    "rollup-plugin-uglify": "^6.0.4"
+    "rollup-plugin-uglify": "^6.0.4",
+    "colors": "^1.4.0"
   },
   "optionalDependencies": {
     "express": "^3.21.2",
     "is-my-ip-valid": "^1.0.0"
-  },
-  "dependencies": {
-    "colors": "^1.4.0"
   }
 }
