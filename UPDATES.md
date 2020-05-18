@@ -1,4 +1,8 @@
 # Updates
+
+### 1.6.5
+Implemented a deepEqual function when comparing with the equalTo option, and added some tests for equalTo
+
 #### 1.6.4
 Support supplying the Function class to indicate a function is expected
 

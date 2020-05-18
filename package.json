@@ -1,6 +1,6 @@
 {
   "name": "sandhands",
-  "version": "1.6.4",
+  "version": "1.6.5",
   "description": "It's time to sanitize your data more than ever! Computers",
   "license": "MIT",
   "main": "./dist/Sandhands-commonjs.js",
