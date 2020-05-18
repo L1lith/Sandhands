@@ -9,7 +9,7 @@ class Format extends Component {
       <div className="format">
         <h1 className="pagetitle">Format</h1>
         <p className="description">This section describes the format (the sanitation schema) we give to Sandhands to define how it should sanitize the input.</p>
-        <div className="primitives section">
+        <div id="primitives" className="primitives section">
           <h2 className="name">Primitives Basics</h2>
           <p className="description">Null and undefined can be passed in as is, and it will expect strict equality.</p>
           <Highlight className="javascript">{
@@ -36,7 +36,7 @@ valid(Number, Number) // false
 valid(42, Number) // true`
           }</Highlight>
         </div>
-        <div className="options section">
+        <div id="options" className="options section">
           <h2 className="name">Options</h2>
           <p className="description">All data types have a set of default options which accompany them. We can override the defaults with our own arguments two different ways<br/>The first way is we can pass the options as the third argument after the format to the method.</p>
           <Highlight className="javascript">{
@@ -53,7 +53,7 @@ console.log(valid("Lily", {_: String, lowercase: true})) // false
 console.log(valid("lily", {_: String, lowercase: true})) // true`
          }</Highlight>
          </div>
-         <div className="strings section">
+         <div id="strings" className="strings section">
             <h2 className="name">Strings</h2>
             <p className="description">The following options are available for strings:</p>
             <div className="option">
@@ -101,7 +101,7 @@ console.log(valid("lily", {_: String, lowercase: true})) // true`
               <p className="description">Flag as true to require the string to not begin or end with whitespace.</p>
             </div>
          </div>
-         <div className="numbers section">
+         <div id="numbers" className="numbers section">
             <h2 className="name">Numbers</h2>
             <div className="option">
               <h3 className="name">integer</h3>
@@ -132,7 +132,7 @@ console.log(valid("lily", {_: String, lowercase: true})) // true`
               <p className="description">Flag as true to require odd numbers.</p>
             </div>
          </div>
-         <div className="object section">
+         <div id="objects" className="object section">
             <h2 className="name">Objects</h2>
             <p className="description">We can sanitize objects by creating our own object representing how we expect the input to be formatted.</p>
             <div className="option">
@@ -154,7 +154,7 @@ console.log(valid({b: 12}, {})) // false
 console.log(valid({b: 12}, {}, {strict: false})) // true`
             }</Highlight>
          </div>
-         <div className="array section">
+         <div id="arrays" className="array section">
             <h2 className="name">Arrays</h2>
             <p className="description">We can sanitize arrays by creating our own array representing how we expect the input to be formatted. The default array behavior might seem confusing at first, however once you understand it in practice it is simple and expressive.</p>
             <div className="option">
@@ -195,7 +195,7 @@ console.log(valid([52, 63, 14], [Number, Number])) // false - Because strict is 
 console.log(valid(['a', 15, 25], {_:[Number, String], firstAsStandard: true})) // true - We can also use firstAsStandard alongside with specific formats for certain array indexes by setting it explicitly in the inline options. The first index (Number) will be the standard format for all indexes, and the second index will now become the beginning of the array of custom formats for specific indexes, meaning the first array index will be expected to be a string, and all following indexes will be expected to be numbers.`
 }</Highlight>
          </div>
-         <div className="universal section">
+         <div id="universal" className="universal section">
             <h2 className="name">Universal Options</h2>
             <div className="option">
               <h3 className="name">validate</h3>
