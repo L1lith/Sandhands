@@ -30,7 +30,7 @@ server.post('/register', sandhandsExpress({
 }), (req, res) => {
   console.log('Got Registration Details', req.body)
   res.send('Registered')
-}
+})
 ```
 To see the full example please [visit this page.](https://l1lith.github.io/Sandhands/methods.html)
 
