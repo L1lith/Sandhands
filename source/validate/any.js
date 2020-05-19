@@ -7,7 +7,7 @@ import camelCaseToOutputString from '../functions/camelCaseToOutputString'
 import string from './string'
 import number from './number'
 import validateFunctionOptions from './function'
-import All from '../exports/All'
+import ANY from '../exports/ANY'
 
 const validPrimitives = [String, Number, Boolean, null, undefined, Function]
 //prettier-ignore
@@ -49,7 +49,7 @@ function validateAny(format, options = {}) {
         allowed = allowedOptions.object
         const optionsError = validateObjectOptions(options)
         if (optionsError !== null) return optionsError
-    } else if (format === All) {
+    } else if (format === ANY) {
       // Do Nothing
     } else {
         return 'Invalid Format Type'

@@ -19,10 +19,12 @@ function sanitizeString(input, options) {
         if (input.length != length) return 'Incorrect Length'
     }
     if (options.hasOwnProperty('allowed')) {
-        if ([...input].some(letter => !allowed.includes(letter))) return 'Character not allowed'
+      const bannedLetter = [...input].find(letter => !allowed.includes(letter))
+      if (bannedLetter) return `Character not allowed "${bannedLetter}"`
     }
     if (options.hasOwnProperty('banned')) {
-        if ([...input].some(letter => banned.includes(letter))) return 'Character not allowed'
+      const bannedLetter = [...input].find(letter => banned.includes(letter))
+      if (bannedLetter) return `Character not allowed "${bannedLetter}"`
     }
     if (options.hasOwnProperty('lowercase')) {
         if (lowercase === true && input.toLowerCase() != input) return 'Lowercase only'

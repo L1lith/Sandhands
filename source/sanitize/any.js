@@ -11,7 +11,7 @@ import sanitizeNull from './null'
 import sanitizeFunction from './function'
 import sanitizeUndefined from './undefined'
 import deepEqual from '../functions/deepEqual'
-import All from '../exports/All'
+import ANY from '../exports/ANY'
 
 const primitives = new Map([
     [String, string],
@@ -29,6 +29,41 @@ function sanitizeAny(input, format, options = {}) {
     format = inlineOptions.format
     options = inlineOptions.options
 
+    // Start Section for handling Boolean Logic
+    // Handling OR
+    let {ORFormats, ANDFormats, NOTFormats} = inlineOptions
+    if (ORFormats.length > 0) {
+      let firstError = sanitizeAny(input, format, options)
+      if (firstError === null) return null
+      for (let i = 0, l=ORFormats.length; i < l; i++) { // Store the length instead of retrieving it every time for optimal performance
+        const error = sanitizeAny(input, ORFormats[i])
+        if (error === null) return null
+        if (firstError === null) firstError = error
+      }
+      return firstError
+    }
+    // Handling AND
+    if (ANDFormats.length > 0) {
+      let firstError = sanitizeAny(input, format, options)
+      if (firstError !== null) return firstError
+      for (let i = 0, l=ANDFormats.length; i < l; i++) { // Store the length instead of retrieving it every time for optimal performance
+        const error = sanitizeAny(input, ANDFormats[i])
+        if (error !== null) return error
+      }
+      return null
+    }
+    // Handling NOT
+    if (NOTFormats.length > 0) {
+      let firstError = sanitizeAny(input, format, options)
+      if (firstError !== null) return firstError
+      for (let i = 0, l=NOTFormats.length; i < l; i++) { // Store the length instead of retrieving it every time for optimal performance
+        const error = sanitizeAny(input, NOTFormats[i])
+        if (error === null) return "Something was NOT allowed"
+      }
+      return null
+    }
+    // End section for handling Boolean Logic
+
     if (options.hasOwnProperty('equalTo') && !deepEqual(input, options.equalTo)) return 'Input Not Equal'
     if (primitives.has(format)) {
         if (defaultOptions.has(format))
@@ -43,7 +78,7 @@ function sanitizeAny(input, format, options = {}) {
         options = Object.assign({}, defaultOptions.get(Object), options)
         const objectErrors = sanitizeObject(sanitizeAny, input, format, options)
         if (objectErrors !== null) return objectErrors
-    } else if (format === All) {
+    } else if (format === ANY) {
       // Do Nothing
     } else {
         throw new Error('Invalid Format')
@@ -80,6 +115,7 @@ function sanitizeAny(input, format, options = {}) {
     return null
 }
 
+// Iterate through the data and replace any strings for custom formats with the actual format itself before performing sanitation
 function sanitizeAnyWithCustomFormats(input, format, options) {
     arguments[1] = interpretCustomFormats(arguments[1])
     return sanitizeAny(...arguments)
