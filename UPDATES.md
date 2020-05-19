@@ -1,5 +1,8 @@
 # Updates
 
+## 1.7.0
+I've just implemented boolean logic inside of Sandhands, and to ensure it works correctly I've included a new set of tests! There's now 138 total tests :D
+
 ### 1.6.5
 Implemented a deepEqual function when comparing with the equalTo option, and added some tests for equalTo
 

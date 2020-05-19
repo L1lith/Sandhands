@@ -7,8 +7,8 @@ Please read our Docs 😊 Sandhands is a big passion project of mine, and I thin
 
 ## [Documentation](https://l1lith.github.io/Sandhands/home)
 
-## Important Notice: Arrays
-There has been a number of issues plaguing the Array format, and for that I apologize. Worry no more! With the release of v1.6.0 I've fixed these issues, and to ensure there are no future issues I've also written a test suite! Sweet!
+## Update V1.7.0 Fresh Feature: Boolean Logic
+I've just implemented boolean logic inside of Sandhands, and to ensure it works correctly I've included a new set of tests! There's now 138 total tests :D
 
 ## Example Usage
 ```
