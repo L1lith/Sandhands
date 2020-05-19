@@ -1,7 +1,7 @@
 <img src="https://raw.githubusercontent.com/l1lith/Sandhands/master/logo/no-background.svg?sanitize=true" width="100" height="100">
 
 # Sandhands ![License](https://img.shields.io/badge/license-MIT-blue.svg) ![NPM Version](https://img.shields.io/npm/v/sandhands.svg?style=flat)
-Expressive Javascript Sanitation, Zero Dependencies.
+Handle your JS data sanitation effectively and accurately.
 
 Please read our Docs 😊 Sandhands is a big passion project of mine, and I think you could love it too! Need help or want to talk about it? Message me on Discord! Lilith#7915
 
