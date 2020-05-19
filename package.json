@@ -1,7 +1,7 @@
 {
   "name": "sandhands",
   "version": "1.6.5",
-  "description": "It's time to sanitize your data more than ever! Computers",
+  "description": "It's time to sanitize your data more than ever, don't let your computer get sick",
   "license": "MIT",
   "main": "./dist/Sandhands-commonjs.js",
   "scripts": {
