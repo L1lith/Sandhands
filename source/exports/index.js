@@ -7,7 +7,10 @@ import sandhandsExpress from './sandhandsExpress'
 import { format as Format } from './Format'
 import ANY from './ANY'
 import allowedOptions from '../validate/allowedOptions'
+import And from './And'
+import Not from './Not'
+import Or from './Or'
 
 const F = Format
 
-export { allowedOptions, details, sanitize, valid, setDefault, customFormat, sandhandsExpress, Format, F, ANY }
+export { allowedOptions, details, sanitize, valid, setDefault, customFormat, sandhandsExpress, Format, F, ANY, And, Not, Or}

@@ -43,7 +43,7 @@ function resolveInlineOptions(format, options = {}) {
           format = format._
         }
     }
-    if (((ORFormats.length > 0) + (ANDFormats.length > 0) + (ANDFormats.length > 0)) > 1) {
+    if (((ORFormats.length > 0) + (ANDFormats.length > 0) + (NOTFormats.length > 0)) > 1) {
       throw new Error("Cannot use more than one boolean logic condition of differing kinds at the same depth")
     }
     Object.assign(newOptions, options)
