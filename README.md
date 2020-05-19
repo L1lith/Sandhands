@@ -8,7 +8,7 @@ Please read our Docs 😊 Sandhands is a big passion project of mine, and I thin
 ## [Documentation](https://l1lith.github.io/Sandhands/home)
 
 ## Update V1.7.0 Fresh Feature: Boolean Logic
-I've just implemented boolean logic inside of Sandhands, and to ensure it works correctly I've included a new set of tests! There's now 138 total tests :D
+I've just implemented boolean logic inside of Sandhands, and to ensure it works correctly I've included a new set of tests! There's now 138 total tests :D (Note: I have not yet documented these features. If you'd like to try it out feel free to dig around in the new tests to see how I use it)
 
 ## Example Usage
 ```
