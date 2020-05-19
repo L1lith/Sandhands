@@ -11,11 +11,11 @@ class Home extends Component {
                 <p>
                     Sandhands is used to sanitize all kinds of arbitarily complex user input! Make sure to check out the {' '}
                     <li>
-                        <Link href="/format.html"><a>Format section</a></Link>
+                        <Link href="/Sandhands/format.html"><a>Format section</a></Link>
                     </li>{' '}
                     and{' '}
                     <li>
-                        <Link href="/sandbox.html"><a>play around with the sandbox!</a></Link>
+                        <Link href="/Sandhands/sandbox.html"><a>play around with the sandbox!</a></Link>
                     </li>
                 </p>
                 <br/>
