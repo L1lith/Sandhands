@@ -14,4 +14,4 @@ The set of functions responsible for actually sanitizing the user input based on
 
 #### source/Validate
 
-A set of functions used to validate the format input.
+A set of functions used to validate the inputted format itself.
