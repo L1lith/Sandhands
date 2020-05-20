@@ -17,17 +17,20 @@ class Format {
     sanitize(input) {
         return sanitize(input, this.format)
     }
-    OR(format) {
-      validate(format)
-      this.format = {_: this.format, _or: [format]}
+    OR(...formats) {
+      if (formats.length < 1) throw new Error("Must supply at least 1 format")
+      formats.forEach(format => validate(format))
+      this.format = {_: this.format, _or: formats}
     }
-    AND(format) {
-      validate(format)
-      this.format = {_: this.format, _and: [format]}
+    AND(...formats) {
+      if (formats.length < 1) throw new Error("Must supply at least 1 format")
+      formats.forEach(format => validate(format))
+      this.format = {_: this.format, _and: formats}
     }
-    NOT(format) {
-      validate(format)
-      this.format = {_: this.format, _not: [format]}
+    NOT(...formats) {
+      if (formats.length < 1) throw new Error("Must supply at least 1 format")
+      formats.forEach(format => validate(format))
+      this.format = {_: this.format, _not: formats}
     }
 }
 
