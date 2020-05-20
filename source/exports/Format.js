@@ -17,6 +17,18 @@ class Format {
     sanitize(input) {
         return sanitize(input, this.format)
     }
+    OR(format) {
+      validate(format)
+      this.format = {_: this.format, _or: [format]}
+    }
+    AND(format) {
+      validate(format)
+      this.format = {_: this.format, _and: [format]}
+    }
+    NOT(format) {
+      validate(format)
+      this.format = {_: this.format, _not: [format]}
+    }
 }
 
 const formatProxy = {
