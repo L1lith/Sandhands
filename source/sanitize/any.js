@@ -23,11 +23,11 @@ const primitives = new Map([
 ])
 
 function sanitizeAny(input, format, options = {}) {
-    if (format instanceof FormatClass) format = format.format
-
     const inlineOptions = resolveInlineOptions(format, options)
     format = inlineOptions.format
     options = inlineOptions.options
+
+    //throw require('util').inspect(format)
 
     // Start Section for handling Boolean Logic
     // Handling OR

@@ -17,22 +17,25 @@ class Format {
     sanitize(input) {
         return sanitize(input, this.format)
     }
-    OR(...formats) {
+    Or(...formats) {
       if (formats.length < 1) throw new Error("Must supply at least 1 format")
       formats.forEach(format => validate(format))
       this.format = {_: this.format, _or: formats}
     }
-    AND(...formats) {
+    And(...formats) {
       if (formats.length < 1) throw new Error("Must supply at least 1 format")
+
       formats.forEach(format => validate(format))
       this.format = {_: this.format, _and: formats}
     }
-    NOT(...formats) {
+    Not(...formats) {
       if (formats.length < 1) throw new Error("Must supply at least 1 format")
       formats.forEach(format => validate(format))
       this.format = {_: this.format, _not: formats}
     }
 }
+
+const nonSelfReturningFunctions = ["details", "valid", "sanitize"]
 
 const formatProxy = {
     get: (target, prop) => {
@@ -40,10 +43,18 @@ const formatProxy = {
         if (!(target instanceof Format)) {
             throw new Error('Expected Format Instance')
         }
-        if (prop === '_') throw new Error('You must assign the format in the constructor')
+        if (prop === "constructor") throw new Error("Cannot retrieve the contructor")
+        //if (prop === '_') throw new Error('You must assign the format in the constructor')
         if (prop === 'format') return target.format
-        if (target.hasOwnProperty(prop) && typeof target[prop] == 'function')
-            return target[prop].bind(target)
+        if (typeof target[prop] == 'function') {
+          const func = target[prop]
+          if (nonSelfReturningFunctions.includes(prop)) return func.bind(target)
+          return (...args) => {
+            func.apply(target, args)
+            return new Proxy(target, formatProxy)
+          }
+        }
+        //if (prop === "And") throw require('util').inspect([target, target[prop], prop])
         return (newValue = true) => {
             target.format[prop] = newValue
             return new Proxy(target, formatProxy)

@@ -1,4 +1,5 @@
 const testValid = require('../functions/testValid')
+const {Format} = require('../../dist/Sandhands-commonjs.js')
 
 const basicAndFormat = {
   _: String,
@@ -43,6 +44,12 @@ const expected = [
     format: basicAndFormat,
     valid: false,
     description: 'invalid input with basic AND functionality on the secondary format'
+  },
+  {
+    input: 'hello',
+    format: Format(String).banned("xyz").And(Format(String).banned("abc")),
+    valid: true,
+    description: 'basic AND functionality using the Format constructor'
   },
   // End AND Section
   // Begin OR Section

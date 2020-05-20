@@ -1,9 +1,7 @@
 const chai = require('chai')
 const { assert } = chai
 const {inspect} = require('util')
-const isValid = require('../../dist/Sandhands-commonjs.js').valid
 const details = require('../../dist/Sandhands-commonjs.js').details
-const sanitize = require('../../dist/Sandhands-commonjs.js').sanitize
 
 function testValid(tests) {
     tests.forEach(test => {
