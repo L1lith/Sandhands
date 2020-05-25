@@ -1,5 +1,8 @@
 # Updates
 
+#### 1.7.1
+Created the getFormatErrors to see if there is an issue with your format (note: this is completely unnecessary as your format is checked for validation when sanitation is performed). As of the date of the update there is currently no tests for this function.
+
 ## 1.7.0
 I've just implemented boolean logic inside of Sandhands, and to ensure it works correctly I've included a new set of tests! There's now 138 total tests :D
 
