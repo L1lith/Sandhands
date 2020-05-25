@@ -10,7 +10,8 @@ import allowedOptions from '../validate/allowedOptions'
 import And from './And'
 import Not from './Not'
 import Or from './Or'
+import getFormatErrors from './getFormatErrors'
 
 const F = Format
 
-export { allowedOptions, details, sanitize, valid, setDefault, customFormat, sandhandsExpress, Format, F, ANY, And, Not, Or}
+export { allowedOptions, details, sanitize, valid, setDefault, customFormat, sandhandsExpress, Format, F, ANY, And, Not, Or, getFormatErrors}
