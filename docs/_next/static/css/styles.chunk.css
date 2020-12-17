@@ -191,8 +191,78 @@ code {
   text-decoration: underline;
 }
 
-.home p {
-  list-style: none;
+.sandbox > * {
+  display: block;
+}
+.sandbox > .mode > .modes {
+  display: block;
+  padding: 5px;
+  width: fit-content;
+  min-width: 100px;
+  min-height: 40px;
+  font-size: 1em;
+  margin: 20px auto 0 auto;
+  font-family: inherit;
+  outline: none;
+  background-color: #fdfdfd;
+  color: #6589ab;
+  border-color: #7598ea;
+  border-width: 0 3px;
+}
+.sandbox > .output {
+  margin-top: 20px;
+}
+.sandbox > .output.valid > code {
+  width: fit-content;
+  min-width: 100px;
+  text-align: center;
+}
+.sandbox > .output.sanitize > code {
+  width: fit-content;
+  min-width: 200px;
+  text-align: center;
+}
+.sandbox > .output.details > code {
+  width: 80%;
+  min-width: 300px;
+}
+.sandbox > .output > * {
+  display: block;
+}
+.sandbox > .editors {
+  padding: 20px 0;
+  border-bottom: 4px double #0135ad8f;
+  border-radius: 5px;
+}
+.sandbox > .editors > .editor {
+  box-shadow: 8px 4px 5px #99a3bf3b;
+  min-width: 300px;
+  text-align: center;
+  display: inline-block;
+  position: relative;
+  margin: 0 2.5%;
+  width: calc(45% - 8px);
+  border: 4px solid #4d74ce8f;
+  border-width: 0 4px;
+  background-color: #191818;
+  border-radius: 3px;
+  color: white;
+  padding: 5px 0;
+}
+.sandbox > .editors > .editor > .ace_editor {
+  margin: 5px 0;
+  width: 100% !important;
+  display: inline-block;
+  height: 250px !important;
+}
+.sandbox > .editors > .editor > .ace_editor .ace_error,
+.sandbox > .editors > .editor > .ace_editor .ace_warning,
+.sandbox > .editors > .editor > .ace_editor .ace_info,
+.sandbox > .editors > .editor > .ace_editor .ace_tooltip {
+  display: none !important;
+}
+.sandbox > .version {
+  text-align: center;
 }
 
 

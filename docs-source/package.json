@@ -7,7 +7,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "export": "next export"
+    "export": "next export -o ../docs"
   },
   "keywords": [],
   "author": "",
@@ -24,21 +24,21 @@
     "copy-webpack-plugin": "^4.5.1",
     "css-loader": "^0.28.11",
     "import-glob-loader": "^1.1.0",
-    "js-beautify": "^1.10.3",
-    "less": "^3.11.1",
+    "js-beautify": "^1.13.0",
+    "less": "^3.13.0",
     "less-loader": "^4.1.0",
-    "next": "^9.3.2",
-    "node-sass": "^4.13.1",
+    "next": "^9.5.5",
+    "node-sass": "^4.14.1",
     "packenv": "^1.0.1",
-    "react": "^16.13.1",
+    "react": "^16.14.0",
     "react-ace": "^6.1.1",
-    "react-dom": "^16.13.1",
+    "react-dom": "^16.14.0",
     "react-highlight": "^0.12.0",
     "react-router-dom": "^4.3.1",
-    "sandhands": "^1.6.0",
+    "sandhands": "^1.7.1",
     "style-loader": "^0.21.0",
     "uglifyjs-webpack-plugin": "^1.2.6",
-    "webpack": "^4.42.0",
+    "webpack": "^4.44.2",
     "webpack-merge": "^4.2.2"
   }
 }

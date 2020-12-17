@@ -1,5 +1,5 @@
-import React from 'react'
-import App, { Container } from 'next/app'
+import React, {Fragment} from 'react'
+import App from 'next/app'
 import Head from 'next/head'
 import Header from '../components/header'
 import '../styles/_app.less'
@@ -20,7 +20,7 @@ class MyApp extends App {
     const { Component, pageProps } = this.props;
 
     return (
-      <Container>
+      <Fragment>
         <Head>
           <link href="https://fonts.googleapis.com/css?family=Roboto|Tajawal" rel="stylesheet"/>
           <meta name="author" content="Lilith"/>
@@ -29,7 +29,7 @@ class MyApp extends App {
         <main id="page">
           <Component {...pageProps} />
         </main>
-      </Container>
+      </Fragment>
     );
   }
 }

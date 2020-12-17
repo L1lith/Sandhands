@@ -3,12 +3,12 @@
 # Sandhands ![License](https://img.shields.io/badge/license-MIT-blue.svg) ![NPM Version](https://img.shields.io/npm/v/sandhands.svg?style=flat)
 Sanitize, don't let your computer get sick. Handle your JS data sanitation effectively and accurately with Sandhands.
 
-Please read our Docs 😊 Sandhands is a big passion project of mine, and I think you could love it too! Need help or want to talk about it? Message me on Discord! Lilith#7915
+Please read our Docs 😊 Sandhands is a big passion project of mine, and I think you could love it too! Feel free to open an issue or make a pull request :)
 
 ## [Documentation](https://l1lith.github.io/Sandhands/home)
 
-## Update V1.7.0 Fresh Feature: Boolean Logic
-I've just implemented boolean logic inside of Sandhands, and to ensure it works correctly I've included a new set of tests! There's now 138 total tests :D (Note: I have not yet documented these features. If you'd like to try it out feel free to dig around in the new tests to see how I use it)
+## A note on Boolean Logic
+Boolean logic is currently bugged while using the Format constructor. I'm not sure why this is so please be aware and understanding of this.
 
 ## Example Usage
 ```
@@ -24,7 +24,7 @@ Sandhands has built-in support for Express!
 ```js
 ...
 server.post('/register', sandhandsExpress({
-  username: 'username',
+  username: 'username', // the 'username' string is an alias for the special username custom format. See here for a list of existing custom formats https://github.com/L1lith/Sandhands/blob/master/source/customFormats.js
   email: 'email',
   password: 'password'
 }), (req, res) => {

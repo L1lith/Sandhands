@@ -6,7 +6,7 @@ module.exports = withLess({
       '/home.html': { page: '/home' },
       '/sandbox.html': { page: '/sandbox' },
       '/methods.html': { page: '/methods' },
-      '/format.html': { page: '/format' },
+      '/format.html': { page: '/format' }
     };
   }
 })
