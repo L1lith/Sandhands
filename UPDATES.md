@@ -1,5 +1,8 @@
 # Updates
 
+## 1.8.0
+Stability/Security Update. All of the dependencies have been updated and some minor bugs have been fixed.
+
 #### 1.7.1
 Created the getFormatErrors to see if there is an issue with your format (note: this is completely unnecessary as your format is checked for validation when sanitation is performed). As of the date of the update there is currently no tests for this function.
 
