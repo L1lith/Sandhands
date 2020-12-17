@@ -18,7 +18,7 @@ function sanitizeObject(sanitizeAny, input, format, options) {
               const valid = sanitizeAny(input[inputKey], standard)
               if (valid !== null) errors[inputKey] = valid
             } else {
-              errors[inputKey] = 'Invalid Property'
+              errors[inputKey] = `Invalid Property "${inputKey}"`
             }
           }
         })
@@ -35,7 +35,7 @@ function sanitizeObject(sanitizeAny, input, format, options) {
                 const childError = sanitizeAny(input[childKey], childFormat, childOptions)
                 if (childError !== null) errors[childKey] = childError
             } else if (childOptions.optional !== true && strict === true) {
-                errors[childKey] = 'Property Required'
+                errors[childKey] = `Property ${childKey} Required`
             }
         }
     })
