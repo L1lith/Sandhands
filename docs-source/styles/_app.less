@@ -31,8 +31,13 @@ body {
   border-radius: 10px;
 }
 #page {
-  h1, h2, h3, h4, h5, h6 {
+  & > h1, & > h2, & > h3, & > h4, & > h5, & > h6 {
     background-color: #ffffff7d;
+  }
+  & > * {
+    & > h1, & > h2, & > h3, & > h4, & > h5, & > h6 {
+      background-color: #ffffff7d;
+    }
   }
 }
 #root, #__next {
