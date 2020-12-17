@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import AceEditor from '../components/editor'
 import titleCase from '../functions/titleCase'
-import {sanitize, details, valid} from 'sandhands'
+import {sanitize, details, valid, Format} from 'sandhands'
 import objectToLiteralString from '../functions/objectToLiteralString'
 import jsbeautifier from 'js-beautify'
 import {version} from 'sandhands/package.json'
@@ -41,6 +41,9 @@ class Sandbox extends Component {
         <span className="version">Sandbox using Sandhands@{version}</span>
       </div>
     )
+  }
+  componentDidMount() {
+    window.Format = Format // Assign it to the window so it can be used by the user
   }
   handleChange(editor, value) {
     const values = {...this.state.values}
@@ -91,7 +94,7 @@ class Sandbox extends Component {
     } else if (mode === 'valid') {
       return valid(input, format).toString()
     } else {
-      return null
+      return "There was an error"
     }
   }
 }
