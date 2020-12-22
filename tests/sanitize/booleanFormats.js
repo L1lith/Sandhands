@@ -31,7 +31,7 @@ const expected = [
     input: 'ghost',
     format: basicAndFormat,
     valid: true,
-    description: 'with basic AND functionality'
+    description: 'valid input with basic AND functionality'
   },
   {
     input: 'detox',
@@ -40,7 +40,7 @@ const expected = [
     description: 'invalid input with basic AND functionality on the primary format'
   },
   {
-    input: 'detox',
+    input: 'apples',
     format: basicAndFormat,
     valid: false,
     description: 'invalid input with basic AND functionality on the secondary format'
@@ -58,10 +58,16 @@ const expected = [
     description: 'basic OR functionality using the Format constructor'
   },
   {
+    input: 'what up its tom, tom.com',
+    format: Format(String).banned("xyz").Not(Format(String).email()),
+    valid: true,
+    description: 'with basic NOT functionality using the Format constructor'
+  },
+  {
     input: 'tom@gmail.com',
     format: Format(String).banned("xyz").Not(Format(String).email()),
     valid: false,
-    description: 'basic NOT functionality using the Format constructor'
+    description: 'invalid input with basic NOT functionality using the Format constructor'
   },
   // End AND Section
   // Begin OR Section

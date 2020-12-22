@@ -7,6 +7,7 @@ import { Format as FormatClass } from '../exports/Format'
 import string from './string'
 import number from './number'
 import boolean from './boolean'
+import booleanFormats from './booleanFormats'
 import sanitizeNull from './null'
 import sanitizeFunction from './function'
 import sanitizeUndefined from './undefined'
@@ -30,38 +31,8 @@ function sanitizeAny(input, format, options = {}) {
     //throw require('util').inspect(format)
 
     // Start Section for handling Boolean Logic
-    // Handling OR
     let {ORFormats, ANDFormats, NOTFormats} = inlineOptions
-    if (ORFormats.length > 0) {
-      let firstError = sanitizeAny(input, format, options)
-      if (firstError === null) return null
-      for (let i = 0, l=ORFormats.length; i < l; i++) { // Store the length instead of retrieving it every time for optimal performance
-        const error = sanitizeAny(input, ORFormats[i])
-        if (error === null) return null
-        if (firstError === null) firstError = error
-      }
-      return firstError
-    }
-    // Handling AND
-    if (ANDFormats.length > 0) {
-      let firstError = sanitizeAny(input, format, options)
-      if (firstError !== null) return firstError
-      for (let i = 0, l=ANDFormats.length; i < l; i++) { // Store the length instead of retrieving it every time for optimal performance
-        const error = sanitizeAny(input, ANDFormats[i])
-        if (error !== null) return error
-      }
-      return null
-    }
-    // Handling NOT
-    if (NOTFormats.length > 0) {
-      let firstError = sanitizeAny(input, format, options)
-      if (firstError !== null) return firstError
-      for (let i = 0, l=NOTFormats.length; i < l; i++) { // Store the length instead of retrieving it every time for optimal performance
-        const error = sanitizeAny(input, NOTFormats[i])
-        if (error === null) return "Something was NOT allowed"
-      }
-      return null
-    }
+    if (ORFormats.length > 0 || ANDFormats.length > 0 || NOTFormats.length > 0) return booleanFormats(sanitizeAny, input, inlineOptions)
     // End section for handling Boolean Logic
 
     if (options.hasOwnProperty('equalTo') && !deepEqual(input, options.equalTo)) return 'Input Not Equal'

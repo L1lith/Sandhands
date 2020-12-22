@@ -1,3 +1,5 @@
+import onlyUnique from './onlyUnique'
+
 function resolveInlineOptions(format, options = {}) {
     let newOptions = Object.assign({}, options)
     let ORFormats = []
@@ -14,7 +16,7 @@ function resolveInlineOptions(format, options = {}) {
       const orF = newOptions._or
       if (!ORFormats.includes(orF)) {
         if (Array.isArray(orF)) {
-          ORFormats = Array.from(new Set(ORFormats.concat(orF)))
+          ORFormats = ORFormats.concat(orF).filter(onlyUnique)
         } else {
           ORFormats.push(orF)
         }
@@ -25,7 +27,7 @@ function resolveInlineOptions(format, options = {}) {
       const anF = newOptions._and
       if (!ANDFormats.includes(anF)) {
         if (Array.isArray(anF)) {
-          ANDFormats = Array.from(new Set(ANDFormats.concat(anF)))
+          ANDFormats = ANDFormats.concat(anF).filter(onlyUnique)
         } else {
           ANDFormats.push(anF)
         }
@@ -36,7 +38,7 @@ function resolveInlineOptions(format, options = {}) {
       const noF = newOptions._not
       if (!NOTFormats.includes(noF)) {
         if (Array.isArray(noF)) {
-          NOTFormats = Array.from(new Set(NOTFormats.concat(noF)))
+          NOTFormats = NOTFormats.concat(noF).filter(onlyUnique)
         } else {
           NOTFormats.push(noF)
         }

@@ -5,33 +5,49 @@ import details from './details'
 
 class Format {
     constructor(format, options) {
-        validate(format, options)
-        this.format = { ...(options || {}), _: format }
+      validate(format, options)
+      this.format = { ...(options || {}), _: format }
+    }
+    setOptions(options) {
+      if (typeof options !== 'object' || options === null) throw new Error("Options must be an object")
+      if (options.hasOwnProperty("_")) console.warn("Warning: Setting the primary format (the \"_\" property) through the setOptions, this could cause unintended behavior.")
+      Object.assign(this.format, options)
+    }
+    setOption(optionName, value) {
+      if (typeof optionName != 'string') throw new Error("option name must be a string")
+      this.format[optionName] = value
+    }
+    getOption(optionName) {
+      if (typeof optionName != 'string') throw new Error("option name must be a string")
+      return this.format[optionName]
     }
     details(input) {
-        return details(input, this.format)
+      return details(input, this.format)
     }
     valid(input) {
-        return valid(input, this.format)
+      return valid(input, this.format)
     }
     sanitize(input) {
-        return sanitize(input, this.format)
+      return sanitize(input, this.format)
     }
     Or(...formats) {
+      throw new Error("This feature has been temporarily disabled.")
       if (formats.length < 1) throw new Error("Must supply at least 1 format")
       formats.forEach(format => validate(format))
-      this.format = {_: this.format, _or: formats}
+      this.setOption("_or", (this.getOption("_or") || []).concat(formats))
     }
     And(...formats) {
+      throw new Error("This feature has been temporarily disabled.")
       if (formats.length < 1) throw new Error("Must supply at least 1 format")
 
       formats.forEach(format => validate(format))
-      this.format = {_: this.format, _and: formats}
+      this.setOption("_and", (this.getOption("_and") || []).concat(formats))
     }
     Not(...formats) {
+      throw new Error("This feature has been temporarily disabled.")
       if (formats.length < 1) throw new Error("Must supply at least 1 format")
       formats.forEach(format => validate(format))
-      this.format = {_: this.format, _not: formats}
+      this.setOption("_not", (this.getOption("not") || []).concat(formats))
     }
 }
 
