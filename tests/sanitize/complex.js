@@ -4,14 +4,12 @@ const expected = [
     {
         input: ['a', 12, 14],
         format: {
-          _: [
-            String
-          ],
-          standard: Number,
-          strict: false
+            _: [String],
+            standard: Number,
+            strict: false
         },
         testOptions: {
-          spreadArray: false
+            spreadArray: false
         },
         valid: true,
         description: 'valid complex objects'
@@ -19,14 +17,12 @@ const expected = [
     {
         input: ['a', 12, 14, 'b'],
         format: {
-          _: [
-            String
-          ],
-          standard: Number,
-          strict: false
+            _: [String],
+            standard: Number,
+            strict: false
         },
         testOptions: {
-          spreadArray: false
+            spreadArray: false
         },
         valid: false,
         description: 'invalid complex objects'

@@ -42,6 +42,9 @@ function validateStringOptions(options) {
     if (options.hasOwnProperty('trimmed')) {
         if (typeof trimmed != 'boolean') return 'Invalid Trimmed Option'
     }
+    if (options.hasOwnProperty('AllOptional')) {
+      if (typeof options.allOptionsOptional != 'boolean') return 'Invalid All Optional Option'
+    }
     return null
 }
 

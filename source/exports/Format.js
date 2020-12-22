@@ -31,20 +31,20 @@ class Format {
       return sanitize(input, this.format)
     }
     Or(...formats) {
-      throw new Error("This feature has been temporarily disabled.")
+      //throw new Error("This feature has been temporarily disabled.")
       if (formats.length < 1) throw new Error("Must supply at least 1 format")
       formats.forEach(format => validate(format))
       this.setOption("_or", (this.getOption("_or") || []).concat(formats))
     }
     And(...formats) {
-      throw new Error("This feature has been temporarily disabled.")
+      //throw new Error("This feature has been temporarily disabled.")
       if (formats.length < 1) throw new Error("Must supply at least 1 format")
 
       formats.forEach(format => validate(format))
       this.setOption("_and", (this.getOption("_and") || []).concat(formats))
     }
     Not(...formats) {
-      throw new Error("This feature has been temporarily disabled.")
+      //throw new Error("This feature has been temporarily disabled.")
       if (formats.length < 1) throw new Error("Must supply at least 1 format")
       formats.forEach(format => validate(format))
       this.setOption("_not", (this.getOption("not") || []).concat(formats))

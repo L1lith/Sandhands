@@ -4,8 +4,8 @@ function sanitizeArray(sanitizeAny, input, format, options) {
     if (!Array.isArray(input)) return 'Expected Array'
     let { firstAsStandard, strict, minLength, maxLength, length } = options
     if (format === Array) {
-      format = []
-      if (!options.hasOwnProperty('strict')) strict = false
+        format = []
+        if (!options.hasOwnProperty('strict')) strict = false
     }
     const validators = [...format]
     if (

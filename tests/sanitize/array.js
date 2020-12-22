@@ -1,13 +1,13 @@
 const testValid = require('../functions/testValid')
 
-const equalArray = [1,2,7]
+const equalArray = [1, 2, 7]
 
 const expected = [
     {
         input: [],
         format: [],
         testOptions: {
-          spreadArray: false
+            spreadArray: false
         },
         valid: true,
         description: 'empty array as empty array'
@@ -16,7 +16,7 @@ const expected = [
         input: [1, 2],
         format: [],
         testOptions: {
-          spreadArray: false
+            spreadArray: false
         },
         valid: true,
         description: 'non-empty array as empty array'
@@ -25,7 +25,7 @@ const expected = [
         input: [],
         format: [String],
         testOptions: {
-          spreadArray: false
+            spreadArray: false
         },
         valid: false,
         description: 'empty array with a first as standard format array'
@@ -34,7 +34,7 @@ const expected = [
         input: ['hi', 'there'],
         format: [String],
         testOptions: {
-          spreadArray: false
+            spreadArray: false
         },
         valid: true,
         description: 'valid array with first as standard'
@@ -43,7 +43,7 @@ const expected = [
         input: ['aab', 5, '123312'],
         format: [String],
         testOptions: {
-          spreadArray: false
+            spreadArray: false
         },
         valid: false,
         description: 'invalid array with first as standard'
@@ -51,11 +51,11 @@ const expected = [
     {
         input: [],
         format: {
-          _: [],
-          standard: Number
+            _: [],
+            standard: Number
         },
         testOptions: {
-          spreadArray: false
+            spreadArray: false
         },
         valid: false,
         description: 'empty array with manual standard'
@@ -63,11 +63,11 @@ const expected = [
     {
         input: ['big', 'old', 'shoe'],
         format: {
-          _: [],
-          standard: String
+            _: [],
+            standard: String
         },
         testOptions: {
-          spreadArray: false
+            spreadArray: false
         },
         valid: true,
         description: 'valid array with manual standard'
@@ -75,11 +75,11 @@ const expected = [
     {
         input: ['unicorn', 58323],
         format: {
-          _: [],
-          standard: String
+            _: [],
+            standard: String
         },
         testOptions: {
-          spreadArray: false
+            spreadArray: false
         },
         valid: false,
         description: 'invalid array with manual standard'
@@ -91,36 +91,36 @@ const expected = [
         description: 'Array constructor for blank arrays'
     },
     {
-      input: [3, 5, 0],
-      format: {
-        _: Array,
-        equalTo: equalArray
-      },
-      valid: false,
-      description: 'a non-equal array to the equalTo flag'
+        input: [3, 5, 0],
+        format: {
+            _: Array,
+            equalTo: equalArray
+        },
+        valid: false,
+        description: 'a non-equal array to the equalTo flag'
     },
     {
-      input: [1,2,7],
-      format: {
-        _: Array,
-        equalTo: equalArray,
-        strict: false
-      },
-      testOptions: {
-        spreadArray: false
-      },
-      valid: true,
-      description: 'a deeply equal array to the equalTo flag'
+        input: [1, 2, 7],
+        format: {
+            _: Array,
+            equalTo: equalArray,
+            strict: false
+        },
+        testOptions: {
+            spreadArray: false
+        },
+        valid: true,
+        description: 'a deeply equal array to the equalTo flag'
     },
     {
-      input: equalArray,
-      format: {
-        _: Array,
-        equalTo: equalArray,
-        strict: false
-      },
-      valid: true,
-      description: 'the same array as the equalTo flag'
+        input: equalArray,
+        format: {
+            _: Array,
+            equalTo: equalArray,
+            strict: false
+        },
+        valid: true,
+        description: 'the same array as the equalTo flag'
     }
 ]
 

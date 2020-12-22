@@ -53,22 +53,22 @@ const expected = [
         }
     },
     {
-      input: true,
-      format: {
-        _: Boolean,
-        equalTo: false
-      },
-      valid: false,
-      description: 'a non-equal boolean to the equalTo flag'
+        input: true,
+        format: {
+            _: Boolean,
+            equalTo: false
+        },
+        valid: false,
+        description: 'a non-equal boolean to the equalTo flag'
     },
     {
-      input: false,
-      format: {
-        _: Boolean,
-        equalTo: false
-      },
-      valid: true,
-      description: 'an equal boolean to the equalTo flag'
+        input: false,
+        format: {
+            _: Boolean,
+            equalTo: false
+        },
+        valid: true,
+        description: 'an equal boolean to the equalTo flag'
     }
 ]
 

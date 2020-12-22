@@ -1,7 +1,5 @@
 import sanitizeArray from './array'
 import sanitizeObject from './object'
-import resolveInlineOptions from '../functions/resolveInlineOptions'
-import interpretCustomFormats from '../functions/interpretCustomFormats'
 import defaultOptions from '../defaultOptions'
 import { Format as FormatClass } from '../exports/Format'
 import string from './string'
@@ -13,6 +11,7 @@ import sanitizeFunction from './function'
 import sanitizeUndefined from './undefined'
 import deepEqual from '../functions/deepEqual'
 import ANY from '../exports/ANY'
+import resolveInputs from '../functions/resolveInputs'
 
 const primitives = new Map([
     [String, string],
@@ -24,7 +23,7 @@ const primitives = new Map([
 ])
 
 function sanitizeAny(input, format, options = {}) {
-    const inlineOptions = resolveInlineOptions(format, options)
+    const inlineOptions = resolveInputs(format, options)
     format = inlineOptions.format
     options = inlineOptions.options
 
@@ -86,10 +85,4 @@ function sanitizeAny(input, format, options = {}) {
     return null
 }
 
-// Iterate through the data and replace any strings for custom formats with the actual format itself before performing sanitation
-function sanitizeAnyWithCustomFormats(input, format, options) {
-    arguments[1] = interpretCustomFormats(arguments[1])
-    return sanitizeAny(...arguments)
-}
-
-export default sanitizeAnyWithCustomFormats
+export default sanitizeAny

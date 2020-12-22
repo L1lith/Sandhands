@@ -252,22 +252,22 @@ const expected = [
         description: 'a incorrect length string for the length flag'
     },
     {
-      input: "hello there",
-      format: {
-        _: String,
-        equalTo: "it's a small world"
-      },
-      valid: false,
-      description: 'a non-equal string to the equalTo flag'
+        input: 'hello there',
+        format: {
+            _: String,
+            equalTo: "it's a small world"
+        },
+        valid: false,
+        description: 'a non-equal string to the equalTo flag'
     },
     {
-      input: "it's a small world",
-      format: {
-        _: String,
-        equalTo: "it's a small world"
-      },
-      valid: true,
-      description: 'an equal number to the equalTo flag'
+        input: "it's a small world",
+        format: {
+            _: String,
+            equalTo: "it's a small world"
+        },
+        valid: true,
+        description: 'an equal number to the equalTo flag'
     }
 ]
 

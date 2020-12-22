@@ -3,24 +3,24 @@ import resolveInlineOptions from '../functions/resolveInlineOptions'
 
 function sanitizeObject(sanitizeAny, input, format, options) {
     if (format === Object) {
-      format = {}
+        format = {}
     }
     if (typeof input != 'object' || input === null || Array.isArray(input)) return 'Expected Object'
 
     const errors = {}
-    const {strict, standard} = options
+    const { strict, standard, allOptional } = options
     if (!options.hasOwnProperty('strict') && options.hasOwnProperty('standard')) strict = false
 
     if (strict === true || options.hasOwnProperty('standard')) {
         Object.keys(input).forEach(inputKey => {
-          if (!format.hasOwnProperty(inputKey)) {
-            if (options.hasOwnProperty('standard')) {
-              const valid = sanitizeAny(input[inputKey], standard)
-              if (valid !== null) errors[inputKey] = valid
-            } else {
-              errors[inputKey] = `Invalid Property "${inputKey}"`
+            if (!format.hasOwnProperty(inputKey)) {
+                if (options.hasOwnProperty('standard')) {
+                    const valid = sanitizeAny(input[inputKey], standard)
+                    if (valid !== null) errors[inputKey] = valid
+                } else {
+                    errors[inputKey] = `Invalid Property "${inputKey}"`
+                }
             }
-          }
         })
     }
 
@@ -30,11 +30,9 @@ function sanitizeObject(sanitizeAny, input, format, options) {
             childFormat = inlineOptions.format
             const childOptions = inlineOptions.options
             if (Object.prototype.hasOwnProperty.call(input, childKey)) {
-                delete childOptions.optional
-                //prettier-ignore
                 const childError = sanitizeAny(input[childKey], childFormat, childOptions)
                 if (childError !== null) errors[childKey] = childError
-            } else if (childOptions.optional !== true && strict === true) {
+            } else if (allOptional !== true && strict === true) {
                 errors[childKey] = `Property ${childKey} Required`
             }
         }

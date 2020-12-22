@@ -1,33 +1,33 @@
 const testValid = require('../functions/testValid')
 
 function sum(a, b) {
-  return a + b
+    return a + b
 }
 
 const expected = [
     {
-        input: ()=>{},
+        input: () => {},
         format: Function,
         valid: true,
         description: 'arrow function as a function'
     },
     {
-        input: function(){},
+        input: function () {},
         format: Function,
         valid: true,
         description: 'inline function as a function'
     },
     {
-      input: sum,
-      format: Function,
-      valid: true,
-      description: 'named function as a function'
+        input: sum,
+        format: Function,
+        valid: true,
+        description: 'named function as a function'
     },
     {
-      input: true,
-      format: Function,
-      valid: false,
-      description: 'boolean as a function'
+        input: true,
+        format: Function,
+        valid: false,
+        description: 'boolean as a function'
     },
     {
         input: null,
@@ -69,32 +69,32 @@ const expected = [
         }
     },
     {
-      input: (a, b) => (a - b),
-      format: {
-        _: Function,
-        equalTo: sum
-      },
-      valid: false,
-      description: 'a different function from the equalTo flag'
+        input: (a, b) => a - b,
+        format: {
+            _: Function,
+            equalTo: sum
+        },
+        valid: false,
+        description: 'a different function from the equalTo flag'
     },
     {
-      input: sum,
-      format: {
-        _: Function,
-        equalTo: sum
-      },
-      valid: true,
-      description: 'the same function as the equalTo flag'
+        input: sum,
+        format: {
+            _: Function,
+            equalTo: sum
+        },
+        valid: true,
+        description: 'the same function as the equalTo flag'
     },
     {
-      input: (a, b) => a + b,
-      format: {
-        _: Function,
-        equalTo: (a, b) => a + b
-      },
-      valid: true,
-      description: 'a separate but identical function to the equalTo flag'
-    },
+        input: (a, b) => a + b,
+        format: {
+            _: Function,
+            equalTo: (a, b) => a + b
+        },
+        valid: true,
+        description: 'a separate but identical function to the equalTo flag'
+    }
 ]
 
 describe('Function Matching', () => {

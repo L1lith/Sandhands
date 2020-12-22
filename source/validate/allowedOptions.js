@@ -17,7 +17,7 @@ Object.defineProperties(primitives, {
 })
 Object.freeze(primitives)
 
-const object = Object.freeze(['strict', 'standard'])
+const object = Object.freeze(['strict', 'standard', 'allOptional'])
 const array = Object.freeze(['strict', 'firstAsStandard', 'minLength', 'maxLength', 'length', 'standard'])
 
 export default Object.freeze({ universal, primitives, object, array })

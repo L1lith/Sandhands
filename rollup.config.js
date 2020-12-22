@@ -18,10 +18,8 @@ const baseConfig = {
         }),
         babel({
             exclude: 'node_modules/**',
-            presets: ['@babel/preset-env']
-        }),
-        uglify({
-            sourcemap: false
+            presets: ['@babel/preset-env'],
+            sourceMaps: 'inline'
         })
     ]
 }
@@ -50,5 +48,4 @@ const branchConfigs = [
 const configs = branchConfigs.map(config => deepmerge(baseConfig, config))
 
 configs[1].plugins.splice(0, 1) // Don't include dependencies in node bundle
-configs[1].plugins.splice(2) // Don't Uglify the node bundle
 export default configs

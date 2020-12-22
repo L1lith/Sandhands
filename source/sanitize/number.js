@@ -27,8 +27,8 @@ function sanitizeNumber(input, options) {
         if (odd === true && input % 2 != 1) return 'Not odd'
     }
     if (options.hasOwnProperty('integer')) {
-      if (typeof integer != 'boolean') throw new Error("Invalid Integer Option")
-      if (integer === true && input % 1 !== 0) return 'Not an integer'
+        if (typeof integer != 'boolean') throw new Error('Invalid Integer Option')
+        if (integer === true && input % 1 !== 0) return 'Not an integer'
     }
     return null
 }

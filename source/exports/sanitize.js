@@ -12,9 +12,9 @@ function sanitize(...args) {
     const error = firstError(sanitationDetails, true)
 
     if (error !== null) {
-      const finalError = new Error(error)
-      finalError.sanitationDetails = sanitationDetails
-      throw finalError
+        const finalError = new Error(error)
+        finalError.sanitationDetails = sanitationDetails
+        throw finalError
     }
     return true
 }
