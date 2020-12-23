@@ -1,0 +1,7 @@
+{
+    "search.exclude": {
+        "**/_next": true,
+        "**/build": true,
+        "**/dist": true
+    }
+}

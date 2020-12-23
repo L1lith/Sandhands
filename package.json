@@ -8,7 +8,9 @@
     "build": "rollup -c",
     "build-production": "rollup -c --prod",
     "build-docs": "cd docs-source && npm run deploy",
-    "test": "mocha \"tests/**/*.js\""
+    "pretest": "npm run build",
+    "test": "mocha \"tests/**/*.js\"",
+    "prepublishOnly": "npm run test && npm run build-production"
   },
   "repository": {
     "type": "git",

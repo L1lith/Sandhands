@@ -1,6 +1,6 @@
 import customFormats from '../customFormats'
 
-function interpretCustomFormat(format) {
+function interpretCustomFormats(format) {
   if (typeof format == 'string') {
     if (!customFormats.hasOwnProperty(format))
       throw new Error(`Custom Format "${format}" Not Found`)

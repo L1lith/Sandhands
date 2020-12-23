@@ -2,11 +2,14 @@ import validate from '../validate/any'
 import sanitize from './sanitize'
 import valid from './valid'
 import details from './details'
+import ANY from './ANY'
+import resolveInputs from '../functions/resolveInputs'
 
 class Format {
-  constructor(format, options) {
-    validate(format, options)
-    this.format = { ...(options || {}), _: format }
+  constructor(...args) {
+    const inlineOptions = resolveInputs(...args)
+    validate(inlineOptions)
+    this.format = { ...(inlineOptions.options || {}), _: format || ANY }
   }
   setOptions(options) {
     if (typeof options !== 'object' || options === null)
@@ -87,8 +90,7 @@ const formatProxy = {
 
 function createFormat(...args) {
   if (args.length < 1) throw new Error('Must supply a format.')
-  const [format, options] = args
-  return new Proxy(new Format(format, options), formatProxy)
+  return new Proxy(new Format(...args), formatProxy)
 }
 const format = new Proxy(createFormat, formatProxy)
 export { format, Format }
