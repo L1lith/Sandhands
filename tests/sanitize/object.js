@@ -227,6 +227,108 @@ const expected = [
     },
     valid: true,
     description: 'the same object as the equalTo flag'
+  },
+  {
+    input: {},
+    format: {
+      _: {
+        name: String
+      },
+      optionalProps: ['name']
+    },
+    valid: true,
+    description: 'empty object against a format with an optionalProps flagged property'
+  },
+  {
+    input: {
+      name: 'John'
+    },
+    format: {
+      _: {
+        name: String
+      },
+      optionalProps: ['name']
+    },
+    valid: true,
+    description: 'detailed object against a format with an optionalProps flagged property'
+  },
+  {
+    format: {
+      _: {
+        name: String
+      },
+      optionalProps: ['name']
+    },
+    input: {
+      name: 21
+    },
+    valid: false,
+    description: 'invalid object against a format with an optionalProps flagged property'
+  },
+  {
+    format: {
+      _: {
+        name: String
+      },
+      optionalProps: ['name']
+    },
+    input: {
+      name: 'jim',
+      age: 12
+    },
+    valid: false,
+    description: 'semi-invalid object against a format with an optionalProps flagged property'
+  },
+  {
+    input: {},
+    format: {
+      _: {
+        name: String
+      },
+      allOptional: true
+    },
+    valid: true,
+    description: 'empty object against a format with an an allOptional flag'
+  },
+  {
+    input: {
+      name: 'John'
+    },
+    format: {
+      _: {
+        name: String
+      },
+      allOptional: true
+    },
+    valid: true,
+    description: 'detailed object against a format with an allOptional flag'
+  },
+  {
+    format: {
+      _: {
+        name: String
+      },
+      allOptional: true
+    },
+    input: {
+      name: 21
+    },
+    valid: false,
+    description: 'invalid object against a format with an allOptional flag'
+  },
+  {
+    format: {
+      _: {
+        name: String
+      },
+      allOptional: true
+    },
+    input: {
+      name: 'jim',
+      age: 12
+    },
+    valid: false,
+    description: 'semi-invalid object against a format with an allOptional flag'
   }
 ]
 

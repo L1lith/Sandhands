@@ -1,5 +1,8 @@
 # Updates
 
+## 1.8.1
+Hammered out more bugs and disabled a small broken feature. Added more tests, we're at 148 now :)
+
 ## 1.8.0
 Stability/Security Update. All of the dependencies have been updated and some minor bugs have been fixed.
 
