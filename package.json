@@ -10,7 +10,8 @@
     "build-docs": "cd docs-source && npm run deploy",
     "pretest": "npm run build",
     "test": "mocha \"tests/sanitize/**/*.js\"",
-    "prepublishOnly": "npm run test && npm run build-production"
+    "prepublishOnly": "npm run test && npm run build-production",
+    "publish-alias": "npm publish"
   },
   "repository": {
     "type": "git",

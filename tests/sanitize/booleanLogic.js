@@ -45,30 +45,6 @@ const expected = [
     valid: false,
     description: 'invalid input with basic AND functionality on the secondary format'
   },
-  {
-    input: 'hello',
-    format: Format(String).banned('xyz').And(Format(String).banned('abc')),
-    valid: true,
-    description: 'basic AND functionality using the Format constructor'
-  },
-  {
-    input: 'tony@gmail.com',
-    format: Format(String).email().Or(Format(String).banned('abc')),
-    valid: true,
-    description: 'basic OR functionality using the Format constructor'
-  },
-  {
-    input: 'what up its tom, tom.com',
-    format: Format(String).banned('xyz').Not(Format(String).email()),
-    valid: true,
-    description: 'basic NOT functionality using the Format constructor'
-  },
-  {
-    input: 'tom@gmail.com',
-    format: Format(String).banned('xyz').Not(Format(String).email()),
-    valid: false,
-    description: 'invalid input with basic NOT functionality using the Format constructor'
-  },
   // End AND Section
   // Begin OR Section
   {
