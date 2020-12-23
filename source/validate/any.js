@@ -8,7 +8,6 @@ import string from './string'
 import number from './number'
 import validateFunctionOptions from './function'
 import ANY from '../exports/ANY'
-import { inspect } from 'util'
 
 const validPrimitives = [String, Number, Boolean, null, undefined, Function]
 //prettier-ignore
@@ -29,7 +28,6 @@ const primitiveNames = new Map([
 
 function validateAny(inlineOptions) {
   const { format, options } = inlineOptions
-  if (typeof options != 'object' || options === null) throw inspect(inlineOptions)
   if (typeof options != 'object' || options === null) return 'Options are not an Object'
   let allowed = []
   let formatName = 'Internal Error'
@@ -51,7 +49,7 @@ function validateAny(inlineOptions) {
   } else if (format === ANY) {
     // Do Nothing
   } else {
-    return 'Invalid Format Type'
+    return `Invalid Format`
   }
   allowed = allowed.concat(allowedOptions.universal)
 

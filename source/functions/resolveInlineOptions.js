@@ -1,24 +1,40 @@
 import onlyUnique from './onlyUnique'
+import interpretCustomFormats from './interpretCustomFormats'
+import interpretFormatShorthand from './interpretFormatShorthand'
+import { Format } from '../exports/Format'
+
+const maxLoopSize = 100
 
 function resolveInlineOptions(resolveInputs, format, options = {}) {
   let newOptions = Object.assign({}, options)
   let ORFormats = []
   let ANDFormats = []
   let NOTFormats = []
-  let hasInlineOptions =
-    typeof format == 'object' &&
-    format !== null &&
-    !Array.isArray(format) &&
-    format.hasOwnProperty('_')
-  while (hasInlineOptions) {
-    newOptions = Object.assign({}, format, newOptions)
-    format = newOptions._
-    delete newOptions._
-    hasInlineOptions =
-      typeof format == 'object' &&
-      format !== null &&
-      !Array.isArray(format) &&
-      format.hasOwnProperty('_')
+
+  let hasChanged = true
+  let loopCount = 0
+  while (hasChanged) {
+    hasChanged = false
+    while (format instanceof Format) {
+      format = interpretFormatShorthand(format)
+      hasChanged = true
+      loopCount++
+      if (loopCount >= maxLoopSize) throw new Error('Max loop size exceeded')
+    }
+    while (typeof format == 'string') {
+      format = interpretCustomFormats(format)
+      hasChanged = true
+      loopCount++
+      if (loopCount >= maxLoopSize) throw new Error('Max loop size exceeded')
+    }
+    while (hasInlineOptions(format)) {
+      newOptions = Object.assign({}, format, newOptions)
+      delete newOptions._
+      format = format._
+      hasChanged = true
+      loopCount++
+      if (loopCount >= maxLoopSize) throw new Error('Max loop size exceeded')
+    }
   }
   if (newOptions.hasOwnProperty('_or')) {
     const orF = newOptions._or
@@ -60,12 +76,21 @@ function resolveInlineOptions(resolveInputs, format, options = {}) {
     delete newOptions._not
   }
   if ((ORFormats.length > 0) + (ANDFormats.length > 0) + (NOTFormats.length > 0) > 1) {
-    throw require('util').inspect([ORFormats, ANDFormats, NOTFormats])
+    //throw require('util').inspect([ORFormats, ANDFormats, NOTFormats])
     throw new Error(
       `Cannot use more than one boolean logic condition of differing kinds at the same depth, Total ORFormats: ${ORFormats.length}, Total ANDFormats: ${ANDFormats.length}, total NOTFormats: ${NOTFormats.length}`
     )
   }
   return { options: newOptions, format, ORFormats, ANDFormats, NOTFormats }
+}
+
+function hasInlineOptions(format) {
+  return (
+    typeof format == 'object' &&
+    format !== null &&
+    !Array.isArray(format) &&
+    format.hasOwnProperty('_')
+  )
 }
 
 export default resolveInlineOptions

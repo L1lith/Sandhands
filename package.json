@@ -1,6 +1,6 @@
 {
   "name": "sandhands",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "description": "Sanitize, don't let your computer get sick",
   "license": "MIT",
   "main": "./dist/Sandhands-commonjs.js",
@@ -9,7 +9,7 @@
     "build-production": "rollup -c --prod",
     "build-docs": "cd docs-source && npm run deploy",
     "pretest": "npm run build",
-    "test": "mocha \"tests/**/*.js\"",
+    "test": "mocha \"tests/sanitize/**/*.js\"",
     "prepublishOnly": "npm run test && npm run build-production"
   },
   "repository": {
@@ -49,8 +49,7 @@
     "rollup": "^1.32.1",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-uglify": "^6.0.4"
+    "rollup-plugin-node-resolve": "^5.2.0"
   },
   "optionalDependencies": {
     "express": "^3.21.2",

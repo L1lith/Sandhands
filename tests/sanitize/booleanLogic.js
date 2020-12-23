@@ -31,10 +31,10 @@ const expected = [
     input: 'ghost',
     format: basicAndFormat,
     valid: true,
-    description: 'valid input with basic AND functionality'
+    description: 'basic AND functionality'
   },
   {
-    input: 'detox',
+    input: 'abbacus',
     format: basicAndFormat,
     valid: false,
     description: 'invalid input with basic AND functionality on the primary format'
@@ -61,7 +61,7 @@ const expected = [
     input: 'what up its tom, tom.com',
     format: Format(String).banned('xyz').Not(Format(String).email()),
     valid: true,
-    description: 'with basic NOT functionality using the Format constructor'
+    description: 'basic NOT functionality using the Format constructor'
   },
   {
     input: 'tom@gmail.com',
@@ -75,13 +75,13 @@ const expected = [
     input: 'zzyzx',
     format: basicOrFormat,
     valid: true,
-    description: 'with basic OR functionality passing the first format'
+    description: 'basic OR functionality passing the first format'
   },
   {
     input: 'bacc',
     format: basicOrFormat,
     valid: true,
-    description: 'with basic OR functionality passing the secondary format'
+    description: 'basic OR functionality passing the secondary format'
   },
   {
     input: 'tone',
@@ -95,7 +95,7 @@ const expected = [
     input: 'tomatoes',
     format: basicNotFormat,
     valid: true,
-    description: 'with basic NOT functionality'
+    description: 'basic NOT functionality'
   },
   {
     input: 'tomato',
@@ -106,6 +106,6 @@ const expected = [
   // End NOT Section
 ]
 
-describe('Format Boolean Logic', () => {
+describe('Boolean Logic', () => {
   testValid(expected)
 })

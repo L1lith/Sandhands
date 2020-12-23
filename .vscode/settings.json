@@ -1,7 +1,7 @@
 {
     "search.exclude": {
         "**/_next": true,
-        "**/build": true,
-        "**/dist": true
+        "**/dist": true,
+        "**/package-lock.json": true
     }
 }

@@ -21,7 +21,7 @@ Object.defineProperties(primitives, {
 })
 Object.freeze(primitives)
 
-const object = Object.freeze(['strict', 'standard', 'allOptional'])
+const object = Object.freeze(['strict', 'standard', 'allOptional', 'optionalProps'])
 const array = Object.freeze([
   'strict',
   'firstAsStandard',

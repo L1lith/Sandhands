@@ -4,15 +4,13 @@ import valid from './valid'
 import setDefault from './setDefault'
 import customFormat from './customFormat'
 import sandhandsExpress from './sandhandsExpress'
-import { format as Format } from './Format'
+import { format } from './Format'
 import ANY from './ANY'
 import allowedOptions from '../validate/allowedOptions'
 import And from './And'
 import Not from './Not'
 import Or from './Or'
 import getFormatErrors from './getFormatErrors'
-
-const F = Format
 
 export {
   allowedOptions,
@@ -22,8 +20,8 @@ export {
   setDefault,
   customFormat,
   sandhandsExpress,
-  Format,
-  F,
+  format as Format,
+  format as F,
   ANY,
   And,
   Not,

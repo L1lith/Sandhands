@@ -1,19 +1,20 @@
+import resolveInputs from '../functions/resolveInputs'
 import validate from '../validate/any'
+import ANY from './ANY'
+import details from './details'
 import sanitize from './sanitize'
 import valid from './valid'
-import details from './details'
-import ANY from './ANY'
-import resolveInputs from '../functions/resolveInputs'
+import onlyUnique from '../functions/onlyUnique'
 
 class Format {
   constructor(...args) {
     const inlineOptions = resolveInputs(...args)
     validate(inlineOptions)
-    this.format = { ...(inlineOptions.options || {}), _: format || ANY }
+
+    this.format = { ...(inlineOptions.options || {}), _: inlineOptions.format || ANY }
   }
   setOptions(options) {
-    if (typeof options !== 'object' || options === null)
-      throw new Error('Options must be an object')
+    if (typeof options != 'object' || options === null) throw new Error('Options must be an object')
     if (options.hasOwnProperty('_'))
       console.warn(
         'Warning: Setting the primary format (the "_" property) through the setOptions, this could cause unintended behavior.'
@@ -38,23 +39,23 @@ class Format {
     return sanitize(input, this.format)
   }
   Or(...formats) {
-    //throw new Error("This feature has been temporarily disabled.")
+    throw new Error('This feature has been temporarily disabled.')
     if (formats.length < 1) throw new Error('Must supply at least 1 format')
     formats.forEach(format => validate(format))
-    this.setOption('_or', (this.getOption('_or') || []).concat(formats))
+    this.setOption('_or', (this.getOption('_or') || []).concat(formats).filter(onlyUnique))
   }
   And(...formats) {
-    //throw new Error("This feature has been temporarily disabled.")
+    throw new Error('This feature has been temporarily disabled.')
     if (formats.length < 1) throw new Error('Must supply at least 1 format')
 
     formats.forEach(format => validate(format))
-    this.setOption('_and', (this.getOption('_and') || []).concat(formats))
+    this.setOption('_and', (this.getOption('_and') || []).concat(formats).filter(onlyUnique))
   }
   Not(...formats) {
-    //throw new Error("This feature has been temporarily disabled.")
+    throw new Error('This feature has been temporarily disabled.')
     if (formats.length < 1) throw new Error('Must supply at least 1 format')
     formats.forEach(format => validate(format))
-    this.setOption('_not', (this.getOption('not') || []).concat(formats))
+    this.setOption('_not', (this.getOption('not') || []).concat(formats).filter(onlyUnique))
   }
 }
 
@@ -78,7 +79,8 @@ const formatProxy = {
       }
     }
     //if (prop === "And") throw require('util').inspect([target, target[prop], prop])
-    return (newValue = true) => {
+    return () => {
+      const newValue = arguments.length > 0 ? arguments[0] : true
       target.format[prop] = newValue
       return new Proxy(target, formatProxy)
     }

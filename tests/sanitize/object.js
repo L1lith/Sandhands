@@ -5,7 +5,8 @@ const equalObject = {
   width: 25
 }
 
-const expected = [{
+const expected = [
+  {
     input: {},
     format: {},
     valid: true,
@@ -74,17 +75,19 @@ const expected = [{
       allOptional: true
     },
     valid: true,
-    description: 'an object with a valid optoinal property'
+    description: 'an object with a valid optional property'
   },
   {
     input: {
       flavor: Infinity
     },
     format: {
-      flavor: {
-        _: String,
-        optional: true
-      }
+      _: {
+        flavor: {
+          _: String
+        }
+      },
+      allOptional: true
     },
     valid: false,
     description: 'an object with an invalid optional property'
@@ -144,7 +147,7 @@ const expected = [{
       standard: String
     },
     valid: true,
-    description: "object with standard option"
+    description: 'object with standard option'
   },
   {
     input: {
@@ -157,7 +160,7 @@ const expected = [{
       standard: String
     },
     valid: false,
-    description: "invalid object against an object with standard option"
+    description: 'invalid object against an object with standard option'
   },
   {
     input: {
@@ -172,7 +175,7 @@ const expected = [{
       standard: String
     },
     valid: true,
-    description: "object with standard option and properties"
+    description: 'object with standard option and properties'
   },
   {
     input: {
@@ -188,7 +191,7 @@ const expected = [{
       standard: String
     },
     valid: false,
-    description: "invalid object against an object with standard option and properties"
+    description: 'invalid object against an object with standard option and properties'
   },
   {
     input: {
