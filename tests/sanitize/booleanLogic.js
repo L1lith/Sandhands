@@ -25,6 +25,11 @@ const basicNotFormat = {
   }
 }
 
+const numberOrString = {
+  _: Number,
+  _or: String
+}
+
 const expected = [
   // Begin AND Section
   {
@@ -52,6 +57,24 @@ const expected = [
     format: basicOrFormat,
     valid: true,
     description: 'basic OR functionality passing the first format'
+  },
+  {
+    input: 12,
+    format: numberOrString,
+    valid: true,
+    description: 'basic OR functionality with different types passing the primary format'
+  },
+  {
+    input: 'hello',
+    format: numberOrString,
+    valid: true,
+    description: 'basic OR functionality with different types passing the secondary format'
+  },
+  {
+    input: null,
+    format: numberOrString,
+    valid: false,
+    description: 'invalid input with basic OR functionality with different types'
   },
   {
     input: 'bacc',

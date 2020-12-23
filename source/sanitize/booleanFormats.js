@@ -19,15 +19,14 @@ function sanitizeBooleanFormats(sanitizeAny, input, inlineOptions) {
   const firstError = sanitizeAny(input, format, options)
   if (firstError === null) return null
   if (ORFormats.length > 0) {
-    let error
-    for (let i = 0, l = ORFormats.length; i < l && error !== null; i++) {
+    for (let i = 0, l = ORFormats.length; i < l; i++) {
       // Store the length instead of retrieving it every time for optimal performance
-      error = sanitizeAny(input, ORFormats[i])
+      const error = sanitizeAny(input, ORFormats[i])
       if (error === null) return null
     }
-    return error || 'Failed to match any of the valid formats'
+    return firstError
   }
-  return firstError
+  throw new Error('Function not supposed to reach the end')
 }
 
 export default sanitizeBooleanFormats

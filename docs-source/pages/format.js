@@ -154,7 +154,8 @@ console.log(valid("lily", {_: String, lowercase: true})) // true`}</Highlight>
             <h3 className="name">strict</h3>
             <p className="description">
               Flag as true to require all input values to be defined by the format in order to be
-              valid. Default: true
+              valid (unless flagged as optional). This also prevents the user from providing their
+              own additional properties. Default: true
             </p>
           </div>
           <div className="option">
