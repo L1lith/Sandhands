@@ -1,19 +1,23 @@
 const express = require('express')
-const {sandhandsExpress} = require('sandhands')
+const { sandhandsExpress } = require('sandhands')
 const bodyParser = require('body-parser')
 
 const app = express()
 
 app.use(bodyParser.json())
 
-app.post('/register', sandhandsExpress({
-  username: 'username',
-  email: 'email',
-  password: 'password'
-}), (req, res) => {
-  console.log('Got Registration Details', req.body)
-  res.send('Registered')
-})
+app.post(
+  '/register',
+  sandhandsExpress({
+    username: 'username',
+    email: 'email',
+    password: 'password'
+  }),
+  (req, res) => {
+    console.log('Got Registration Details', req.body)
+    res.send('Registered')
+  }
+)
 
 const port = 8050
 

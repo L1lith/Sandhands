@@ -4,23 +4,28 @@ import '../styles/home.less'
 import Highlight from 'react-highlight'
 
 class Home extends Component {
-    render() {
-        return (
-            <div className="home">
-                <h2>Getting started with Sandhands</h2>
-                <p>
-                    Sandhands is used to sanitize all kinds of arbitarily complex user input! Make sure to check out the {' '}
-                    <li>
-                        <Link href="/Sandhands/format.html"><a>Format section</a></Link>
-                    </li>{' '}
-                    and{' '}
-                    <li>
-                        <Link href="/Sandhands/sandbox.html"><a>play around with the sandbox!</a></Link>
-                    </li>
-                </p>
-                <br/>
-                <h2>A Basic Express Example</h2>
-              <Highlight className="javascript example">{`const express = require('express')
+  render() {
+    return (
+      <div className="home">
+        <h2>Getting started with Sandhands</h2>
+        <p>
+          Sandhands is used to sanitize all kinds of arbitarily complex user input! Make sure to
+          check out the{' '}
+          <li>
+            <Link href="/Sandhands/format.html">
+              <a>Format section</a>
+            </Link>
+          </li>{' '}
+          and{' '}
+          <li>
+            <Link href="/Sandhands/sandbox.html">
+              <a>play around with the sandbox!</a>
+            </Link>
+          </li>
+        </p>
+        <br />
+        <h2>A Basic Express Example</h2>
+        <Highlight className="javascript example">{`const express = require('express')
 const {sandhandsExpress} = require('sandhands')
 const bodyParser = require('body-parser')
 
@@ -43,9 +48,9 @@ app.listen(port, err => {
   if (err) return console.log(err)
   console.log(\`Server running on Port #\$\{port\}\`)
 })`}</Highlight>
-            </div>
-        )
-    }
+      </div>
+    )
+  }
 }
 
 export default Home

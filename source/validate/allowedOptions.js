@@ -7,17 +7,28 @@ let primitives = new Map([
 ])
 Object.defineProperties(primitives, {
   set: {
-    get: () => {throw new Error("cannot Modify")},
+    get: () => {
+      throw new Error('cannot Modify')
+    },
     configurable: false
   },
   delete: {
-    get: () => {throw new Error("cannot Modify")},
+    get: () => {
+      throw new Error('cannot Modify')
+    },
     configurable: false
   }
 })
 Object.freeze(primitives)
 
 const object = Object.freeze(['strict', 'standard', 'allOptional'])
-const array = Object.freeze(['strict', 'firstAsStandard', 'minLength', 'maxLength', 'length', 'standard'])
+const array = Object.freeze([
+  'strict',
+  'firstAsStandard',
+  'minLength',
+  'maxLength',
+  'length',
+  'standard'
+])
 
 export default Object.freeze({ universal, primitives, object, array })

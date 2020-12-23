@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react'
+import React, { Fragment } from 'react'
 import App from 'next/app'
 import Head from 'next/head'
 import Header from '../components/header'
@@ -7,31 +7,31 @@ import '../styles/highlight.less'
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
-    let pageProps = {};
+    let pageProps = {}
 
     if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx);
+      pageProps = await Component.getInitialProps(ctx)
     }
 
-    return { pageProps };
+    return { pageProps }
   }
 
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps } = this.props
 
     return (
       <Fragment>
         <Head>
-          <link href="https://fonts.googleapis.com/css?family=Roboto|Tajawal" rel="stylesheet"/>
-          <meta name="author" content="Lilith"/>
+          <link href="https://fonts.googleapis.com/css?family=Roboto|Tajawal" rel="stylesheet" />
+          <meta name="author" content="Lilith" />
         </Head>
-        <Header/>
+        <Header />
         <main id="page">
           <Component {...pageProps} />
         </main>
       </Fragment>
-    );
+    )
   }
 }
 
-export default MyApp;
+export default MyApp

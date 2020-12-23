@@ -6,43 +6,43 @@ import babel from 'rollup-plugin-babel'
 import deepmerge from 'deepmerge'
 
 const baseConfig = {
-    input: join(__dirname, 'index.js'),
-    output: {
-        name: 'Sandhands'
-    },
-    name: 'Sandhands',
-    plugins: [
-        resolve({ jsnext: true }),
-        commonjs({
-            include: 'node_modules/**'
-        }),
-        babel({
-            exclude: 'node_modules/**',
-            presets: ['@babel/preset-env'],
-            sourceMaps: 'inline'
-        })
-    ]
+  input: join(__dirname, 'index.js'),
+  output: {
+    name: 'Sandhands'
+  },
+  name: 'Sandhands',
+  plugins: [
+    resolve({ jsnext: true }),
+    commonjs({
+      include: 'node_modules/**'
+    }),
+    babel({
+      exclude: 'node_modules/**',
+      presets: ['@babel/preset-env'],
+      sourceMaps: 'inline'
+    })
+  ]
 }
 
 const branchConfigs = [
-    {
-        output: {
-            format: 'iife',
-            file: join(__dirname, 'dist', 'Sandhands-browser.min.js')
-        }
-    },
-    {
-        output: {
-            format: 'cjs',
-            file: join(__dirname, 'dist', 'Sandhands-commonjs.js')
-        }
-    },
-    {
-        output: {
-            format: 'umd',
-            file: join(__dirname, 'dist', 'Sandhands-universal.min.js')
-        }
+  {
+    output: {
+      format: 'iife',
+      file: join(__dirname, 'dist', 'Sandhands-browser.js')
     }
+  },
+  {
+    output: {
+      format: 'cjs',
+      file: join(__dirname, 'dist', 'Sandhands-commonjs.js')
+    }
+  },
+  {
+    output: {
+      format: 'umd',
+      file: join(__dirname, 'dist', 'Sandhands-universal.js')
+    }
+  }
 ]
 
 const configs = branchConfigs.map(config => deepmerge(baseConfig, config))

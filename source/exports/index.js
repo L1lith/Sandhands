@@ -15,18 +15,18 @@ import getFormatErrors from './getFormatErrors'
 const F = Format
 
 export {
-    allowedOptions,
-    details,
-    sanitize,
-    valid,
-    setDefault,
-    customFormat,
-    sandhandsExpress,
-    Format,
-    F,
-    ANY,
-    And,
-    Not,
-    Or,
-    getFormatErrors
+  allowedOptions,
+  details,
+  sanitize,
+  valid,
+  setDefault,
+  customFormat,
+  sandhandsExpress,
+  Format,
+  F,
+  ANY,
+  And,
+  Not,
+  Or,
+  getFormatErrors
 }
