@@ -1,7 +1,7 @@
 # Updates
 
 ## 1.8.1
-Hammered out more bugs and disabled a small broken feature. Added more tests, we're at 148 now :)
+Hammered out more bugs and disabled a small broken feature. Added more tests, we're at 148 now :) Additionally a small change has been made to add the optionalProps and the allOptional props to objects, and to remove the optional flag from properties so that optionals are always at the same level as their format for clarity.
 
 ## 1.8.0
 Stability/Security Update. All of the dependencies have been updated and some minor bugs have been fixed.

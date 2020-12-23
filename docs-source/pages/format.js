@@ -158,10 +158,14 @@ console.log(valid("lily", {_: String, lowercase: true})) // true`}</Highlight>
             </p>
           </div>
           <div className="option">
-            <h3 className="name">optional</h3>
+            <h3 className="name">allOptional</h3>
+            <p className="description">Flag as true to make all of the properties optional</p>
+          </div>
+          <div className="option">
+            <h3 className="name">optionalProps</h3>
             <p className="description">
-              Flag as true on a property to make that property not required (if the input has the
-              property the format for that property is applied)
+              Provide an array of property names (strings) to designate which properties are
+              optional.
             </p>
           </div>
           <Highlight className="javascript">{`const {valid} = require('sandhands')
@@ -169,7 +173,7 @@ console.log(valid("lily", {_: String, lowercase: true})) // true`}</Highlight>
 console.log(valid({}, {})) // true
 console.log(valid({}, {a: String})) // false
 console.log(valid({a: 'hello world'}, {a: String})) // true
-console.log(valid({}, {a: {_: String, optional: true}})) // true
+console.log(valid({}, {_: {a: String}, optionalProps: ["a"]})) // true
 console.log(valid({b: 12}, {})) // false
 console.log(valid({b: 12}, {}, {strict: false})) // true`}</Highlight>
         </div>
