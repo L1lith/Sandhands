@@ -13,7 +13,7 @@ declare class IDetailsErrorObject {
  */
 declare interface IObjectOptions {
     /**
-     * Flag as true to require all input values to be defined by the format in order to be valid. Defalt: true
+     * Flag as true to require all input values to be defined by the format in order to be valid. Default: true
      */
     strict?: boolean;
     /**

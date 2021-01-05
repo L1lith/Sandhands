@@ -28,7 +28,7 @@ const expected = [
     description: 'invalid complex array involving numbers and strings'
   },
   {
-    input: [{ person: { age: 12, name: 'timmy' } }],
+    input: { person: { age: 12, name: 'timmy' } },
     format: {
       _: {
         person: {
@@ -40,9 +40,6 @@ const expected = [
         }
       },
       _or: null
-    },
-    testOptions: {
-      spreadArray: true
     },
     valid: true,
     description: 'complex object involving boolean operators'

@@ -40,9 +40,7 @@ function resolveInlineOptions(resolveInputs, format, options = {}) {
     const orF = newOptions._or
     if (!ORFormats.includes(orF)) {
       if (Array.isArray(orF)) {
-        ORFormats = ORFormats.concat(orF)
-          .filter(onlyUnique)
-          .map(value => resolveInputs(value))
+        ORFormats = ORFormats.concat(orF).filter(onlyUnique)
       } else {
         ORFormats.push(orF)
       }

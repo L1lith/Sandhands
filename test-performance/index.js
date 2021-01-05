@@ -16,7 +16,7 @@ suite.on('error', function (evt) {
 })
 suite
   .on('cycle', function (event) {
-    console.log(String(event.target))
+    console.log(colors.cyan(String(event.target)))
     console.log('Executions Per Second:', event.target.hz) // The number of executions per second.
     console.log('RME:', event.target.stats.rme)
     console.log('Sample Length:', event.target.stats.sample.length)
