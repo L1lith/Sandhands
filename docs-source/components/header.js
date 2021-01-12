@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Link from 'next/Link'
+import Link from 'next/link'
 import '../styles/header.less'
 
 class Header extends Component {

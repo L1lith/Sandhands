@@ -74,6 +74,22 @@ body {
   padding: 0;
   border-radius: 10px;
 }
+#page > h1,
+#page > h2,
+#page > h3,
+#page > h4,
+#page > h5,
+#page > h6 {
+  background-color: #ffffff7d;
+}
+#page > * > h1,
+#page > * > h2,
+#page > * > h3,
+#page > * > h4,
+#page > * > h5,
+#page > * > h6 {
+  background-color: #ffffff7d;
+}
 #root,
 #__next {
   position: absolute;
@@ -88,8 +104,7 @@ body {
   max-height: calc(100% - 122px);
   overflow-x: hidden;
   overflow-y: auto;
-  background-color: #ffffff;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 40' width='80' height='40'%3E%3Cpath fill='%2300ff8e' fill-opacity='0.13' d='M0 40a19.96 19.96 0 0 1 5.9-14.11 20.17 20.17 0 0 1 19.44-5.2A20 20 0 0 1 20.2 40H0zM65.32.75A20.02 20.02 0 0 1 40.8 25.26 20.02 20.02 0 0 1 65.32.76zM.07 0h20.1l-.08.07A20.02 20.02 0 0 1 .75 5.25 20.08 20.08 0 0 1 .07 0zm1.94 40h2.53l4.26-4.24v-9.78A17.96 17.96 0 0 0 2 40zm5.38 0h9.8a17.98 17.98 0 0 0 6.67-16.42L7.4 40zm3.43-15.42v9.17l11.62-11.59c-3.97-.5-8.08.3-11.62 2.42zm32.86-.78A18 18 0 0 0 63.85 3.63L43.68 23.8zm7.2-19.17v9.15L62.43 2.22c-3.96-.5-8.05.3-11.57 2.4zm-3.49 2.72c-4.1 4.1-5.81 9.69-5.13 15.03l6.61-6.6V6.02c-.51.41-1 .85-1.48 1.33zM17.18 0H7.42L3.64 3.78A18 18 0 0 0 17.18 0zM2.08 0c-.01.8.04 1.58.14 2.37L4.59 0H2.07z'%3E%3C/path%3E%3C/svg%3E");
+  background-color: #04162a;
 }
 code {
   display: block;
@@ -191,79 +206,3 @@ code {
   text-decoration: underline;
 }
 
-.sandbox > * {
-  display: block;
-}
-.sandbox > .mode > .modes {
-  display: block;
-  padding: 5px;
-  width: fit-content;
-  min-width: 100px;
-  min-height: 40px;
-  font-size: 1em;
-  margin: 20px auto 0 auto;
-  font-family: inherit;
-  outline: none;
-  background-color: #fdfdfd;
-  color: #6589ab;
-  border-color: #7598ea;
-  border-width: 0 3px;
-}
-.sandbox > .output {
-  margin-top: 20px;
-}
-.sandbox > .output.valid > code {
-  width: fit-content;
-  min-width: 100px;
-  text-align: center;
-}
-.sandbox > .output.sanitize > code {
-  width: fit-content;
-  min-width: 200px;
-  text-align: center;
-}
-.sandbox > .output.details > code {
-  width: 80%;
-  min-width: 300px;
-}
-.sandbox > .output > * {
-  display: block;
-}
-.sandbox > .editors {
-  padding: 20px 0;
-  border-bottom: 4px double #0135ad8f;
-  border-radius: 5px;
-}
-.sandbox > .editors > .editor {
-  box-shadow: 8px 4px 5px #99a3bf3b;
-  min-width: 300px;
-  text-align: center;
-  display: inline-block;
-  position: relative;
-  margin: 0 2.5%;
-  width: calc(45% - 8px);
-  border: 4px solid #4d74ce8f;
-  border-width: 0 4px;
-  background-color: #191818;
-  border-radius: 3px;
-  color: white;
-  padding: 5px 0;
-}
-.sandbox > .editors > .editor > .ace_editor {
-  margin: 5px 0;
-  width: 100% !important;
-  display: inline-block;
-  height: 250px !important;
-}
-.sandbox > .editors > .editor > .ace_editor .ace_error,
-.sandbox > .editors > .editor > .ace_editor .ace_warning,
-.sandbox > .editors > .editor > .ace_editor .ace_info,
-.sandbox > .editors > .editor > .ace_editor .ace_tooltip {
-  display: none !important;
-}
-.sandbox > .version {
-  text-align: center;
-}
-
-
-/*# sourceMappingURL=styles.chunk.css.map*/
