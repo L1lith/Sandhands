@@ -67,20 +67,20 @@ const expected = [
   {
     input: null,
     format: {
-      _: Boolean,
+      _: undefined,
       nullable: true
     },
     valid: true,
     description: 'null against a nullable undefined'
   },
   {
-    input: [true, false],
+    input: undefined,
     format: {
-      _: Boolean,
+      _: undefined,
       nullable: true
     },
     valid: true,
-    description: 'a boolean against a nullable undefined'
+    description: 'undefined against a nullable undefined'
   }
 ]
 

@@ -16,10 +16,10 @@ function validateObjectOptions(options) {
     if (!Array.isArray(bannedProps) || bannedProps.some(value => typeof value != 'string'))
       return 'Banned Props must be an array of strings'
   }
-  if (options.hasOwnProperty('nullableProps')) {
-    if (!Array.isArray(nullableProps) || nullableProps.some(value => typeof value != 'string'))
-      return 'Nullable Props must be an array of strings'
-  }
+  // if (options.hasOwnProperty('nullableProps')) {
+  //   if (!Array.isArray(nullableProps) || nullableProps.some(value => typeof value != 'string'))
+  //     return 'Nullable Props must be an array of strings'
+  // }
   if (options.hasOwnProperty('class')) {
     if (typeof classInput != 'object' || typeof classInput != 'function')
       return 'A class must be a function or an object'
