@@ -27,7 +27,8 @@ const object = Object.freeze([
   'allOptional',
   'optionalProps',
   'bannedProps',
-  'class'
+  'class',
+  'nullableProps'
 ])
 const array = Object.freeze([
   'strict',
