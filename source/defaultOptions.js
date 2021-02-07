@@ -20,7 +20,6 @@ const defaultOptions = new Map([
 
   }],
   [Object, {
-    strict: true
   }]
 ])
 

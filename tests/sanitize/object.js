@@ -364,6 +364,15 @@ const expected = [
     },
     valid: false,
     description: 'An invalid object against a format with a banned property'
+  },
+  {
+    format: Object,
+    input: {
+      control: false,
+      randomInput: 42
+    },
+    valid: true,
+    description: 'The object constructor is non-strict by default'
   }
 ]
 

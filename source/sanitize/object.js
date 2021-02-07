@@ -2,13 +2,15 @@ import firstError from '../functions/firstError'
 import resolveInputs from '../functions/resolveInputs'
 
 function sanitizeObject(sanitizeAny, input, format, options) {
+  let { strict } = options
   if (format === Object) {
     format = {}
+    if (typeof strict != 'boolean') strict = false
   }
   if (typeof input != 'object' || input === null || Array.isArray(input)) return 'Expected Object'
 
   const errors = {}
-  const { strict, standard, allOptional, optionalProps = [], bannedProps = [] } = options
+  const { standard, allOptional, optionalProps = [], bannedProps = [] } = options
   const classInput = options.class
   if (options.hasOwnProperty('class')) {
     const className = classInput.constructor.name
@@ -18,7 +20,8 @@ function sanitizeObject(sanitizeAny, input, format, options) {
         (typeof className == 'string' && className.length > 1 ? ` "${className}"` : '')
       )
   }
-  if (!options.hasOwnProperty('strict') && options.hasOwnProperty('standard')) strict = false
+  if (typeof strict != 'boolean' && options.hasOwnProperty('standard')) strict = false
+  if (typeof strict != 'boolean') strict = true
   const inputKeys = Object.keys(input)
 
   if (strict === true || options.hasOwnProperty('standard')) {
