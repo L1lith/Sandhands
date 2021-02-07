@@ -163,6 +163,13 @@ console.log(valid("lily", {_: String, lowercase: true})) // true`}</Highlight>
             <p className="description">Flag as true to make all of the properties optional</p>
           </div>
           <div className="option">
+            <h3 className="name">bannedProps</h3>
+            <p className="description">
+              Provide an array of property names (strings) to designate which properties are not
+              allowed to be provided.
+            </p>
+          </div>
+          <div className="option">
             <h3 className="name">optionalProps</h3>
             <p className="description">
               Provide an array of property names (strings) to designate which properties are
@@ -232,6 +239,13 @@ console.log(valid([52, 63, 14], [Number, Number])) // false - Because strict is 
 
 console.log(valid(['a', 15, 25], {_:[Number, String], firstAsStandard: true})) // true - We can also use firstAsStandard alongside with specific formats for certain array indexes by setting it explicitly in the inline options. The first index (Number) will be the standard format for all indexes, and the second index will now become the beginning of the array of custom formats for specific indexes, meaning the first array index will be expected to be a string, and all following indexes will be expected to be numbers.`}</Highlight>
         </div>
+        <div id="functions" class="function section">
+          <h2 className="name">Functions</h2>
+          <p className="description">
+            Functions automatically support all of the object options because functions are
+            effectively also objects.
+          </p>
+        </div>
         <div id="universal" className="universal section">
           <h2 className="name">Universal Options</h2>
           <div className="option">
@@ -246,6 +260,13 @@ console.log(valid(['a', 15, 25], {_:[Number, String], firstAsStandard: true})) /
             <p className="description">
               Expects the input to be strictly equal (using the === operator) to the value of the
               equalTo option.
+            </p>
+          </div>
+          <div className="option">
+            <h3 className="name">nullable</h3>
+            <p className="description">
+              Flag as true in order to accept null instead of the provided format, hence making the
+              input "nullable".
             </p>
           </div>
         </div>

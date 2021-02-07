@@ -1,4 +1,4 @@
-const universal = Object.freeze(['equalTo', 'validate'])
+const universal = Object.freeze(['equalTo', 'validate', 'nullable'])
 
 //prettier-ignore
 let primitives = new Map([
@@ -21,7 +21,14 @@ Object.defineProperties(primitives, {
 })
 Object.freeze(primitives)
 
-const object = Object.freeze(['strict', 'standard', 'allOptional', 'optionalProps'])
+const object = Object.freeze([
+  'strict',
+  'standard',
+  'allOptional',
+  'optionalProps',
+  'bannedProps',
+  'class'
+])
 const array = Object.freeze([
   'strict',
   'firstAsStandard',
@@ -31,4 +38,6 @@ const array = Object.freeze([
   'standard'
 ])
 
-export default Object.freeze({ universal, primitives, object, array })
+const functionOptions = Object.freeze([])
+
+export default Object.freeze({ universal, primitives, object, array, function: functionOptions })

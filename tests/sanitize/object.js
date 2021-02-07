@@ -329,6 +329,41 @@ const expected = [
     },
     valid: false,
     description: 'semi-invalid object against a format with an allOptional flag'
+  },
+  {
+    format: {
+      _: {
+        balance: Number
+      },
+      strict: false,
+      bannedProps: ['age']
+    },
+    input: [
+      {
+        balance: 32
+      },
+      {
+        balance: 32,
+        disaster: true
+      }
+    ],
+    valid: true,
+    description: 'A valid object against a format with a banned property'
+  },
+  {
+    format: {
+      _: {
+        balance: Number
+      },
+      strict: false,
+      bannedProps: ['age']
+    },
+    input: {
+      balance: 32,
+      age: 64
+    },
+    valid: false,
+    description: 'An invalid object against a format with a banned property'
   }
 ]
 

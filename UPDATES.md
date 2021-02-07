@@ -1,6 +1,9 @@
 # Updates
 
-## 1.8.2
+#### 1.8.3
+I added a new universal option called "nullable". Setting this as true will allow you to accept null instead of the provided format, hence making your format "nullable".
+
+### 1.8.2
 Hammered out more bugs and disabled a small broken feature. Added more tests, we're at 148 now :) Additionally a small change has been made to add the optionalProps and the allOptional props to objects, and to remove the optional flag from properties so that optionals are always at the same level as their format for clarity.
 
 ## 1.8.0
@@ -9,7 +12,7 @@ Stability/Security Update. All of the dependencies have been updated and some mi
 #### 1.7.1
 Created the getFormatErrors to see if there is an issue with your format (note: this is completely unnecessary as your format is checked for validation when sanitation is performed). As of the date of the update there is currently no tests for this function.
 
-## 1.7.0
+### 1.7.0
 I've just implemented boolean logic inside of Sandhands, and to ensure it works correctly I've included a new set of tests! There's now 138 total tests :D
 
 ### 1.6.5

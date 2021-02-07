@@ -69,6 +69,24 @@ const expected = [
     },
     valid: true,
     description: 'an equal boolean to the equalTo flag'
+  },
+  {
+    input: null,
+    format: {
+      _: Boolean,
+      nullable: true
+    },
+    valid: true,
+    description: 'null against a nullable boolean'
+  },
+  {
+    input: [true, false],
+    format: {
+      _: Boolean,
+      nullable: true
+    },
+    valid: true,
+    description: 'a boolean against a nullable boolean'
   }
 ]
 

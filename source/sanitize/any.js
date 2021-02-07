@@ -31,6 +31,7 @@ function sanitizeAny(input, ...args) {
 
   // Start Section for handling Boolean Logic
   let { ORFormats, ANDFormats, NOTFormats } = inlineOptions
+  if (options.nullable === true && input === null) return null
   if (ORFormats.length > 0 || ANDFormats.length > 0 || NOTFormats.length > 0)
     return booleanFormats(sanitizeAny, input, inlineOptions)
   // End section for handling Boolean Logic

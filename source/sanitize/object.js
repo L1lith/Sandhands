@@ -8,11 +8,21 @@ function sanitizeObject(sanitizeAny, input, format, options) {
   if (typeof input != 'object' || input === null || Array.isArray(input)) return 'Expected Object'
 
   const errors = {}
-  const { strict, standard, allOptional, optionalProps = [] } = options
+  const { strict, standard, allOptional, optionalProps = [], bannedProps = [] } = options
+  const classInput = options.class
+  if (options.hasOwnProperty('class')) {
+    const className = classInput.constructor.name
+    if (!(input instanceof classInput))
+      return (
+        'Expected a member of the provided class' +
+        (typeof className == 'string' && className.length > 1 ? ` "${className}"` : '')
+      )
+  }
   if (!options.hasOwnProperty('strict') && options.hasOwnProperty('standard')) strict = false
+  const inputKeys = Object.keys(input)
 
   if (strict === true || options.hasOwnProperty('standard')) {
-    Object.keys(input).forEach(inputKey => {
+    inputKeys.forEach(inputKey => {
       if (!format.hasOwnProperty(inputKey)) {
         if (options.hasOwnProperty('standard')) {
           const valid = sanitizeAny(input[inputKey], standard)
@@ -21,6 +31,13 @@ function sanitizeObject(sanitizeAny, input, format, options) {
           errors[inputKey] = `Invalid Property "${inputKey}"`
         }
       }
+    })
+  }
+
+  if (options.hasOwnProperty('bannedProps')) {
+    bannedProps.forEach(bannedProp => {
+      if (input.hasOwnProperty(bannedProp) && !errors[bannedProp])
+        errors[bannedProp] = `Invalid Property "${bannedProp}"`
     })
   }
 

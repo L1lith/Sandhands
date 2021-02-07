@@ -15,7 +15,7 @@ function testValid(tests) {
         if (spreadArray === true && Array.isArray(input) && input.length > 0) {
           input.forEach(testInput => {
             if (valid === true) {
-              const errors = details(input, format)
+              const errors = details(testInput, format)
               if (errors !== null) {
                 assert.fail(inspect(errors))
               }

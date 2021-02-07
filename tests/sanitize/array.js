@@ -114,6 +114,9 @@ const expected = [
   },
   {
     input: equalArray,
+    testOptions: {
+      spreadArray: false
+    },
     format: {
       _: Array,
       equalTo: equalArray,
@@ -121,6 +124,30 @@ const expected = [
     },
     valid: true,
     description: 'the same array as the equalTo flag'
+  },
+  {
+    input: null,
+    testOptions: {
+      spreadArray: false
+    },
+    format: {
+      _: Array,
+      nullable: true
+    },
+    valid: true,
+    description: 'null against a nullable array'
+  },
+  {
+    input: equalArray,
+    testOptions: {
+      spreadArray: false
+    },
+    format: {
+      _: Array,
+      nullable: true
+    },
+    valid: true,
+    description: 'an array against a nullable array'
   }
 ]
 

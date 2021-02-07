@@ -3,7 +3,7 @@ const { Format } = require('../../dist/Sandhands-commonjs.js')
 
 const expected = [
   {
-    input: 'I spent too many hours on this library...',
+    input: 'this library feels like a time sink sometimes',
     format: Format(String),
     valid: true,
     description: 'basic Format wrapping the String constructor'
@@ -13,6 +13,18 @@ const expected = [
     format: Format(String),
     valid: false,
     description: 'invalid input with basic Format wrapping the String constructor'
+  },
+  {
+    input: null,
+    format: Format(String).nullable(),
+    valid: true,
+    description: 'null against a nullable basic Format wrapping the String constructor'
+  },
+  {
+    input: 'Wings And Pizza',
+    format: Format(String).nullable(),
+    valid: true,
+    description: 'a nullable basic Format wrapping the String constructor'
   }
 ]
 

@@ -9,12 +9,11 @@ import number from './number'
 import validateFunctionOptions from './function'
 import ANY from '../exports/ANY'
 
-const validPrimitives = [String, Number, Boolean, null, undefined, Function]
+const validPrimitives = [String, Number, Boolean, null, undefined]
 //prettier-ignore
 const validatePrimitiveOptions = new Map([
   [String, string],
-  [Number, number],
-  [Function, validateFunctionOptions]
+  [Number, number]
 ])
 
 const primitiveNames = new Map([
@@ -46,11 +45,20 @@ function validateAny(inlineOptions) {
     allowed = allowedOptions.object
     const optionsError = validateObjectOptions(options)
     if (optionsError !== null) return optionsError
+  } else if ((typeof format == 'object' && format !== null) || format === Function) {
+    formatName = 'Function'
+    allowed = allowedOptions.function.concat(allowedOptions.object)
+    const optionsError = validateObjectOptions(options) || validateFunctionOptions(options)
+    if (optionsError !== null) return optionsError
   } else if (format === ANY) {
     // Do Nothing
   } else {
     return `Invalid Format`
   }
+  if (options.hasOwnProperty('validate') && typeof options.validate !== 'function')
+    return 'Expected a function for the validation option'
+  if (options.hasOwnProperty('nullable') && typeof options.nullable !== 'boolean')
+    return 'Expected a boolean for the nullable option'
   allowed = allowed.concat(allowedOptions.universal)
 
   const illegalKeys = Object.keys(options).filter(key => !allowed.includes(key))

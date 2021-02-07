@@ -57,6 +57,10 @@ class Format {
     formats.forEach(format => validate(format))
     this.setOption('_not', (this.getOption('not') || []).concat(formats).filter(onlyUnique))
   }
+  // nullable(isNullable = true) {
+  //   if (typeof isNullable !== 'boolean') throw new Error('Nullable expected boolean')
+  //   this.setOption('nullable', isNullable)
+  // }
 }
 
 const nonSelfReturningFunctions = ['details', 'valid', 'sanitize']
@@ -79,8 +83,9 @@ const formatProxy = {
       }
     }
     //if (prop === "And") throw require('util').inspect([target, target[prop], prop])
-    return () => {
-      const newValue = arguments.length > 0 ? arguments[0] : true
+
+    return (...args) => {
+      const newValue = args.length > 0 ? args[0] : true
       target.format[prop] = newValue
       return new Proxy(target, formatProxy)
     }
