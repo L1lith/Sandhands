@@ -1,9 +1,12 @@
+const { Format } = require('../../dist/Sandhands-commonjs')
 const testValid = require('../functions/testValid')
 
 const equalObject = {
   height: 12,
   width: 25
 }
+
+class TestClass {}
 
 const expected = [
   {
@@ -404,6 +407,18 @@ const expected = [
     },
     valid: true,
     description: 'The object constructor is non-strict by default'
+  },
+  {
+    format: { _: Object, class: TestClass },
+    input: new TestClass(),
+    valid: true,
+    description: 'A class instance against an object class format'
+  },
+  {
+    format: { _: Object, class: TestClass },
+    input: {},
+    valid: false,
+    description: 'An empty object against an object class format'
   }
 ]
 

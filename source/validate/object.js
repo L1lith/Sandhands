@@ -21,7 +21,7 @@ function validateObjectOptions(options) {
   //     return 'Nullable Props must be an array of strings'
   // }
   if (options.hasOwnProperty('class')) {
-    if (typeof classInput != 'object' || typeof classInput != 'function')
+    if (!(typeof classInput == 'object' || typeof classInput == 'function'))
       return 'A class must be a function or an object'
   }
   return null
