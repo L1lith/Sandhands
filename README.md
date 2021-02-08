@@ -7,8 +7,17 @@ Please read our Docs 😊 Sandhands is a big passion project of mine, and I thin
 
 ## [Documentation](https://l1lith.github.io/Sandhands/home)
 
-## A note on Boolean Logic
-Boolean logic is currently bugged while using the Format constructor. I'm not sure why this is so please be aware and understanding of this.
+## What is Sandhands useful for?
+Sandhands is a general purpose library that ensures your data is structured the way it's supposed to be. This can be useful for web servers especially, but this library is also useful for almost any use case.
+
+For example when scripting something you stumble upon a variable that is misbehaving and you want to ensure it is what you think it is. Simply use the "sanitize" method as a one line check that will halt execution immediately if you're not getting the data you expected. The built in support for express also makes endpoint JSON validation an absolute breeze.
+
+## Sandhands vs Typescript
+Sandhands takes a different approach to validation than Typescript. Typescript is a modification to the language itself, and Sandhands is just a library that can check types during runtime.
+
+Sandhands is my preferred type checking solution because it's less intrusive to your coding environment, and I only need to enforce type checks at specific places. Additionally Sandhands is capable of performing checks during runtime which Typescript is not (as it is transpiled to JS before deployment).
+
+Typescript is a much better solution if you'd like to enforce the type of everything all the time. Or you could use both for the ultimate type scrutiny, though this library's TS support could likely be improved (pull requests welcome!)
 
 ## Example Usage
 ```

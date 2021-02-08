@@ -1,5 +1,8 @@
 # Updates
 
+#### 1.8.4
+Fixed a bug with the strict flag being assigned when using the Object constructor, and finished implementing support for using object options when sanitizing functions (as functions are basically objects throughout.)
+
 #### 1.8.3
 I added a new universal option called "nullable". Setting this as true will allow you to accept null instead of the provided format, hence making your format "nullable".
 

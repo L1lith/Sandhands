@@ -112,6 +112,26 @@ const expected = [
     },
     valid: true,
     description: 'a function against a nullable function'
+  },
+  {
+    input: Object.assign(function () {}, {
+      color: 'green'
+    }),
+    format: Object.assign(function () {}, {
+      color: String
+    }),
+    valid: true,
+    description: 'a function with matching object properties'
+  },
+  {
+    input: Object.assign(function () {}, {
+      color: 12
+    }),
+    format: Object.assign(function () {}, {
+      color: String
+    }),
+    valid: false,
+    description: 'an invalid function with matching object properties'
   }
 ]
 

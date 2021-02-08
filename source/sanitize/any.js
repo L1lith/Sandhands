@@ -19,8 +19,7 @@ const primitives = new Map([
   [Number, number],
   [Boolean, boolean],
   [null, sanitizeNull],
-  [undefined, sanitizeUndefined],
-  [Function, sanitizeFunction]
+  [undefined, sanitizeUndefined]
 ])
 
 function sanitizeAny(input, ...args) {
@@ -47,7 +46,14 @@ function sanitizeAny(input, ...args) {
     const arrayErrors = sanitizeArray(sanitizeAny, input, format, options)
     if (arrayErrors !== null) return arrayErrors
   } else if (typeof format == 'object' || format === Object) {
+    if (typeof input != 'object' || input === null || Array.isArray(input))
+      return 'Expected an Object' // We had to move this check outside so we could re-use the sanitizeObject method for the functions as well
     options = Object.assign({}, defaultOptions.get(Object), options)
+    const objectErrors = sanitizeObject(sanitizeAny, input, format, options)
+    if (objectErrors !== null) return objectErrors
+  } else if (typeof format == 'function' || format === Function) {
+    const functionErrors = sanitizeFunction(sanitizeAny, input, format, options)
+    if (functionErrors !== null) return functionErrors
     const objectErrors = sanitizeObject(sanitizeAny, input, format, options)
     if (objectErrors !== null) return objectErrors
   } else if (format === ANY) {

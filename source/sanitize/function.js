@@ -1,4 +1,4 @@
-function sanitizeFunction(input, options) {
+function sanitizeFunction(sanitizeAny, input, format, options) {
   if (typeof input != 'function') return 'Expected Function'
   return null
 }

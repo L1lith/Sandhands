@@ -45,7 +45,7 @@ function validateAny(inlineOptions) {
     allowed = allowedOptions.object
     const optionsError = validateObjectOptions(options)
     if (optionsError !== null) return optionsError
-  } else if ((typeof format == 'object' && format !== null) || format === Function) {
+  } else if (typeof format == 'function' || format === Function) {
     formatName = 'Function'
     allowed = allowedOptions.function.concat(allowedOptions.object)
     const optionsError = validateObjectOptions(options) || validateFunctionOptions(options)

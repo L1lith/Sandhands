@@ -7,7 +7,6 @@ function sanitizeObject(sanitizeAny, input, format, options) {
     format = {}
     if (typeof strict != 'boolean') strict = false
   }
-  if (typeof input != 'object' || input === null || Array.isArray(input)) return 'Expected Object'
 
   const errors = {}
   const { standard, allOptional, optionalProps = [], bannedProps = [] } = options
