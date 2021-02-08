@@ -53,6 +53,37 @@ const expected = [
     input: {},
     format: {
       _: {
+        age: Number
+      },
+      strict: true
+    },
+    valid: false,
+    description: 'an object with missing properties against a strict object'
+  },
+  {
+    input: {},
+    format: {
+      _: {},
+      strict: true
+    },
+    valid: true,
+    description: 'an empty object against a strictly empty object'
+  },
+  {
+    input: {
+      hungry: true
+    },
+    format: {
+      _: {},
+      strict: true
+    },
+    valid: false,
+    description: 'an non-empty object against a strictly empty object'
+  },
+  {
+    input: {},
+    format: {
+      _: {
         flavor: {
           _: String
         }
