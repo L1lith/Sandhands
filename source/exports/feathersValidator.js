@@ -5,14 +5,15 @@ function feathersValidator(...sanitationArgs) {
   return context => {
     if (context.hasOwnProperty('query')) sanitize(context.query, ...sanitationArgs)
     if (context.hasOwnProperty('data')) sanitize(context.data, ...sanitationArgs)
-    if (context.hasOwnProperty('result')) smartArrayValidate(context.result, sanitationArgs) // If there are multiple results perform validation separately
+    if (context.hasOwnProperty('result')) smartResultsValidate(context, sanitationArgs) // If there are multiple results perform validation separately
     return context
   }
 }
 
-function smartArrayValidate(data, sanitationArgs) {
-  if (Array.isArray(data)) {
-    data.forEach(datum => {
+function smartResultsValidate(context, sanitationArgs) {
+  const data = context.result
+  if (context.method === 'find') {
+    data.data.forEach(datum => {
       sanitize(datum, ...sanitationArgs)
     })
   } else {

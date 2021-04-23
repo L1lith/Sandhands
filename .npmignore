@@ -9,6 +9,7 @@ node_modules/
 /tests/
 /source/
 /test-performance/
+/feathers-test-app/
 
 !/dist/Sandhands-commonjs.min.js
 !/**/.gitkeep
