@@ -11,6 +11,7 @@ import And from './And'
 import Not from './Not'
 import Or from './Or'
 import getFormatErrors from './getFormatErrors'
+import feathersValidator from './feathersValidator'
 
 export {
   allowedOptions,
@@ -26,5 +27,6 @@ export {
   And,
   Not,
   Or,
-  getFormatErrors
+  getFormatErrors,
+  feathersValidator
 }

@@ -37,7 +37,9 @@ function sanitizeAny(input, ...args) {
 
   if (options.hasOwnProperty('equalTo') && !deepEqual(input, options.equalTo))
     return 'Input Not Equal'
-  if (primitives.has(format)) {
+  if (format === ANY) {
+    // Do Nothing
+  } else if (primitives.has(format)) {
     if (defaultOptions.has(format)) options = Object.assign({}, defaultOptions.get(format), options)
     const primitiveError = primitives.get(format)(input, options)
     if (primitiveError !== null) return primitiveError
@@ -56,8 +58,6 @@ function sanitizeAny(input, ...args) {
     if (functionErrors !== null) return functionErrors
     const objectErrors = sanitizeObject(sanitizeAny, input, format, options)
     if (objectErrors !== null) return objectErrors
-  } else if (format === ANY) {
-    // Do Nothing
   } else {
     throw new Error('Invalid Format')
   }
