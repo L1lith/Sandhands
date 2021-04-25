@@ -1,5 +1,8 @@
 # Updates
 
+### 1.8.5
+Added the resolveFormat function which allows you to reduce a format object into it's individual components. The reduceFormat function was also added. It reduces a format to it's simplest representation (this is not currently deep in the case of objects and arrays)
+
 ### 1.8.4
 Fixed a bug with the strict flag being assigned when using the Object constructor, and finished implementing support for using object options when sanitizing functions (as functions are basically objects throughout.) Added support for expecting objects to be members of a class.
 
