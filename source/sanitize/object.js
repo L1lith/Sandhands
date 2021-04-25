@@ -1,5 +1,5 @@
 import firstError from '../functions/firstError'
-import resolveInputs from '../functions/resolveInputs'
+import resolveFormat from '../functions/resolveFormat'
 
 function sanitizeObject(sanitizeAny, input, format, options) {
   let { strict } = options
@@ -45,7 +45,7 @@ function sanitizeObject(sanitizeAny, input, format, options) {
 
   Object.entries(format).forEach(([childKey, childFormat]) => {
     if (!errors[childKey]) {
-      const inlineOptions = resolveInputs(childFormat)
+      const inlineOptions = resolveFormat(childFormat)
       childFormat = inlineOptions.format
       const childOptions = inlineOptions.options
       if (Object.prototype.hasOwnProperty.call(input, childKey)) {

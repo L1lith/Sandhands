@@ -11,7 +11,8 @@ import And from './And'
 import Not from './Not'
 import Or from './Or'
 import getFormatErrors from './getFormatErrors'
-import feathersValidator from './feathersValidator'
+import reduceFormat from './reduceFormat'
+import resolveFormat from '../functions/resolveFormat'
 
 export {
   allowedOptions,
@@ -28,5 +29,6 @@ export {
   Not,
   Or,
   getFormatErrors,
-  feathersValidator
+  reduceFormat,
+  resolveFormat
 }

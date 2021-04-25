@@ -11,7 +11,7 @@ import sanitizeFunction from './function'
 import sanitizeUndefined from './undefined'
 import deepEqual from '../functions/deepEqual'
 import ANY from '../exports/ANY'
-import resolveInputs from '../functions/resolveInputs'
+import resolveFormat from '../functions/resolveFormat'
 import { inspect } from 'util'
 
 const primitives = new Map([
@@ -23,7 +23,7 @@ const primitives = new Map([
 ])
 
 function sanitizeAny(input, ...args) {
-  const inlineOptions = resolveInputs(...args)
+  const inlineOptions = resolveFormat(...args)
   let { format, options } = inlineOptions
 
   //throw require('util').inspect(format)

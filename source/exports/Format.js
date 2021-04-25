@@ -1,4 +1,4 @@
-import resolveInputs from '../functions/resolveInputs'
+import resolveFormat from '../functions/resolveFormat'
 import validate from '../validate/any'
 import ANY from './ANY'
 import details from './details'
@@ -9,7 +9,7 @@ import feathersValidator from './feathersValidator'
 
 class Format {
   constructor(...args) {
-    const inlineOptions = resolveInputs(...args)
+    const inlineOptions = resolveFormat(...args)
     validate(inlineOptions)
 
     this.format = { ...(inlineOptions.options || {}), _: inlineOptions.format || ANY }

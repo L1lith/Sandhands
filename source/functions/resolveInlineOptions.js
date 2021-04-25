@@ -5,7 +5,7 @@ import { Format } from '../exports/Format'
 
 const maxLoopSize = 100
 
-function resolveInlineOptions(resolveInputs, format, options = {}) {
+function resolveInlineOptions(resolveFormat, format, options = {}) {
   let newOptions = Object.assign({}, options)
   let ORFormats = []
   let ANDFormats = []
@@ -53,7 +53,7 @@ function resolveInlineOptions(resolveInputs, format, options = {}) {
       if (Array.isArray(anF)) {
         ANDFormats = ANDFormats.concat(anF)
           .filter(onlyUnique)
-          .map(value => resolveInputs(value))
+          .map(value => resolveFormat(value))
       } else {
         ANDFormats.push(anF)
       }
@@ -66,7 +66,7 @@ function resolveInlineOptions(resolveInputs, format, options = {}) {
       if (Array.isArray(noF)) {
         NOTFormats = NOTFormats.concat(noF)
           .filter(onlyUnique)
-          .map(value => resolveInputs(value))
+          .map(value => resolveFormat(value))
       } else {
         NOTFormats.push(noF)
       }
