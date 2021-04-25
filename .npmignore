@@ -10,6 +10,7 @@ node_modules/
 /source/
 /test-performance/
 /feathers-test-app/
+/logo/
 
 !/dist/Sandhands-commonjs.min.js
 !/**/.gitkeep
