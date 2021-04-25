@@ -24,4 +24,4 @@ function reduceFormat(...args) {
   return output
 }
 
-export default reduceFOrmat
+export default reduceFormat
