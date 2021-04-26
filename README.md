@@ -43,7 +43,7 @@ server.post('/register', sandhandsExpress({
   res.send('Registered')
 })
 ```
-To see the full example please [visit this page.](https://l1lith.github.io/Sandhands/methods.html#sandhands-express)
+To see the full example please [visit this page.](https://l1lith.github.io/Sandhands/exports#sandhands-express)
 
 ## Forms
 Sandhands has a sister library [SandForms](https://github.com/L1lith/SandForms) for straightforward form management which uses Sandhands internally.
