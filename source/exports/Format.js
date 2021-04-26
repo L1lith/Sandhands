@@ -5,7 +5,6 @@ import details from './details'
 import sanitize from './sanitize'
 import valid from './valid'
 import onlyUnique from '../functions/onlyUnique'
-import feathersValidator from './feathersValidator'
 
 class Format {
   constructor(...args) {
@@ -57,9 +56,6 @@ class Format {
     if (formats.length < 1) throw new Error('Must supply at least 1 format')
     formats.forEach(format => validate(format))
     this.setOption('_not', (this.getOption('not') || []).concat(formats).filter(onlyUnique))
-  }
-  get feathersValidator() {
-    return feathersValidator(this.format)
   }
   // nullable(isNullable = true) {
   //   if (typeof isNullable !== 'boolean') throw new Error('Nullable expected boolean')

@@ -6,10 +6,11 @@
   "main": "./dist/Sandhands.js",
   "scripts": {
     "build": "microbundle",
-    "dev": "microbundle watch",
+    "build-production": "cross-env NODE_ENV=production&&microbundle",
+    "dev": "cross-env NODE_ENV=development&&microbundle watch",
     "build-docs": "cd docs-source && npm run deploy",
     "test": "mocha \"tests/**/*.js\"",
-    "prepublishOnly": "npm run test",
+    "prepublishOnly": "npm run build-production&&npm run test",
     "publish-alias": "npm publish"
   },
   "repository": {
@@ -44,6 +45,7 @@
     "benchmark": "^2.1.4",
     "chai": "^4.2.0",
     "colors": "^1.4.0",
+    "cross-env": "^7.0.3",
     "deepmerge": "^3.3.0",
     "microbundle": "^0.13.0",
     "mocha": "^8.2.1",
