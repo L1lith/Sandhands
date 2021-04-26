@@ -13,6 +13,7 @@ import Or from './Or'
 import getFormatErrors from './getFormatErrors'
 import reduceFormat from './reduceFormat'
 import resolveFormat from '../functions/resolveFormat'
+import reconstructFormat from './reconstructFormat'
 
 export {
   allowedOptions,
@@ -30,5 +31,6 @@ export {
   Or,
   getFormatErrors,
   reduceFormat,
-  resolveFormat
+  resolveFormat,
+  reconstructFormat
 }
