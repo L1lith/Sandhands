@@ -7,7 +7,7 @@ class Home extends Component {
   render() {
     return (
       <div className="home">
-        <h2>Getting started with Sandhands</h2>
+        <h1>Getting started with Sandhands</h1>
         <br />
         <p>
           Sandhands is used to sanitize all kinds of data in JS! Make sure to check out the{' '}
@@ -36,6 +36,7 @@ class Home extends Component {
           are a set of functions exported by the library that allows you to choose what you would
           like to happen after sanitation is performed.
         </p>
+        <br />
         <br />
         <h2>A Basic Express Example</h2>
         Sandhands provides integrated support for working with express, making it perfect for

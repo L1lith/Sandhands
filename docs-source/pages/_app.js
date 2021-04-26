@@ -17,6 +17,8 @@ function MyApp({ Component, pageProps }) {
       <Header />
       <main id="page">
         <Component {...pageProps} />
+        <br />
+        <br />
       </main>
     </Fragment>
   )

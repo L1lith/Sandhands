@@ -33,13 +33,12 @@ body {
   border-radius: 10px;
 }
 #page {
-  & > h1, & > h2, & > h3, & > h4, & > h5, & > h6 {
+  margin-bottom: -50px;
+  & > h1, & > h2, & > h3, & > h4, & > h5, & > h6, & > * > h1, & > * >  h2, & > * >  h3, & > * >  h4, & > * >  h5, & > * > h6 { // Any header one or two layers below the page element
     background-color: rgba(24, 26, 27, 0.21);
-  }
-  & > * {
-    & > h1, & > h2, & > h3, & > h4, & > h5, & > h6 {
-      background-color: rgba(24, 26, 27, 0.21);
-    }
+    text-align: center;
+    margin: 0 auto;
+    color: white;
   }
 }
 #root, #__next {
