@@ -1,5 +1,8 @@
 # Updates
 
+### 1.8.8
+Added the reconstructFormat function which allows you to take a resolved format and turn it back into a normal usable format. This is sort of like an AST for Sandhands formats (though the structure is not deep so you must implement recursion yourself), allowing you to un-parse, modify, and re-parse formats on the fly.
+
 ### 1.8.5
 Added the resolveFormat function which allows you to reduce a format object into it's individual components. The reduceFormat function was also added. It reduces a format to it's simplest representation (this is not currently deep in the case of objects and arrays). Additionally, our primary bundler has been changed from webpack to microbundle as microbundle provides better functionality out of the box.
 
