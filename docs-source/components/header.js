@@ -7,23 +7,23 @@ class Header extends Component {
     return (
       <header className="main">
         <h1 className="sitetitle">
-          <Link href="/home.html">
+          <Link href="/home">
             <a>Sandhands Docs</a>
           </Link>
         </h1>
         <ul>
           <li>
-            <Link href="/format.html">
+            <Link href="/format">
               <a>Format</a>
             </Link>
           </li>
           <li>
-            <Link href="/methods.html">
-              <a>Methods</a>
+            <Link href="/exports">
+              <a>Exports</a>
             </Link>
           </li>
           <li>
-            <Link href="/sandbox.html">
+            <Link href="/sandbox">
               <a>Sandbox</a>
             </Link>
           </li>
