@@ -28,7 +28,7 @@ class Header extends Component {
             </Link>
           </li>
           <li>
-            <a href="https://github.com/l1lith/sandhands">Source</a>
+            <a href="https://github.com/L1lith/Sandhands">Source</a>
           </li>
         </ul>
       </header>
