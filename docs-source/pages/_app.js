@@ -11,6 +11,7 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <link href="https://fonts.googleapis.com/css?family=Roboto|Tajawal" rel="stylesheet" />
         <meta name="author" content="Lilith" />
+        <title>Sandhands Docs</title>
       </Head>
       <Header />
       <main id="page">

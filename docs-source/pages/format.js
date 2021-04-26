@@ -239,7 +239,7 @@ console.log(valid([52, 63, 14], [Number, Number])) // false - Because strict is 
 
 console.log(valid(['a', 15, 25], {_:[Number, String], firstAsStandard: true})) // true - We can also use firstAsStandard alongside with specific formats for certain array indexes by setting it explicitly in the inline options. The first index (Number) will be the standard format for all indexes, and the second index will now become the beginning of the array of custom formats for specific indexes, meaning the first array index will be expected to be a string, and all following indexes will be expected to be numbers.`}</Highlight>
         </div>
-        <div id="functions" class="function section">
+        <div id="functions" className="function section">
           <h2 className="name">Functions</h2>
           <p className="description">
             Functions automatically support all of the object options because functions are

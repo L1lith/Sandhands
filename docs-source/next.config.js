@@ -1,6 +1,6 @@
 const withLess = require('@zeit/next-less')
 module.exports = withLess({
-  assetPrefix: '/Sandhands',
+  basePath: process.env.NODE_ENV !== 'production' ? '' : '/Sandhands',
   exportPathMap: function () {
     return {
       '/home.html': { page: '/home' },

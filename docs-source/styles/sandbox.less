@@ -3,20 +3,37 @@
     display: block;
   }
   & > .mode {
+    text-align: center;
+    & > h3 {
+      font-size: 2em;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      text-decoration: underline;
+    }
     & > .modes {
-      display: block;
-      padding: 5px;
+      line-height:normal;
+      padding: 0;
       width: fit-content;
-      min-width: 100px;
-      min-height: 40px;
+      min-width: 120px;
+      width: 120px;
+      min-height: 50px;
+      text-align: center;
+      height: 50px;
       font-size: 1em;
-      margin: 20px auto 0 auto;
+      margin: 0;
       font-family: inherit;
       outline: none;
-      background-color: #fdfdfd;
+      background-color: ;
       color: #6589ab;
-      border-color: #7598ea;
-      border-width: 0 3px;
+      border-color: #fdfdfd;
+      border-width: 8px;
+      border-style: solid;
+      appearance: none;
+      transition: border-color 0.4s ease-in;
+      &:hover {
+        transition: none;
+        border-color: #7598ea;
+      }
     }
   }
   & > .output {

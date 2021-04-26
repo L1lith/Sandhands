@@ -46,6 +46,7 @@ class Sandbox extends Component {
           ))}
         </div>
         <div className="mode">
+          <h3>Validation Method</h3>
           <select className="modes" onChange={this.setMode}>
             <option value="details">Details</option>
             <option value="sanitize">Sanitize</option>
