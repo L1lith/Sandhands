@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }) {
         <link href="https://fonts.googleapis.com/css?family=Roboto|Tajawal" rel="stylesheet" />
         <meta name="author" content="Lilith" />
         <title>Sandhands</title>
-        <link rel="icon" href="/site-logo.svg" sizes="any" type="image/svg+xml" />
+        <link rel="icon" href="site-logo.svg" sizes="any" type="image/svg+xml" />
       </Head>
       <Header />
       <main id="page">
