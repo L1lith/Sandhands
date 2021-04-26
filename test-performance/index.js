@@ -1,7 +1,7 @@
 const Benchmark = require('benchmark')
 const suite = new Benchmark.Suite()
 const colors = require('colors/safe')
-const { details } = require('../dist/Sandhands-commonjs.js')
+const { details } = require('../dist/Sandhands')
 
 // add tests
 suite.add('Complicated String', function () {

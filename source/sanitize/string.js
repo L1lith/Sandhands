@@ -19,7 +19,6 @@ function sanitizeString(input, options) {
     if (input.length != length) return 'Incorrect Length'
   }
   if (options.hasOwnProperty('allowed')) {
-    console.log('x', input, Array.from(input), `"${allowed}"`)
     const bannedLetter = Array.from(input).find(letter => !allowed.includes(letter))
     if (bannedLetter) return `Character not allowed "${bannedLetter}"`
   }
