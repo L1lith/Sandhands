@@ -23,15 +23,14 @@ const primitives = new Map([
 
 function sanitizeAny(input, ...args) {
   const inlineOptions = resolveFormat(...args)
-  let { format, options } = inlineOptions
+  let { format, options, ORFormats, ANDFormats, NOTFormats } = inlineOptions
 
   //throw require('util').inspect(format)
 
   // Start Section for handling Boolean Logic
-  let { ORFormats, ANDFormats, NOTFormats } = inlineOptions
-  if (options.nullable === true && input === null) return null
   if (ORFormats.length > 0 || ANDFormats.length > 0 || NOTFormats.length > 0)
     return booleanFormats(sanitizeAny, input, inlineOptions)
+  if (options.nullable === true && input === null) return null
   // End section for handling Boolean Logic
 
   if (options.hasOwnProperty('equalTo') && !deepEqual(input, options.equalTo))

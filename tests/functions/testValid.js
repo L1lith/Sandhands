@@ -1,7 +1,7 @@
 const chai = require('chai')
 const { assert } = chai
 const { inspect } = require('util')
-const details = require('../../dist/Sandhands-commonjs.js').details
+const details = require('../../dist/Sandhands').details
 
 function testValid(tests) {
   tests.forEach(test => {
