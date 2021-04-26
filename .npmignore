@@ -12,5 +12,6 @@ node_modules/
 /feathers-test-app/
 /logo/
 
-!/dist/Sandhands-commonjs.min.js
+!/dist/Sandhands.js
+!/dist/Sandhands.js.map
 !/**/.gitkeep

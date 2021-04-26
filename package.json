@@ -3,15 +3,14 @@
   "version": "1.8.5",
   "description": "Sanitize, don't let your computer get sick",
   "license": "MIT",
-  "main": "./dist/Sandhands-commonjs.js",
+  "main": "./dist/Sandhands.js",
   "scripts": {
-    "build": "rollup -c",
-    "build-production": "rollup -c --prod",
+    "build": "microbundle",
+    "dev": "microbundle watch",
     "build-docs": "cd docs-source && npm run deploy",
     "test": "mocha \"tests/**/*.js\"",
-    "prepublishOnly": "npm run test && npm run build-production",
-    "publish-alias": "npm publish",
-    "dev": "rollup -c -w"
+    "prepublishOnly": "npm run test",
+    "publish-alias": "npm publish"
   },
   "repository": {
     "type": "git",
@@ -46,6 +45,7 @@
     "chai": "^4.2.0",
     "colors": "^1.4.0",
     "deepmerge": "^3.3.0",
+    "microbundle": "^0.13.0",
     "mocha": "^8.2.1",
     "rollup": "^1.32.1",
     "rollup-plugin-babel": "^4.4.0",
