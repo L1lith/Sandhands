@@ -20,16 +20,19 @@
   "keywords": [
     "javascript",
     "js",
-    "sanitation",
     "expressive",
     "data",
     "sanitize",
+    "sanitation",
     "validate",
     "validation",
     "input",
     "express",
     "server",
-    "web"
+    "web",
+    "type",
+    "schema",
+    "object"
   ],
   "files": [
     "/dist/Sandhands-commonjs.js"
