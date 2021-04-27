@@ -35,7 +35,9 @@
     "object"
   ],
   "files": [
-    "/dist/Sandhands-commonjs.js"
+    "/dist/Sandhands.js",
+    
+    "/dist/Sandhands.js.map"
   ],
   "author": "Lilith",
   "bugs": {
