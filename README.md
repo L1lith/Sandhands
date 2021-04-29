@@ -35,7 +35,7 @@ We can also provide sanitation for more advanced data structures like objects
 ```js
 import {sanitize} from 'sandhands'
 
-sanitize({name: "Timmy", age: 25, favoriteColor: 'yellow'}, {name: String, age: Number, favoriteColor: String}) // throws error with message "Invalid Type"
+sanitize({name: "Timmy", age: 25, favoriteColor: 'yellow'}, {name: String, age: Number, favoriteColor: String}) // Doesn't throw any errors
 sanitize({name: "jake", age: 23, favoriteColor: true}, {name: String, age: Number, favoriteColor: String}) // Throws the error "Error: Expected String"
 ```
 
