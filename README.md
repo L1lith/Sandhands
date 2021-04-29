@@ -22,7 +22,7 @@ Sandhands is my preferred type checking solution because it's less intrusive to 
 Typescript is a much better solution if you'd like to enforce the type of everything all the time. Or you could use both for the ultimate type scrutiny, though this library's TS support could likely be improved (pull requests welcome!)
 
 ## Basic Exports
-```
+```js
 import {sanitize, valid, details} from 'sandhands'
 
 valid(12, String) // returns false
@@ -32,7 +32,7 @@ details(12, String) // returns "Invalid Type"
 
 ## More Advanced Usage
 We can also provide sanitation for more advanced data structures like objects 
-```
+```js
 import {sanitize} from 'sandhands'
 
 sanitize({name: "Timmy", age: 25, favoriteColor: 'yellow'}, {name: String, age: Number, favoriteColor: String}) // throws error with message "Invalid Type"
