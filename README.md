@@ -21,13 +21,22 @@ Sandhands is my preferred type checking solution because it's less intrusive to 
 
 Typescript is a much better solution if you'd like to enforce the type of everything all the time. Or you could use both for the ultimate type scrutiny, though this library's TS support could likely be improved (pull requests welcome!)
 
-## Example Usage
+## Basic Exports
 ```
 import {sanitize, valid, details} from 'sandhands'
 
 valid(12, String) // returns false
 sanitize(12, String) // throws error with message "Invalid Type"
 details(12, String) // returns "Invalid Type"
+```
+
+## More Advanced Usage
+We can also provide sanitation for more advanced data structures like objects 
+```
+import {sanitize} from 'sandhands'
+
+sanitize({name: "Timmy", age: 25, favoriteColor: 'yellow'}, {name: String, age: Number, favoriteColor: String}) // throws error with message "Invalid Type"
+sanitize({name: "jake", age: 23, favoriteColor: true}, {name: String, age: Number, favoriteColor: String}) // Throws the error "Error: Expected String"
 ```
 
 ## Working With Express
