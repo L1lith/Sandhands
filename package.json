@@ -1,6 +1,6 @@
 {
   "name": "sandhands",
-  "version": "1.8.5",
+  "version": "1.8.9",
   "description": "Sanitize, don't let your computer get sick",
   "license": "MIT",
   "main": "./dist/Sandhands.js",
@@ -20,19 +20,23 @@
   "keywords": [
     "javascript",
     "js",
-    "sanitation",
     "expressive",
     "data",
     "sanitize",
+    "sanitation",
     "validate",
     "validation",
     "input",
     "express",
     "server",
-    "web"
+    "web",
+    "type",
+    "schema",
+    "object"
   ],
   "files": [
-    "/dist/Sandhands-commonjs.js"
+    "/dist/Sandhands.js",
+    "/dist/Sandhands.js.map"
   ],
   "author": "Lilith",
   "bugs": {

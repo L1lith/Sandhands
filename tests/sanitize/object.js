@@ -1,4 +1,4 @@
-const { Format } = require('../../dist/Sandhands-commonjs')
+const { Format } = require('../../dist/Sandhands')
 const testValid = require('../functions/testValid')
 
 const equalObject = {

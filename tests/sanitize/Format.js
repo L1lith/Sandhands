@@ -1,5 +1,5 @@
 const testValid = require('../functions/testValid')
-const { Format } = require('../../dist/Sandhands-commonjs.js')
+const { Format } = require('../../dist/Sandhands')
 
 const expected = [
   {

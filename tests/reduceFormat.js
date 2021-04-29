@@ -1,5 +1,5 @@
 const { assert } = require('chai')
-const { reduceFormat } = require('../dist/Sandhands-commonjs.js')
+const { reduceFormat } = require('../dist/Sandhands')
 
 function testReduce(before, after) {
   assert.deepEqual(reduceFormat(before), after)

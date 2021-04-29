@@ -1,6 +1,6 @@
 const testValid = require('../functions/testValid')
 const { inspect } = require('util')
-const { Format, ANY } = require('../../dist/Sandhands-commonjs.js')
+const { Format, ANY } = require('../../dist/Sandhands')
 
 const testData = [
   12,

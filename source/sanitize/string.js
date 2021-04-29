@@ -13,17 +13,17 @@ function sanitizeString(input, options) {
     if (input.length < minLength) return 'Too short'
   }
   if (options.hasOwnProperty('maxLength')) {
-    if (input.length > options.maxLength) return 'Too long'
+    if (input.length > maxLength) return 'Too long'
   }
   if (options.hasOwnProperty('length')) {
     if (input.length != length) return 'Incorrect Length'
   }
   if (options.hasOwnProperty('allowed')) {
-    const bannedLetter = [...input].find(letter => !allowed.includes(letter))
+    const bannedLetter = Array.from(input).find(letter => !allowed.includes(letter))
     if (bannedLetter) return `Character not allowed "${bannedLetter}"`
   }
   if (options.hasOwnProperty('banned')) {
-    const bannedLetter = [...input].find(letter => banned.includes(letter))
+    const bannedLetter = Array.from(banned).find(letter => input.includes(letter))
     if (bannedLetter) return `Character not allowed "${bannedLetter}"`
   }
   if (options.hasOwnProperty('lowercase')) {

@@ -33,8 +33,9 @@ class Home extends Component {
           <Link href="/exports.html">
             <a>exports</a>
           </Link>{' '}
-          are a set of functions exported by the library that allows you to choose what you would
-          like to happen after sanitation is performed.
+          include a set of functions exported by the library that allows you to choose what you
+          would like to happen after sanitation is performed, as well as some other variety
+          features.
         </p>
         <br />
         <br />
