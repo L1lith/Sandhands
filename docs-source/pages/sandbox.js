@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import AceEditor from '../components/editor'
 import titleCase from '../functions/titleCase'
+import * as sandhands from 'sandhands'
 import { sanitize, details, valid, Format } from 'sandhands'
 import objectToLiteralString from '../functions/objectToLiteralString'
 import jsbeautifier from 'js-beautify'
@@ -61,7 +62,7 @@ class Sandbox extends Component {
     )
   }
   componentDidMount() {
-    window.Format = Format // Assign it to the window so it can be used by the user
+    Object.assign(window, sandhands) // Assign the entire library to the window scope so we can use it in the sandbox
   }
   handleChange(editor, value) {
     const values = { ...this.state.values }
