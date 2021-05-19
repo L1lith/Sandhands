@@ -8,7 +8,7 @@
     "build": "microbundle",
     "build-production": "cross-env NODE_ENV=production&&microbundle",
     "dev": "cross-env NODE_ENV=development&&microbundle watch",
-    "build-docs": "cd docs-source && npm run deploy",
+    "build-docs": "cross-env NODE_ENV=production&&cd docs-source && npm run deploy",
     "test": "mocha \"tests/**/*.js\"",
     "prepublishOnly": "npm run build-production&&npm run test",
     "publish-alias": "npm publish"
