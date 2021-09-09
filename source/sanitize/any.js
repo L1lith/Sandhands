@@ -37,10 +37,7 @@ function sanitizeAny(input, ...args) {
     return 'Input not strictly equal'
   if (options.hasOwnProperty('deepEqualTo') && !deepEqual(input, options.deepEqualTo))
     return 'Input not deeply equal'
-  if (
-    options.hasOwnProperty('equalToOne') &&
-    !options.deepEqualToOne.some(value => input === value)
-  )
+  if (options.hasOwnProperty('equalToOne') && !options.equalToOne.some(value => input === value))
     return 'Input does not match any value deeply'
   if (
     options.hasOwnProperty('deepEqualToOne') &&

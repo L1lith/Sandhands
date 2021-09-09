@@ -263,6 +263,12 @@ console.log(valid(['a', 15, 25], {_:[Number, String], firstAsStandard: true})) /
             </p>
           </div>
           <div className="option">
+            <h3 className="name">deepEqualTo</h3>
+            <p className="description">
+              Expects the input to be deeply equal to the value of the deepEqualTo option.
+            </p>
+          </div>
+          <div className="option">
             <h3 className="name">nullable</h3>
             <p className="description">
               Flag as true in order to accept null instead of the provided format, hence making the

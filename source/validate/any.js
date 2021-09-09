@@ -60,6 +60,10 @@ function validateAny(inlineOptions) {
   if (options.hasOwnProperty('nullable') && typeof options.nullable !== 'boolean')
     return 'Expected a boolean for the nullable option'
   allowed = allowed.concat(allowedOptions.universal)
+  if (options.hasOwnProperty('equalToOne') && !Array.isArray(options.equalToOne))
+    return 'Expected an array for the equalToOne option'
+  if (options.hasOwnProperty('deepEqualToOne') && !Array.isArray(options.deepEqualToOne))
+    return 'Expected an array for the deepEqualToOne option'
 
   const illegalKeys = Object.keys(options).filter(key => !allowed.includes(key))
   const illegalKey = illegalKeys[0]

@@ -161,6 +161,24 @@ const expected = [
     description: 'an equal number to the equalTo flag'
   },
   {
+    input: -23,
+    format: {
+      _: Number,
+      equalTo: [0, 1, 2]
+    },
+    valid: false,
+    description: 'a non-included number in the equalToOne flag'
+  },
+  {
+    input: 5,
+    format: {
+      _: Number,
+      equalToOne: [0, 1, 2, 5]
+    },
+    valid: true,
+    description: 'a included number in the equalToOne flag'
+  },
+  {
     input: null,
     format: {
       _: Number,
