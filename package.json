@@ -28,7 +28,7 @@
     "validation",
     "input",
     "express",
-    "server",
+    "server", 
     "web",
     "type",
     "schema",
@@ -36,7 +36,8 @@
   ],
   "files": [
     "/dist/Sandhands.js",
-    "/dist/Sandhands.js.map"
+    "/dist/Sandhands.js.map",
+    "LICENSE.md"
   ],
   "author": "Lilith",
   "bugs": {

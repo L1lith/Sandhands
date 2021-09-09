@@ -1,4 +1,11 @@
-const universal = Object.freeze(['equalTo', 'validate', 'nullable'])
+const universal = Object.freeze([
+  'equalTo',
+  'validate',
+  'nullable',
+  'deepEqualTo',
+  'equalToOne',
+  'deepEqualToOne'
+])
 
 //prettier-ignore
 let primitives = new Map([

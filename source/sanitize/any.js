@@ -33,8 +33,20 @@ function sanitizeAny(input, ...args) {
   if (options.nullable === true && input === null) return null
   // End section for handling Boolean Logic
 
-  if (options.hasOwnProperty('equalTo') && !deepEqual(input, options.equalTo))
-    return 'Input Not Equal'
+  if (options.hasOwnProperty('equalTo') && input !== options.equalTo)
+    return 'Input not strictly equal'
+  if (options.hasOwnProperty('deepEqualTo') && !deepEqual(input, options.deepEqualTo))
+    return 'Input not deeply equal'
+  if (
+    options.hasOwnProperty('equalToOne') &&
+    !options.deepEqualToOne.some(value => input === value)
+  )
+    return 'Input does not match any value deeply'
+  if (
+    options.hasOwnProperty('deepEqualToOne') &&
+    !options.deepEqualToOne.some(value => deepEqual(input, value))
+  )
+    return 'Input does not match any value deeply'
   if (format === ANY) {
     // Do Nothing
   } else if (primitives.has(format)) {

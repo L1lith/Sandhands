@@ -249,18 +249,43 @@ const expected = [
       equalTo: equalObject,
       strict: false
     },
-    valid: true,
+    valid: false,
     description: 'a deeply equal object to the equalTo flag'
+  },
+  {
+    input: {
+      height: 12,
+      width: 95
+    },
+    format: {
+      _: Object,
+      equalTo: equalObject
+    },
+    valid: false,
+    description: 'a non-equal object to the deepEqualTo flag'
+  },
+  {
+    input: {
+      height: 12,
+      width: 25
+    },
+    format: {
+      _: Object,
+      deepEqualTo: equalObject,
+      strict: false
+    },
+    valid: true,
+    description: 'a deeply equal object to the deepEqualTo flag'
   },
   {
     input: equalObject,
     format: {
       _: Object,
-      equalTo: equalObject,
+      deepEqualTo: equalObject,
       strict: false
     },
     valid: true,
-    description: 'the same object as the equalTo flag'
+    description: 'the same object as the deepEqualTo flag'
   },
   {
     input: {},

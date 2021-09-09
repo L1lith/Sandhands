@@ -92,8 +92,35 @@ const expected = [
       _: Function,
       equalTo: (a, b) => a + b
     },
-    valid: true,
+    valid: false,
     description: 'a separate but identical function to the equalTo flag'
+  },
+  {
+    input: (a, b) => a - b,
+    format: {
+      _: Function,
+      deepEqualTo: sum
+    },
+    valid: false,
+    description: 'a different function from the deepEqualTo flag'
+  },
+  {
+    input: sum,
+    format: {
+      _: Function,
+      deepEqualTo: sum
+    },
+    valid: true,
+    description: 'the same function as the deepEqualTo flag'
+  },
+  {
+    input: (a, b) => a + b,
+    format: {
+      _: Function,
+      deepEqualTo: (a, b) => a + b
+    },
+    valid: true,
+    description: 'a separate but identical function to the deepEqualTo flag'
   },
   {
     input: null,
