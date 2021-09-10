@@ -1,7 +1,7 @@
 import sanitizeArray from './array'
 import sanitizeObject from './object'
 import defaultOptions from '../defaultOptions'
-import { Format as FormatClass } from '../exports/Format'
+//import { Format as FormatClass } from '../exports/Format'
 import string from './string'
 import number from './number'
 import boolean from './boolean'

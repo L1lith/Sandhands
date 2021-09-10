@@ -288,6 +288,51 @@ const expected = [
     description: 'the same object as the deepEqualTo flag'
   },
   {
+    input: equalObject,
+    format: {
+      _: Object,
+      equalToOne: [{}, { a: 12 }, equalObject]
+    },
+    valid: true,
+    description: 'object against a format with a matching equalToOne property'
+  },
+  {
+    input: {},
+    format: {
+      _: Object,
+      equalToOne: [{}, { a: 12 }]
+    },
+    valid: false,
+    description: 'empty object against a format with non-matching an equalToOne property'
+  },
+  {
+    input: equalObject,
+    format: {
+      _: Object,
+      deepEqualToOne: [{}, { a: 12 }, equalObject]
+    },
+    valid: true,
+    description: 'empty object against a format with a matching deepEqualToOne property'
+  },
+  {
+    input: {},
+    format: {
+      _: Object,
+      deepEqualToOne: [{}, { a: 12 }]
+    },
+    valid: true,
+    description: 'empty object against a format with a deeply matching equalToOne property'
+  },
+  {
+    input: {},
+    format: {
+      _: Object,
+      deepEqualToOne: [{ b: 'chicken' }, { a: 12 }]
+    },
+    valid: false,
+    description: 'empty object against a format with a non-matching deepEqualToOne property'
+  },
+  {
     input: {},
     format: {
       _: {
