@@ -12,7 +12,7 @@ import Not from './Not'
 import Or from './Or'
 import getFormatErrors from './getFormatErrors'
 import reduceFormat from './reduceFormat'
-import resolveFormat from '../functions/resolveFormat'
+import resolveFormat from './resolveFormat'
 import reconstructFormat from './reconstructFormat'
 
 export {
