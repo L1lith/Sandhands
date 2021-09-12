@@ -6,11 +6,11 @@ function resolveFormat(...args) {
 
   const inlineOptions = resolveInlineOptions(resolveFormat, ...args)
 
-  try {
-    ensureValidArguments(inlineOptions)
-  } catch (error) {
-    throw error
-  }
+  // try {
+  //   ensureValidArguments(inlineOptions)
+  // } catch (error) {
+  //   throw error
+  // }
   return inlineOptions
 }
 
