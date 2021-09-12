@@ -11,7 +11,7 @@ import sanitizeFunction from './function'
 import sanitizeUndefined from './undefined'
 import deepEqual from '../functions/deepEqual'
 import ANY from '../exports/ANY'
-import resolveFormat from '../functions/resolveFormat'
+import resolveFormat from '../exports/resolveFormat'
 
 const primitives = new Map([
   [String, string],

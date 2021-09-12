@@ -1,5 +1,5 @@
 import firstError from '../functions/firstError'
-import resolveFormat from '../functions/resolveFormat'
+import resolveFormat from '../exports/resolveFormat'
 
 function sanitizeObject(sanitizeAny, input, format, options) {
   let { strict } = options
