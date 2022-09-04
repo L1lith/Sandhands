@@ -30,6 +30,16 @@ const numberOrString = {
   _or: String
 }
 
+const normalInt = { _: Number, min: 0, finite: true, integer: true }
+
+const intOrIntRange = {
+  _: normalInt,
+  _or: {
+    _: [normalInt, normalInt],
+    validate: (num1, num2) => (num1 < num2 ? null : 'The first number must be smaller')
+  }
+}
+
 const expected = [
   // Begin AND Section
   {
@@ -101,6 +111,30 @@ const expected = [
     format: basicNotFormat,
     valid: false,
     description: 'invalid input with basic NOT functionality'
+  },
+  {
+    input: 12,
+    format: intOrIntRange,
+    valid: true,
+    description: 'valid number input with int/int range format'
+  },
+  {
+    input: -1,
+    format: intOrIntRange,
+    valid: false,
+    description: 'invalid number input with int/int range format'
+  },
+  {
+    input: [1, 5],
+    format: intOrIntRange,
+    valid: true,
+    description: 'valid number range input with int/int range format'
+  },
+  {
+    input: [4, 2],
+    format: intOrIntRange,
+    valid: false,
+    description: 'invalid number range input with int/int range format'
   }
   // End NOT Section
 ]

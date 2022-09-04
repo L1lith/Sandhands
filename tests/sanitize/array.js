@@ -109,7 +109,7 @@ const expected = [
     testOptions: {
       spreadArray: false
     },
-    valid: true,
+    valid: false,
     description: 'a deeply equal array to the equalTo flag'
   },
   {
@@ -124,6 +124,42 @@ const expected = [
     },
     valid: true,
     description: 'the same array as the equalTo flag'
+  },
+  ,
+  {
+    input: [3, 5, 0],
+    format: {
+      _: Array,
+      deepEqualTo: equalArray
+    },
+    valid: false,
+    description: 'a non-equal array to the deepEqualTo flag'
+  },
+  {
+    input: [1, 2, 7],
+    format: {
+      _: Array,
+      deepEqualTo: equalArray,
+      strict: false
+    },
+    testOptions: {
+      spreadArray: false
+    },
+    valid: true,
+    description: 'a deeply equal array to the deepEqualTo flag'
+  },
+  {
+    input: equalArray,
+    testOptions: {
+      spreadArray: false
+    },
+    format: {
+      _: Array,
+      deepEqualTo: equalArray,
+      strict: false
+    },
+    valid: true,
+    description: 'the same array as the deepEqualTo flag'
   },
   {
     input: null,

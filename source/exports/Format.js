@@ -1,4 +1,4 @@
-import resolveFormat from '../functions/resolveFormat'
+import resolveFormat from './resolveFormat'
 import validate from '../validate/any'
 import ANY from './ANY'
 import details from './details'

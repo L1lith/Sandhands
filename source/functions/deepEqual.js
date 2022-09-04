@@ -14,13 +14,13 @@ function deepEqual(input1, input2) {
     if (input1.toString() !== input2.toString()) return false // Ensure functions are the same code
   }
 
-  // compare objects with same number of keys
+  // compare objects with the same keys
+  for (let key in input2) {
+    if (!(key in input1)) return false //other object doesn't have this prop
+  }
   for (let key in input1) {
     if (!(key in input2)) return false //other object doesn't have this prop
     if (!deepEqual(input1[key], input2[key])) return false
-  }
-  for (let key in input2) {
-    if (!(key in input1)) return false //other object doesn't have this prop
   }
 
   return true

@@ -249,18 +249,88 @@ const expected = [
       equalTo: equalObject,
       strict: false
     },
-    valid: true,
+    valid: false,
     description: 'a deeply equal object to the equalTo flag'
+  },
+  {
+    input: {
+      height: 12,
+      width: 95
+    },
+    format: {
+      _: Object,
+      equalTo: equalObject
+    },
+    valid: false,
+    description: 'a non-equal object to the deepEqualTo flag'
+  },
+  {
+    input: {
+      height: 12,
+      width: 25
+    },
+    format: {
+      _: Object,
+      deepEqualTo: equalObject,
+      strict: false
+    },
+    valid: true,
+    description: 'a deeply equal object to the deepEqualTo flag'
   },
   {
     input: equalObject,
     format: {
       _: Object,
-      equalTo: equalObject,
+      deepEqualTo: equalObject,
       strict: false
     },
     valid: true,
-    description: 'the same object as the equalTo flag'
+    description: 'the same object as the deepEqualTo flag'
+  },
+  {
+    input: equalObject,
+    format: {
+      _: Object,
+      equalToOne: [{}, { a: 12 }, equalObject]
+    },
+    valid: true,
+    description: 'object against a format with a matching equalToOne property'
+  },
+  {
+    input: {},
+    format: {
+      _: Object,
+      equalToOne: [{}, { a: 12 }]
+    },
+    valid: false,
+    description: 'empty object against a format with non-matching an equalToOne property'
+  },
+  {
+    input: equalObject,
+    format: {
+      _: Object,
+      deepEqualToOne: [{}, { a: 12 }, equalObject]
+    },
+    valid: true,
+    description: 'empty object against a format with a matching deepEqualToOne property'
+  },
+  {
+    input: {},
+    format: {
+      _: Object,
+      deepEqualToOne: [{}, { a: 12 }]
+    },
+    valid: true,
+    description: 'empty object against a format with a deeply matching equalToOne property'
+  },
+  {
+    input: {},
+    format: {
+      _: Object,
+      deepEqualToOne: [{ b: 'chicken' }, { a: 12 }]
+    },
+    valid: false,
+    description: 'empty object against a format with a non-matching deepEqualToOne property'
   },
   {
     input: {},

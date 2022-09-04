@@ -1,5 +1,8 @@
 # Updates
 
+### 1.8.9
+Fixed a bug where the equalTo wasn't strict as specified in the docs. It is now strict, and the deepEqualTo option has been added for deep equality support. Test cases have also been updated for both options
+
 ### 1.8.8
 Added the reconstructFormat function which allows you to take a resolved format and turn it back into a normal usable format. This is sort of like an AST for Sandhands formats (though the structure is not deep so you must implement recursion yourself), allowing you to un-parse, modify, and re-parse formats on the fly.
 
