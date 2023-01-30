@@ -51,7 +51,7 @@
     "chai": "^4.2.0",
     "colors": "^1.4.0",
     "cross-env": "^7.0.3",
-    "deepmerge": "^3.3.0",
+    "deepmerge": "^4.3.0",
     "microbundle": "^0.13.0",
     "mocha": "^8.2.1",
     "rollup": "^1.32.1",
