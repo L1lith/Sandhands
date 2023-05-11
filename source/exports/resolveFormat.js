@@ -1,5 +1,5 @@
-import ensureValidArguments from './ensureValidArguments'
-import resolveInlineOptions from './resolveInlineOptions'
+import ensureValidArguments from '../functions/ensureValidArguments'
+import resolveInlineOptions from '../functions/resolveInlineOptions'
 
 function resolveFormat(...args) {
   if (args.length < 1) throw new Error('Must specify a format')
