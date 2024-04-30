@@ -20,7 +20,10 @@ Sandhands takes a different approach to validation than Typescript. Typescript i
 
 Sandhands is my preferred type checking solution because it's less intrusive to your coding environment, and I only need to enforce type checks at specific places. Additionally Sandhands is capable of performing checks during runtime which Typescript is not (as it is transpiled to JS before deployment).
 
-Typescript is a much better solution if you'd like to enforce the type of everything all the time. Or you could use both for the ultimate type scrutiny, though this library's TS support could likely be improved (pull requests welcome!)
+Typescript is a much better solution if you'd like to enforce the type of everything all the time. Or you could use both for the ultimate type scrutiny, though this library's TS support is currently broken (pull requests welcome!)
+
+## A notice about the License
+This library's license has been changed from MIT to ESMIT (my custom environmentally friendly version of MIT). Going forward all users are required (under the extent of the law) to use the ESMIT license regardless of the version of the library you use.
 
 ## Basic Exports
 
