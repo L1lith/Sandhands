@@ -1,7 +1,7 @@
 # Sandhands ![NPM Version](https://img.shields.io/npm/v/sandhands.svg?style=flat)
-<img src="https://raw.githubusercontent.com/l1lith/Sandhands/master/logo/logo.svg?sanitize=true" width="183" height="200">
-
-Sanitize, don't let your computer get sick. Handle your JS data sanitation effectively and accurately with Sandhands.
+|  |  |
+|--|--|
+|<img alt="a pair of hands holding sand which is flowing through the fingers" src="https://raw.githubusercontent.com/l1lith/Sandhands/master/logo/logo.svg?sanitize=true"  width="183"  height="200">  | Sanitize, don't let your computer get sick. Handle your JS data sanitation effectively and accurately with Sandhands. |
 
 Please read our Docs 😊 Sandhands is a big passion project of mine, and I think you could love it too! Feel free to open an issue or make a pull request :)
 
