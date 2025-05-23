@@ -1,4 +1,6 @@
-# Sandhands ![License](https://img.shields.io/badge/license-MIT-blue.svg) ![NPM Version](https://img.shields.io/npm/v/sandhands.svg?style=flat)
+<img src="https://raw.githubusercontent.com/l1lith/Sandhands/master/logo/logo.svg?sanitize=true" width="183" height="200">
+
+# Sandhands ![NPM Version](https://img.shields.io/npm/v/sandhands.svg?style=flat)
 
 Sanitize, don't let your computer get sick. Handle your JS data sanitation effectively and accurately with Sandhands.
 
