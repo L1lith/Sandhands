@@ -1,7 +1,7 @@
 {
   "name": "sandhands",
   "version": "1.8.9",
-  "description": "Sanitize, don't let your computer get sick",
+  "description": "Sanitize, don't let your database get sick",
   "license": "MIT",
   "main": "./dist/Sandhands.js",
   "scripts": {
