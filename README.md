@@ -5,7 +5,7 @@ Sanitize, don't let your database get sick. Handle your JS data sanitation effec
 
 Please read our Docs 😊 Sandhands is a big passion project of mine, and I think you could love it too! Feel free to open an issue or make a pull request :)
 
-##### Over 200 test cases!
+#### Over 200 test cases!
 
 ## [Documentation](https://l1lith.github.io/Sandhands/home)
 
