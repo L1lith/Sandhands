@@ -2,7 +2,7 @@
   "name": "sandhands",
   "version": "1.8.9",
   "description": "Sanitize, don't let your database get sick",
-  "license": "MIT",
+  "license": "ESMIT",
   "main": "./dist/Sandhands.js",
   "scripts": {
     "build": "microbundle",
