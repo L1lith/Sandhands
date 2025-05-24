@@ -1,5 +1,7 @@
 # Sandhands ![NPM Version](https://img.shields.io/npm/v/sandhands.svg?style=flat) ![NPM Downloads](https://img.shields.io/npm/dy/sandhands?style=flat) ![GitHub Created At](https://img.shields.io/github/created-at/L1lith/Sandhands) ![GitHub Repo stars](https://img.shields.io/github/stars/L1lith/Sandhands)
-![Project Logo](https://raw.githubusercontent.com/l1lith/Sandhands/master/logo/logo.svg?sanitize=true) Sanitize, don't let your database get sick. Handle your JS data sanitation effectively and accurately with Sandhands.
+<img alt="a pair of hands holding sand which is flowing through the fingers" src="https://raw.githubusercontent.com/l1lith/Sandhands/master/logo/logo.svg?sanitize=true"  width="366"  height="400">
+
+Sanitize, don't let your database get sick. Handle your JS data sanitation effectively and accurately with Sandhands.
 
 Please read our Docs 😊 Sandhands is a big passion project of mine, and I think you could love it too! Feel free to open an issue or make a pull request :)
 
