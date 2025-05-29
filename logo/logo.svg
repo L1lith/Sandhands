@@ -17,6 +17,18 @@
   <defs
      id="defs1401">
     <linearGradient
+       id="linearGradient2"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop2" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="1"
+         id="stop3" />
+    </linearGradient>
+    <linearGradient
        id="linearGradient97"
        inkscape:collect="always">
       <stop
@@ -56,33 +68,43 @@
        maskUnits="userSpaceOnUse"
        id="mask1">
       <g
-         id="g95">
+         id="g92"
+         style="display:inline">
         <rect
-           style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:3.77953;stroke-linejoin:round;paint-order:stroke fill markers"
-           id="rect1"
+           style="fill:url(#linearGradient93);fill-opacity:1;stroke:none;stroke-width:3.77953;stroke-linejoin:round;paint-order:stroke fill markers"
+           id="rect2"
            width="366"
            height="400"
            x="0"
            y="0" />
         <path
-           style="fill:url(#linearGradient96);fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           style="fill:url(#linearGradient95);fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
            d="m 68,373.5 c 33.75,25.25 110.25,36.75 87.25,-2 -23,-38.75 -21,-70 -21,-70 l -52.5,17 z"
-           id="path93" />
+           id="path90" />
         <path
-           style="fill:url(#linearGradient99);fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           style="fill:url(#linearGradient98);fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
            d="M 28.25,317.75 39,243 76,256.25 c 0,0 13.75,55.75 -2.5,67 -16.25,11.25 -45.25,-5.5 -45.25,-5.5 z"
-           id="path94" />
+           id="path91" />
         <path
-           style="fill:url(#linearGradient100);fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           style="fill:url(#linearGradient101);fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
            d="M 231.16291,280.36742 257.5,261.75 c 0,0 41.21718,40.59203 29.75,52.75 -20.75,22 -56.08709,-34.13258 -56.08709,-34.13258 z"
-           id="path95"
+           id="path92"
            sodipodi:nodetypes="ccsc" />
       </g>
     </mask>
     <linearGradient
        inkscape:collect="always"
+       xlink:href="#linearGradient2"
+       id="linearGradient93"
+       gradientUnits="userSpaceOnUse"
+       x1="304.40948"
+       y1="306.17725"
+       x2="260.2153"
+       y2="260.56885" />
+    <linearGradient
+       inkscape:collect="always"
        xlink:href="#linearGradient94"
-       id="linearGradient96"
+       id="linearGradient95"
        gradientUnits="userSpaceOnUse"
        x1="136.64839"
        y1="394.74237"
@@ -91,7 +113,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient97"
-       id="linearGradient99"
+       id="linearGradient98"
        gradientUnits="userSpaceOnUse"
        x1="56.038212"
        y1="326.50656"
@@ -100,7 +122,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient92"
-       id="linearGradient100"
+       id="linearGradient101"
        gradientUnits="userSpaceOnUse"
        x1="283.72659"
        y1="314.48575"
@@ -116,9 +138,9 @@
      inkscape:pageopacity="0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="2.8284271"
-     inkscape:cx="205.41452"
-     inkscape:cy="162.63456"
+     inkscape:zoom="4"
+     inkscape:cx="241.375"
+     inkscape:cy="202.5"
      inkscape:window-width="3840"
      inkscape:window-height="2126"
      inkscape:window-x="-11"
