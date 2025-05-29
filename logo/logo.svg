@@ -21,7 +21,7 @@
        inkscape:collect="always">
       <stop
          style="stop-color:#000000;stop-opacity:1;"
-         offset="0"
+         offset="0.1392573"
          id="stop97" />
       <stop
          style="stop-color:#ffffff;stop-opacity:1;"
@@ -33,7 +33,7 @@
        inkscape:collect="always">
       <stop
          style="stop-color:#000000;stop-opacity:1;"
-         offset="0"
+         offset="0.14456233"
          id="stop94" />
       <stop
          style="stop-color:#ffffff;stop-opacity:1;"
@@ -45,7 +45,7 @@
        inkscape:collect="always">
       <stop
          style="stop-color:#000000;stop-opacity:1;"
-         offset="0"
+         offset="0.12068965"
          id="stop92" />
       <stop
          style="stop-color:#ffffff;stop-opacity:1;"
@@ -54,35 +54,35 @@
     </linearGradient>
     <mask
        maskUnits="userSpaceOnUse"
-       id="mask99">
+       id="mask1">
       <g
-         id="g102">
+         id="g95">
         <rect
            style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:3.77953;stroke-linejoin:round;paint-order:stroke fill markers"
-           id="rect100"
+           id="rect1"
            width="366"
            height="400"
            x="0"
            y="0" />
         <path
-           style="fill:url(#linearGradient102);fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           style="fill:url(#linearGradient96);fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
            d="m 68,373.5 c 33.75,25.25 110.25,36.75 87.25,-2 -23,-38.75 -21,-70 -21,-70 l -52.5,17 z"
-           id="path100" />
+           id="path93" />
         <path
-           style="fill:url(#linearGradient103);fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           style="fill:url(#linearGradient99);fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
            d="M 28.25,317.75 39,243 76,256.25 c 0,0 13.75,55.75 -2.5,67 -16.25,11.25 -45.25,-5.5 -45.25,-5.5 z"
-           id="path101" />
+           id="path94" />
         <path
-           style="fill:url(#linearGradient104);fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           style="fill:url(#linearGradient100);fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
            d="M 231.16291,280.36742 257.5,261.75 c 0,0 41.21718,40.59203 29.75,52.75 -20.75,22 -56.08709,-34.13258 -56.08709,-34.13258 z"
-           id="path102"
+           id="path95"
            sodipodi:nodetypes="ccsc" />
       </g>
     </mask>
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient94"
-       id="linearGradient102"
+       id="linearGradient96"
        gradientUnits="userSpaceOnUse"
        x1="136.64839"
        y1="394.74237"
@@ -91,7 +91,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient97"
-       id="linearGradient103"
+       id="linearGradient99"
        gradientUnits="userSpaceOnUse"
        x1="56.038212"
        y1="326.50656"
@@ -100,7 +100,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient92"
-       id="linearGradient104"
+       id="linearGradient100"
        gradientUnits="userSpaceOnUse"
        x1="283.72659"
        y1="314.48575"
@@ -116,9 +116,9 @@
      inkscape:pageopacity="0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="2"
-     inkscape:cx="243"
-     inkscape:cy="85"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="205.41452"
+     inkscape:cy="162.63456"
      inkscape:window-width="3840"
      inkscape:window-height="2126"
      inkscape:window-x="-11"
@@ -127,7 +127,7 @@
      inkscape:current-layer="svg1401" />
   <g
      id="g1"
-     mask="url(#mask99)">
+     mask="url(#mask1)">
     <g
        transform="matrix(0.1,0,0,-0.1,-24,424)"
        fill="#915233"
