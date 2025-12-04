@@ -61,6 +61,19 @@ const expected = [
     description: 'empty array with manual standard'
   },
   {
+    input: [],
+    format: {
+      _: [],
+      standard: Number,
+      minLength: 0
+    },
+    testOptions: {
+      spreadArray: false
+    },
+    valid: true,
+    description: 'empty array with manual standard and allow empty'
+  },
+  {
     input: ['big', 'old', 'shoe'],
     format: {
       _: [],
