@@ -1,3 +1,4 @@
+const { ANY } = require('../../dist/Sandhands')
 const testValid = require('../functions/testValid')
 
 const equalArray = [1, 2, 7]
@@ -72,6 +73,19 @@ const expected = [
     },
     valid: true,
     description: 'empty array with manual standard and allow empty'
+  },
+  {
+    input: [],
+    format: {
+      _: [],
+      standard: ANY,
+      minLength: 0
+    },
+    testOptions: {
+      spreadArray: false
+    },
+    valid: true,
+    description: 'empty array with ANY as standard and allow empty'
   },
   {
     input: ['big', 'old', 'shoe'],
