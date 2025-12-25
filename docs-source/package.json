@@ -28,7 +28,7 @@
     "js-beautify": "^1.13.13",
     "less": "^3.13.1",
     "less-loader": "^4.1.0",
-    "next": "^9.5.5",
+    "next": "^12.1.0",
     "node-sass": "^4.14.1",
     "normalize.less": "^1.0.0",
     "packenv": "^1.0.1",
